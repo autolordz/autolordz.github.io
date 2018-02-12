@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -96,9 +96,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":false,"onmobile":true},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -261,7 +261,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/12/My-1st-New-Post/" itemprop="url">My 1st New Post</a></h1>
+                <a class="post-title-link" href="/2018/02/12/My-1st-New-Post/" itemprop="url">Course 8 Project Quantified Self Movement</a></h1>
         
 
         <div class="post-meta">
@@ -313,49 +313,16 @@
       
         
           
-            <h1 id="Couse-8-Project-Quantified-Self-Movement"><a href="#Couse-8-Project-Quantified-Self-Movement" class="headerlink" title="Couse 8 Project Quantified Self Movement"></a>Couse 8 Project Quantified Self Movement</h1><p>Autoz<br>2018.1.9</p>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. In this project, your goal will be to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. With Following Steps,</p>
-<p><code>1 fit model</code></p>
-<p><code>2 cross validation</code></p>
-<p><code>3 sample errors</code></p>
-<p><code>4 make choices</code></p>
-<p><code>5 predict 20 test case</code></p>
-<h1 id="Load-Data"><a href="#Load-Data" class="headerlink" title="Load Data"></a>Load Data</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(tidyverse)</span><br><span class="line"></span><br><span class="line">training_raw &lt;- read_csv(<span class="string">"pml-training.csv"</span>,na = c(<span class="string">"NA"</span>,<span class="string">"#DIV/0!"</span>,<span class="string">""</span>))</span><br><span class="line">testing_raw &lt;- read_csv(<span class="string">"pml-testing.csv"</span>,na = c(<span class="string">"NA"</span>,<span class="string">"#DIV/0!"</span>,<span class="string">""</span>))</span><br><span class="line">training_raw &lt;- as.data.frame(training_raw)</span><br><span class="line">testing_raw &lt;- as.data.frame(testing_raw)</span><br></pre></td></tr></table></figure>
+            <h1 id="Assign-2018-1-9"><a href="#Assign-2018-1-9" class="headerlink" title="Assign:2018.1.9"></a>Assign:2018.1.9</h1><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. In this project, your goal will be to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. With Following Steps,</p>
+<p><code>1 fit model</code><br><code>2 cross validation</code><br><code>3 sample errors</code><br><code>4 make choices</code><br><code>5 predict 20 test case</code></p>
+<h1 id="Load-Data"><a href="#Load-Data" class="headerlink" title="Load Data"></a>Load Data</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(tidyverse)</span><br><span class="line">training_raw &lt;- read_csv(<span class="string">"pml-training.csv"</span>,na = c(<span class="string">"NA"</span>,<span class="string">"#DIV/0!"</span>,<span class="string">""</span>))</span><br><span class="line">testing_raw &lt;- read_csv(<span class="string">"pml-testing.csv"</span>,na = c(<span class="string">"NA"</span>,<span class="string">"#DIV/0!"</span>,<span class="string">""</span>))</span><br><span class="line">training_raw &lt;- as.data.frame(training_raw)</span><br><span class="line">testing_raw &lt;- as.data.frame(testing_raw)</span><br></pre></td></tr></table></figure>
 <h1 id="Cleaning-the-Training-Data"><a href="#Cleaning-the-Training-Data" class="headerlink" title="Cleaning the Training Data"></a>Cleaning the Training Data</h1><!-- Clean Data -->
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">training_raw$classe &lt;- factor(training_raw$classe)</span><br></pre></td></tr></table></figure>
 <h1 id="Remove-columns-with-more-than-70-of-NA-or-“”-values"><a href="#Remove-columns-with-more-than-70-of-NA-or-“”-values" class="headerlink" title="Remove columns with more than 70% of NA or “” values"></a>Remove columns with more than 70% of NA or “” values</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NArate &lt;- <span class="keyword">function</span>(x)&#123;</span><br><span class="line">    apply(x, <span class="number">2</span>, <span class="keyword">function</span>(y) sum(is.na(y)))/nrow(x)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">training_raw &lt;- training_raw[,NArate(training_raw) &lt; <span class="number">.7</span>]</span><br></pre></td></tr></table></figure>
 <h1 id="Remove-near-zero-variances"><a href="#Remove-near-zero-variances" class="headerlink" title="Remove near zero variances"></a>Remove near zero variances</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(caret)</span><br><span class="line">nzvCol &lt;- nearZeroVar(training_raw, saveMetrics = <span class="literal">TRUE</span>)</span><br><span class="line">training_raw &lt;- training_raw[, !nzvCol$nzv]</span><br></pre></td></tr></table></figure>
 <h1 id="Remove-unused-variables"><a href="#Remove-unused-variables" class="headerlink" title="Remove unused variables"></a>Remove unused variables</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">training_raw &lt;- training_raw[,-grep(<span class="string">"name|timestamp|window|^X"</span>,names(training_raw))]</span><br></pre></td></tr></table></figure>
-<h1 id="Impute-all-NAs"><a href="#Impute-all-NAs" class="headerlink" title="Impute all NAs"></a>Impute all NAs</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(mice)</span><br><span class="line">imp &lt;- mice(training_raw,seed = <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>## 
-##  iter imp variable
-##   1   1  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   1   2  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   1   3  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   1   4  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   1   5  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   2   1  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   2   2  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   2   3  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   2   4  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   2   5  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   3   1  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   3   2  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   3   3  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   3   4  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   3   5  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   4   1  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   4   2  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   4   3  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   4   4  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   4   5  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   5   1  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   5   2  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   5   3  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   5   4  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-##   5   5  magnet_dumbbell_z  magnet_forearm_y  magnet_forearm_z
-</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">training_raw &lt;- mice::complete(imp)</span><br></pre></td></tr></table></figure>
-<h1 id="Remove-75-highly-Correlative-Variables"><a href="#Remove-75-highly-Correlative-Variables" class="headerlink" title="Remove 75% highly Correlative Variables"></a>Remove 75% highly Correlative Variables</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">trainingNC &lt;- training_raw[, -length(names(training_raw))]</span><br><span class="line"></span><br><span class="line">findcor &lt;- findCorrelation(cor(trainingNC,use=<span class="string">"complete.obs"</span>), cutoff = <span class="number">.75</span>)</span><br><span class="line"></span><br><span class="line">trainingFiltered &lt;- training_raw[,-findcor]</span><br><span class="line">trainingFilteredNC &lt;- trainingNC[,-findcor]</span><br></pre></td></tr></table></figure>
+<h1 id="Impute-all-NAs"><a href="#Impute-all-NAs" class="headerlink" title="Impute all NAs"></a>Impute all NAs</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(mice)</span><br><span class="line">imp &lt;- mice(training_raw,seed = <span class="number">3</span>)</span><br><span class="line">training_raw &lt;- mice::complete(imp)</span><br></pre></td></tr></table></figure>
+<h1 id="Remove-75-highly-Correlative-Variables"><a href="#Remove-75-highly-Correlative-Variables" class="headerlink" title="Remove 75% highly Correlative Variables"></a>Remove 75% highly Correlative Variables</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">trainingNC &lt;- training_raw[, -length(names(training_raw))]</span><br><span class="line">findcor &lt;- findCorrelation(cor(trainingNC,use=<span class="string">"complete.obs"</span>), cutoff = <span class="number">.75</span>)</span><br><span class="line">trainingFiltered &lt;- training_raw[,-findcor]</span><br><span class="line">trainingFilteredNC &lt;- trainingNC[,-findcor]</span><br></pre></td></tr></table></figure>
 <!-- Clean Data End -->
 <h1 id="Cross-validation"><a href="#Cross-validation" class="headerlink" title="Cross validation"></a>Cross validation</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">inTrain &lt;- createDataPartition(y = trainingFiltered$classe, p = <span class="number">0.75</span>, </span><br><span class="line">                               list = <span class="literal">FALSE</span>) <span class="comment"># 75% training</span></span><br><span class="line">training &lt;- trainingFiltered[inTrain,]</span><br><span class="line">testing &lt;- trainingFiltered[-inTrain,]</span><br></pre></td></tr></table></figure>
 <h1 id="Model-Evaluation"><a href="#Model-Evaluation" class="headerlink" title="Model Evaluation"></a>Model Evaluation</h1><h1 id="Regression-Tree"><a href="#Regression-Tree" class="headerlink" title="Regression Tree"></a>Regression Tree</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(rpart)</span><br><span class="line">system.time(mod_rpart &lt;- rpart(formula = classe ~ ., data = training))</span><br></pre></td></tr></table></figure>
@@ -474,22 +441,7 @@
 ## Detection Rate         0.2357   0.1054   0.1064   0.1003  0.09033
 ## Detection Prevalence   0.3418   0.1799   0.1896   0.1627  0.12602
 ## Balanced Accuracy      0.8402   0.7262   0.7549   0.7687  0.72398
-</code></pre><h1 id="Random-forest"><a href="#Random-forest" class="headerlink" title="Random forest"></a>Random forest</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(randomForest)</span><br></pre></td></tr></table></figure>
-<pre><code>## randomForest 4.6-12
-
-## Type rfNews() to see new features/changes/bug fixes.
-
-## 
-## Attaching package: &apos;randomForest&apos;
-
-## The following object is masked from &apos;package:dplyr&apos;:
-## 
-##     combine
-
-## The following object is masked from &apos;package:ggplot2&apos;:
-## 
-##     margin
-</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">system.time(modrf &lt;- randomForest(formula = classe ~ ., data = training))</span><br></pre></td></tr></table></figure>
+</code></pre><h1 id="Random-forest"><a href="#Random-forest" class="headerlink" title="Random forest"></a>Random forest</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(randomForest)</span><br><span class="line">system.time(modrf &lt;- randomForest(formula = classe ~ ., data = training))</span><br></pre></td></tr></table></figure>
 <pre><code>##    user  system elapsed 
 ##   25.22    0.15   26.19
 </code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">predict_rf &lt;- predict(modrf,newdata = testing)</span><br><span class="line">confusionMatrix(predict_rf,testing$classe)</span><br></pre></td></tr></table></figure>
@@ -571,8 +523,9 @@
 ##  B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
 ## Levels: A B C D E
 </code></pre><h1 id="Conclutions"><a href="#Conclutions" class="headerlink" title="Conclutions"></a>Conclutions</h1><p>Ramdon Forest Accuracy is 0.9927 and the best fit model of this case. So we choose Ramdon Forest to predict 20 cases.</p>
-<h1 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h1><h1 id="Training-Data-Corrplot"><a href="#Training-Data-Corrplot" class="headerlink" title="Training Data Corrplot"></a>Training Data Corrplot</h1><p><img src="courseProject_files/figure-markdown_github/unnamed-chunk-17-1.png" alt=""><img src="courseProject_files/figure-markdown_github/unnamed-chunk-17-2.png" alt=""></p>
-<h1 id="Regression-Tree-Plot"><a href="#Regression-Tree-Plot" class="headerlink" title="Regression Tree Plot"></a>Regression Tree Plot</h1><p><img src="courseProject_files/figure-markdown_github/unnamed-chunk-18-1.png" alt=""><img src="courseProject_files/figure-markdown_github/unnamed-chunk-18-2.png" alt=""></p>
+<h1 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h1><h1 id="Training-Data-Corrplot"><a href="#Training-Data-Corrplot" class="headerlink" title="Training Data Corrplot"></a>Training Data Corrplot</h1><p><img src="/courseProject_files/figure-markdown_github/unnamed-chunk-17-1.png" alt=""><img src="/courseProject_files/figure-markdown_github/unnamed-chunk-17-2.png" alt=""></p>
+<h1 id="Regression-Tree-Plot"><a href="#Regression-Tree-Plot" class="headerlink" title="Regression Tree Plot"></a>Regression Tree Plot</h1><p><img src="/courseProject_files/figure-markdown_github/unnamed-chunk-18-1.png" alt=""><img src="/courseProject_files/figure-markdown_github/unnamed-chunk-18-2.png" alt=""></p>
+<p><img src="/images/favicon-32x32-next.png" alt=""></p>
 
           
         
@@ -837,6 +790,8 @@
         <div class="back-to-top">
           <i class="fa fa-arrow-up"></i>
           
+            <span id="scrollpercent"><span>0</span>%</span>
+          
         </div>
       
 
@@ -857,6 +812,15 @@
   <span class="author" itemprop="copyrightHolder">Auto Zhao</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
 </div>
 
 
@@ -868,7 +832,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
