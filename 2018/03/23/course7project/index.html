@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Course 7 Project : Is Manual Transmission more Fuel-efficient than Automatic Transmission?Autoz2017.12.20 SynopsisThis Study is about Regression Models Course Project.We use data ofMotor Trend which i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PinkyLand">
+<meta property="og:url" content="http://yoursite.com/2018/03/23/course7project/index.html">
+<meta property="og:site_name" content="PinkyLand">
+<meta property="og:description" content="Course 7 Project : Is Manual Transmission more Fuel-efficient than Automatic Transmission?Autoz2017.12.20 SynopsisThis Study is about Regression Models Course Project.We use data ofMotor Trend which i">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2018/03/23/course7project/course7project_files/figure-gfm/unnamed-chunk-4-1.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/23/course7project/course7project_files/figure-gfm/unnamed-chunk-10-1.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/23/course7project/course7project_files/figure-gfm/unnamed-chunk-12-1.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/23/course7project/course7project_files/figure-gfm/unnamed-chunk-13-1.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/23/course7project/course7project_files/figure-gfm/unnamed-chunk-14-1.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/23/course7project/course7project_files/figure-gfm/unnamed-chunk-15-1.png">
+<meta property="og:updated_time" content="2018-03-23T10:30:25.079Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PinkyLand">
+<meta name="twitter:description" content="Course 7 Project : Is Manual Transmission more Fuel-efficient than Automatic Transmission?Autoz2017.12.20 SynopsisThis Study is about Regression Models Course Project.We use data ofMotor Trend which i">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/23/course7project/course7project_files/figure-gfm/unnamed-chunk-4-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/23/course7project/"/>
+
+
+
+
+
+  <title> | PinkyLand</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">PinkyLand</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">PinkyLand Always</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/course7project/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Auto Zhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/7811828?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PinkyLand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-23T18:07:59+08:00">
+                2018-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Course 7 Project : Is Manual Transmission more Fuel-efficient than</p>
+<h1 id="Automatic-Transmission"><a href="#Automatic-Transmission" class="headerlink" title="Automatic Transmission?"></a>Automatic Transmission?</h1><p>Autoz<br>2017.12.20</p>
+<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>This Study is about Regression Models Course Project.We use data of<br>Motor Trend which is they are interested in exploring the relationship<br>between a set of variables and miles per gallon (MPG) (outcome). Here’s<br>the missions:</p>
+<ul>
+<li>“Is an automatic or manual transmission better for MPG”</li>
+<li>“Quantify the MPG difference between automatic and manual<br>transmissions”</li>
+</ul>
+<p>About Data: mtcars which shows the relationships between automatic and<br>manual by different transmission.</p>
+<ul>
+<li>mpg Miles/(US) gallon</li>
+<li>cyl Number of cylinders</li>
+<li>disp Displacement (cu.in.)</li>
+<li>hp Gross horsepower</li>
+<li>drat Rear axle ratio</li>
+<li>wt Weight (1000 lbs)</li>
+<li>qsec 1/4 mile time</li>
+<li>vs V/S</li>
+<li>am Transmission (0 = automatic, 1 = manual)</li>
+<li>gear Number of forward gears</li>
+<li>carb Number of carburetors</li>
+</ul>
+<h1 id="Reading-MTCARS-Data"><a href="#Reading-MTCARS-Data" class="headerlink" title="Reading MTCARS Data"></a>Reading MTCARS Data</h1><p>Prepare Environment.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line"><span class="keyword">library</span>(dplyr)</span><br></pre></td></tr></table></figure>
+<p>Look at the Data Structure.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data(mtcars)</span><br><span class="line">head(mtcars,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>##                mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+</code></pre><h1 id="Cleaning-The-Training-Data"><a href="#Cleaning-The-Training-Data" class="headerlink" title="Cleaning The Training Data"></a>Cleaning The Training Data</h1><p>At first, we need to change numerics into factors in order to fit the<br>model correctly.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mtcars$am &lt;- factor(mtcars$am,labels = c(<span class="string">"Automatic"</span>, <span class="string">"Manual"</span>))</span><br><span class="line">mtcars$gear = factor(mtcars$gear)</span><br><span class="line">mtcars$cyl  = factor(mtcars$cyl)</span><br><span class="line">mtcars$carb = factor(mtcars$carb)</span><br><span class="line">mtcars$vs   = factor(mtcars$vs)</span><br></pre></td></tr></table></figure>
+<h1 id="Exploratory-Data-Analysis"><a href="#Exploratory-Data-Analysis" class="headerlink" title="Exploratory Data Analysis"></a>Exploratory Data Analysis</h1><p>As quiz 1 said “Is an automatic or manual transmission better for MPG”<br>.So first look at the assuming relationship between miles per gallon and<br>trasmissons types : mpg ~ am.</p>
+<p><img src="course7project_files/figure-gfm/unnamed-chunk-4-1.png" alt=""><!-- --></p>
+<p>As we can see maual cars will contribute more miles per gallon than<br>automatic cars.</p>
+<h1 id="Learning-H0-Model"><a href="#Learning-H0-Model" class="headerlink" title="Learning H0 Model"></a>Learning H0 Model</h1><p>Assuming relationship “manal is better” is null hypothesis</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fit_H0 &lt;- lm(mpg ~ am, data = mtcars)</span><br><span class="line">summary(fit_H0)</span><br></pre></td></tr></table></figure>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ am, data = mtcars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -9.3923 -3.0923 -0.2974  3.2439  9.5077 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   17.147      1.125  15.247 1.13e-15 ***
+## amManual       7.245      1.764   4.106 0.000285 ***
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## Residual standard error: 4.902 on 30 degrees of freedom
+## Multiple R-squared:  0.3598, Adjusted R-squared:  0.3385 
+## F-statistic: 16.86 on 1 and 30 DF,  p-value: 0.000285
+</code></pre><p>As we can see above , H0 model’s Pr(>|t|) is very significant. But the<br>R-squared is just 0.3598, not enough to interpret all the variances<br>informations and only interpret 36% information.</p>
+<h1 id="Reselected-Model"><a href="#Reselected-Model" class="headerlink" title="Reselected Model"></a>Reselected Model</h1><p>we use stepwise to choose our new fit model.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summary(step(lm(data = mtcars, mpg ~ .),trace = <span class="number">0</span>,direction=<span class="string">"both"</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ cyl + hp + wt + am, data = mtcars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.9387 -1.2560 -0.4013  1.1253  5.0513 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 33.70832    2.60489  12.940 7.73e-13 ***
+## cyl6        -3.03134    1.40728  -2.154  0.04068 *  
+## cyl8        -2.16368    2.28425  -0.947  0.35225    
+## hp          -0.03211    0.01369  -2.345  0.02693 *  
+## wt          -2.49683    0.88559  -2.819  0.00908 ** 
+## amManual     1.80921    1.39630   1.296  0.20646    
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## Residual standard error: 2.41 on 26 degrees of freedom
+## Multiple R-squared:  0.8659, Adjusted R-squared:  0.8401 
+## F-statistic: 33.57 on 5 and 26 DF,  p-value: 1.506e-10
+</code></pre><p>Now we can see the R-squared is 0.8659. It interpreted almost 87%<br>variances. So we temporarily choose this model for our analysis.</p>
+<p>We can get new fit model : <strong>mpg ~ cyl + hp + wt + am</strong>. Let’s re-order<br>those variables in formula.</p>
+<h1 id="Model-Evaluation"><a href="#Model-Evaluation" class="headerlink" title="Model Evaluation"></a>Model Evaluation</h1><p>Let’s valid the chosen model. This model is nested model. We can use<br>function anova to analyse all of them</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fit0 &lt;- lm(data = mtcars, mpg ~ am)</span><br><span class="line">fit1 &lt;- lm(data = mtcars, mpg ~ am + hp)</span><br><span class="line">fit2 &lt;- lm(data = mtcars, mpg ~ am + hp + wt)</span><br><span class="line">fit3 &lt;- lm(data = mtcars, mpg ~ am + hp + wt + cyl)</span><br><span class="line">anova(fit0,fit1,fit2,fit3)</span><br></pre></td></tr></table></figure>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: mpg ~ am
+## Model 2: mpg ~ am + hp
+## Model 3: mpg ~ am + hp + wt
+## Model 4: mpg ~ am + hp + wt + cyl
+##   Res.Df    RSS Df Sum of Sq       F    Pr(&gt;F)    
+## 1     30 720.90                                   
+## 2     29 245.44  1    475.46 81.8529 1.634e-09 ***
+## 3     28 180.29  1     65.15 11.2157  0.002484 ** 
+## 4     26 151.03  2     29.27  2.5191  0.099998 .  
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+</code></pre><p>We can see those models <code>RSS</code> is from 721 to 151. But we just only<br>interesting in Model 1 and Model 4. Now we focus the last Model 4</p>
+<h1 id="Another-Model"><a href="#Another-Model" class="headerlink" title="Another Model"></a>Another Model</h1><p>As we can see, we disregard variable cylinder <code>cyl</code> and see what<br>happened.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summary(step(lm(data = mtcars, mpg ~ . - cyl),trace = <span class="number">0</span>,direction=<span class="string">"both"</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ wt + qsec + am, data = mtcars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.4811 -1.5555 -0.7257  1.4110  4.6610 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   9.6178     6.9596   1.382 0.177915    
+## wt           -3.9165     0.7112  -5.507 6.95e-06 ***
+## qsec          1.2259     0.2887   4.247 0.000216 ***
+## amManual      2.9358     1.4109   2.081 0.046716 *  
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## Residual standard error: 2.459 on 28 degrees of freedom
+## Multiple R-squared:  0.8497, Adjusted R-squared:  0.8336 
+## F-statistic: 52.75 on 3 and 28 DF,  p-value: 1.21e-11
+</code></pre><p>As you can see R-squared is 0.8497. Maybe <strong>mpg ~ wt + qsec + am</strong><br>included <code>qsec</code> is a good model, but wait.</p>
+<p>The <code>am</code> variables seems merely significant, that means we are not sure<br>whether the model is good enough.</p>
+<p>Now We can compare fit0 and fit4.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fit4 &lt;- lm(data = mtcars, mpg ~ wt + qsec + am)</span><br><span class="line">anova(fit0,fit4)</span><br></pre></td></tr></table></figure>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: mpg ~ am
+## Model 2: mpg ~ wt + qsec + am
+##   Res.Df    RSS Df Sum of Sq      F   Pr(&gt;F)    
+## 1     30 720.90                                 
+## 2     28 169.29  2    551.61 45.618 1.55e-09 ***
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+</code></pre><p>As comparing RSS and Pr(>F) of fit3 and fit4, finally we choose fit3.</p>
+<h1 id="Final-Selected-Model"><a href="#Final-Selected-Model" class="headerlink" title="Final Selected Model"></a>Final Selected Model</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">par(mfrow = c(<span class="number">2</span>,<span class="number">2</span>))</span><br><span class="line">plot(fit3)</span><br></pre></td></tr></table></figure>
+<p><img src="course7project_files/figure-gfm/unnamed-chunk-10-1.png" alt=""><!-- --></p>
+<p>As we can see , residuals center , normal QQ fit normal</p>
+<p>So the final model’s coeficient is:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fitfinal &lt;- lm(data = mtcars, mpg ~ am + hp + wt + cyl - <span class="number">1</span>)</span><br><span class="line">summary(fitfinal)$coef</span><br></pre></td></tr></table></figure>
+<pre><code>##                Estimate Std. Error   t value     Pr(&gt;|t|)
+## amAutomatic 33.70832390 2.60488618 12.940421 7.733392e-13
+## amManual    35.51753528 2.03171034 17.481594 6.811749e-16
+## hp          -0.03210943 0.01369257 -2.345025 2.693461e-02
+## wt          -2.49682942 0.88558779 -2.819404 9.081408e-03
+## cyl6        -3.03134449 1.40728351 -2.154040 4.068272e-02
+## cyl8        -2.16367532 2.28425172 -0.947214 3.522509e-01
+</code></pre><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>As other factors are constants. Every automatic car will increase <code>33.8</code><br>miles per gallon while manual car increase <code>35.5</code> miles per gallon. No<br>matter what, <code>manual can drive more mile than automatic when amount of
+fuel is the same</code>.</p>
+<h1 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h1><p>Plots about the relationships of variables in <code>Final Model</code>. To answer<br>the Quiz 2 “Quantify the MPG difference between automatic and manual<br>transmissions”</p>
+<ul>
+<li>MPG vs. Weight by Transmissions Types</li>
+</ul>
+<p><img src="course7project_files/figure-gfm/unnamed-chunk-12-1.png" alt=""><!-- --></p>
+<ul>
+<li>MPG vs. Horsepower by Transmissions Types</li>
+</ul>
+<p><img src="course7project_files/figure-gfm/unnamed-chunk-13-1.png" alt=""><!-- --></p>
+<ul>
+<li>MPG vs. 1/4 Miles Time by Transmissions Types</li>
+</ul>
+<p><img src="course7project_files/figure-gfm/unnamed-chunk-14-1.png" alt=""><!-- --></p>
+<ul>
+<li>MPG vs. All Selected Factors by Transmissions Types</li>
+</ul>
+<p><img src="course7project_files/figure-gfm/unnamed-chunk-15-1.png" alt=""><!-- --></p>
+<ul>
+<li>So you can see it is very clear for answer the questions.</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Auto Zhao
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://yoursite.com/2018/03/23/course7project/" title="">http://yoursite.com/2018/03/23/course7project/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/09/courseProject - 副本/" rel="next" title="Couse 8 Project Quantified Self Movement">
+                <i class="fa fa-chevron-left"></i> Couse 8 Project Quantified Self Movement
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars1.githubusercontent.com/u/7811828?s=460&v=4"
+                alt="Auto Zhao" />
+            
+              <p class="site-author-name" itemprop="name">Auto Zhao</p>
+              <p class="site-description motion-element" itemprop="description">A Place for Learning</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/autolordz" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:autolordz@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Automatic-Transmission"><span class="nav-number">1.</span> <span class="nav-text">Automatic Transmission?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Synopsis"><span class="nav-number">2.</span> <span class="nav-text">Synopsis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reading-MTCARS-Data"><span class="nav-number">3.</span> <span class="nav-text">Reading MTCARS Data</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cleaning-The-Training-Data"><span class="nav-number">4.</span> <span class="nav-text">Cleaning The Training Data</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exploratory-Data-Analysis"><span class="nav-number">5.</span> <span class="nav-text">Exploratory Data Analysis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-H0-Model"><span class="nav-number">6.</span> <span class="nav-text">Learning H0 Model</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reselected-Model"><span class="nav-number">7.</span> <span class="nav-text">Reselected Model</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-Evaluation"><span class="nav-number">8.</span> <span class="nav-text">Model Evaluation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Another-Model"><span class="nav-number">9.</span> <span class="nav-text">Another Model</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Final-Selected-Model"><span class="nav-number">10.</span> <span class="nav-text">Final Selected Model</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">11.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Appendix"><span class="nav-number">12.</span> <span class="nav-text">Appendix</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Auto Zhao</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+</body>
+</html>
