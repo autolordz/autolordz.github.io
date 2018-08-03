@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="JHU Coursera Regression Model Quizes.">
+<meta name="keywords" content="R,DataScience">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JHU Coursera Regression Model Quizes">
+<meta property="og:url" content="http://yoursite.com/2018/08/03/jhu-coursera-regression-model-quizes/index.html">
+<meta property="og:site_name" content="PinkyLand">
+<meta property="og:description" content="JHU Coursera Regression Model Quizes.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2018/08/03/jhu-coursera-regression-model-quizes/jhu-coursera-regression-model-quizes_files/figure-html/quiz333-1.png">
+<meta property="og:updated_time" content="2018-08-03T16:30:09.918Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JHU Coursera Regression Model Quizes">
+<meta name="twitter:description" content="JHU Coursera Regression Model Quizes.">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/03/jhu-coursera-regression-model-quizes/jhu-coursera-regression-model-quizes_files/figure-html/quiz333-1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/03/jhu-coursera-regression-model-quizes/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JHU Coursera Regression Model Quizes | PinkyLand</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">PinkyLand</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Autoz's Learning Blogs</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">1</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/jhu-coursera-regression-model-quizes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Autoz">
+      <meta itemprop="description" content="Fidelty.">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PinkyLand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JHU Coursera Regression Model Quizes<a href="https://github.com/theme-next/theme-next.org/_posts/tree/master/jhu-coursera-regression-model-quizes.md" class="post-edit-link" title="Edit this post" target="_blank">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-03 00:00:00" itemprop="dateCreated datePublished" datetime="2018-08-03T00:00:00+08:00">2018-08-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-04 00:30:09" itemprop="dateModified" datetime="2018-08-04T00:30:09+08:00">2018-08-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/DataScience/" itemprop="url" rel="index"><span itemprop="name">DataScience</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">8.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">8 mins.</span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">JHU Coursera Regression Model Quizes.</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>JHU DataScience Specialization/Cousers Reproducible Data/Week1-4/Regression Model Quizes</p>
+</blockquote>
+<h1 id="jhu-coursera-regression-model-quizes">JHU Coursera Regression Model Quizes</h1>
+<p>主要练习手工计算回归模型的基础方法</p>
+<h2 id="week-2">Week 2</h2>
+<h3 id="quiz-1">Quiz 1</h3>
+<p>手算均值</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.18</span>, -<span class="number">1.54</span>, <span class="number">0.42</span>, <span class="number">0.95</span>)</span><br><span class="line">w &lt;- c(<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line">mu.y &lt;- sum(w * x) / sum(w)</span><br><span class="line">sprintf(<span class="string">"mean of y is : %f"</span>,mu.y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## [<span class="number">1</span>] <span class="string">"mean of y is : 0.147143"</span></span><br></pre></td></tr></table></figure>
+<h3 id="quiz-2">Quiz 2</h3>
+<p>线性回归</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.8</span>, <span class="number">0.47</span>, <span class="number">0.51</span>, <span class="number">0.73</span>, <span class="number">0.36</span>, <span class="number">0.58</span>, <span class="number">0.57</span>, <span class="number">0.85</span>, <span class="number">0.44</span>, <span class="number">0.42</span>)</span><br><span class="line">y &lt;- c(<span class="number">1.39</span>, <span class="number">0.72</span>, <span class="number">1.55</span>, <span class="number">0.48</span>, <span class="number">1.19</span>, -<span class="number">1.59</span>, <span class="number">1.23</span>, -<span class="number">0.65</span>, <span class="number">1.49</span>, <span class="number">0.05</span>)</span><br><span class="line">pander(lm(y~x)) <span class="comment">#THROUGH THE ORIGIN</span></span><br></pre></td></tr></table></figure>
+<table>
+<caption>Fitting linear model: y ~ x</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"> </th>
+<th style="text-align: center;">Estimate</th>
+<th style="text-align: center;">Std. Error</th>
+<th style="text-align: center;">t value</th>
+<th style="text-align: center;">Pr(&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>(Intercept)</strong></td>
+<td style="text-align: center;">1.567</td>
+<td style="text-align: center;">1.252</td>
+<td style="text-align: center;">1.252</td>
+<td style="text-align: center;">0.246</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>x</strong></td>
+<td style="text-align: center;">-1.713</td>
+<td style="text-align: center;">2.105</td>
+<td style="text-align: center;">-0.8136</td>
+<td style="text-align: center;">0.4394</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pander(lm(y~x-<span class="number">1</span>)) <span class="comment">#去除截距</span></span><br></pre></td></tr></table></figure>
+<table>
+<caption>Fitting linear model: y ~ x - 1</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"> </th>
+<th style="text-align: center;">Estimate</th>
+<th style="text-align: center;">Std. Error</th>
+<th style="text-align: center;">t value</th>
+<th style="text-align: center;">Pr(&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>x</strong></td>
+<td style="text-align: center;">0.8263</td>
+<td style="text-align: center;">0.5817</td>
+<td style="text-align: center;">1.421</td>
+<td style="text-align: center;">0.1892</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quiz-3">Quiz 3</h3>
+<p>mtcars 回归系数</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">(Intercept)</th>
+<th style="text-align: center;">wt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">37.29</td>
+<td style="text-align: center;">-5.344</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quiz-4">Quiz 4</h3>
+<p>练习求b1</p>
+<p><span class="math display">\[\begin{align}
+Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
+ \beta_1 &amp;= Cor(Y,X) * \frac{Sd(Y)}{Sd(X)}
+\end{align}\]</span></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B1 = <span class="number">0.5</span> * <span class="number">1</span> / <span class="number">0.5</span></span><br></pre></td></tr></table></figure>
+<h3 id="quiz-5">Quiz 5</h3>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">corr &lt;- <span class="number">.4</span>; emean &lt;- <span class="number">0</span>; varr1 &lt;- <span class="number">1</span></span><br><span class="line">varr2 &lt;- <span class="number">1</span>; b0 &lt;- <span class="number">0</span>; x &lt;- <span class="number">1.5</span></span><br><span class="line">b1 &lt;- corr * sqrt(varr1) / sqrt(varr2)</span><br><span class="line">(y &lt;- b0 + b1 * x)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] 0.6</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="quiz-6">Quiz 6</h3>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">8.58</span>, <span class="number">10.46</span>, <span class="number">9.01</span>, <span class="number">9.64</span>, <span class="number">8.86</span>)</span><br><span class="line">(x - mean(x)) / sd(x) <span class="comment"># Choose No.1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## <span class="selector-attr">[1]</span> <span class="selector-tag">-0</span><span class="selector-class">.9718658</span>  1<span class="selector-class">.5310215</span> <span class="selector-tag">-0</span><span class="selector-class">.3993969</span>  0<span class="selector-class">.4393366</span> <span class="selector-tag">-0</span><span class="selector-class">.5990954</span></span><br></pre></td></tr></table></figure>
+<h3 id="quiz-7">Quiz 7</h3>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.8</span>, <span class="number">0.47</span>, <span class="number">0.51</span>, <span class="number">0.73</span>, <span class="number">0.36</span>, <span class="number">0.58</span>, <span class="number">0.57</span>, <span class="number">0.85</span>, <span class="number">0.44</span>, <span class="number">0.42</span>)</span><br><span class="line">y &lt;- c(<span class="number">1.39</span>, <span class="number">0.72</span>, <span class="number">1.55</span>, <span class="number">0.48</span>, <span class="number">1.19</span>, -<span class="number">1.59</span>, <span class="number">1.23</span>, -<span class="number">0.65</span>, <span class="number">1.49</span>, <span class="number">0.05</span>)</span><br><span class="line">pander(lm(y~x))</span><br></pre></td></tr></table></figure>
+<table>
+<caption>Fitting linear model: y ~ x</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"> </th>
+<th style="text-align: center;">Estimate</th>
+<th style="text-align: center;">Std. Error</th>
+<th style="text-align: center;">t value</th>
+<th style="text-align: center;">Pr(&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>(Intercept)</strong></td>
+<td style="text-align: center;">1.567</td>
+<td style="text-align: center;">1.252</td>
+<td style="text-align: center;">1.252</td>
+<td style="text-align: center;">0.246</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>x</strong></td>
+<td style="text-align: center;">-1.713</td>
+<td style="text-align: center;">2.105</td>
+<td style="text-align: center;">-0.8136</td>
+<td style="text-align: center;">0.4394</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quiz-8">Quiz 8</h3>
+<p>It must be identically 0.</p>
+<h3 id="quiz-9">Quiz 9</h3>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.8</span>, <span class="number">0.47</span>, <span class="number">0.51</span>, <span class="number">0.73</span>, <span class="number">0.36</span>, <span class="number">0.58</span>, <span class="number">0.57</span>, <span class="number">0.85</span>, <span class="number">0.44</span>, <span class="number">0.42</span>)</span><br><span class="line">mean(x)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] 0.573</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="quiz-10">Quiz 10</h3>
+<p><span class="math display">\[\begin{align}
+\beta_1 &amp;= Cor(Y,X)*Sd(Y)/Sd(X) \\
+    Y_1 &amp;= Cor(Y,X)*Sd(X)/Sd(Y) \\
+\beta_1/Y_1 &amp;= Sd(Y)^2/Sd(X)^2 \notag \\ &amp;= Var(Y)/Var(X)
+\end{align}\]</span></p>
+<a id="more"></a>
+<h2 id="week-3">Week 3</h2>
+<h3 id="quiz-1-1">Quiz 1</h3>
+<p>求系数</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.61</span>, <span class="number">0.93</span>, <span class="number">0.83</span>, <span class="number">0.35</span>, <span class="number">0.54</span>, <span class="number">0.16</span>, <span class="number">0.91</span>, <span class="number">0.62</span>, <span class="number">0.62</span>)</span><br><span class="line">y &lt;- c(<span class="number">0.67</span>, <span class="number">0.84</span>, <span class="number">0.6</span>, <span class="number">0.18</span>, <span class="number">0.85</span>, <span class="number">0.47</span>, <span class="number">1.1</span>, <span class="number">0.65</span>, <span class="number">0.36</span>)</span><br><span class="line">fit &lt;- lm(y~x)</span><br><span class="line">pander(fit)</span><br></pre></td></tr></table></figure>
+<table>
+<caption>Fitting linear model: y ~ x</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"> </th>
+<th style="text-align: center;">Estimate</th>
+<th style="text-align: center;">Std. Error</th>
+<th style="text-align: center;">t value</th>
+<th style="text-align: center;">Pr(&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>(Intercept)</strong></td>
+<td style="text-align: center;">0.1885</td>
+<td style="text-align: center;">0.2061</td>
+<td style="text-align: center;">0.9143</td>
+<td style="text-align: center;">0.391</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>x</strong></td>
+<td style="text-align: center;">0.7224</td>
+<td style="text-align: center;">0.3107</td>
+<td style="text-align: center;">2.325</td>
+<td style="text-align: center;">0.05296</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quiz-2-1">Quiz 2</h3>
+<p>总平方和与回归与残差关系</p>
+<p><span class="math display">\[\begin{align}
+     y_i &amp;= \beta_0 + \beta_1 x_i + e_i \\
+\hat y_i &amp;= \beta_0 + \beta_1 x_i\\
+     e_i &amp;= y_i - \hat y_i \\
+SS_{total} &amp;= \|y_i-\bar y \mathbf{1}\|^2 
+= \| \hat y_i-\bar y \mathbf{1}\|^2 + \|\hat \epsilon\| \notag \\
+         &amp;= \sum_{i=1}^n (y_i-\bar y)^2 = \sum_{i=1}^n (\hat y_i-\bar y)^2 + \sum_{i=1}^n (y_i-\hat y)^2 \notag \\ 
+         &amp;= SS_{regression} + SS_{residual} \\ 
+\mathbf{1} &amp;= (1,1,\ldots,1)^T
+\end{align}\]</span></p>
+<p>平方和与残差</p>
+<p><span class="math display">\[\begin{align}
+SS_x &amp;= \sum_{i=1}^n {(x_i - \bar x)^2} \\
+ e_i &amp;= y_i - (\beta_1x_i + \beta_0) \\
+\hat \sigma^2 &amp;= \frac{1}{n-2} \sum_{i=1}^n e_i^2 \\ 
+              &amp;= \frac{1}{n-2} SS_{residual} \sim \chi_{(n-2)}^2
+\end{align}\]</span></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># init</span></span><br><span class="line">n &lt;- length(x)</span><br><span class="line">beta1 &lt;- cor(y, x) * sd(y) / sd(x)</span><br><span class="line">beta0 &lt;- mean(y) - beta1 * mean(x)</span><br><span class="line">ssx &lt;- sum((x - mean(x))^<span class="number">2</span>)</span><br><span class="line">e &lt;- y - (beta1 * x + beta0)</span><br><span class="line">sigma &lt;- sqrt(sum(e^<span class="number">2</span>) / (n-<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+<p>方差与系数方差关系</p>
+<p><span class="math display">\[\begin{align}
+\sigma^2_{\hat\beta_1}&amp;=Var(\hat\beta_1)=\frac{\sigma^2}{SS_x}\\
+\sigma^2_{\hat\beta_0}&amp;=Var(\hat\beta_0)=(\frac{1}{n}+\frac{\bar X^2}{SS_x})\sigma^2
+\end{align}\]</span></p>
+<p><span class="math display">\[\begin{align}
+R^2 = \frac{SS_{regression}}{SS_{total}} = \frac{\sum_{i=1}^n (\hat y_i-\bar y)^2}{\sum_{i=1}^n (y_i-\bar y)^2}
+\end{align}\]</span></p>
+<p>t分布与方差</p>
+<p><span class="math display">\[\begin{align}
+\frac{\hat\beta_j-\beta_j}{\sigma_{\hat\beta_j}} \sim t_{\beta_j}(n-p)
+\end{align}\]</span></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算 Beta1</span></span><br><span class="line">seBeta0 &lt;- sqrt(<span class="number">1</span>/n + mean(x)^<span class="number">2</span>/ssx)*sigma</span><br><span class="line">seBeta1 &lt;- sigma / sqrt(ssx)</span><br><span class="line">tBeta0 &lt;- beta0 / seBeta0</span><br><span class="line">tBeta1 &lt;- beta1 / seBeta1</span><br><span class="line">pBeta0 &lt;- <span class="number">2</span> * pt(tBeta0, df = n-<span class="number">2</span>, lower.tail = <span class="literal">FALSE</span>)</span><br><span class="line">pBeta1 &lt;- <span class="number">2</span> * pt(tBeta1, df = n-<span class="number">2</span>, lower.tail = <span class="literal">FALSE</span>)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"> </th>
+<th style="text-align: center;">Estimate</th>
+<th style="text-align: center;">Std. Error</th>
+<th style="text-align: center;">t value</th>
+<th style="text-align: center;">P(&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>(Intercept)</strong></td>
+<td style="text-align: center;">0.1885</td>
+<td style="text-align: center;">0.2061</td>
+<td style="text-align: center;">0.9143</td>
+<td style="text-align: center;">0.391</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>x</strong></td>
+<td style="text-align: center;">0.7224</td>
+<td style="text-align: center;">0.3107</td>
+<td style="text-align: center;">2.325</td>
+<td style="text-align: center;">0.05296</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quiz-3-1">Quiz 3</h3>
+<p>Dataset: mtcars</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构造模型</span></span><br><span class="line">fit &lt;- lm(mpg~wt,mtcars)</span><br><span class="line">pander(summary(fit))</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"> </th>
+<th style="text-align: center;">Estimate</th>
+<th style="text-align: center;">Std. Error</th>
+<th style="text-align: center;">t value</th>
+<th style="text-align: center;">Pr(&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>(Intercept)</strong></td>
+<td style="text-align: center;">37.29</td>
+<td style="text-align: center;">1.878</td>
+<td style="text-align: center;">19.86</td>
+<td style="text-align: center;">8.242e-19</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>wt</strong></td>
+<td style="text-align: center;">-5.344</td>
+<td style="text-align: center;">0.5591</td>
+<td style="text-align: center;">-9.559</td>
+<td style="text-align: center;">1.294e-10</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>Fitting linear model: mpg ~ wt</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Observations</th>
+<th style="text-align: center;">Residual Std. Error</th>
+<th style="text-align: center;"><span class="math inline">\(R^2\)</span></th>
+<th style="text-align: center;">Adjusted <span class="math inline">\(R^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">3.046</td>
+<td style="text-align: center;">0.7528</td>
+<td style="text-align: center;">0.7446</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sumCoef &lt;- summary(fit)$coefficients</span><br><span class="line">b0 &lt;- sumCoef[<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">b1 &lt;- sumCoef[<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">seb0 &lt;- sumCoef[<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">seb1 &lt;- sumCoef[<span class="number">2</span>, <span class="number">2</span>]</span><br><span class="line">b0i &lt;- b0 + c(-<span class="number">1</span>, <span class="number">1</span>) * qt(<span class="number">.9</span>, df = fit$df) * seb0</span><br><span class="line">b1i &lt;- b1 + c(-<span class="number">1</span>, <span class="number">1</span>) * qt(<span class="number">.9</span>, df = fit$df) * seb1 </span><br><span class="line">x0 &lt;- mean(mtcars$wt)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"> </th>
+<th style="text-align: center;">fit</th>
+<th style="text-align: center;">lwr</th>
+<th style="text-align: center;">upr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>confidence</strong></td>
+<td style="text-align: center;">20.09</td>
+<td style="text-align: center;">18.99</td>
+<td style="text-align: center;">21.19</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>prediction</strong></td>
+<td style="text-align: center;">20.09</td>
+<td style="text-align: center;">13.77</td>
+<td style="text-align: center;">26.41</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>manual</strong></td>
+<td style="text-align: center;">20.09</td>
+<td style="text-align: center;">15.27</td>
+<td style="text-align: center;">24.91</td>
+</tr>
+</tbody>
+</table>
+<p><img src="jhu-coursera-regression-model-quizes_files/figure-html/quiz333-1.png"><!-- --></p>
+<h3 id="quiz-4-1">Quiz 4</h3>
+<blockquote>
+<p>The estimated expected change in mpg per 1,000 lb increase in weight.</p>
+</blockquote>
+<h3 id="quiz-5-1">Quiz 5</h3>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pander(predict(fit,newdata = data.frame(wt=<span class="number">3000</span>/<span class="number">1000</span>),interval = (<span class="string">"prediction"</span>)))</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">fit</th>
+<th style="text-align: center;">lwr</th>
+<th style="text-align: center;">upr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">21.25</td>
+<td style="text-align: center;">14.93</td>
+<td style="text-align: center;">27.57</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quiz-6-1">Quiz 6</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">fit</th>
+<th style="text-align: center;">lwr</th>
+<th style="text-align: center;">upr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">20.09</td>
+<td style="text-align: center;">12.58</td>
+<td style="text-align: center;">27.6</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">fit</th>
+<th style="text-align: center;">lwr</th>
+<th style="text-align: center;">upr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">20.09</td>
+<td style="text-align: center;">18.99</td>
+<td style="text-align: center;">21.19</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">fit</th>
+<th style="text-align: center;">lwr</th>
+<th style="text-align: center;">upr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">20.09</td>
+<td style="text-align: center;">13.77</td>
+<td style="text-align: center;">26.41</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quiz-7-1">Quiz 7</h3>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fit3&lt;-lm(mpg~I(wt/<span class="number">100</span>),mtcars)</span><br><span class="line">pander(summary(fit3)$coefficients)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"> </th>
+<th style="text-align: center;">Estimate</th>
+<th style="text-align: center;">Std. Error</th>
+<th style="text-align: center;">t value</th>
+<th style="text-align: center;">Pr(&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>(Intercept)</strong></td>
+<td style="text-align: center;">37.29</td>
+<td style="text-align: center;">1.878</td>
+<td style="text-align: center;">19.86</td>
+<td style="text-align: center;">8.242e-19</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>I(wt/100)</strong></td>
+<td style="text-align: center;">-534.4</td>
+<td style="text-align: center;">55.91</td>
+<td style="text-align: center;">-9.559</td>
+<td style="text-align: center;">1.294e-10</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#It would get multiplied by 100.</span></span><br></pre></td></tr></table></figure>
+<h3 id="quiz-8-1">Quiz 8</h3>
+<blockquote>
+<p>The new intercept would be bhat0???cbhat1</p>
+</blockquote>
+<h3 id="quiz-9-1">Quiz 9</h3>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fit1 &lt;- lm(mpg ~ wt, data = mtcars)</span><br><span class="line">fit2 &lt;- lm(mpg ~ <span class="number">1</span>, data = mtcars)</span><br><span class="line">num &lt;- sum((predict(fit1)-mtcars$mpg)^<span class="number">2</span>)</span><br><span class="line">den &lt;- sum((predict(fit2)-mtcars$mpg)^<span class="number">2</span>)</span><br><span class="line">num/den</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] 0.2471672</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> - summary(fit1)$r.squared<span class="comment">#options</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] 0.2471672</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="quiz-10-1">Quiz 10</h3>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.61</span>, <span class="number">0.93</span>, <span class="number">0.83</span>, <span class="number">0.35</span>, <span class="number">0.54</span>, <span class="number">0.16</span>, <span class="number">0.91</span>, <span class="number">0.62</span>, <span class="number">0.62</span>)</span><br><span class="line">y &lt;- c(<span class="number">0.67</span>, <span class="number">0.84</span>, <span class="number">0.6</span>, <span class="number">0.18</span>, <span class="number">0.85</span>, <span class="number">0.47</span>, <span class="number">1.1</span>, <span class="number">0.65</span>, <span class="number">0.36</span>)</span><br><span class="line">sum(resid(lm(y ~ x)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] 1.110223e-16</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(resid(lm(y ~ <span class="number">1</span>)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] -3.816392e-17</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(resid(lm(y ~ x - <span class="number">1</span>)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] 0.220565</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#If an intercept is included, then they will sum to 0.</span></span><br></pre></td></tr></table></figure>
+<h2 id="week-4">Week 4</h2>
+<h3 id="quiz-1-2">Quiz 1</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"> </th>
+<th style="text-align: center;">Estimate</th>
+<th style="text-align: center;">Std. Error</th>
+<th style="text-align: center;">t value</th>
+<th style="text-align: center;">Pr(&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>(Intercept)</strong></td>
+<td style="text-align: center;">29.74</td>
+<td style="text-align: center;">2.541</td>
+<td style="text-align: center;">11.7</td>
+<td style="text-align: center;">2.688e-12</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>I(1 * (cyl == 8))</strong></td>
+<td style="text-align: center;">-1.815</td>
+<td style="text-align: center;">1.358</td>
+<td style="text-align: center;">-1.337</td>
+<td style="text-align: center;">0.192</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>I(1 * (cyl == 4))</strong></td>
+<td style="text-align: center;">4.256</td>
+<td style="text-align: center;">1.386</td>
+<td style="text-align: center;">3.07</td>
+<td style="text-align: center;">0.004718</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>wt</strong></td>
+<td style="text-align: center;">-3.206</td>
+<td style="text-align: center;">0.7539</td>
+<td style="text-align: center;">-4.252</td>
+<td style="text-align: center;">0.000213</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] -6.07086</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="quiz-2-2">Quiz 2</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"> </th>
+<th style="text-align: center;">Estimate</th>
+<th style="text-align: center;">Std. Error</th>
+<th style="text-align: center;">t value</th>
+<th style="text-align: center;">Pr(&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>(Intercept)</strong></td>
+<td style="text-align: center;">19.74</td>
+<td style="text-align: center;">1.218</td>
+<td style="text-align: center;">16.21</td>
+<td style="text-align: center;">4.493e-16</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>I(1 * (cyl == 8))</strong></td>
+<td style="text-align: center;">-4.643</td>
+<td style="text-align: center;">1.492</td>
+<td style="text-align: center;">-3.112</td>
+<td style="text-align: center;">0.004152</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>I(1 * (cyl == 4))</strong></td>
+<td style="text-align: center;">6.921</td>
+<td style="text-align: center;">1.558</td>
+<td style="text-align: center;">4.441</td>
+<td style="text-align: center;">0.0001195</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quiz-3-2">Quiz 3</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Call:</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># lm(formula = mpg ~ factor(cyl) + wt, data = mtcars)</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Coefficients:</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  (Intercept)  factor(cyl)6  factor(cyl)8            wt  </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#       33.991        -4.256        -6.071        -3.206</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Call:</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># lm(formula = mpg ~ factor(cyl), data = mtcars)</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Coefficients:</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  (Intercept)  factor(cyl)6  factor(cyl)8  </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#       26.664        -6.921       -11.564</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="quiz-4-2">Quiz 4</h3>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">##               Estimate Std. Error   t value     Pr(&gt;|t|)</span><br><span class="line">## (Intercept)  <span class="number">33.990794</span>   <span class="number">1.887793</span> <span class="number">18.005569</span> <span class="number">6.257246e-17</span></span><br><span class="line">## I(wt * <span class="number">0.5</span>)  <span class="number">-6.411227</span>   <span class="number">1.507791</span> <span class="number">-4.252065</span> <span class="number">2.130435e-04</span></span><br><span class="line">## factor(cyl)<span class="number">6</span> <span class="number">-4.255582</span>   <span class="number">1.386073</span> <span class="number">-3.070244</span> <span class="number">4.717834e-03</span></span><br><span class="line">## factor(cyl)<span class="number">8</span> <span class="number">-6.070860</span>   <span class="number">1.652288</span> <span class="number">-3.674214</span> <span class="number">9.991893e-04</span></span><br></pre></td></tr></table></figure>
+<p>函数step可以实现基于AIC准则的模型选择，最优模型为AIC值最小的</p>
+<table>
+<caption>Fitting linear model: mpg ~ wt + qsec + am</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"> </th>
+<th style="text-align: center;">Estimate</th>
+<th style="text-align: center;">Std. Error</th>
+<th style="text-align: center;">t value</th>
+<th style="text-align: center;">Pr(&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>(Intercept)</strong></td>
+<td style="text-align: center;">9.618</td>
+<td style="text-align: center;">6.96</td>
+<td style="text-align: center;">1.382</td>
+<td style="text-align: center;">0.1779</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>wt</strong></td>
+<td style="text-align: center;">-3.917</td>
+<td style="text-align: center;">0.7112</td>
+<td style="text-align: center;">-5.507</td>
+<td style="text-align: center;">6.953e-06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>qsec</strong></td>
+<td style="text-align: center;">1.226</td>
+<td style="text-align: center;">0.2887</td>
+<td style="text-align: center;">4.247</td>
+<td style="text-align: center;">0.0002162</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>am</strong></td>
+<td style="text-align: center;">2.936</td>
+<td style="text-align: center;">1.411</td>
+<td style="text-align: center;">2.081</td>
+<td style="text-align: center;">0.04672</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quiz-5-2">Quiz 5</h3>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.586</span>, <span class="number">0.166</span>, -<span class="number">0.042</span>, -<span class="number">0.614</span>, <span class="number">11.72</span>)</span><br><span class="line">y &lt;- c(<span class="number">0.549</span>, -<span class="number">0.026</span>, -<span class="number">0.127</span>, -<span class="number">0.751</span>, <span class="number">1.344</span>)</span><br><span class="line">fit &lt;- lm(y ~ x)</span><br><span class="line">round(hatvalues(fit),<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##      <span class="number">1</span>      <span class="number">2</span>      <span class="number">3</span>      <span class="number">4</span>      <span class="number">5</span> </span><br><span class="line">## <span class="number">0.2287</span> <span class="number">0.2438</span> <span class="number">0.2525</span> <span class="number">0.2804</span> <span class="number">0.9946</span></span><br></pre></td></tr></table></figure>
+<h3 id="quiz-6-2">Quiz 6</h3>
+<ul>
+<li><p>异常值</p></li>
+<li>杠杆点</li>
+<li><p>杠杆点对回归系数没有影响，但是会影响决定系数，可以通过观察帽子矩阵来识别，杠杆作用的平均值为h=p/n，p为自变量个数，n为样本量，如果一个观测值的杠杆值&gt;2h，则应考虑为杠杆点，考虑剔除或采取措施。R中可以通过hatvalues函数计算杠杆值。</p></li>
+<li>影响点</li>
+<li><p>影响点有将回归线拉向它的趋势，因此会影响回归系数的值，可以通过COOK距离来判断，R中可以通过cooks.distance函数计算每个观测值的COOK距离。根据经验，如果距离大于1，则说明观测点为影响点。</p></li>
+<li><p>此外，还可以通过dffits函数和dfbetas函数计算相应的值，如果dffits&gt;2/根号p/n，那么可认为是影响点，如果dfbetas&gt;2/根号n，也可认为是影响点，p为自变量个数，n为样本量</p></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.586</span>, <span class="number">0.166</span>, -<span class="number">0.042</span>, -<span class="number">0.614</span>, <span class="number">11.72</span>)</span><br><span class="line">y &lt;- c(<span class="number">0.549</span>, -<span class="number">0.026</span>, -<span class="number">0.127</span>, -<span class="number">0.751</span>, <span class="number">1.344</span>)</span><br><span class="line">fit &lt;- lm(y ~ x)</span><br><span class="line">round(dfbetas(fit),<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#   (Intercept)         x</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 1      1.0621   -0.3781</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 2      0.0675   -0.0286</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 3     -0.0174    0.0079</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 4     -1.2496    0.6725</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 5      0.2043 -133.8226</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">round(hatvalues(fit),<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##      <span class="number">1</span>      <span class="number">2</span>      <span class="number">3</span>      <span class="number">4</span>      <span class="number">5</span> </span><br><span class="line">## <span class="number">0.2287</span> <span class="number">0.2438</span> <span class="number">0.2525</span> <span class="number">0.2804</span> <span class="number">0.9946</span></span><br></pre></td></tr></table></figure>
+<center>
+<strong>THE END</strong>
+</center>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Autoz</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://www.geeekpink.com" title="JHU Coursera Regression Model Quizes">https://www.geeekpink.com</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"># R</a>
+          
+            <a href="/tags/DataScience/" rel="tag"># DataScience</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avator.png"
+                alt="Autoz" />
+            
+              <p class="site-author-name" itemprop="name">Autoz</p>
+              <p class="site-description motion-element" itemprop="description">Fidelty.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/autolordz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:autolordz@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jhu-coursera-regression-model-quizes"><span class="nav-number">1.</span> <span class="nav-text">JHU Coursera Regression Model Quizes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#week-2"><span class="nav-number">1.1.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">Quiz 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">Quiz 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">Quiz 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-4"><span class="nav-number">1.1.4.</span> <span class="nav-text">Quiz 4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-5"><span class="nav-number">1.1.5.</span> <span class="nav-text">Quiz 5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-6"><span class="nav-number">1.1.6.</span> <span class="nav-text">Quiz 6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-7"><span class="nav-number">1.1.7.</span> <span class="nav-text">Quiz 7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-8"><span class="nav-number">1.1.8.</span> <span class="nav-text">Quiz 8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-9"><span class="nav-number">1.1.9.</span> <span class="nav-text">Quiz 9</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-10"><span class="nav-number">1.1.10.</span> <span class="nav-text">Quiz 10</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#week-3"><span class="nav-number">1.2.</span> <span class="nav-text">Week 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-1-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">Quiz 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-2-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">Quiz 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-3-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">Quiz 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-4-1"><span class="nav-number">1.2.4.</span> <span class="nav-text">Quiz 4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-5-1"><span class="nav-number">1.2.5.</span> <span class="nav-text">Quiz 5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-6-1"><span class="nav-number">1.2.6.</span> <span class="nav-text">Quiz 6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-7-1"><span class="nav-number">1.2.7.</span> <span class="nav-text">Quiz 7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-8-1"><span class="nav-number">1.2.8.</span> <span class="nav-text">Quiz 8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-9-1"><span class="nav-number">1.2.9.</span> <span class="nav-text">Quiz 9</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-10-1"><span class="nav-number">1.2.10.</span> <span class="nav-text">Quiz 10</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#week-4"><span class="nav-number">1.3.</span> <span class="nav-text">Week 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-1-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">Quiz 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-2-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">Quiz 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-3-2"><span class="nav-number">1.3.3.</span> <span class="nav-text">Quiz 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-4-2"><span class="nav-number">1.3.4.</span> <span class="nav-text">Quiz 4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-5-2"><span class="nav-number">1.3.5.</span> <span class="nav-text">Quiz 5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-6-2"><span class="nav-number">1.3.6.</span> <span class="nav-text">Quiz 6</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Autoz</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">9k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">8 mins.</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.3.0"></script>
+
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
