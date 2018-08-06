@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,7 +84,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '6.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -266,6 +266,9 @@
   
 
   
+    
+
+  
 
   
 </nav>
@@ -285,9 +288,6 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
           
           <div id="content" class="content">
             
@@ -371,7 +371,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-04 00:30:09" itemprop="dateModified" datetime="2018-08-04T00:30:09+08:00">2018-08-04</time>
+                <time title="Modified: 2018-08-06 10:30:55" itemprop="dateModified" datetime="2018-08-06T10:30:55+08:00">2018-08-06</time>
               
             
           </span>
@@ -423,7 +423,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">8.9k</span>
+                <span title="Symbols count in article">8.4k</span>
               
 
               
@@ -463,136 +463,137 @@
           <blockquote>
 <p>JHU DataScience Specialization/Cousers Reproducible Data/Week1-4/Regression Model Quizes</p>
 </blockquote>
-<h1 id="jhu-coursera-regression-model-quizes">JHU Coursera Regression Model Quizes</h1>
-<p>主要练习手工计算回归模型的基础方法</p>
-<h2 id="week-2">Week 2</h2>
-<h3 id="quiz-1">Quiz 1</h3>
-<p>手算均值</p>
+<h1 id="JHU-Coursera-Regression-Model-Quizes"><a href="#JHU-Coursera-Regression-Model-Quizes" class="headerlink" title="JHU Coursera Regression Model Quizes"></a>JHU Coursera Regression Model Quizes</h1><p>主要练习手工计算回归模型的基础方法</p>
+<h2 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h2><h3 id="Quiz-1"><a href="#Quiz-1" class="headerlink" title="Quiz 1"></a>Quiz 1</h3><p>手算均值</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.18</span>, -<span class="number">1.54</span>, <span class="number">0.42</span>, <span class="number">0.95</span>)</span><br><span class="line">w &lt;- c(<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line">mu.y &lt;- sum(w * x) / sum(w)</span><br><span class="line">sprintf(<span class="string">"mean of y is : %f"</span>,mu.y)</span><br></pre></td></tr></table></figure>
 <figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## [<span class="number">1</span>] <span class="string">"mean of y is : 0.147143"</span></span><br></pre></td></tr></table></figure>
-<h3 id="quiz-2">Quiz 2</h3>
-<p>线性回归</p>
+<h3 id="Quiz-2"><a href="#Quiz-2" class="headerlink" title="Quiz 2"></a>Quiz 2</h3><p>线性回归</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.8</span>, <span class="number">0.47</span>, <span class="number">0.51</span>, <span class="number">0.73</span>, <span class="number">0.36</span>, <span class="number">0.58</span>, <span class="number">0.57</span>, <span class="number">0.85</span>, <span class="number">0.44</span>, <span class="number">0.42</span>)</span><br><span class="line">y &lt;- c(<span class="number">1.39</span>, <span class="number">0.72</span>, <span class="number">1.55</span>, <span class="number">0.48</span>, <span class="number">1.19</span>, -<span class="number">1.59</span>, <span class="number">1.23</span>, -<span class="number">0.65</span>, <span class="number">1.49</span>, <span class="number">0.05</span>)</span><br><span class="line">pander(lm(y~x)) <span class="comment">#THROUGH THE ORIGIN</span></span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
-<caption>Fitting linear model: y ~ x</caption>
 <thead>
-<tr class="header">
-<th style="text-align: center;"> </th>
-<th style="text-align: center;">Estimate</th>
-<th style="text-align: center;">Std. Error</th>
-<th style="text-align: center;">t value</th>
-<th style="text-align: center;">Pr(&gt;</th>
+<tr>
+<th style="text-align:center">&nbsp;</th>
+<th style="text-align:center">Estimate</th>
+<th style="text-align:center">Std. Error</th>
+<th style="text-align:center">t value</th>
+<th style="text-align:center">Pr(&gt;</th>
+<th>t</th>
+<th>)</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong>(Intercept)</strong></td>
-<td style="text-align: center;">1.567</td>
-<td style="text-align: center;">1.252</td>
-<td style="text-align: center;">1.252</td>
-<td style="text-align: center;">0.246</td>
+<tr>
+<td style="text-align:center"><strong>(Intercept)</strong></td>
+<td style="text-align:center">1.567</td>
+<td style="text-align:center">1.252</td>
+<td style="text-align:center">1.252</td>
+<td style="text-align:center">0.246</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><strong>x</strong></td>
-<td style="text-align: center;">-1.713</td>
-<td style="text-align: center;">2.105</td>
-<td style="text-align: center;">-0.8136</td>
-<td style="text-align: center;">0.4394</td>
+<tr>
+<td style="text-align:center"><strong>x</strong></td>
+<td style="text-align:center">-1.713</td>
+<td style="text-align:center">2.105</td>
+<td style="text-align:center">-0.8136</td>
+<td style="text-align:center">0.4394</td>
 </tr>
 </tbody>
 </table>
+</div>
+<p>Table: Fitting linear model: y ~ x</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pander(lm(y~x-<span class="number">1</span>)) <span class="comment">#去除截距</span></span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
-<caption>Fitting linear model: y ~ x - 1</caption>
 <thead>
-<tr class="header">
-<th style="text-align: center;"> </th>
-<th style="text-align: center;">Estimate</th>
-<th style="text-align: center;">Std. Error</th>
-<th style="text-align: center;">t value</th>
-<th style="text-align: center;">Pr(&gt;</th>
+<tr>
+<th style="text-align:center">&nbsp;</th>
+<th style="text-align:center">Estimate</th>
+<th style="text-align:center">Std. Error</th>
+<th style="text-align:center">t value</th>
+<th style="text-align:center">Pr(&gt;</th>
+<th>t</th>
+<th>)</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong>x</strong></td>
-<td style="text-align: center;">0.8263</td>
-<td style="text-align: center;">0.5817</td>
-<td style="text-align: center;">1.421</td>
-<td style="text-align: center;">0.1892</td>
+<tr>
+<td style="text-align:center"><strong>x</strong></td>
+<td style="text-align:center">0.8263</td>
+<td style="text-align:center">0.5817</td>
+<td style="text-align:center">1.421</td>
+<td style="text-align:center">0.1892</td>
 </tr>
 </tbody>
 </table>
-<h3 id="quiz-3">Quiz 3</h3>
-<p>mtcars 回归系数</p>
+</div>
+<p>Table: Fitting linear model: y ~ x - 1</p>
+<h3 id="Quiz-3"><a href="#Quiz-3" class="headerlink" title="Quiz 3"></a>Quiz 3</h3><p>mtcars 回归系数</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: center;">(Intercept)</th>
-<th style="text-align: center;">wt</th>
+<tr>
+<th style="text-align:center">(Intercept)</th>
+<th style="text-align:center">wt</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">37.29</td>
-<td style="text-align: center;">-5.344</td>
+<tr>
+<td style="text-align:center">37.29</td>
+<td style="text-align:center">-5.344</td>
 </tr>
 </tbody>
 </table>
-<h3 id="quiz-4">Quiz 4</h3>
-<p>练习求b1</p>
-<p><span class="math display">\[\begin{align}
-Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
- \beta_1 &amp;= Cor(Y,X) * \frac{Sd(Y)}{Sd(X)}
-\end{align}\]</span></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B1 = <span class="number">0.5</span> * <span class="number">1</span> / <span class="number">0.5</span></span><br></pre></td></tr></table></figure>
-<h3 id="quiz-5">Quiz 5</h3>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">corr &lt;- <span class="number">.4</span>; emean &lt;- <span class="number">0</span>; varr1 &lt;- <span class="number">1</span></span><br><span class="line">varr2 &lt;- <span class="number">1</span>; b0 &lt;- <span class="number">0</span>; x &lt;- <span class="number">1.5</span></span><br><span class="line">b1 &lt;- corr * sqrt(varr1) / sqrt(varr2)</span><br><span class="line">(y &lt;- b0 + b1 * x)</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Quiz-4"><a href="#Quiz-4" class="headerlink" title="Quiz 4"></a>Quiz 4</h3><p>练习求b1</p>
+<script type="math/tex; mode=display">\begin{align}
+Cor(Y,X) &= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
+ \beta_1 &= Cor(Y,X) * \frac{Sd(Y)}{Sd(X)}
+\end{align}</script><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B1 = <span class="number">0.5</span> * <span class="number">1</span> / <span class="number">0.5</span></span><br></pre></td></tr></table></figure>
+<h3 id="Quiz-5"><a href="#Quiz-5" class="headerlink" title="Quiz 5"></a>Quiz 5</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">corr &lt;- <span class="number">.4</span>; emean &lt;- <span class="number">0</span>; varr1 &lt;- <span class="number">1</span></span><br><span class="line">varr2 &lt;- <span class="number">1</span>; b0 &lt;- <span class="number">0</span>; x &lt;- <span class="number">1.5</span></span><br><span class="line">b1 &lt;- corr * sqrt(varr1) / sqrt(varr2)</span><br><span class="line">(y &lt;- b0 + b1 * x)</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] 0.6</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="quiz-6">Quiz 6</h3>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">8.58</span>, <span class="number">10.46</span>, <span class="number">9.01</span>, <span class="number">9.64</span>, <span class="number">8.86</span>)</span><br><span class="line">(x - mean(x)) / sd(x) <span class="comment"># Choose No.1</span></span><br></pre></td></tr></table></figure>
+<h3 id="Quiz-6"><a href="#Quiz-6" class="headerlink" title="Quiz 6"></a>Quiz 6</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">8.58</span>, <span class="number">10.46</span>, <span class="number">9.01</span>, <span class="number">9.64</span>, <span class="number">8.86</span>)</span><br><span class="line">(x - mean(x)) / sd(x) <span class="comment"># Choose No.1</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## <span class="selector-attr">[1]</span> <span class="selector-tag">-0</span><span class="selector-class">.9718658</span>  1<span class="selector-class">.5310215</span> <span class="selector-tag">-0</span><span class="selector-class">.3993969</span>  0<span class="selector-class">.4393366</span> <span class="selector-tag">-0</span><span class="selector-class">.5990954</span></span><br></pre></td></tr></table></figure>
-<h3 id="quiz-7">Quiz 7</h3>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.8</span>, <span class="number">0.47</span>, <span class="number">0.51</span>, <span class="number">0.73</span>, <span class="number">0.36</span>, <span class="number">0.58</span>, <span class="number">0.57</span>, <span class="number">0.85</span>, <span class="number">0.44</span>, <span class="number">0.42</span>)</span><br><span class="line">y &lt;- c(<span class="number">1.39</span>, <span class="number">0.72</span>, <span class="number">1.55</span>, <span class="number">0.48</span>, <span class="number">1.19</span>, -<span class="number">1.59</span>, <span class="number">1.23</span>, -<span class="number">0.65</span>, <span class="number">1.49</span>, <span class="number">0.05</span>)</span><br><span class="line">pander(lm(y~x))</span><br></pre></td></tr></table></figure>
+<h3 id="Quiz-7"><a href="#Quiz-7" class="headerlink" title="Quiz 7"></a>Quiz 7</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.8</span>, <span class="number">0.47</span>, <span class="number">0.51</span>, <span class="number">0.73</span>, <span class="number">0.36</span>, <span class="number">0.58</span>, <span class="number">0.57</span>, <span class="number">0.85</span>, <span class="number">0.44</span>, <span class="number">0.42</span>)</span><br><span class="line">y &lt;- c(<span class="number">1.39</span>, <span class="number">0.72</span>, <span class="number">1.55</span>, <span class="number">0.48</span>, <span class="number">1.19</span>, -<span class="number">1.59</span>, <span class="number">1.23</span>, -<span class="number">0.65</span>, <span class="number">1.49</span>, <span class="number">0.05</span>)</span><br><span class="line">pander(lm(y~x))</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
-<caption>Fitting linear model: y ~ x</caption>
 <thead>
-<tr class="header">
-<th style="text-align: center;"> </th>
-<th style="text-align: center;">Estimate</th>
-<th style="text-align: center;">Std. Error</th>
-<th style="text-align: center;">t value</th>
-<th style="text-align: center;">Pr(&gt;</th>
+<tr>
+<th style="text-align:center">&nbsp;</th>
+<th style="text-align:center">Estimate</th>
+<th style="text-align:center">Std. Error</th>
+<th style="text-align:center">t value</th>
+<th style="text-align:center">Pr(&gt;</th>
+<th>t</th>
+<th>)</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong>(Intercept)</strong></td>
-<td style="text-align: center;">1.567</td>
-<td style="text-align: center;">1.252</td>
-<td style="text-align: center;">1.252</td>
-<td style="text-align: center;">0.246</td>
+<tr>
+<td style="text-align:center"><strong>(Intercept)</strong></td>
+<td style="text-align:center">1.567</td>
+<td style="text-align:center">1.252</td>
+<td style="text-align:center">1.252</td>
+<td style="text-align:center">0.246</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><strong>x</strong></td>
-<td style="text-align: center;">-1.713</td>
-<td style="text-align: center;">2.105</td>
-<td style="text-align: center;">-0.8136</td>
-<td style="text-align: center;">0.4394</td>
+<tr>
+<td style="text-align:center"><strong>x</strong></td>
+<td style="text-align:center">-1.713</td>
+<td style="text-align:center">2.105</td>
+<td style="text-align:center">-0.8136</td>
+<td style="text-align:center">0.4394</td>
 </tr>
 </tbody>
 </table>
-<h3 id="quiz-8">Quiz 8</h3>
-<p>It must be identically 0.</p>
-<h3 id="quiz-9">Quiz 9</h3>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.8</span>, <span class="number">0.47</span>, <span class="number">0.51</span>, <span class="number">0.73</span>, <span class="number">0.36</span>, <span class="number">0.58</span>, <span class="number">0.57</span>, <span class="number">0.85</span>, <span class="number">0.44</span>, <span class="number">0.42</span>)</span><br><span class="line">mean(x)</span><br></pre></td></tr></table></figure>
+</div>
+<p>Table: Fitting linear model: y ~ x</p>
+<h3 id="Quiz-8"><a href="#Quiz-8" class="headerlink" title="Quiz 8"></a>Quiz 8</h3><p>It must be identically 0.</p>
+<h3 id="Quiz-9"><a href="#Quiz-9" class="headerlink" title="Quiz 9"></a>Quiz 9</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">0.8</span>, <span class="number">0.47</span>, <span class="number">0.51</span>, <span class="number">0.73</span>, <span class="number">0.36</span>, <span class="number">0.58</span>, <span class="number">0.57</span>, <span class="number">0.85</span>, <span class="number">0.44</span>, <span class="number">0.42</span>)</span><br><span class="line">mean(x)</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] 0.573</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="quiz-10">Quiz 10</h3>
-<p><span class="math display">\[\begin{align}
-\beta_1 &amp;= Cor(Y,X)*Sd(Y)/Sd(X) \\
-    Y_1 &amp;= Cor(Y,X)*Sd(X)/Sd(Y) \\
-\beta_1/Y_1 &amp;= Sd(Y)^2/Sd(X)^2 \notag \\ &amp;= Var(Y)/Var(X)
-\end{align}\]</span></p>
+<h3 id="Quiz-10"><a href="#Quiz-10" class="headerlink" title="Quiz 10"></a>Quiz 10</h3><script type="math/tex; mode=display">\begin{align}
+\beta_1 &= Cor(Y,X)*Sd(Y)/Sd(X) \\
+    Y_1 &= Cor(Y,X)*Sd(X)/Sd(Y) \\
+\beta_1/Y_1 &= Sd(Y)^2/Sd(X)^2 \notag \\ &= Var(Y)/Var(X)
+\end{align}</script>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/08/03/jhu-coursera-regression-model-quizes/#more" rel="contents">
@@ -794,7 +795,7 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
     
       <span class="post-meta-item-text">Symbols count total: </span>
     
-    <span title="Symbols count total">9k</span>
+    <span title="Symbols count total">8k</span>
   
 
   
@@ -820,7 +821,7 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.3.0</div>
 
 
 
@@ -925,13 +926,6 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
-
-
 
   
 
