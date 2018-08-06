@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="JHU DataScience Specialization/Cousers The Data Scientist’s Toolbox/Week??/Course Project  Datatools Course Project 数据科学工具 由于这个非常入门的课程，共4Week每周一个小quiz，这个应该是最后的Project忘记了 主要是熟练掌握一些R语言的数据处理工具例如 xls">
+<meta name="keywords" content="R,DataScience,R Markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JHU Coursera Datatools Course Project">
+<meta property="og:url" content="http://yoursite.com/2018/08/06/JHU-Coursera-Datatools-Course-Project/index.html">
+<meta property="og:site_name" content="PinkyLand">
+<meta property="og:description" content="JHU DataScience Specialization/Cousers The Data Scientist’s Toolbox/Week??/Course Project  Datatools Course Project 数据科学工具 由于这个非常入门的课程，共4Week每周一个小quiz，这个应该是最后的Project忘记了 主要是熟练掌握一些R语言的数据处理工具例如 xls">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-08-06T09:30:44.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JHU Coursera Datatools Course Project">
+<meta name="twitter:description" content="JHU DataScience Specialization/Cousers The Data Scientist’s Toolbox/Week??/Course Project  Datatools Course Project 数据科学工具 由于这个非常入门的课程，共4Week每周一个小quiz，这个应该是最后的Project忘记了 主要是熟练掌握一些R语言的数据处理工具例如 xls">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/06/JHU-Coursera-Datatools-Course-Project/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JHU Coursera Datatools Course Project | PinkyLand</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">PinkyLand</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Autoz's Learning Blogs</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">3</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/06/JHU-Coursera-Datatools-Course-Project/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Autoz">
+      <meta itemprop="description" content="Fidelty.">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PinkyLand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JHU Coursera Datatools Course Project<a href="https://github.com/theme-next/theme-next.org/_posts/tree/master/JHU-Coursera-Datatools-Course-Project.md" class="post-edit-link" title="Edit this post" target="_blank">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-06 17:28:52 / Modified: 17:30:44" itemprop="dateCreated datePublished" datetime="2018-08-06T17:28:52+08:00">2018-08-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">5 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>JHU DataScience Specialization/Cousers The Data Scientist’s Toolbox/Week??/Course Project</p>
+</blockquote>
+<h1 id="datatools-course-project-数据科学工具">Datatools Course Project 数据科学工具</h1>
+<p>由于这个非常入门的课程，共4Week每周一个小quiz，这个应该是最后的Project忘记了 主要是熟练掌握一些R语言的数据处理工具例如 xlsx,XML等格式，以及readr这些有用的R包用法 以下代码下载资源比较大暂不执行有兴趣的读者可以自己尝试</p>
+<h2 id="读取csv格式-2006年美国社区调查acs">读取csv格式 2006年美国社区调查（ACS）</h2>
+<p>The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here:</p>
+<ul>
+<li>(pid, Population CSV file)</li>
+<li>(hid, Household CSV file)</li>
+</ul>
+<p><a href="https://www.nber.org/acs/PUMS/README" target="_blank" rel="noopener">说明书 PUMS</a> <a href="https://www.nber.org/acs/PUMS/2006/PUMSDataDict06.txt" target="_blank" rel="noopener">说明书 DATA DICTIONARY - 2006 HOUSING</a> <a href="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf" target="_blank" rel="noopener">PDF</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fileUrl &lt;- <span class="string">"https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv"</span></span><br><span class="line">download.file(fileUrl,destfile = <span class="string">"Fss06pid.csv"</span>,method = <span class="string">"libcurl"</span>)</span><br><span class="line">fileUrl &lt;- <span class="string">"https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"</span></span><br><span class="line">download.file(fileUrl,destfile = <span class="string">"Fss06hid.csv"</span>,method = <span class="string">"libcurl"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="读取几十上百m的数据算大文件运算应该考虑花销">读取几十上百m的数据算大文件，运算应该考虑花销</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Unit: milliseconds</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#                                           expr       min        lq</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  PID &lt;- fread(file = "Fss06pid.csv", fill = T)  13.40045  13.40045</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#                read_csv(file = "Fss06pid.csv") 627.03159 627.03159</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#                read.csv(file = "Fss06pid.csv") 422.56456 422.56456</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#       mean    median        uq       max neval</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#   13.40045  13.40045  13.40045  13.40045     1</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  627.03159 627.03159 627.03159 627.03159     1</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  422.56456 422.56456 422.56456 422.56456     1</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Unit: milliseconds</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#                                           expr       min        lq</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  HID &lt;- fread(file = "Fss06hid.csv", fill = T)  17.08404  17.08404</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#                read_csv(file = "Fss06hid.csv") 519.85311 519.85311</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#                read.csv(file = "Fss06hid.csv") 971.56116 971.56116</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#       mean    median        uq       max neval</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#   17.08404  17.08404  17.08404  17.08404     1</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  519.85311 519.85311 519.85311 519.85311     1</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  971.56116 971.56116 971.56116 971.56116     1</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Unit: microseconds</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#                                       expr      min        lq       mean</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#         tapply(PID$pwgtp15, PID$SEX, mean)  159.973  203.6820  262.39322</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  sapply(split(PID$pwgtp15, PID$SEX), mean)  137.322  162.9805  250.35640</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#          mean(PID[PID$SEX == 1, ]$pwgtp15) 1533.888 1615.2890 2570.51404</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#            mean(PID$pwgtp15, by = PID$SEX)   11.326   16.1045   20.48577</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#          median(PID$pwgtp15, by = PID$SEX)   49.550   64.7685   91.37941</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#         mean(PID[PID$SEX == 1, ]$SERIALNO) 1548.398 1624.1370 3693.22785</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#       median(PID[PID$SEX == 1, ]$SERIALNO) 1630.508 1709.9625 2321.75111</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#     median        uq        max neval cld</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#   267.5640  289.3300    441.692   100  a </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#   215.8915  246.1520   3571.401   100  a </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  1694.3900 4332.1510   6311.799   100   b</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#    18.2280   22.4745     78.571   100  a </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#    85.2955  109.8930    249.160   100  a </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  1740.4000 2707.6610 127876.038   100   b</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  1751.5480 2145.2830   6184.035   100   b</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pander(arrange(A,mean))</span><br></pre></td></tr></table></figure>
+<table>
+<caption>Table continues below</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">expr</th>
+<th style="text-align: center;">min</th>
+<th style="text-align: center;">lq</th>
+<th style="text-align: center;">mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">PID &lt;- fread(file = “Fss06pid.csv”, fill = T)</td>
+<td style="text-align: center;">13.4</td>
+<td style="text-align: center;">13.4</td>
+<td style="text-align: center;">13.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">read.csv(file = “Fss06pid.csv”)</td>
+<td style="text-align: center;">422.6</td>
+<td style="text-align: center;">422.6</td>
+<td style="text-align: center;">422.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">read_csv(file = “Fss06pid.csv”)</td>
+<td style="text-align: center;">627</td>
+<td style="text-align: center;">627</td>
+<td style="text-align: center;">627</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">median</th>
+<th style="text-align: center;">uq</th>
+<th style="text-align: center;">max</th>
+<th style="text-align: center;">neval</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">13.4</td>
+<td style="text-align: center;">13.4</td>
+<td style="text-align: center;">13.4</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">422.6</td>
+<td style="text-align: center;">422.6</td>
+<td style="text-align: center;">422.6</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">627</td>
+<td style="text-align: center;">627</td>
+<td style="text-align: center;">627</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pander(arrange(B,mean))</span><br></pre></td></tr></table></figure>
+<table>
+<caption>Table continues below</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">expr</th>
+<th style="text-align: center;">min</th>
+<th style="text-align: center;">lq</th>
+<th style="text-align: center;">mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">HID &lt;- fread(file = “Fss06hid.csv”, fill = T)</td>
+<td style="text-align: center;">17.08</td>
+<td style="text-align: center;">17.08</td>
+<td style="text-align: center;">17.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">read_csv(file = “Fss06hid.csv”)</td>
+<td style="text-align: center;">519.9</td>
+<td style="text-align: center;">519.9</td>
+<td style="text-align: center;">519.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">read.csv(file = “Fss06hid.csv”)</td>
+<td style="text-align: center;">971.6</td>
+<td style="text-align: center;">971.6</td>
+<td style="text-align: center;">971.6</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">median</th>
+<th style="text-align: center;">uq</th>
+<th style="text-align: center;">max</th>
+<th style="text-align: center;">neval</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">17.08</td>
+<td style="text-align: center;">17.08</td>
+<td style="text-align: center;">17.08</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">519.9</td>
+<td style="text-align: center;">519.9</td>
+<td style="text-align: center;">519.9</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">971.6</td>
+<td style="text-align: center;">971.6</td>
+<td style="text-align: center;">971.6</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="简单计算求和时间">简单计算求和时间</h3>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pander(arrange(select(C,expr,mean),mean))</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">expr</th>
+<th style="text-align: center;">mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">mean(PID<span class="math inline">\(pwgtp15, by = PID\)</span>SEX)</td>
+<td style="text-align: center;">20.49</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">median(PID<span class="math inline">\(pwgtp15, by = PID\)</span>SEX)</td>
+<td style="text-align: center;">91.38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">sapply(split(PID<span class="math inline">\(pwgtp15, PID\)</span>SEX), mean)</td>
+<td style="text-align: center;">250.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">tapply(PID<span class="math inline">\(pwgtp15, PID\)</span>SEX, mean)</td>
+<td style="text-align: center;">262.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">median(PID[PID$SEX == 1, ]$SERIALNO)</td>
+<td style="text-align: center;">2322</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">mean(PID[PID$SEX == 1, ]$pwgtp15)</td>
+<td style="text-align: center;">2571</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">mean(PID[PID$SEX == 1, ]$SERIALNO)</td>
+<td style="text-align: center;">3693</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quiz-1">Quiz 1</h3>
+<p>How many housing units in this survey were worth more than $1,000,000?</p>
+<ul>
+<li>159</li>
+<li>164</li>
+<li><strong>53</strong></li>
+<li>24</li>
+</ul>
+<h2 id="读取xlsxlsx格式-美国国家天然气采购计划">读取xls,xlsx格式 美国国家天然气采购计划</h2>
+<p><a href="https://catalog.data.gov/dataset/natural-gas-acquisition-program" target="_blank" rel="noopener">说明书 Natural Gas Acquisition Program</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fileUrl &lt;- <span class="string">"https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx"</span></span><br><span class="line">download.file(fileurl,destfile = <span class="string">"gov_NGAP.xlsx"</span>,mode=<span class="string">'wb'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NGAP &lt;- read.xlsx(file=<span class="string">"gov_NGAP.xlsx"</span>,</span><br><span class="line">                  sheetIndex=<span class="number">1</span>,</span><br><span class="line">                  colIndex=<span class="number">7</span>:<span class="number">15</span>,</span><br><span class="line">                  rowIndex = <span class="number">18</span>:<span class="number">23</span>,</span><br><span class="line">                  header=<span class="literal">T</span>)</span><br><span class="line">NGAP &lt;- as.tbl(NGAP)</span><br><span class="line">pander(head(NGAP))</span><br></pre></td></tr></table></figure>
+<table>
+<caption>Table continues below</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Zip</th>
+<th style="text-align: center;">CuCurrent</th>
+<th style="text-align: center;">PaCurrent</th>
+<th style="text-align: center;">PoCurrent</th>
+<th style="text-align: center;">Contact</th>
+<th style="text-align: center;">Ext</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">74136</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">918-491-6998</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">30329</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">404-321-5711</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">74136</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">918-523-2516</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">80203</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">303-864-1919</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">80120</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">345-098-8890</td>
+<td style="text-align: center;">456</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Fax</th>
+<th style="text-align: center;">email</th>
+<th style="text-align: center;">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">918-491-6659</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">918-523-2522</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat(<span class="string">"Sum of Zipcode and"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## Sum <span class="keyword">of</span> Zipcode and</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(NGAP$Zip*NGAP$Ext,na.rm=<span class="literal">T</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] 36534720</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="quiz-3">Quiz 3</h3>
+<p>Read rows 18-23 and columns 7-15 into R and assign the result to a variable called:</p>
+<p>What is the value of:</p>
+<p>sum(dat(Zip*dat)Ext,na.rm=T)</p>
+<p>(original data source: http://catalog.data.gov/dataset/natural-gas-acquisition-program)</p>
+<ol type="1">
+<li><strong>36534720</strong></li>
+<li>338924</li>
+<li>33544718</li>
+<li>0</li>
+</ol>
+<h2 id="读取xml格式-巴的摩尔餐厅数据">读取xml格式 巴的摩尔餐厅数据</h2>
+<p><a href="https://catalog.data.gov/dataset/restaurants-15baa" target="_blank" rel="noopener">说明书 data.baltimorecity.gov</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fileUrl &lt;- <span class="string">"https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml"</span></span><br><span class="line">download.file(fileUrl,destfile = <span class="string">"Frestaurants.xml"</span>,mode=<span class="string">'wb'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">system.time(DOC &lt;- xmlTreeParse(<span class="string">"Frestaurants.xml"</span>, useInternal = <span class="literal">TRUE</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#    user  system elapsed </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#    0.02    0.00    0.02</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rootNode &lt;- xmlRoot(DOC)</span><br><span class="line"><span class="comment"># 邮编是"21231" 的记录有多少条</span></span><br><span class="line">sum(xpathSApply(rootNode, <span class="string">"//zipcode"</span>, xmlValue) == <span class="string">"21231"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] 127</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="quiz-4">Quiz 4</h3>
+<p>How many restaurants have zipcode 21231?</p>
+<ul>
+<li><strong>127</strong></li>
+<li>17</li>
+<li>28</li>
+<li>156</li>
+</ul>
+<center>
+<strong>THE END</strong>
+</center>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Autoz</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://www.geeekpink.com" title="JHU Coursera Datatools Course Project">https://www.geeekpink.com</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"># R</a>
+          
+            <a href="/tags/DataScience/" rel="tag"># DataScience</a>
+          
+            <a href="/tags/R-Markdown/" rel="tag"># R Markdown</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/03/jhu-coursera-regression-model-quizes/" rel="next" title="JHU Coursera Regression Model Quizes">
+                <i class="fa fa-chevron-left"></i> JHU Coursera Regression Model Quizes
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODY0Mi8xNTE3MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avator.png"
+                alt="Autoz" />
+            
+              <p class="site-author-name" itemprop="name">Autoz</p>
+              <p class="site-description motion-element" itemprop="description">Fidelty.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/autolordz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:autolordz@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#datatools-course-project-数据科学工具"><span class="nav-number">1.</span> <span class="nav-text">Datatools Course Project 数据科学工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#读取csv格式-2006年美国社区调查acs"><span class="nav-number">1.1.</span> <span class="nav-text">读取csv格式 2006年美国社区调查（ACS）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读取几十上百m的数据算大文件运算应该考虑花销"><span class="nav-number">1.1.1.</span> <span class="nav-text">读取几十上百m的数据算大文件，运算应该考虑花销</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单计算求和时间"><span class="nav-number">1.1.2.</span> <span class="nav-text">简单计算求和时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-1"><span class="nav-number">1.1.3.</span> <span class="nav-text">Quiz 1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读取xlsxlsx格式-美国国家天然气采购计划"><span class="nav-number">1.2.</span> <span class="nav-text">读取xls,xlsx格式 美国国家天然气采购计划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-3"><span class="nav-number">1.2.1.</span> <span class="nav-text">Quiz 3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读取xml格式-巴的摩尔餐厅数据"><span class="nav-number">1.3.</span> <span class="nav-text">读取xml格式 巴的摩尔餐厅数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#quiz-4"><span class="nav-number">1.3.1.</span> <span class="nav-text">Quiz 4</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Autoz</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">15k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">14 mins.</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.3.0"></script>
+
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
