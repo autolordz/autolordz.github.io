@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="\(\pagebreak\) Overview and History of R  R = dialect of the S language  S was developed by John Chambers @ Bell Labs initiated in 1976 as internal tool, originally FORTRAN libraries 1988 rewri">
+<meta name="keywords" content="R,DataScience,R Markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R Programming Course Notes">
+<meta property="og:url" content="http://yoursite.com/2018/08/07/R-Programming-Course-Notes/index.html">
+<meta property="og:site_name" content="AutozLand">
+<meta property="og:description" content="\(\pagebreak\) Overview and History of R  R = dialect of the S language  S was developed by John Chambers @ Bell Labs initiated in 1976 as internal tool, originally FORTRAN libraries 1988 rewri">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-08-07T03:53:36.786Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R Programming Course Notes">
+<meta name="twitter:description" content="\(\pagebreak\) Overview and History of R  R = dialect of the S language  S was developed by John Chambers @ Bell Labs initiated in 1976 as internal tool, originally FORTRAN libraries 1988 rewri">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/07/R-Programming-Course-Notes/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>R Programming Course Notes | AutozLand</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AutozLand</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Autoz's Learning Blogs</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">6</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">3</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/07/R-Programming-Course-Notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Autoz">
+      <meta itemprop="description" content="Fidelty.">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AutozLand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">R Programming Course Notes<a href="https://github.com/theme-next/theme-next.org/_posts/tree/master/R-Programming-Course-Notes.md" class="post-edit-link" title="Edit this post" target="_blank">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-07 11:48:47 / Modified: 11:53:36" itemprop="dateCreated datePublished" datetime="2018-08-07T11:48:47+08:00">2018-08-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">40k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">37 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="overview-and-history-of-r">Overview and History of R</h2>
+<ul>
+<li><strong>R</strong> = dialect of the <strong>S</strong> language
+<ul>
+<li>S was developed by John Chambers @ Bell Labs</li>
+<li>initiated in 1976 as internal tool, originally FORTRAN libraries</li>
+<li>1988 rewritten in C (version 3 of language)</li>
+<li>1998 version 4 (what we use today)</li>
+</ul></li>
+<li><strong>History of S</strong>
+<ul>
+<li>Bell labs <span class="math inline">\(\rightarrow\)</span> insightful <span class="math inline">\(\rightarrow\)</span> Lucent <span class="math inline">\(\rightarrow\)</span> Alcatel-Lucent</li>
+<li>in 1998, S won the Association for computing machinery’s software system award</li>
+</ul></li>
+<li><strong>History of R</strong>
+<ul>
+<li>1991 created in New Zealand by Ross Ihaka &amp; RobertGentleman</li>
+<li>1993 first announcement of R to public</li>
+<li>1995 Martin Machler convinces founders to use GNU General Public license to make R free</li>
+<li>1996 public mailing list created R-help and R-devel</li>
+<li>1997 R Core Group formed</li>
+<li>2000 R v1.0.0 released</li>
+</ul></li>
+<li><strong>R Features</strong>
+<ul>
+<li>Syntax similar to S, semantics similar to S, runs on any platforms, frequent releasees</li>
+<li>lean software, functionalities in modular packages, sophisticated graphics capabilities</li>
+<li>useful for interactive work, powerful programming language</li>
+<li>active user community and <strong><em>FREE</em></strong> (4 freedoms)
+<ul>
+<li>freedom to run the program</li>
+<li>freedom to study how the program works and adapt it</li>
+<li>freedom to redistribute copies</li>
+<li>freedom to improve the program</li>
+</ul></li>
+</ul></li>
+<li><strong>R Drawbacks</strong>
+<ul>
+<li>40 year-old technology</li>
+<li>little built-in support for dynamic/3D graphics</li>
+<li>functionality based on consumer demand</li>
+<li>objects generally stored in physical memory (limited by hardware)</li>
+</ul></li>
+<li><strong>Design of the R system</strong>
+<ul>
+<li>2 conceptual parts: base R from CRAN vs. everything else</li>
+<li>functionality divided into different packages
+<ul>
+<li><strong>base R</strong> contains core functionality and fundamental functions</li>
+<li>other utility packages included in the base install: <code>util</code>, <code>stats</code>, <code>datasets</code>, …</li>
+<li>Recommended packages: <code>bootclass</code>, <code>KernSmooth</code>, etc</li>
+</ul></li>
+<li>5000+ packages available</li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="coding-standards">Coding Standards</h2>
+<ul>
+<li>Always use text files/editor</li>
+<li>Indent code (4 space minimum)</li>
+<li>limit the width of code (80 columns)</li>
+<li>limit the length of individual functions</li>
+</ul>
+<h2 id="workspace-and-files">Workspace and Files</h2>
+<ul>
+<li><code>getwd()</code> = return current working directory</li>
+<li><code>setwd()</code> = set current working directory</li>
+<li><code>?function</code> = brings up help for that function</li>
+<li><code>dir.create(&quot;path/foldername&quot;, recursive = TRUE)</code> = create directories/subdirectories</li>
+<li><code>unlink(directory, recursive = TRUE)</code> = delete directory and subdirectories</li>
+<li><code>ls()</code> = list all objects in the local workspace</li>
+<li><code>list.files(recursive = TRUE)</code> = list all, including subdirectories</li>
+<li><code>args(function)</code> = returns arguments for the function</li>
+<li><code>file.create(&quot;name&quot;)</code> = create file
+<ul>
+<li><code>.exists(&quot;name&quot;)</code> = return true/false exists in working directory</li>
+<li><code>.info(&quot;name&quot;)</code> = return file info</li>
+<li><code>.info(&quot;name&quot;)$property</code> = returns value for the specific attribute</li>
+<li><code>.rename(&quot;name1&quot;, &quot;name2&quot;)</code> = rename file</li>
+<li><code>.copy(&quot;name1&quot;, &quot;name2&quot;)</code> = copy file</li>
+<li><code>.path(&quot;name1&quot;)</code> = return path of file</li>
+</ul></li>
+</ul>
+<h2 id="r-console-and-evaluation">R Console and Evaluation</h2>
+<ul>
+<li><code>&lt;-</code> = assignment operator</li>
+<li><code>#</code> = comment</li>
+<li>expression is evaluated after hitting <code>enter</code> and result is returned</li>
+<li>autoprinting occurs when you call a variable
+<ul>
+<li><code>print(x)</code> = explicitly printing</li>
+</ul></li>
+<li><code>[1]</code> at the beginning of the output = which element of the vector is being shown</li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="r-objects-and-data-structures">R Objects and Data Structures</h2>
+<ul>
+<li>5 basic/<strong>atomic classes</strong> of objects:
+<ol type="1">
+<li>character</li>
+<li>numeric</li>
+<li>integer</li>
+<li>complex</li>
+<li>logical</li>
+</ol></li>
+<li><strong>Numbers</strong>
+<ul>
+<li>numbers generally treated as <code>numeric</code> objects (double precision real numbers - decimals)</li>
+<li>Integer objects can be created by adding <code>L</code> to the end of a number(ex. <code>1L</code>)</li>
+<li><code>Inf</code> = infinity, can be used in calculations</li>
+<li><code>NaN</code> = not a number/undefined</li>
+<li><code>sqrt(value)</code> = square root of value</li>
+</ul></li>
+<li><strong>Variables</strong>
+<ul>
+<li><code>variable &lt;- value</code> = assignment of a value to a variable name</li>
+</ul></li>
+</ul>
+<h3 id="vectors-and-lists">Vectors and Lists</h3>
+<ul>
+<li><strong>atomic vector</strong> = contains one data type, most basic object
+<ul>
+<li><code>vector &lt;- c(value1, value2, ...)</code> = creates a vector with specified values</li>
+<li><code>vector1*vector2</code> = element by element multiplication (rather than matrix multiplication)
+<ul>
+<li>if the vectors are of different lengths, shorter vector will be recycled until the longer runs out</li>
+<li>computation on vectors/between vectors (<code>+</code>, <code>-</code>, <code>==</code>, <code>/</code>, etc.) are done element by element by default</li>
+<li><code>%*%</code> = force matrix multiplication between vectors/matrices</li>
+</ul></li>
+<li><code>vector(&quot;class&quot;, n)</code> = creates empty vector of length n and specified class
+<ul>
+<li><code>vector(&quot;numeric&quot;, 3)</code> = creates 0 0 0</li>
+</ul></li>
+</ul></li>
+<li><code>c()</code> = concatenate
+<ul>
+<li><code>T, F</code> = shorthand for <code>TRUE</code> and <code>FALSE</code></li>
+<li><code>1+0i</code> = complex numbers</li>
+</ul></li>
+<li><strong>explicit coercion</strong>
+<ul>
+<li><code>as.numeric(x)</code>, <code>as.logical(x)</code>, <code>as.character(x)</code>, <code>as.complex(x)</code> = convert object from one class to another</li>
+<li>nonsensible coercion will result in NA (ex. <code>as.numeric(c(&quot;a&quot;, &quot;b&quot;)</code>)</li>
+<li><code>as.list(data.frame)</code> = converts a <code>data.frame</code> object into a <code>list</code> object</li>
+<li><code>as.character(list)</code> = converts list into a character vector</li>
+</ul></li>
+<li><strong>implicit coercion</strong>
+<ul>
+<li>matrix/vector can only contain one data type, so when attempting to create matrix/vector with different classes, forced coercion occurs to make every element to same class
+<ul>
+<li><em>least common denominator</em> is the approach used (basically everything is converted to a class that all values can take, numbers <span class="math inline">\(\rightarrow\)</span> characters) and <em>no errors generated</em></li>
+<li>coercion occurs to make every element to same class (implicit)</li>
+<li><code>x &lt;- c(NA, 2, &quot;D&quot;)</code> will create a vector of character class</li>
+</ul></li>
+</ul></li>
+<li><code>list()</code> = special vector wit different classes of elements
+<ul>
+<li><code>list</code> = vector of objects of different classes</li>
+<li>elements of list use <code>[[]]</code>, elements of other vectors use <code>[]</code></li>
+</ul></li>
+<li><strong>logical vectors</strong> = contain values <code>TRUE</code>, <code>FALSE</code>, and <code>NA</code>, values are generated as result of logical conditions comparing two objects/values</li>
+<li><code>paste(characterVector, collapse = &quot; &quot;)</code> = join together elements of the vector and separating with the <code>collapse</code> parameter</li>
+<li><code>paste(vec1, vec2, sep = &quot; &quot;)</code> = join together different vectors and separating with the <code>sep</code> parameter
+<ul>
+<li><em><strong>Note</strong>: vector recycling applies here too </em></li>
+<li><code>LETTERS</code>, <code>letters</code>= predefined vectors for all 26 upper and lower letters</li>
+</ul></li>
+<li><code>unique(values)</code> = returns vector with all duplicates removed</li>
+</ul>
+<h3 id="matrices-and-data-frames">Matrices and Data Frames</h3>
+<ul>
+<li><code>matrix</code> can contain <strong>only 1</strong> type of data</li>
+<li><code>data.frame</code> can contain <strong>multiple</strong></li>
+<li><code>matrix(values, nrow = n, ncol = m)</code> = creates a n by m matrix
+<ul>
+<li>constructed <strong>COLUMN WISE</strong> <span class="math inline">\(\rightarrow\)</span> the elements are placed into the matrix from top to bottom for each column, and by column from left to right</li>
+<li>matrices can also be created by adding the dimension attribute to vector
+<ul>
+<li><code>dim(m) &lt;- c(2, 5)</code></li>
+</ul></li>
+<li>matrices can also be created by binding columns and rows
+<ul>
+<li><code>rbind(x, y)</code>, <code>cbind(x, y)</code> = combine rows/columns; can be used on vectors or matrices</li>
+</ul></li>
+<li><code>*</code> and <code>/</code> = element by element computation between two matrices
+<ul>
+<li><code>%*%</code> = matrix multiplication</li>
+</ul></li>
+</ul></li>
+<li><code>dim(obj)</code> = dimensions of an object (returns <code>NULL</code> if a vector)
+<ul>
+<li><code>dim(obj) &lt;- c(4, 5)</code> = assign <code>dim</code> attribute to an object
+<ul>
+<li>if object is a vector, R converts the vector to a n by m matrix (i.e. 4 rows by 5 column from the example command)
+<ul>
+<li><em><strong>Note</strong>: if n by m is larger than length of vector, then an error is returned</em></li>
+</ul></li>
+<li><strong><em>example</em></strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># initiate a vector</span><br><span class="line">x &lt;-c(NA, 1, &quot;cx&quot;, NA, 2, &quot;dsa&quot;)</span><br><span class="line">class(x)</span><br><span class="line">x</span><br><span class="line"></span><br><span class="line"># convert to matrix</span><br><span class="line">dim(x) &lt;- c(3, 2)</span><br><span class="line">class(x)</span><br><span class="line">x</span><br></pre></td></tr></table></figure></li>
+</ul></li>
+</ul></li>
+<li><code>data.frame(var = 1:4, var2 = c(….))</code> = creates a data frame
+<ul>
+<li><code>nrow()</code>, <code>ncol()</code> = returns row and column numbers</li>
+<li><code>data.frame(vector, matrix)</code> = takes any number of arguments and returns a single object of class “data.frame” composed of original objects</li>
+<li><code>as.data.frame(obj)</code> = converts object to data frame</li>
+<li>data frames store tabular data</li>
+<li>special type of list where every list has the same length (can be of different type)</li>
+<li>data frames are usually created through <code>read.table()</code> and <code>read.csv()</code></li>
+<li><code>data.matrix()</code> = converts a data frame to matrix.</li>
+</ul></li>
+<li><code>colMeans(matrix)</code> or <code>rowMeans(matrix)</code> = returns means of the columns/rows of a matrix/dataframe in a vector</li>
+<li><code>as.numeric(rownames(df))</code> = returns row indices for rows of a data frame with unnamed rows</li>
+<li><strong>attributes</strong>
+<ul>
+<li>objects can have attributes: <code>names</code>, <code>dimnames</code>, <code>row.names</code>, <code>dim</code> (matrices, arrays), <code>class</code>, <code>length</code>, or any user-defined ones</li>
+<li><code>attributes(obj)</code>, <code>class(obj)</code> = return attributes/class for an R object</li>
+<li><code>attr(object, &quot;attribute&quot;) &lt;- &quot;value&quot;</code> = creates/assigns a value to a new/existing attribute for the object</li>
+<li><code>names</code> attribute
+<ul>
+<li>all objects can have names</li>
+<li><code>names(x)</code> = returns names (<code>NULL</code> if no name exists)
+<ul>
+<li><code>names(x) &lt;- c(&quot;a&quot;, …)</code> = can be used to assign names to vectors</li>
+</ul></li>
+<li><code>list(a = 1, b = 2, …)</code> = <code>a</code>, <code>b</code> are names</li>
+<li><code>dimnames(matrix) &lt;- list(c(&quot;a&quot;, &quot;b&quot;), c(&quot;c&quot; , &quot;d&quot;))</code> = assign names to matrices
+<ul>
+<li>use list of two vectors: row, column in that order</li>
+</ul></li>
+</ul></li>
+<li><code>colnames(data.frame)</code> = return column names (can be used to set column names as well, similar to <code>dim()</code>)</li>
+<li><code>row.names</code> = names of rows in the data frame (attribute)</li>
+</ul></li>
+</ul>
+<h3 id="arrays">Arrays</h3>
+<ul>
+<li>multi-dimensional collection of data with <span class="math inline">\(k\)</span> dimensions
+<ul>
+<li>matrix = 2 dimensional array</li>
+</ul></li>
+<li><code>array(data, dim, dimnames)</code>
+<ul>
+<li><code>data</code> = data to be stored in array</li>
+<li><code>dim</code> = dimensions of the array
+<ul>
+<li><code>dim = c(2, 2, 5)</code> = 3 dimensional array <span class="math inline">\(\rightarrow\)</span> creates 5 2x2 array</li>
+</ul></li>
+<li><code>dimnames</code> = add names to the dimensions
+<ul>
+<li>input must be a <code>list</code></li>
+<li>every element of the <code>list</code> must correspond in length to the dimensions of the array</li>
+<li><code>dimnames(x) &lt;- list(c(&quot;a&quot;, &quot;b&quot;), c(&quot;c&quot;, &quot;d&quot;), c(&quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;))</code> = set the names for row, column, and third dimension respectively (2 x 2 x 5 in this case)</li>
+</ul></li>
+</ul></li>
+<li><code>dim()</code> function can be used to create arrays from vectors or matrices
+<ul>
+<li><code>x &lt;- rnorm(20); dim(x) &lt;- c(2, 2, 5)</code> = converts a 20 element vector to a 2x2x5 array</li>
+</ul></li>
+</ul>
+<h3 id="factors">Factors</h3>
+<ul>
+<li>factors are used to represent <em>categorical data</em> (integer vector where each value has a label)</li>
+<li>2 types: <strong>unordered</strong> vs <strong>ordered</strong></li>
+<li>treated specially by <code>lm()</code>, <code>glm()</code></li>
+<li>Factors easier to understand because they self describe (vs. 1 and 2)</li>
+<li><code>factor(c(&quot;a&quot;, &quot;b&quot;), levels = c(&quot;1&quot;, &quot;2&quot;))</code> = creates factor
+<ul>
+<li><code>levels()</code> argument can be used to specify baseline levels vs other levels
+<ul>
+<li><em><strong>Note</strong>:without explicit specification, R uses alphabetical order</em></li>
+</ul></li>
+<li><code>table(factorVar)</code> = how many of each are in the factor</li>
+</ul></li>
+</ul>
+<a id="more"></a>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="missing-values">Missing Values</h2>
+<ul>
+<li><code>NaN</code> or <code>NA</code> = missing values
+<ul>
+<li><code>NaN</code> = undefined mathematical operations</li>
+<li><code>NA</code> = any value not available or missing in the statistical sense
+<ul>
+<li>any operations with <code>NA</code> results in <code>NA</code></li>
+<li>NA can have different classes potentially (integer, character, etc)</li>
+</ul></li>
+<li><em><strong>Note</strong>: NaN is an NA value, but NA is not NaN</em></li>
+</ul></li>
+<li><code>is.na()</code>, <code>is.nan()</code> = use to test if each element of the vector is <code>NA</code> and <code>NaN</code>
+<ul>
+<li><em><strong>Note</strong>: cannot compare <code>NA</code> (with <code>==</code>) as it is not a value but a <strong>placeholder</strong> for a quantity that is not available</em></li>
+</ul></li>
+<li><p><code>sum(my_na)</code> = sum of a logical vector (<code>TRUE</code> = 1 and <code>FALSE</code> = 0) is effectively the number of <code>TRUE</code>s</p></li>
+<li><strong>Removing <code>NA</code> Values</strong>
+<ul>
+<li><code>is.na()</code> = creates logical vector where T is where value exists, F is <code>NA</code>
+<ul>
+<li>subsetting with the above result can return only the non NA elements</li>
+</ul></li>
+<li><code>complete.cases(obj1, obj2)</code> = creates logical vector where <code>TRUE</code> is where both values exist, and <code>FALSE</code> is where any is <code>NA</code>
+<ul>
+<li>can be used on data frames as well</li>
+<li><code>complete.cases(data.frame)</code> = creates logical vectors indicating which observation/row is good</li>
+<li><code>data.frame[logicalVector, ]</code> = returns all observations with complete data</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Imputing Missing Values</strong> = replacing missing values with estimates (can be averages from all other data with the similar conditions)</p></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="sequence-of-numbers">Sequence of Numbers</h2>
+<ul>
+<li><code>1:20</code> = creates a sequence of numbers from first number to second number
+<ul>
+<li>works in descending order as well</li>
+<li>increment = 1</li>
+</ul></li>
+<li><code>?':'</code> = enclose help for operators</li>
+<li><code>seq(1, 20, by=0.5)</code> = sequence 1 to 20 by increment of .5
+<ul>
+<li><code>length=30</code> argument can be used to specify number of values generated</li>
+</ul></li>
+<li><code>length(variable)</code> = length of vector/sequence</li>
+<li><code>seq_along(vector)</code> or <code>seq(along.with = vector)</code> = create vector that is same length as another vector</li>
+<li><code>rep(0, times = 40)</code> = creates a vector with 40 zeroes
+<ul>
+<li><code>rep(c(1, 2), times = 10)</code> = repeats combination of numbers 10 times</li>
+<li><code>rep(c(1, 2), each = 10)</code> = repeats first value 10 times followed by second value 10 times</li>
+</ul></li>
+</ul>
+<h2 id="subsetting">Subsetting</h2>
+<ul>
+<li>R uses <strong>one based index</strong> <span class="math inline">\(\rightarrow\)</span> starts counting at <span class="math inline">\(1\)</span>
+<ul>
+<li><code>x[0]</code> returns <code>numeric(0)</code>, not error</li>
+<li><code>x[3000]</code> returns <code>NA</code> (not out of bounds/error)</li>
+</ul></li>
+<li><code>[]</code> = always returns object of same class, can select more than one element of an object (ex. <code>[1:2]</code>)</li>
+<li><code>[[]]</code> = can extract one element from list or data frame, returned object not necessarily list/dataframe</li>
+<li><code>$</code> = can extract elements from list/dataframe that have names associated with it, not necessarily same class</li>
+</ul>
+<h3 id="vectors">Vectors</h3>
+<ul>
+<li><code>x[1:10]</code> = first 10 elements of vector x</li>
+<li><code>x[is.na(x)]</code> = returns all NA elements</li>
+<li><code>x[!is.na(x)]</code> = returns all non NA elements
+<ul>
+<li><code>x &gt; 0</code> = would return logical vector comparing all elements to 0 (<code>TRUE</code>/<code>FALSE</code> for all values except for NA and <code>NA</code> for NA elements (NA a placeholder)</li>
+</ul></li>
+<li><code>x[x&gt;&quot;a&quot;]</code> = selects all elements bigger than a (lexicographical order in place)</li>
+<li><code>x[logicalIndex]</code> = select all elements where logical index = TRUE</li>
+<li><code>x[-c(2, 10)]</code> = returns everything <strong>but</strong> the second and tenth element</li>
+<li><code>vect &lt;- c(a = 1, b = 2, c = 3)</code> = names values of a vector with corresponding names</li>
+<li><code>names(vect)</code> = returns element names for object
+<ul>
+<li><code>names(vet) &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</code> = assign/change names of vector</li>
+</ul></li>
+<li><code>identical(obj1, obj2)</code> = returns TRUE if two objects are exactly equal</li>
+<li><code>all.equal(obj1, obj2)</code> = returns TRUE if two objects are near equal</li>
+</ul>
+<h3 id="lists">Lists</h3>
+<ul>
+<li><code>x &lt;- list(foo = 1:4, bar = 0.6)</code></li>
+<li><code>x[1]</code> or <code>x[&quot;foo&quot;]</code> = returns the list object <code>foo</code></li>
+<li><code>x[[2]]</code> or <code>x[[&quot;bar&quot;]]</code> or <code>x$bar</code> = returns the content of the second element from the list (in this case vector without name attribute)
+<ul>
+<li><em><strong>Note</strong>: <code>$</code> can’t extract multiple elements </em></li>
+</ul></li>
+<li><code>x[c(1, 3)]</code> = extract multiple elements of list</li>
+<li><code>x[[name]]</code> = extract using variable, where as <code>$</code> must match name of element</li>
+<li><code>x[[c(1, 3)]]</code> or <code>x[[1]][[3]]</code> = extracted nested elements of list third element of the first object extracted from the list</li>
+</ul>
+<h3 id="matrices">Matrices</h3>
+<ul>
+<li><code>x[1, 2]</code> = extract the (row, column) element
+<ul>
+<li><code>x[,2]</code> or <code>x[1,]</code> = extract the entire column/row</li>
+</ul></li>
+<li><code>x[ , 11:17]</code> = subset the x <code>data.frame</code> with all rows, but only 11 to 17 columns</li>
+<li>when an element from the matrix is retrieved, a vector is returned
+<ul>
+<li>behavior can be turned off (force return a matrix) by adding <code>drop = FALSE</code>
+<ul>
+<li><code>x[1, 2, drop = F]</code></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="partial-matching">Partial Matching</h3>
+<ul>
+<li>works with <code>[[]]</code> and <code>$</code></li>
+<li><code>$</code> automatically partial matches the name (<code>x$a</code>)</li>
+<li><code>[[]]</code> can partial match by adding exact = <code>FALSE</code>
+<ul>
+<li><code>x[[&quot;a&quot;, exact = false]]</code></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="logic">Logic</h2>
+<ul>
+<li><code>&lt;</code>, <code>&gt;=</code> = less than, greater or equal to</li>
+<li><code>==</code> = exact equality</li>
+<li><code>!=</code> = inequality</li>
+<li><code>A | B</code> = union</li>
+<li><code>A &amp; B</code> = intersection</li>
+<li><code>!</code> = negation</li>
+<li><code>&amp;</code> or <code>|</code> evaluates every instance/element in vector</li>
+<li><code>&amp;&amp;</code> or <code>||</code> evaluate only first element
+<ul>
+<li><em><strong>Note</strong>: All AND operators are evaluated before OR operators </em></li>
+</ul></li>
+<li><code>isTRUE(condition)</code> = returns <code>TRUE</code> or <code>FALSE</code> of the condition</li>
+<li><code>xor(arg1, arg2)</code> = exclusive OR, one argument must equal <code>TRUE</code> one must equal <code>FALSE</code></li>
+<li><code>which(condition)</code> = find the indicies of elements that satisfy the condition (TRUE)</li>
+<li><code>any(condition)</code> = <code>TRUE</code> if one or more of the elements in logical vector is <code>TRUE</code></li>
+<li><code>all(condition)</code> = <code>TRUE</code> if all of the elements in logical vector is <code>TRUE</code></li>
+</ul>
+<h2 id="understanding-data">Understanding Data</h2>
+<ul>
+<li>use <code>class()</code>, <code>dim()</code>, <code>nrow()</code>, <code>ncol()</code>, <code>names()</code> to understand dataset
+<ul>
+<li><code>object.size(data.frame)</code> = returns how much space the dataset is occupying in memory</li>
+</ul></li>
+<li><code>head(data.frame, 10)</code>, <code>tail(data.frame, 10)</code> = returns first/last 10 rows of data; default = 6</li>
+<li><code>summary()</code> = provides different output for each variable, depending on class,
+<ul>
+<li>for numerical variables, displays min max, mean median, etx.</li>
+<li>for categorical (factor) variables, displays number of times each value occurs</li>
+</ul></li>
+<li><code>table(data.frame$variable)</code> = table of all values of the variable, and how many observations there are for each
+<ul>
+<li><em><strong>Note</strong>: mean for variables that only have values 1 and 0 = proportion of success</em></li>
+</ul></li>
+<li><code>str(data.frame)</code> = structure of data, provides data class, num of observations vs variables, and name of class of each variable and preview of its contents
+<ul>
+<li>compactly display the internal structure of an R object</li>
+<li>“What’s in this object”</li>
+<li>well-suited to compactly display the contents of lists</li>
+</ul></li>
+<li><code>view(data.frame)</code> = opens and view the content of the data frame</li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="split-apply-combine-funtions">Split-Apply-Combine Funtions</h2>
+<ul>
+<li>loop functions = convenient ways of implementing the Split-Apply-Combine strategy for data analysis</li>
+</ul>
+<h3 id="split"><code>split()</code></h3>
+<ul>
+<li>takes a vector/objects and splits it into group b a factor or list of factors</li>
+<li><code>split(x, f, drop = FALSE)</code>
+<ul>
+<li><code>x</code> = vector/list/data frame</li>
+<li><code>f</code> = factor/list of factors</li>
+<li><code>drop</code> = whether empty factor levels should be dropped</li>
+</ul></li>
+<li><code>interactions(gl(2, 5), gl(5, 2))</code> = 1.1, 1.2, … 2.5
+<ul>
+<li><code>gl(n, m)</code> = group level function
+<ul>
+<li><code>n</code> = number of levels</li>
+<li><code>m</code> = number of repetitions</li>
+</ul></li>
+<li><code>split</code> function can do this by passing in list(f1, f2) in argument
+<ul>
+<li><code>split(data, list(gl(2, 5), gl(5, 2)))</code> = splits the data into 1.1, 1.2, … 2.5 levels</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="apply"><code>apply()</code></h3>
+<ul>
+<li>evaluate a function (often anonymous) over the margins of an array</li>
+<li>often used to apply a function to the row/columns of a matrix</li>
+<li>can be used to average array of matrices (general arrays)</li>
+<li><code>apply(x, margin = 2, FUN, ...)</code>
+<ul>
+<li><code>x</code> = array</li>
+<li><code>MARGIN</code> = 2 (column), 1 (row)</li>
+<li><code>FUN</code> = function</li>
+<li><code>…</code> = other arguments that need to be passed to other functions</li>
+</ul></li>
+<li><strong><em>examples</em></strong>
+<ul>
+<li><code>apply(x, 1, sum)</code> or <code>apply(x, 1, mean)</code> = find row sums/means</li>
+<li><code>apply(x, 2, sum)</code> or <code>apply(x, 2, mean)</code> = find column sums/means</li>
+<li><code>apply(x, 1, quantile, props = c(0.25, 0.75))</code> = find 25% 75% percentile of each row</li>
+<li><code>a &lt;- array(rnorm(2*2*10), c(2, 2, 10))</code> = create 10 2x2 matrix</li>
+<li><code>apply(a, c(1, 2), mean)</code> = returns the means of 10</li>
+</ul></li>
+</ul>
+<h3 id="lapply"><code>lapply()</code></h3>
+<ul>
+<li>loops over a <code>list</code> and evaluate a function on each element and always returns a <strong><code>list</code></strong>
+<ul>
+<li><em><strong>Note</strong>: since input must be a list, it is possible that conversion may be needed</em></li>
+</ul></li>
+<li><code>lapply(x, FUN, ...)</code> = takes list/vector as input, applies a function to each element of the list, returns a list of the same length
+<ul>
+<li><code>x</code> = list (if not list, will be coerced into list through “as.list”, if not possible —&gt; error)
+<ul>
+<li><code>data.frame</code> are treated as collections of lists and can be used here</li>
+</ul></li>
+<li><code>FUN</code> = function (without parentheses)
+<ul>
+<li>anonymous functions are acceptable here as well - (i.e <code>function(x) x[,1]</code>)</li>
+</ul></li>
+<li><code>…</code> = other/additional arguments to be passed for FUN (i.e. <code>min</code>, <code>max</code> for <code>runif()</code>)</li>
+</ul></li>
+<li><strong><em>example</em></strong>
+<ul>
+<li><code>lapply(data.frame, class)</code> = the data.frame is a list of vectors, the <code>class</code> value for each vector is returned in a list (name of function, <code>class</code>, is without parentheses)</li>
+<li><code>lapply(values, function(elem), elem[2])</code> = example of an anonymous function</li>
+</ul></li>
+</ul>
+<h3 id="sapply"><code>sapply()</code></h3>
+<ul>
+<li>performs same function as <code>lapply()</code> except it simplifies the result
+<ul>
+<li>if result is of length 1 in every element, sapply returns vector</li>
+<li>if result is vectors of the same length (&gt;1) for each element, sapply returns matrix</li>
+<li>if not possible to simplify, <code>sapply</code> returns a <code>list</code> (same as <code>lapply()</code>)</li>
+</ul></li>
+</ul>
+<h3 id="vapply"><code>vapply()</code></h3>
+<ul>
+<li>safer version of <code>sapply</code> in that it allows to you specify the format for the result
+<ul>
+<li><code>vapply(flags, class, character(1))</code> = returns the <code>class</code> of values in the flags variable in the form of character of length 1 (1 value)</li>
+</ul></li>
+</ul>
+<h3 id="tapply"><code>tapply()</code></h3>
+<ul>
+<li>split data into groups, and apply the function to data within each subgroup</li>
+<li><code>tapply(data, INDEX, FUN, ..., simplify = FALSE)</code> = apply a function over subsets of a vector
+<ul>
+<li><code>data</code> = vector</li>
+<li><code>INDEX</code> = factor/list of factors</li>
+<li><code>FUN</code> = function</li>
+<li><code>…</code> = arguments to be passed to function</li>
+<li><code>simplify</code> = whether to simplify the result</li>
+</ul></li>
+<li><strong><em>example</em></strong>
+<ul>
+<li><code>x &lt;- c(rnorm(10), runif(10), rnorm(10, 1))</code></li>
+<li><code>f &lt;- gl(3, 10); tapply(x, f, mean)</code> = returns the mean of each group (f level) of x data</li>
+</ul></li>
+</ul>
+<h3 id="mapply"><code>mapply()</code></h3>
+<ul>
+<li>multivariate apply, applies a function in parallel over a set of arguments</li>
+<li><code>mapply(FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE)</code>
+<ul>
+<li><code>FUN</code> = function</li>
+<li><code>…</code> = arguments to apply over</li>
+<li><code>MoreArgs</code> = list of other arguments to FUN</li>
+<li><code>SIMPLIFY</code> = whether the result should be simplified</li>
+</ul></li>
+<li><strong><em>example</em></strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapply(rep, 1:4, 4:1)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="aggregate"><code>aggregate()</code></h3>
+<ul>
+<li>aggregate computes summary statistics of data subsets (similar to multiple <code>tapply</code> at the same time)</li>
+<li><code>aggregate(list(name = dataToCompute), list(name = factorVar1,name = factorVar2), function, na.rm = TRUE)</code>
+<ul>
+<li><code>dataToCompute</code> = this is what the function will be applied on</li>
+<li><code>factorVar1, factorVar1</code> = factor variables to split the data by</li>
+<li><em><strong>Note</strong>: order matters here in terms of how to break down the data </em></li>
+<li><code>function</code> = what is applied to the subsets of data, can be sum/mean/median/etc</li>
+<li><code>na.rm = TRUE</code> <span class="math inline">\(\rightarrow\)</span> removes NA values</li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="simulation">Simulation</h2>
+<ul>
+<li><code>sample(values, n, replace = FALSE)</code> = generate random samples
+<ul>
+<li><code>values</code> = values to sample from</li>
+<li><code>n</code> = number of values generated</li>
+<li><code>replace</code> = with or without replacement</li>
+<li><code>sample(1:6, 4, replace = TRUE, prob=c(.2, .2…))</code> = choose four values from the range specified with replacing (same numbers can show up twice), with probabilities specified</li>
+<li><code>sample(vector)</code> = can be used to permute/rearrange elements of a vector</li>
+<li><code>sample(c(y, z), 100)</code> = select 100 random elements from combination of values y and z</li>
+<li><code>sample(10)</code> = select positive integer sample of size 10 without repeat</li>
+</ul></li>
+<li>Each probability distribution functions usually have 4 functions associated with them:
+<ul>
+<li><code>r***</code> function (for “random”) <span class="math inline">\(\rightarrow\)</span> random number generation (ex. <code>rnorm</code>)</li>
+<li><code>d***</code> function (for “density”) <span class="math inline">\(\rightarrow\)</span> calculate density (ex. <code>dunif</code>)</li>
+<li><code>p***</code> function (for “probability”) <span class="math inline">\(\rightarrow\)</span> cumulative distribution (ex. <code>ppois</code>)</li>
+<li><code>q***</code> function (for “quantile”) <span class="math inline">\(\rightarrow\)</span> quantile function (ex. <code>qbinom</code>)</li>
+</ul></li>
+<li>If <span class="math inline">\(\Phi\)</span> is the cumulative distribution function for a standard Normal distribution, then <code>pnorm(q)</code> = <span class="math inline">\(\Phi(q)\)</span> and qnorm(p) = <span class="math inline">\(\Phi^{-1}(q)\)</span>.</li>
+<li><code>set.seed()</code> = sets seed for randon number generator to ensure that the same data/analysis can be reproduced</li>
+</ul>
+<h3 id="simulation-examples">Simulation Examples</h3>
+<ul>
+<li><code>rbinom(1, size = 100, prob = 0.7)</code> = returns a binomial random variable that represents the number of successes in a give number of independent trials
+<ul>
+<li><code>1</code> = corresponds number of observations</li>
+<li><code>size = 100</code> = corresponds with the number of independent trials that culminate to each resultant observation</li>
+<li><code>prob = 0.7</code> = probability of success</li>
+</ul></li>
+<li><code>rnorm(n, mean = m, sd = s)</code> = generate n random samples from the standard normal distribution (mean = 0, std deviation = 1 by default)
+<ul>
+<li><code>rnorm(1000)</code> = 1000 draws from the standard normal distribution</li>
+<li><code>n</code> = number of observation generated</li>
+<li><code>mean = m</code> = specified mean of distribution</li>
+<li><code>sd = s</code> = specified standard deviation of distribution</li>
+</ul></li>
+<li><code>dnorm(x, mean = 0, sd = 1, log = FALSE)</code>
+<ul>
+<li><code>log</code> = evaluate on log scale</li>
+</ul></li>
+<li><code>pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)</code>
+<ul>
+<li><code>lower.tail</code> = left side, <code>FALSE</code> = right</li>
+</ul></li>
+<li><code>qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)</code>
+<ul>
+<li><code>lower.tail</code> = left side, <code>FALSE</code> = right</li>
+</ul></li>
+<li><code>rpois(n, lambda)</code> = generate random samples from the poisson distrbution
+<ul>
+<li><code>n</code> = number of observations generated</li>
+<li><code>lambda</code> = <span class="math inline">\(\lambda\)</span> parameter for the poisson distribution or rate</li>
+</ul></li>
+<li><code>rpois(n, r)</code> = generating Poisson Data
+<ul>
+<li><code>n</code> = number of values</li>
+<li><code>r</code> = rate</li>
+</ul></li>
+<li><code>ppois(n, r)</code> = cumulative distribution
+<ul>
+<li><code>ppois(2, 2)</code> = <span class="math inline">\(Pr(x&lt;=2)\)</span></li>
+</ul></li>
+<li><code>replicate(n, rpois())</code> = repeat operation n times</li>
+</ul>
+<h3 id="generate-numbers-for-a-linear-model">Generate Numbers for a Linear Model</h3>
+<ul>
+<li><p>Linear model <span class="math display">\[
+y = \beta_0 + \beta_1 x + \epsilon \\
+~\mbox{where}~ \epsilon \sim N(0, 2^2), x \sim N(0, 1^2),  \beta_0 = 0.5,  \beta_1 = 2
+\]</span> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set.seed(20)</span><br><span class="line">x &lt;- rnorm(100)          # normal</span><br><span class="line">x &lt;- rbinom(100, 1, 0.5) # binomial</span><br><span class="line">e &lt;- rnorm(100, 0, 2)</span><br><span class="line">y &lt;- 0.5 + 2* x + e</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Poisson model <span class="math display">\[
+Y ~ Poisson(\mu) \\
+log(\mu) = \beta_0 + \beta_1 x  \\
+~\mbox{where}~ \beta_0 = 0.5,  \beta_1 = 2
+\]</span> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- rnorm(100)</span><br><span class="line">log.mu &lt;- 0.5 + 0.3* x</span><br><span class="line">y &lt;- rpois(100, exp(log.mu))</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="dates-and-times">Dates and Times</h2>
+<ul>
+<li><code>Date</code> = date class, stored as number of days since 1970-01-01</li>
+<li><code>POSIXct</code> = time class, stored as number of seconds since 1970-01-01</li>
+<li><code>POSIXlt</code> = time class, stored as list of sec min hours</li>
+<li><code>Sys.Date()</code> = today’s date</li>
+<li><code>unclass(obj)</code> = returns what obj looks like internally</li>
+<li><code>Sys.time()</code> = current time in POSIXct class</li>
+<li><code>t2 &lt;- as.POSIXlt(Sys.time())</code> = time in POSIXlt class
+<ul>
+<li><code>t2$min</code> = return min of time (only works for POSIXlt class)</li>
+</ul></li>
+<li><code>weekdays(date)</code>, <code>months(date)</code>, <code>quarters(date)</code> = returns weekdays, months, and quarters of time/date inputed</li>
+<li><code>strptime(string, &quot;%B %d, %Y %H:%M&quot;)</code> = convert string into time format using the format specified</li>
+<li><code>difftime(time1, time2, units = 'days')</code> = difference in times by the specified unit</li>
+</ul>
+<h2 id="base-graphics">Base Graphics</h2>
+<ul>
+<li><code>data(set)</code> = load data</li>
+<li><code>plot(data)</code> = R plots the data as best as it can
+<ul>
+<li><code>x</code> = variable, x axis</li>
+<li><code>y</code> = variable</li>
+<li><code>xlab, ylab</code> = corresponding labels</li>
+<li><code>main, sub</code> = title, subtitle</li>
+<li><code>col = 2</code> or <code>col = &quot;red&quot;</code> = color</li>
+<li><code>pch = 2</code> = different symbols for points</li>
+<li><code>xlim,ylim(v1, v2)</code> = restrict range of plot</li>
+</ul></li>
+<li><code>boxplot(x ~ y, data = d)</code> = creates boxplot for x vs y variables using the data.frame provided</li>
+<li><code>hist(x, breaks)</code> = plots histogram of the data
+<ul>
+<li><code>break = 100</code> = split data into 100 bins</li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="reading-tabular-data">Reading Tabular Data</h2>
+<ul>
+<li><code>read.table(), read.csv()</code> = most common, read text files (rows, col) return data frame</li>
+<li><code>readLines()</code> = read lines of text, returns character vector</li>
+<li><code>source(file)</code> = read R code</li>
+<li><code>dget()</code> = read R code files (R objects that have been reparsed)</li>
+<li><code>load()</code>, <code>unserialize()</code> = read binary objects</li>
+<li>writing data
+<ul>
+<li><code>write.table()</code>, <code>writeLines()</code>, <code>dump()</code>, <code>put()</code>, <code>save()</code>, <code>serialize()</code></li>
+</ul></li>
+<li><code>read.table()</code> arguments:
+<ul>
+<li><code>file</code> = name of file/connection</li>
+<li><code>header</code> = indicator if file contains header</li>
+<li><code>sep</code> = string indicating how columns are separated</li>
+<li><code>colClasses</code> = character vector indicating what each column is in terms of class</li>
+<li><code>nrows</code> = number of rows in dataset</li>
+<li><code>comment.char</code> = char indicating beginning of comment</li>
+<li><code>skip</code> = number of lines to skip in the beginning</li>
+<li><code>stringsAsFactors</code> = defaults to TRUE, should characters be coded as Factor</li>
+</ul></li>
+<li><code>read.table</code> can be used without any other argument to create data.frame
+<ul>
+<li>telling R what type of variables are in each column is helpful for larger datasets (efficiency)</li>
+<li><code>read.csv()</code> = <code>read.table</code> except default sep is comma (<code>read.table</code> default is <code>sep = &quot; &quot;</code> and <code>header = TRUE</code>)</li>
+</ul></li>
+</ul>
+<h3 id="larger-tables">Larger Tables</h3>
+<ul>
+<li><em><strong>Note</strong>: help page for read.table important</em></li>
+<li>need to know how much RAM is required <span class="math inline">\(\rightarrow\)</span> calculating memory requirements
+<ul>
+<li><code>numRow</code> x <code>numCol</code> x 8 bytes/numeric value = size required in bites</li>
+<li>double the above results and convert into GB = amount of memory recommended</li>
+</ul></li>
+<li>set <code>comment.char = &quot;&quot;</code> to save time if there are no comments in the file</li>
+<li>specifying <code>colClasses</code> can make reading data much faster</li>
+<li><code>nrow = n</code> = number of rows to read in (can help with memory usage)
+<ul>
+<li><code>initial &lt;- read.table(&quot;file&quot;, rows = 100)</code> = read first 100 lines</li>
+<li><code>classes &lt;- sapply(initial, class)</code> = determine what classes the columns are</li>
+<li><code>tabAll &lt;- read.table(&quot;file&quot;, colClasses = classes)</code> = load in the entire file with determined classes</li>
+</ul></li>
+</ul>
+<h3 id="textual-data-formats">Textual Data Formats</h3>
+<ul>
+<li><code>dump</code> and <code>dput</code> preserve metadata</li>
+<li>text formats are editable, not space efficient, and work better with version control system (they can only track changes in text files)</li>
+<li><code>dput(obj, file = &quot;file.R&quot;)</code> = creates R code to store all data and meta data in “file.R” (ex. data, class, names, row.names)</li>
+<li><code>dget(&quot;file.R&quot;)</code> = loads the file/R code and reconstructs the R object</li>
+<li><code>dput</code> can only be used on one object, where as <code>dump</code> can be used on multiple objects</li>
+<li><code>dump(c(&quot;obj1&quot;, &quot;obj2&quot;), file= &quot;file2.R&quot;)</code> = stores two objects</li>
+<li><code>source(&quot;file2.R&quot;)</code> = loads the objects</li>
+</ul>
+<h3 id="interfaces-to-the-outside-world">Interfaces to the Outside World</h3>
+<ul>
+<li><code>url()</code> = function can read from webpages</li>
+<li><code>file()</code> = read uncompressed files</li>
+<li><code>gzfile(), bzfile()</code> = read compressed files (gzip, bzip2)</li>
+<li><code>file(description = &quot;&quot;, open = &quot;&quot;)</code> = file syntax, creates connection
+<ul>
+<li><code>description</code> = description of file</li>
+<li><code>open</code> = r -readonly, w - writing, a - appending, rb/wb/ab - reading/writing/appending binary</li>
+<li><code>close()</code> = closes connection</li>
+<li><code>readLines()</code> = can be used to read lines after connection has been established</li>
+</ul></li>
+<li><code>download.file(fileURL, destfile = &quot;fileName&quot;, method = &quot;curl&quot;)</code>
+<ul>
+<li><code>fileURL</code> = url of the file that needs to be downloaded</li>
+<li><code>destfile = &quot;fileName&quot;</code> = specifies where the file is to be saved
+<ul>
+<li><code>dir/fileName</code> = directories can be referenced here</li>
+</ul></li>
+<li><code>method = &quot;curl&quot;</code> = necessary for downloading files from “https://” links on Macs
+<ul>
+<li><code>method = &quot;auto&quot;</code> = should work on all other machines</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="control-structures">Control Structures</h2>
+<ul>
+<li>Common structures are
+<ul>
+<li><code>if</code>, <code>else</code> = testing a condition</li>
+<li><code>for</code> = execute a loop a fixed number of times</li>
+<li><code>while</code> = execute a loop while a condition is true</li>
+<li><code>repeat</code> = execute an infinite loop</li>
+<li><code>break</code> = break the execution of a loop</li>
+<li><code>next</code> = skip an interation of a loop</li>
+<li><code>return</code> = exit a function</li>
+</ul></li>
+<li><em><strong>Note</strong>: Control structures are primarily useful for writing programs; for command-line interactive work, the <code>apply</code> functions are more useful </em></li>
+</ul>
+<h3 id="if---else"><code>if - else</code></h3>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># basic structure</span></span><br><span class="line"><span class="keyword">if</span>(&lt;condition&gt;) &#123;</span><br><span class="line">    <span class="comment">## do something</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">## do something else</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># if tree</span></span><br><span class="line"><span class="keyword">if</span>(&lt;condition1&gt;) &#123;</span><br><span class="line">    <span class="comment">## do something</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>(&lt;condition2&gt;) &#123;</span><br><span class="line">    <span class="comment">## do something different</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">## do something different</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>y &lt;- if(x&gt;3){10} else {0}</code> = slightly different implementation than normal, focus on assigning value</li>
+</ul>
+<h3 id="for"><code>for</code></h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># basic structure</span><br><span class="line">for(i in 1:10) &#123;</span><br><span class="line">    # print(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># nested for loops</span><br><span class="line">x &lt;- matrix(1:6, 2, 3)</span><br><span class="line">for(i in seq_len(nrow(x))) &#123;</span><br><span class="line">    for(j in seq_len(ncol(x))) &#123;</span><br><span class="line">        # print(x[i, j])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>for(letter in x)</code> = loop through letter in character vector</li>
+<li><code>seq_along(vector)</code> = create a number sequence from 1 to length of the vector</li>
+<li><code>seq_len(length)</code> = create a number sequence that starts at 1 and ends at length specified</li>
+</ul>
+<h3 id="while"><code>while</code></h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">count &lt;- 0</span><br><span class="line">while(count &lt; 10) &#123;</span><br><span class="line">    # print(count)</span><br><span class="line">    count &lt;- count + 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>conditions can be combined with logical operators</li>
+</ul>
+<h3 id="repeat-and-break"><code>repeat</code> and <code>break</code></h3>
+<ul>
+<li><code>repeat</code> initiates an infinite loop</li>
+<li>not commonly used in statistical applications but they do have their uses</li>
+<li>The only way to exit a <code>repeat</code> loop is to call <code>break</code></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x0 &lt;- <span class="number">1</span></span><br><span class="line">tol &lt;- <span class="number">1e-8</span></span><br><span class="line"><span class="keyword">repeat</span> &#123;</span><br><span class="line">    x1 &lt;- computeEstimate()</span><br><span class="line">    <span class="keyword">if</span>(abs(x1 - x0) &lt; tol) &#123;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        x0 &lt;- x1 <span class="comment"># requires algorithm to converge</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><em><strong>Note</strong>: The above loop is a bit dangerous because there’s no guarantee it will stop </em>
+<ul>
+<li>Better to set a hard limit on the number of iterations (e.g. using a <code>for</code> loop) and then report whether convergence was achieved or not.</li>
+</ul></li>
+</ul>
+<h3 id="next-and-return"><code>next</code> and <code>return</code></h3>
+<ul>
+<li><code>next</code> = (no parentheses) skips an element, to continue to the next iteration</li>
+<li><code>return</code> = signals that a function should exit and return a given value <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(i in 1:100) &#123;</span><br><span class="line">    if(i &lt;= 20) &#123;</span><br><span class="line">        ## Skip the first 20 iterations</span><br><span class="line">        next</span><br><span class="line">    &#125;</span><br><span class="line">    ## Do something here</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="functions">Functions</h2>
+<ul>
+<li><code>name &lt;- function(arg1, arg2, …){ }</code>
+<ul>
+<li>inputs can be specified with default values by <code>arg1 = 10</code></li>
+<li>it is possible to define an argument to <code>NULL</code></li>
+<li>returns <strong>last expression</strong> of function</li>
+<li>many functions have <code>na.rm</code>, can be set to <code>TRUE</code> to remove <code>NA</code> values from calculation</li>
+</ul></li>
+<li><p>structure <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f &lt;- <span class="keyword">function</span>(&lt;arguments&gt;) &#123;</span><br><span class="line">    <span class="comment">## Do something interesting</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li>function are first class object and can be <strong>treated like other objects</strong> (pass into other functions)
+<ul>
+<li>functions can be nested, so that you can define a function inside of another function</li>
+</ul></li>
+<li>function have named arguments (i.e. <code>x = mydata</code>) which can be used to specifiy <strong>default values</strong>
+<ul>
+<li><code>sd(x = mydata)</code> (matching by name)</li>
+</ul></li>
+<li>formal arguments = arguments included in the functional definition
+<ul>
+<li><code>formals()</code> = returns all formal arguments</li>
+<li>not all functional call specifies all arguments, some can be missing and may have default values</li>
+<li><code>args()</code> = return all arguments you can specify</li>
+<li>multiple arguments inputted in random orders (R performs positional matching) <span class="math inline">\(\rightarrow\)</span> not recommended</li>
+<li>argument matching order: exact <span class="math inline">\(\rightarrow\)</span> partial <span class="math inline">\(\rightarrow\)</span> positional
+<ul>
+<li><em>partial</em> = instead of typing <code>data = x</code>, use <code>d = x</code></li>
+</ul></li>
+</ul></li>
+<li><strong>Lazy Evaluation</strong>
+<ul>
+<li>R will evaluate as needed, so everything executes until an error occurs
+<ul>
+<li><code>f &lt;- function (a, b) {a^2}</code></li>
+<li>if b is not used in the function, calling <code>f(5)</code> will not produce an error</li>
+</ul></li>
+</ul></li>
+<li><code>...</code> argument
+<ul>
+<li>used to extend other functions by representing the rest of the arguments</li>
+<li>generic functions use <code>...</code> to pass extra arguments (i.e. mean = 1, sd = 2)</li>
+<li>necessary when the number of arguments passed can not be known in advance
+<ul>
+<li>functions that use <code>...</code> = <code>paste()</code>, <code>cat()</code></li>
+</ul></li>
+<li><em><strong>Note</strong>: arguments coming after <code>...</code> must be explicitly matched and cannot be partially matched </em></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="scoping">Scoping</h2>
+<ul>
+<li>scoping rules determine how a value is associated with a free variable in a function</li>
+<li><strong>free variables</strong> = variables not explicitly defined in the function (not arguments, or local variables - variable defined in the function)</li>
+<li>R uses <strong>lexical/static scoping</strong>
+<ul>
+<li>common alternative = <strong>dynamic scoping</strong></li>
+<li><strong>lexical scoping</strong> = values of free vars are searched in the environment in which the function is defined
+<ul>
+<li>environment = collection of symbol/value pairs (x = 3.14)
+<ul>
+<li>each package has its own environment</li>
+<li>only environment <strong>without</strong> parent environment is the <em>empty environment</em></li>
+</ul></li>
+</ul></li>
+<li><strong>closure/function closure</strong> = function + associated environment</li>
+</ul></li>
+<li>search order for free variable
+<ol type="1">
+<li>environment where the function is defined</li>
+<li>parent environment</li>
+<li>… (repeat if multiple parent environments)</li>
+<li>top level environment: global environment (worspace) or namespace package</li>
+<li>empty environment <span class="math inline">\(\rightarrow\)</span> produce error</li>
+</ol></li>
+<li>when a function/variable is called, R searches through the following list to match the first result
+<ol type="1">
+<li><code>.GlobalEnv</code></li>
+<li><code>package:stats</code></li>
+<li><code>package:graphics</code></li>
+<li><code>package:grDeviced</code></li>
+<li><code>package:utils</code></li>
+<li><code>package:datasets</code></li>
+<li><code>package:methods</code></li>
+<li><code>Autoloads</code></li>
+<li><code>package:base</code></li>
+</ol></li>
+<li><strong>order matters</strong>
+<ul>
+<li><code>.GlobalEnv</code> = everything defined in the current workspace</li>
+<li>any package that gets loaded with <code>library()</code> gets put in position 2 of the above search list</li>
+<li>namespaces are separate for functions and non-functions
+<ul>
+<li>possible for object c and function c to coexist</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="scoping-example">Scoping Example</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">make.power &lt;- function(n) &#123;</span><br><span class="line">    pow &lt;- function(x) &#123;</span><br><span class="line">         x^n</span><br><span class="line">    &#125;</span><br><span class="line">    pow</span><br><span class="line">&#125;</span><br><span class="line">cube &lt;- make.power(3)   # defines a function with only n defined (x^3)</span><br><span class="line">square &lt;- make.power(2) # defines a function with only n defined (x^2)</span><br><span class="line">cube(3)                 # defines x = 3</span><br><span class="line">square(3)               # defines x = 3</span><br><span class="line"></span><br><span class="line"># returns the free variables in the function</span><br><span class="line">ls(environment(cube))</span><br><span class="line"></span><br><span class="line"># retrieves the value of n in the cube function</span><br><span class="line">get(&quot;n&quot;, environment(cube))</span><br></pre></td></tr></table></figure>
+<h3 id="lexical-vs-dynamic-scoping-example">Lexical vs Dynamic Scoping Example</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">y &lt;- 10</span><br><span class="line">f &lt;- function(x) &#123;</span><br><span class="line">    y &lt;- 2</span><br><span class="line">    y^2 + g(x)</span><br><span class="line">&#125;</span><br><span class="line">g &lt;- function(x) &#123;</span><br><span class="line">    x*y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Lexical Scoping</strong>
+<ol type="1">
+<li><code>f(3)</code> <span class="math inline">\(\rightarrow\)</span> calls <code>g(x)</code></li>
+<li><code>y</code> isn’t defined locally in <code>g(x)</code> <span class="math inline">\(\rightarrow\)</span> searches in parent environment (working environment/global workspace)</li>
+<li>finds <code>y</code> <span class="math inline">\(\rightarrow\)</span> <code>y = 10</code></li>
+</ol></li>
+<li><strong>Dynamic Scoping</strong>
+<ol type="1">
+<li><code>f(3)</code> <span class="math inline">\(\rightarrow\)</span> calls <code>g(x)</code></li>
+<li><code>y</code> isn’t defined locally in <code>g(x)</code> <span class="math inline">\(\rightarrow\)</span> searches in calling environment (f function)</li>
+<li>find <code>y</code> <span class="math inline">\(\rightarrow\)</span> <code>y &lt;- 2</code></li>
+</ol>
+<ul>
+<li><strong>parent frame</strong> = refers to calling environment in R, environment from which the function was called</li>
+</ul></li>
+<li><em><strong>Note</strong>: when the defining environment and calling environment is the same, lexical and dynamic scoping produces the same result </em></li>
+<li><strong>Consequences of Lexical Scoping</strong>
+<ul>
+<li>all objects must be carried in memory</li>
+<li>all functions carry pointer to their defining environment (memory address)</li>
+</ul></li>
+</ul>
+<h3 id="optimization">Optimization</h3>
+<ul>
+<li>optimization routines in R (<code>optim</code>, <code>nlm</code>, <code>optimize</code>) require you to pass a function whose argument is a vector of parameters
+<ul>
+<li><em><strong>Note</strong>: these functions <strong>minimize</strong>, so use the negative constructs to maximize a normal likelihood </em></li>
+</ul></li>
+<li><strong>constructor functions</strong> = functions to be fed into the optimization routines</li>
+<li><strong><em>example</em></strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># write constructor function</span><br><span class="line">make.NegLogLik &lt;- function(data, fixed=c(FALSE,FALSE)) &#123;</span><br><span class="line">    params &lt;- fixed</span><br><span class="line">    function(p) &#123;</span><br><span class="line">         params[!fixed] &lt;- p</span><br><span class="line">         mu &lt;- params[1]</span><br><span class="line">         sigma &lt;- params[2]</span><br><span class="line">         a &lt;- -0.5*length(data)*log(2*pi*sigma^2)</span><br><span class="line">         b &lt;- -0.5*sum((data-mu)^2) / (sigma^2)</span><br><span class="line">         -(a + b)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"># initialize seed and print function</span><br><span class="line">set.seed(1); normals &lt;- rnorm(100, 1, 2)</span><br><span class="line">nLL &lt;- make.NegLogLik(normals); nLL</span><br><span class="line"></span><br><span class="line"># Estimating Prameters</span><br><span class="line">optim(c(mu = 0, sigma = 1), nLL)$par</span><br><span class="line"></span><br><span class="line"># Fixing sigma = 2</span><br><span class="line">nLL &lt;- make.NegLogLik(normals, c(FALSE, 2))</span><br><span class="line">optimize(nLL, c(-1, 3))$minimum</span><br><span class="line"></span><br><span class="line"># Fixing mu = 1</span><br><span class="line">nLL &lt;- make.NegLogLik(normals, c(1, FALSE))</span><br><span class="line">optimize(nLL, c(1e-6, 10))$minimum</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="debugging">Debugging</h2>
+<ul>
+<li><code>message</code>: generic notification/diagnostic message, execution continues
+<ul>
+<li><code>message()</code> = generate message</li>
+</ul></li>
+<li><code>warning</code>: something’s wrong but not fatal, execution continues
+<ul>
+<li><code>warning()</code> = generate warning</li>
+</ul></li>
+<li><code>error</code>: fatal problem occurred, execution stops
+<ul>
+<li><code>stop()</code> = generate error</li>
+</ul></li>
+<li><code>condition</code>: generic concept for indicating something unexpected can occur</li>
+<li><code>invisible()</code> = suppresses auto printing</li>
+<li><em><strong>Note</strong>: random number generator must be controlled to reproduce problems (<code>set.seed</code> to pinpoint problem) </em></li>
+<li><code>traceback</code>: prints out function call stack after error occurs
+<ul>
+<li>must be called right after error</li>
+</ul></li>
+<li><code>debug</code>: flags function for debug mode, allows to step through function one line at a time
+<ul>
+<li><code>debug(function)</code> = enter debug mode</li>
+</ul></li>
+<li><code>browser</code>: suspends the execution of function wherever its placed
+<ul>
+<li>embedded in code and when the code is run, the browser comes up</li>
+</ul></li>
+<li><code>trace</code>: allows inserting debugging code into a function at specific places</li>
+<li><code>recover</code>: error handler, freezes at point of error
+<ul>
+<li><code>options(error = recover)</code> = instead of console, brings up menu (similar to <code>browser</code>)</li>
+</ul></li>
+</ul>
+<h2 id="r-profiler">R Profiler</h2>
+<ul>
+<li><p>optimizing code cannot be done without performance analysis and profiling <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># system.time example</span><br><span class="line">system.time(&#123;</span><br><span class="line">    n &lt;- 1000</span><br><span class="line">    r &lt;- numeric(n)</span><br><span class="line">    for (i in 1:n) &#123;</span><br><span class="line">        x &lt;- rnorm(n)</span><br><span class="line">        r[i] &lt;- mean(x)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p></li>
+<li><code>system.time(expression)</code>
+<ul>
+<li>takes R expression, returns amount of time needed to execute (assuming you know where)</li>
+<li>computes time (in sec) <span class="math inline">\(\rightarrow\)</span> gives time until error if error occurs</li>
+<li>can wrap multiple lines of code with <code>{}</code></li>
+<li>returns object of class <code>proc_time</code>
+<ul>
+<li><strong>user time</strong> = time computer experience</li>
+<li><strong>elapsed time</strong> = time user experience</li>
+<li>usually close for standard computation
+<ul>
+<li><strong><em>elapse &gt; user</em></strong> = CPU wait around other processes in the background (read webpage)</li>
+<li><strong><em>elapsed &lt; user</em></strong> = multiple processor/core (use multi-threaded libraries)</li>
+</ul></li>
+</ul></li>
+<li><em><strong>Note</strong>: R doesn’t multi-thread (performing multiple calculations at the same time) with basic package </em>
+<ul>
+<li>Basic Linear Algebra Standard [BLAS] libraries do, prediction, regression routines, matrix</li>
+<li>i.e. <code>vecLib</code>/Accelerate, <code>ATLAS</code>, <code>ACML</code>, <code>MKL</code></li>
+</ul></li>
+</ul></li>
+<li><code>Rprof()</code> = useful for complex code only
+<ul>
+<li>keeps track of functional call stack at regular intervals and tabulates how much time is spent in each function</li>
+<li>default sampling interval = 0.02 second</li>
+<li>calling <code>Rprof()</code> generates <code>Rprof.out</code> file by default
+<ul>
+<li><code>Rprof(&quot;output.out&quot;)</code> = specify the output file</li>
+</ul></li>
+<li><em><strong>Note</strong>: should NOT be used with <code>system.time()</code> </em></li>
+</ul></li>
+<li><code>summaryRprof()</code> = summarizes <code>Rprof()</code> output, 2 methods for normalizing data
+<ul>
+<li>loads the <code>Rprof.out</code> file by default, can specify output file <code>summaryRprof(&quot;output.out&quot;)</code></li>
+<li><code>by.total</code> = divide time spent in each function by total run time</li>
+<li><code>by.self</code> = first subtracts out time spent in functions above in call stack, and calculates ratio to total</li>
+<li><code>$sample.interval</code> = 0.02 <span class="math inline">\(\rightarrow\)</span> interval</li>
+<li><code>$sampling.time</code> = 7.41 <span class="math inline">\(\rightarrow\)</span> seconds, elapsed time
+<ul>
+<li><em><strong>Note</strong>: generally user spends all time at top level function (i.e. <code>lm()</code>), but the function simply calls helper functions to do work so it is not useful to know about the top level function times </em></li>
+</ul></li>
+<li><em><strong>Note</strong>: <code>by.self</code> = more useful as it focuses on each individual call/function </em></li>
+<li><em><strong>Note</strong>: R must be compiled with profiles support (generally the case) </em></li>
+</ul></li>
+<li>good to break code into functions so profilers can give useful information about where time is spent</li>
+<li><p>C/FORTRAN code is not profiled</p></li>
+</ul>
+<h3 id="miscellaneous">Miscellaneous</h3>
+<ul>
+<li><code>unlist(rss)</code> = converts a list object into data frame/vector</li>
+<li><code>ls(&quot;package:elasticnet&quot;)</code> = list methods in package</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Xing Su</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://yoursite.com/2018/08/07/R-Programming-Course-Notes/" title="R Programming Course Notes">http://yoursite.com/2018/08/07/R-Programming-Course-Notes/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"># R</a>
+          
+            <a href="/tags/DataScience/" rel="tag"># DataScience</a>
+          
+            <a href="/tags/R-Markdown/" rel="tag"># R Markdown</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/07/Data-Scientists-Toolbox-Course-Notes/" rel="next" title="Data Scientists Toolbox Course Notes">
+                <i class="fa fa-chevron-left"></i> Data Scientists Toolbox Course Notes
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODY0Mi8xNTE3MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avator.png"
+                alt="Autoz" />
+            
+              <p class="site-author-name" itemprop="name">Autoz</p>
+              <p class="site-description motion-element" itemprop="description">Fidelty.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/autolordz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:autolordz@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#overview-and-history-of-r"><span class="nav-number">1.</span> <span class="nav-text">Overview and History of R</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#coding-standards"><span class="nav-number">2.</span> <span class="nav-text">Coding Standards</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#workspace-and-files"><span class="nav-number">3.</span> <span class="nav-text">Workspace and Files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#r-console-and-evaluation"><span class="nav-number">4.</span> <span class="nav-text">R Console and Evaluation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#r-objects-and-data-structures"><span class="nav-number">5.</span> <span class="nav-text">R Objects and Data Structures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vectors-and-lists"><span class="nav-number">5.1.</span> <span class="nav-text">Vectors and Lists</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#matrices-and-data-frames"><span class="nav-number">5.2.</span> <span class="nav-text">Matrices and Data Frames</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#arrays"><span class="nav-number">5.3.</span> <span class="nav-text">Arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#factors"><span class="nav-number">5.4.</span> <span class="nav-text">Factors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#missing-values"><span class="nav-number">6.</span> <span class="nav-text">Missing Values</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sequence-of-numbers"><span class="nav-number">7.</span> <span class="nav-text">Sequence of Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#subsetting"><span class="nav-number">8.</span> <span class="nav-text">Subsetting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vectors"><span class="nav-number">8.1.</span> <span class="nav-text">Vectors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lists"><span class="nav-number">8.2.</span> <span class="nav-text">Lists</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#matrices"><span class="nav-number">8.3.</span> <span class="nav-text">Matrices</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#partial-matching"><span class="nav-number">8.4.</span> <span class="nav-text">Partial Matching</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logic"><span class="nav-number">9.</span> <span class="nav-text">Logic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#understanding-data"><span class="nav-number">10.</span> <span class="nav-text">Understanding Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#split-apply-combine-funtions"><span class="nav-number">11.</span> <span class="nav-text">Split-Apply-Combine Funtions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#split"><span class="nav-number">11.1.</span> <span class="nav-text">split()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply"><span class="nav-number">11.2.</span> <span class="nav-text">apply()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lapply"><span class="nav-number">11.3.</span> <span class="nav-text">lapply()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sapply"><span class="nav-number">11.4.</span> <span class="nav-text">sapply()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vapply"><span class="nav-number">11.5.</span> <span class="nav-text">vapply()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tapply"><span class="nav-number">11.6.</span> <span class="nav-text">tapply()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mapply"><span class="nav-number">11.7.</span> <span class="nav-text">mapply()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aggregate"><span class="nav-number">11.8.</span> <span class="nav-text">aggregate()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#simulation"><span class="nav-number">12.</span> <span class="nav-text">Simulation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#simulation-examples"><span class="nav-number">12.1.</span> <span class="nav-text">Simulation Examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generate-numbers-for-a-linear-model"><span class="nav-number">12.2.</span> <span class="nav-text">Generate Numbers for a Linear Model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dates-and-times"><span class="nav-number">13.</span> <span class="nav-text">Dates and Times</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#base-graphics"><span class="nav-number">14.</span> <span class="nav-text">Base Graphics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reading-tabular-data"><span class="nav-number">15.</span> <span class="nav-text">Reading Tabular Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#larger-tables"><span class="nav-number">15.1.</span> <span class="nav-text">Larger Tables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#textual-data-formats"><span class="nav-number">15.2.</span> <span class="nav-text">Textual Data Formats</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interfaces-to-the-outside-world"><span class="nav-number">15.3.</span> <span class="nav-text">Interfaces to the Outside World</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#control-structures"><span class="nav-number">16.</span> <span class="nav-text">Control Structures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if---else"><span class="nav-number">16.1.</span> <span class="nav-text">if - else</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for"><span class="nav-number">16.2.</span> <span class="nav-text">for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while"><span class="nav-number">16.3.</span> <span class="nav-text">while</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repeat-and-break"><span class="nav-number">16.4.</span> <span class="nav-text">repeat and break</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next-and-return"><span class="nav-number">16.5.</span> <span class="nav-text">next and return</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#functions"><span class="nav-number">17.</span> <span class="nav-text">Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scoping"><span class="nav-number">18.</span> <span class="nav-text">Scoping</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scoping-example"><span class="nav-number">18.1.</span> <span class="nav-text">Scoping Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lexical-vs-dynamic-scoping-example"><span class="nav-number">18.2.</span> <span class="nav-text">Lexical vs Dynamic Scoping Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#optimization"><span class="nav-number">18.3.</span> <span class="nav-text">Optimization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debugging"><span class="nav-number">19.</span> <span class="nav-text">Debugging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#r-profiler"><span class="nav-number">20.</span> <span class="nav-text">R Profiler</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#miscellaneous"><span class="nav-number">20.1.</span> <span class="nav-text">Miscellaneous</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Autoz</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">68k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">1:01</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.3.0"></script>
+
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
