@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="\(\pagebreak\) Shiny (tutorial)  Shiny = platform for creating interactive R program embedded on web pages (made by RStudio) knowledge of these helpful: HTML (web page structure), css (style), Jav">
+<meta name="keywords" content="R,DataScience,R Markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Developing Data Products">
+<meta property="og:url" content="http://yoursite.com/2018/08/07/Developing-Data-Products/index.html">
+<meta property="og:site_name" content="AutozLand">
+<meta property="og:description" content="\(\pagebreak\) Shiny (tutorial)  Shiny = platform for creating interactive R program embedded on web pages (made by RStudio) knowledge of these helpful: HTML (web page structure), css (style), Jav">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-08-07T06:20:31.458Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Developing Data Products">
+<meta name="twitter:description" content="\(\pagebreak\) Shiny (tutorial)  Shiny = platform for creating interactive R program embedded on web pages (made by RStudio) knowledge of these helpful: HTML (web page structure), css (style), Jav">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/07/Developing-Data-Products/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Developing Data Products | AutozLand</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AutozLand</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Autoz's Learning Blogs</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">12</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">3</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/07/Developing-Data-Products/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Autoz">
+      <meta itemprop="description" content="Fidelty.">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AutozLand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Developing Data Products<a href="https://github.com/theme-next/theme-next.org/_posts/tree/master/Developing-Data-Products.md" class="post-edit-link" title="Edit this post" target="_blank">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-07 14:17:19 / Modified: 14:20:31" itemprop="dateCreated datePublished" datetime="2018-08-07T14:17:19+08:00">2018-08-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">20k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">18 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="shiny-tutorial">Shiny (<a href="http://rstudio.github.io/shiny/tutorial/" target="_blank" rel="noopener">tutorial</a>)</h2>
+<ul>
+<li>Shiny = platform for creating interactive R program embedded on web pages (made by RStudio)</li>
+<li>knowledge of these helpful: HTML (web page structure), css (style), JavaScript (interactivity)</li>
+<li><strong>OpenCPU</strong> = project created by Jerom Ooms providing API for creating more complex R/web apps</li>
+<li><code>install.packages(&quot;shiny&quot;); library(shiny)</code> = install/load shiny package</li>
+<li>capabilities
+<ul>
+<li>upload or download files</li>
+<li>tabbed main panels</li>
+<li>editable data tables</li>
+<li>dynamic UI</li>
+<li>user defined inputs/outputs</li>
+<li>submit button to control when calculations/tasks are processed</li>
+</ul></li>
+</ul>
+<h3 id="structure-of-shiny-app">Structure of Shiny App</h3>
+<ul>
+<li><strong>two</strong> scripts (in one directory) make up a Shiny project
+<ul>
+<li><code>ui.R</code> - controls appearance/all style elements
+<ul>
+<li>alternatively, a <code>www</code> directory with an <code>index.html</code> file enclosed can be used instead of <code>ui.R</code>
+<ul>
+<li><em><strong>Note</strong>: output is rendered into HTML elements based on matching their id attribute to an output slot and by specifying the requisite CSS class for the element (in this case either <code>shiny-text-output</code>, <code>shiny-plot-output</code>, or <code>shiny-html-output</code>) </em></li>
+<li>it is possible to create highly customized user-interfaces using user-defined HTML/CSS/JavaScript</li>
+</ul></li>
+</ul></li>
+<li><code>server.R</code> - controls functions</li>
+</ul></li>
+<li><code>runApp()</code> executes the Shiny application
+<ul>
+<li><code>runApp(display.mode = 'showcase')</code> = displays the code from <code>ui.R</code> and <code>server.R</code> and highlights what is being executed depending on the inputs</li>
+</ul></li>
+<li><em><strong>Note</strong>: <code>&quot;,&quot;</code> must be included <strong>ONLY INBETWEEN</strong> objects/functions on the same level </em></li>
+</ul>
+<h3 id="ui.r">ui.R</h3>
+<ul>
+<li><code>library(shiny)</code> = first line, loads the shiny package</li>
+<li><code>shinyUI()</code> = shiny UI wrapper, contains sub-methods to create panels/parts/viewable object</li>
+<li><code>pageWithSideBar()</code> = creates page with main/side bar division</li>
+<li><code>headerPanel(&quot;title&quot;)</code> = specifies header of the page</li>
+<li><code>sideBarPanel()</code> = specifies parameters/objects in the side bar (on the <strong>left</strong>)</li>
+<li><code>mainPanel()</code> = specifies parameters/objects in the main panel (on the <strong>right</strong>)</li>
+<li>for better control over style, use <code>shinyUI(fluidpage())</code> (<a href="http://shiny.rstudio.com/articles/layout-guide.html" target="_blank" rel="noopener">tutorial</a>) &lt;– produces responsive web pages
+<ul>
+<li><code>fluidRow()</code> = creates row of content with width 12 that can be subdivided into columns
+<ul>
+<li><code>column(4, ...)</code> = creates a column of width 4 within the fluid row</li>
+<li><code>style = &quot;CSS&quot;</code> = can be used as the last element of the column to specify additional style</li>
+</ul></li>
+</ul></li>
+<li><code>absolutePanel(top=0, left=0, right=0)</code> = used to produce floating panels on top of the page (<a href="http://shiny.rstudio.com/reference/shiny/latest/absolutePanel.html" target="_blank" rel="noopener">documentation</a>)
+<ul>
+<li><code>fixed = TRUE</code> = panel will not scroll with page, which means the panel will always stay in the same position as you scroll through the page</li>
+<li><code>draggable = TRUE</code> = make panel movable by the user</li>
+<li><code>top = 40</code> / <code>bottom = 50</code> = position from the top/bottom edge of the browser window
+<ul>
+<li><code>top = 0, bottom = 0</code> = creates panel that spans the entire vertical length of window</li>
+</ul></li>
+<li><code>left = 40</code> / <code>right = 50</code> = position from the left/right edge of the browser window
+<ul>
+<li><code>top = 0, bottom = 0</code> = creates panel that spans the entire horizontal length of window</li>
+</ul></li>
+<li><code>height = 30</code> / <code>width = 40</code> = specifies the height/width of the panel</li>
+<li><code>style = &quot;opacity:0.92; z-index = 100&quot;</code> = makes panel transparent and ensures the panel is always the top-most element</li>
+</ul></li>
+<li><strong>content objects/functions</strong>
+<ul>
+<li><em><strong>Note</strong>: more HTML tags can be found <a href="http://shiny.rstudio.com/articles/tag-glossary.html" target="_blank" rel="noopener">here</a> </em></li>
+<li><em><strong>Note</strong>: most of the content objects (h1, p, code, etc) can use <strong>both</strong> double and single quotes to specify values, just be careful to be consistent </em></li>
+<li><code>h1/2/3/4('heading')</code> = creates heading for the panel</li>
+<li><code>p('pargraph')</code> = creates regular text/paragraph</li>
+<li><code>code('code')</code> = renders code format on the page</li>
+<li><code>br()</code> = inserts line break</li>
+<li><code>tags$hr()</code> = inserts horizontal line</li>
+<li><code>tags$ol()</code>/ <code>tags$ul()</code> = initiates ordered/unordered list</li>
+<li><code>div( ... , style = &quot;CSS Code&quot;)</code> / <code>span( ... , style = &quot;CSS Code&quot;)</code> = used to add additional style to particular parts of the app
+<ul>
+<li><code>div</code> should be used for a section/block, <code>span</code> should be used for a specific part/inline</li>
+</ul></li>
+<li><code>withMathJax()</code> = add this element to allow Shiny to process LaTeX
+<ul>
+<li>inline LaTex must be wrapped like this: <code>\\(LaTeX\\)</code></li>
+<li>block equations are still wrapped by: <code>$$LaTeX$$</code></li>
+</ul></li>
+</ul></li>
+<li><strong>inputs</strong>
+<ul>
+<li><code>textInput(inputId = &quot;id&quot;, label = &quot;textLabel&quot;)</code> = creates a plain text input field
+<ul>
+<li><code>inputId</code> = field identifier</li>
+<li><code>label</code> = text that appear above/before a field</li>
+</ul></li>
+<li><code>numericInput('HTMLlabel', 'printedLabel', value = 0, min = 0, max = 10, step = 1)</code> = create a number input field with incrementer (up/down arrows)
+<ul>
+<li><code>'HTMLLabel'</code> = name given to the field, not printed, and can be called</li>
+<li><code>'printedLabel'</code> = text that shows up above the input box explaining the field</li>
+<li><code>value</code> = default numeric value that the field should take; 0 is an example</li>
+<li><code>min</code> = minimum value that can be set in the field (if a smaller value is manually entered, then the value becomes the minimum specified once user clicks away from the field)</li>
+<li><code>max</code> = max value that can be set in the field</li>
+<li><code>step</code> = increments for the up/down arrows</li>
+<li>more arguments can be found in <code>?numericInput</code></li>
+</ul></li>
+<li><code>checkboxGroupInput(&quot;id2&quot;, &quot;Checkbox&quot;,choices = c(&quot;Value 1&quot; = &quot;1&quot;, ...), selected = &quot;1&quot;, inline = TRUE)</code> = creates a series of checkboxes
+<ul>
+<li><code>&quot;id2&quot;, &quot;Checkbox&quot;</code> = field identifier/label</li>
+<li><code>choices</code> = list of checkboxes and their labels
+<ul>
+<li>format = <code>&quot;checkboxName&quot; = &quot;fieldIdentifier&quot;</code></li>
+<li><em><strong>Note</strong>: <code>fieldIdentifier</code> should generally be different from checkbox to checkbox, so we can properly identify the responses </em></li>
+</ul></li>
+<li><code>selected</code> = specifies the checkboxes that should be selected by default; uses <code>fieldIndentifier</code> values</li>
+<li><code>inline</code> = whether the options should be displayed inline</li>
+</ul></li>
+<li><code>dateInput(&quot;fieldID&quot;, &quot;fieldLabel&quot;)</code> = creates a selectable date field (dropdown calendar/date picker automatically generated)
+<ul>
+<li><code>&quot;fieldID&quot;</code> = field identifier</li>
+<li><code>&quot;fieldLabel&quot;</code> = text/name displayed above fields</li>
+<li>more arguments can be found in <code>?dateInput</code></li>
+</ul></li>
+<li><code>submitButton(&quot;Submit&quot;)</code> = creates a submit button that updates the output/calculations only when the user submits the new inputs (default behavior = all changes update reactively/in real time)</li>
+<li><code>actionButton(inputId = &quot;goButton&quot;, label = &quot;test&quot;)</code> = creates a button with the specified label and id
+<ul>
+<li>output can be specified for when the button is clicked</li>
+</ul></li>
+<li><code>sliderInput(&quot;id&quot;, &quot;label&quot;, value = 70, min = 62, max = 74, 0.05)</code> = creates a slider for input
+<ul>
+<li>arguments similar to <code>numericInput</code> and more information can be found <code>?sliderInput</code></li>
+</ul></li>
+</ul></li>
+<li><strong>outputs</strong>
+<ul>
+<li><em><strong>Note</strong>: every variable called here must have a corresponding method corresponding method from the <code>output</code> element in <code>server.R</code> to render their value </em></li>
+<li><code>textOutput(&quot;fieldId&quot;, inline = FALSE)</code> = prints the value of the variable/field in text format
+<ul>
+<li><code>inline = TRUE</code> = inserts the result inline with the HTML element</li>
+<li><code>inline = FALSE</code> = inserts the result in block code format</li>
+</ul></li>
+<li><code>verbatimTextOutput(&quot;fieldId&quot;)</code> = prints out the value of the specified field defined in <code>server.R</code></li>
+<li><code>plotOutput('fieldId')</code> = plots the output (‘sampleHist’ for example) created from <code>server.R</code> script</li>
+<li><code>output$test &lt;- renderText({input$goButton}); isolate(paste(input$t1, input$2))})</code> = <code>isolate</code> action executes when the button is pressed
+<ul>
+<li><code>if (input$goButton == 1){  Conditional statements }</code> = create different behavior depending on the number of times the button is pressed</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="ui.r-example">ui.R Example</h3>
+<ul>
+<li>below is part of the ui.R code for a project on Shiny</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># load shiny package</span></span><br><span class="line"><span class="keyword">library</span>(shiny)</span><br><span class="line"><span class="comment"># begin shiny UI</span></span><br><span class="line">shinyUI(navbarPage(<span class="string">"Shiny Project"</span>,</span><br><span class="line">	<span class="comment"># create first tab</span></span><br><span class="line">	tabPanel(<span class="string">"Documentation"</span>,</span><br><span class="line">		<span class="comment"># load MathJax library so LaTeX can be used for math equations</span></span><br><span class="line">        withMathJax(), h3(<span class="string">"Why is the Variance Estimator \\(S^2\\) divided by \\(n-1?\\)"</span>),</span><br><span class="line">        <span class="comment"># paragraph and bold text</span></span><br><span class="line">        p(<span class="string">"The "</span>, strong(<span class="string">"sample variance"</span>),<span class="string">" can be calculated in "</span>, strong(em(<span class="string">"two"</span>)),</span><br><span class="line">          <span class="string">" different ways:"</span>,</span><br><span class="line">          <span class="string">"$$S^2 \\mbox&#123;(unbiased)&#125; = \\frac&#123;\\sum_&#123;i=1&#125;^n (X_i - \\bar X)^2&#125;&#123;n-1&#125;</span></span><br><span class="line"><span class="string">          ~~~\\mbox&#123;and&#125;~~S^2\\mbox&#123;(biased)&#125;=\\frac&#123;\\sum_&#123;i=1&#125;^n (X_i-\\bar X)^2&#125;&#123;n&#125;$$"</span>,</span><br><span class="line">          <span class="string">"The unbiased calculation is most often used, as it provides a "</span>,</span><br><span class="line">          strong(em(<span class="string">"more accurate"</span>)), <span class="string">" estimate of population variance"</span>),</span><br><span class="line">        <span class="comment"># break used to space sections</span></span><br><span class="line">        br(), p(<span class="string">"To show this empirically, we simulated the following in the "</span>,</span><br><span class="line">                strong(<span class="string">"Simulation Experiment"</span>), <span class="string">" tab: "</span>), br(),</span><br><span class="line">        <span class="comment"># ordered list</span></span><br><span class="line">        tags$ol(</span><br><span class="line">            tags$li(<span class="string">"Create population by drawing observations from values 1 to 20."</span>),</span><br><span class="line">            tags$li(<span class="string">"Draw a number of samples of specified size from the population"</span>),</span><br><span class="line">            tags$li(<span class="string">"Plot difference between sample and true population variance"</span>),</span><br><span class="line">            tags$li(<span class="string">"Show the effects of sample size vs accuracy of variance estimated"</span>)</span><br><span class="line">        )),</span><br><span class="line">    <span class="comment"># second tab</span></span><br><span class="line">	tabPanel(<span class="string">"Simulation Experiment"</span>,</span><br><span class="line">        <span class="comment"># fluid row for space holders</span></span><br><span class="line">        fluidRow(</span><br><span class="line">        	<span class="comment"># fluid columns</span></span><br><span class="line">            column(<span class="number">4</span>, div(style = <span class="string">"height: 150px"</span>)),</span><br><span class="line">            column(<span class="number">4</span>, div(style = <span class="string">"height: 150px"</span>)),</span><br><span class="line">            column(<span class="number">4</span>, div(style = <span class="string">"height: 150px"</span>))),</span><br><span class="line">        <span class="comment"># main content</span></span><br><span class="line">        fluidRow(</span><br><span class="line">            column(<span class="number">12</span>,h4(<span class="string">"We start by generating a population of "</span>,</span><br><span class="line">                         span(textOutput(<span class="string">"population"</span>, inline = <span class="literal">TRUE</span>),</span><br><span class="line">                         style = <span class="string">"color: red; font-size: 20px"</span>),</span><br><span class="line">                         <span class="string">" observations from values 1 to 20:"</span>),</span><br><span class="line">                   tags$hr(),htmlOutput(<span class="string">"popHist"</span>),</span><br><span class="line">                   <span class="comment"># additional style</span></span><br><span class="line">                   style = <span class="string">"padding-left: 20px"</span></span><br><span class="line">            )</span><br><span class="line">        ),</span><br><span class="line">        <span class="comment"># absolute panel</span></span><br><span class="line">        absolutePanel(</span><br><span class="line">        	<span class="comment"># position attributes</span></span><br><span class="line">            top = <span class="number">50</span>, left = <span class="number">0</span>, right =<span class="number">0</span>,</span><br><span class="line">            fixed = <span class="literal">TRUE</span>,</span><br><span class="line">            <span class="comment"># panel with predefined background</span></span><br><span class="line">            wellPanel(</span><br><span class="line">                fluidRow(</span><br><span class="line">                	<span class="comment"># sliders</span></span><br><span class="line">                    column(<span class="number">4</span>, sliderInput(<span class="string">"population"</span>, <span class="string">"Size of Population:"</span>,</span><br><span class="line">                                          min = <span class="number">100</span>, max = <span class="number">500</span>, value = <span class="number">250</span>),</span><br><span class="line">                           p(strong(<span class="string">"Population Variance: "</span>),</span><br><span class="line">                           textOutput(<span class="string">"popVar"</span>, inline = <span class="literal">TRUE</span>))),</span><br><span class="line">                    column(<span class="number">4</span>, sliderInput(<span class="string">"numSample"</span>, <span class="string">"Number of Samples:"</span>,</span><br><span class="line">                                          min = <span class="number">100</span>, max = <span class="number">500</span>, value = <span class="number">300</span>),</span><br><span class="line">                           p(strong(<span class="string">"Sample Variance (biased): "</span>),</span><br><span class="line">                           textOutput(<span class="string">"biaVar"</span>, inline = <span class="literal">TRUE</span>))),</span><br><span class="line">                    column(<span class="number">4</span>, sliderInput(<span class="string">"sampleSize"</span>, <span class="string">"Size of Samples:"</span>,</span><br><span class="line">                                          min = <span class="number">2</span>, max = <span class="number">15</span>, value = <span class="number">10</span>),</span><br><span class="line">                           p(strong(<span class="string">"Sample Variance (unbiased): "</span>),</span><br><span class="line">                           textOutput(<span class="string">"unbiaVar"</span>, inline = <span class="literal">TRUE</span>)))),</span><br><span class="line">                style = <span class="string">"opacity: 0.92; z-index: 100;"</span></span><br><span class="line">            ))</span><br><span class="line">	)</span><br><span class="line">))</span><br></pre></td></tr></table></figure>
+<h3 id="server.r">server.R</h3>
+<ul>
+<li>preamble/code to set up environment (executed only <strong><em>once</em></strong>)
+<ul>
+<li>start with <code>library()</code> calls to load packages/data</li>
+<li>define/initiate variables and relevant default values
+<ul>
+<li><code>&lt;&lt;-</code> operator should be used to assign values to variables in the parent environment</li>
+<li><code>x &lt;&lt;- x + 1</code> will define x to be the sum of 1 and the value of x (defined in the parent environment/working environment)</li>
+</ul></li>
+<li>any other code that you would like to only run once</li>
+</ul></li>
+<li><code>shinyServer()</code> = initiates the server function
+<ul>
+<li><code>function(input, output){}</code> = defines a function that performs actions on the inputs user makes and produces an output object</li>
+<li><strong>non-reactive</strong> statements/code will be executed <strong><em>once for each page refresh/submit</em></strong></li>
+<li><strong>reactive</strong> functions/code are <strong><em>run repeatedly</em></strong> as values are updated (i.e. render)
+<ul>
+<li><em><strong>Note</strong>: Shiny only runs what is needed for reactive statements, in other words, the rest of the code is left alone </em></li>
+<li><code>reactive(function)</code> = can be used to wrap functions/expressions to create reactive expressions
+<ul>
+<li><code>renderText({x()})</code> = returns value of x, “()” must be included (syntax)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><strong>reactive function example</strong> <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start shinyServer</span></span><br><span class="line">shinyServer(</span><br><span class="line">    <span class="comment"># specify input/output function</span></span><br><span class="line">    <span class="keyword">function</span>(input, output) &#123;</span><br><span class="line">        <span class="comment"># set x as a reactive function that adds 100 to input1</span></span><br><span class="line">        x &lt;- reactive(&#123;as.numeric(input$text1)+<span class="number">100</span>&#125;)</span><br><span class="line">        <span class="comment"># set value of x to output object text1</span></span><br><span class="line">        output$text1 &lt;- renderText(&#123;x()                          &#125;)</span><br><span class="line">        <span class="comment"># set value of x plus value of input object text2 to output object text1</span></span><br><span class="line">        output$text2 &lt;- renderText(&#123;x() + as.numeric(input$text2)&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p></li>
+<li><strong>functions/output objects in <code>shinyServer()</code></strong>
+<ul>
+<li><code>output$oid1 &lt;- renderPrint({input$id1})</code> = stores the user input value in field <code>id1</code> and stores the rendered, printed text in the <code>oid1</code> variable of the <code>output</code> object
+<ul>
+<li><code>renderPrint({expression})</code> = reactive function to render the specified expression</li>
+<li><code>{}</code> is used to ensure the value is an expression</li>
+<li><code>oid1</code> = variable in the output object that stores the result from the subsequent command</li>
+</ul></li>
+<li><code>output$sampleHist &lt;- renderPlot({code})</code> = stores plot generated by code into <code>sampleHist</code> variable
+<ul>
+<li><code>renderPlot({code})</code> = renders a plot generated by the enclosed R code</li>
+</ul></li>
+<li><code>output$sampleGVisPlot &lt;- renderGvis({code})</code> = renders Google Visualization object</li>
+</ul></li>
+</ul>
+<h3 id="server.r-example">server.R Example</h3>
+<ul>
+<li>below is part of the server.R code for a project on Shiny that uses googleVis</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># load libraries</span></span><br><span class="line"><span class="keyword">library</span>(shiny)</span><br><span class="line"><span class="keyword">require</span>(googleVis)</span><br><span class="line"><span class="comment"># begin shiny server</span></span><br><span class="line">shinyServer(<span class="keyword">function</span>(input, output) &#123;</span><br><span class="line">	<span class="comment"># define reactive parameters</span></span><br><span class="line">    pop&lt;- reactive(&#123;sample(<span class="number">1</span>:<span class="number">20</span>, input$population, replace = <span class="literal">TRUE</span>)&#125;)</span><br><span class="line">    bootstrapSample&lt;-reactive(&#123;sample(pop(),input$sampleSize*input$numSample,</span><br><span class="line">    	replace = <span class="literal">TRUE</span>)&#125;)</span><br><span class="line">    popVar&lt;- reactive(&#123;round(var(pop()),<span class="number">2</span>)&#125;)</span><br><span class="line">    <span class="comment"># print text through reactive funtion</span></span><br><span class="line">    output$biaVar &lt;- renderText(&#123;</span><br><span class="line">        sample&lt;- as.data.frame(matrix(bootstrapSample(), nrow = input$numSample,</span><br><span class="line">        	ncol =input$sampleSize))</span><br><span class="line">        <span class="keyword">return</span>(round(mean(rowSums((sample-rowMeans(sample))^<span class="number">2</span>)/input$sampleSize), <span class="number">2</span>))</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment"># google visualization histogram</span></span><br><span class="line">    output$popHist &lt;- renderGvis(&#123;</span><br><span class="line">        popHist &lt;- gvisHistogram(data.frame(pop()), options = list(</span><br><span class="line">            height = <span class="string">"300px"</span>,</span><br><span class="line">            legend = <span class="string">"&#123;position: 'none'&#125;"</span>, title = <span class="string">"Population Distribution"</span>,</span><br><span class="line">            subtitle = <span class="string">"samples randomly drawn (with replacement) from values 1 to 20"</span>,</span><br><span class="line">            histogram = <span class="string">"&#123; hideBucketItems: true, bucketSize: 2 &#125;"</span>,</span><br><span class="line">            hAxis = <span class="string">"&#123; title: 'Values', maxAlternation: 1, showTextEvery: 1&#125;"</span>,</span><br><span class="line">            vAxis = <span class="string">"&#123; title: 'Frequency'&#125;"</span></span><br><span class="line">        ))</span><br><span class="line">        <span class="keyword">return</span>(popHist)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="distributing-shiny-application">Distributing Shiny Application</h3>
+<ul>
+<li>running code locally = running local server and browser routing through local host</li>
+<li>quickest way = send application directory</li>
+<li>possible to create R package and create a wrapper that calls <code>runApp</code> (requires R knowledge)</li>
+<li>another option = run shiny server (<a href="http://www.rstudio.com/shiny/server/" target="_blank" rel="noopener">link</a>)</li>
+</ul>
+<h3 id="debugging">Debugging</h3>
+<ul>
+<li><code>runApp(display.mode = 'showcase')</code> = highlights execution while running a shiny application</li>
+<li><code>cat</code> = can be used to display output to stdout/R console</li>
+<li><code>browser()</code> = interrupts execution (<a href="http://shiny.rstudio.com/articles/debugging.html" target="_blank" rel="noopener">tutorial</a>)</li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="manipulate-package"><code>manipulate</code> Package</h2>
+<ul>
+<li><code>manipulate</code> = package/function can be leveraged to create quick interactive graphics by allowing the user to vary the different variables to a model/calculation</li>
+<li>creates sliders/checkbox/picker for the user (<a href="http://www.rstudio.com/ide/docs/advanced/manipulate" target="_blank" rel="noopener">documentation</a>)</li>
+</ul>
+<h3 id="example">Example</h3>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># load data and manipulate package</span></span><br><span class="line"><span class="keyword">library</span>(UsingR)</span><br><span class="line"><span class="keyword">library</span>(manipulate)</span><br><span class="line"><span class="comment"># plotting function</span></span><br><span class="line">myHist &lt;- <span class="keyword">function</span>(mu)&#123;</span><br><span class="line">	<span class="comment"># histogram</span></span><br><span class="line">  	hist(galton$child,col=<span class="string">"blue"</span>,breaks=<span class="number">100</span>)</span><br><span class="line">  	<span class="comment"># vertical line to highlight the mean</span></span><br><span class="line">  	lines(c(mu, mu), c(<span class="number">0</span>, <span class="number">150</span>),col=<span class="string">"red"</span>,lwd=<span class="number">5</span>)</span><br><span class="line">  	<span class="comment"># calculate mean squared error</span></span><br><span class="line">  	mse &lt;- mean((galton$child - mu)^<span class="number">2</span>)</span><br><span class="line">  	<span class="comment"># updates the mean value as the mean is changed by the user</span></span><br><span class="line">  	text(<span class="number">63</span>, <span class="number">150</span>, paste(<span class="string">"mu = "</span>, mu))</span><br><span class="line">  	<span class="comment"># updates the mean squared error value as the mean is changed by the user</span></span><br><span class="line">  	text(<span class="number">63</span>, <span class="number">140</span>, paste(<span class="string">"MSE = "</span>, round(mse, <span class="number">2</span>)))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># creates a slider to vary the mean for the histogram</span></span><br><span class="line">manipulate(myHist(mu), mu = slider(<span class="number">62</span>, <span class="number">74</span>, step = <span class="number">0.5</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>echo </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(grid); library(png)</span><br><span class="line">grid.raster(readPNG(&quot;figures/5.png&quot;))</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="rcharts">rCharts</h2>
+<ul>
+<li>rCharts = simple way of creating interactive JavaScript visualization using R
+<ul>
+<li>more in-depth knowledge of D3 will be needed to create more complex tools</li>
+<li>written by Ramnath Vaidyanathan</li>
+<li>uses formula interface to specify plots (like the <code>lattice</code> plotting system)</li>
+<li>displays interactive tool tips when hovering over data points on the plots</li>
+</ul></li>
+<li><strong>installation</strong>
+<ul>
+<li><code>devtools</code> must be installed first (<code>install.packages(&quot;devtools&quot;)</code>)</li>
+<li><code>require(devtools); install_github('rCharts', 'ramnathv')</code> installs the rCharts package from GitHub</li>
+</ul></li>
+<li><strong>plot types</strong>
+<ul>
+<li><em><strong>Note</strong>: each of the following JS library has different default styles as well as a multitude of capabilities; the following list is just what was demonstrated and more documentation can be found in the corresponding links </em></li>
+<li>[<em>Polychart</em> <a href="https://github.com/Polychart/polychart2" target="_blank" rel="noopener">js library</a>] <code>rPlot</code> = paneled scatter plots</li>
+<li>[<em>Morris</em> <a href="https://github.com/oesmith/morris.js" target="_blank" rel="noopener">js library</a>] <code>mPlot</code> = time series plot (similar to stock price charts)</li>
+<li>[<em>NVD3</em> <a href="http://nvd3.org/" target="_blank" rel="noopener">js library</a>] <code>nPlot</code> = stacked/grouped bar charts</li>
+<li>[<em>xCharts</em> <a href="https://github.com/tenXer/xcharts/" target="_blank" rel="noopener">js library</a>] = shaded line graphs</li>
+<li>[<em>HighChart</em> <a href="http://www.highcharts.com/" target="_blank" rel="noopener">js library</a>] = stacked (different styles) scatter/line charts</li>
+<li>[<em>LeafLet</em> <a href="http://leafletjs.com/" target="_blank" rel="noopener">js library</a>] = interactive maps</li>
+<li>[<em>Rickshaw</em> <a href="http://ramnathv.github.io/rCharts/" target="_blank" rel="noopener">js library</a>] = stacked area plots/time series</li>
+</ul></li>
+<li>rChart objects have various attributes/functions that you can use when saved <code>n1 &lt;- nplot(...)</code>
+<ul>
+<li><code>n1$</code> + TAB in R Console brings up list of all functions contained in the object</li>
+<li><code>n1$html()</code> = prints out the HTML for the plot</li>
+<li><code>n1$save(&quot;filename.html&quot;)</code> = saves result to a file named “filename.html”</li>
+<li><code>n1$print()</code> = print out the JavaScript</li>
+<li><code>n1$show(&quot;inline&quot;, include_assets = TRUE, cdn = F)</code> = embed HTML/JS code directly with in Rmd file (for HTML output)
+<ul>
+<li><code>n1$publish('plotname', host = 'gist'/'rpubs')</code> = publishes the plot under the specified <code>plotname</code> as a <code>gist</code> or to <code>rpubs</code></li>
+</ul></li>
+</ul></li>
+<li>to use with <strong><em>slidify</em></strong>,
+<ul>
+<li>the following YAML (Yet Another Markup Language/YAML Ain’t Markup Language) must be added
+<ul>
+<li><code>yaml ext_widgets : {rCharts: [&quot;libraries/nvd3&quot;]}</code></li>
+</ul></li>
+<li><code>cat('&lt;iframe src=&quot;map3.html&quot; width=100%, height=600&gt;&lt;/iframe&gt;')</code> to embed a map or chart form a saved file (saved with: <code>map3$save('map3.html', cdn = TRUE)</code>)</li>
+</ul></li>
+</ul>
+<h3 id="example-1">Example</h3>
+<figure class="highlight plain"><figcaption><span>results </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># load rCharts package</span><br><span class="line">require(rCharts); library(datasets); library(knitr)</span><br><span class="line"># create dataframe with HairEyeColor data</span><br><span class="line">haireye = as.data.frame(HairEyeColor)</span><br><span class="line"># create a nPlot object</span><br><span class="line">n1 &lt;- nPlot(Freq ~ Hair, group = &apos;Eye&apos;, type = &apos;multiBarChart&apos;,</span><br><span class="line">			data = subset(haireye, Sex == &apos;Male&apos;))</span><br><span class="line"># save the nPlot object to a html page</span><br><span class="line">n1$show(&quot;inline&quot;, include_assets = TRUE, cdn = F)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>echo </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/4.png&quot;))</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="ggvis-package"><code>ggvis</code> package</h2>
+<ul>
+<li><code>ggvis</code> is a data visualization package for R that lets you:
+<ul>
+<li>declaratively describe data graphics with a syntax similar in spirit to ggplot2</li>
+<li>create rich interactive graphics that you can play with locally in Rstudio or in your browser</li>
+<li>leverage <code>shiny</code>’s infrastructure to publish interactive graphics usable from any browser (either within your company or to the world).</li>
+</ul></li>
+<li>the goal is to combine the best of R and the best of the web
+<ul>
+<li>data manipulation and transformation are done in R</li>
+<li>graphics are rendered in a web browser, using <a href="https://github.com/trifacta/vega/" target="_blank" rel="noopener">Vega</a></li>
+<li>for RStudio users, ggvis graphics display in a viewer panel, which is possible because RStudio is a web browser</li>
+</ul></li>
+<li>can use the <strong>pipe operator</strong>, <code>%&gt;%</code>, to chain graphing functions
+<ul>
+<li><code>set_options(renderer = &quot;canvas&quot;)</code> = can be used to control what renderer the graphics is produced with</li>
+<li><strong><em>example</em></strong>: <code>mtcars %&gt;% ggvis(~mpg, ~wt, fill = ~ as.factor(am)) %&gt;% layer_points() %&gt;% layer_smooths()</code></li>
+</ul></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># for pdf version</span></span><br><span class="line"><span class="keyword">library</span>(ggvis)</span><br><span class="line">mtcars %&gt;% ggvis(~mpg, ~wt, fill = ~ as.factor(am)) %&gt;% layer_points() %&gt;% layer_smooths()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>echo </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/6.png&quot;))</span><br></pre></td></tr></table></figure>
+<!-- <figure class="highlight plain"><figcaption><span>echo</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"># for HTML version</span><br><span class="line">library(ggvis)</span><br><span class="line">mtcars %&gt;% ggvis(~mpg, ~wt, fill = ~ as.factor(am)) %&gt;% layer_points() %&gt;% layer_smooths() %&gt;% set_options(renderer = &quot;canvas&quot;)</span><br><span class="line">``` --&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$\pagebreak$</span><br><span class="line"></span><br><span class="line">## GoogleVis API</span><br><span class="line">* GoogleVis allows R to create interactive HTML graphics (Google Charts)</span><br><span class="line">* **chart types** (format = gvis+ChartType)</span><br><span class="line">	- Motion charts:  `gvisMotionChart`</span><br><span class="line">	- Interactive maps: `gvisGeoChart`</span><br><span class="line">	- Interactive tables: `gvisTable`</span><br><span class="line">	- Line charts: `gvisLineChart`</span><br><span class="line">	- Bar charts: `gvisColumnChart`</span><br><span class="line">	- Tree maps: `gvisTreeMap`</span><br><span class="line">	- more charts can be found [here](http://cran.r-project.org/web/packages/googleVis/googleVis.pdf)</span><br><span class="line">* configuration options and default values for arguments for each of the plot types can be found [here](https://developers.google.com/chart/interactive/docs/gallery/geochart)</span><br><span class="line">* `print(chart, &quot;chart&quot;)` = prints the JavaScript for creating the interactive plot so it can be embedded in slidify/HTML document</span><br><span class="line">	- `print(chart)` = prints HTML + JavaScript directly</span><br><span class="line">* alternatively, to print the charts on a HTML page, you can use `op &lt;- options(gvis.plot.tag=&apos;chart&apos;)`</span><br><span class="line">  - this sets the googleVis options first to change the behaviour of `plot.gvis`, so that ***only the chart component*** of the HTML file is written into the output file</span><br><span class="line">  - `plot(chart)` can then be called to print the plots to HTML</span><br><span class="line">* `gvisMerge(chart1, chart2, horizontal = TRUE, tableOptions = &quot;bgcolor = \&quot;#CCCCCC\&quot; cellspacing = 10)` = combines the two plots into one horizontally (1 x 2 panel)</span><br><span class="line">	- ***Note**: `gvisMerge()` can only combine **TWO** plots at a time *</span><br><span class="line">	- `horizontal = FALSE` = combines plots vertically (TRUE for horizontal combination)</span><br><span class="line">	- `tableOptions = ...` = used to specify attributes of the combined plot</span><br><span class="line">* `demo(googleVis)` = demos how each of the plot works</span><br><span class="line">* **resources**</span><br><span class="line">	- [vignette](http://cran.r-project.org/web/packages/googleVis/vignettes/googleVis.pdf)</span><br><span class="line">	- [documentation](http://cran.r-project.org/web/packages/googleVis/googleVis.pdf)</span><br><span class="line">	- [plot gallery](https://developers.google.com/chart/interactive/docs/gallery)</span><br><span class="line">	- [FAQ](https://developers.google.com/chart/interactive/faq)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$\pagebreak$</span><br><span class="line"></span><br><span class="line">### Example (line chart)</span><br><span class="line"></span><br><span class="line">```&#123;r results=&quot;asis&quot;, message=FALSE&#125;</span><br><span class="line"># load googleVis package</span><br><span class="line">library(googleVis)</span><br><span class="line"># set gvis.plot options to only return the chart</span><br><span class="line">op &lt;- options(gvis.plot.tag=&apos;chart&apos;)</span><br><span class="line"># create initial data with x variable as &quot;label&quot; and y variable as &quot;var1/var2&quot;</span><br><span class="line">df &lt;- data.frame(label=c(&quot;US&quot;, &quot;GB&quot;, &quot;BR&quot;), val1=c(1,3,4), val2=c(23,12,32))</span><br><span class="line"># set up a gvisLineChart with x and y</span><br><span class="line">Line &lt;- gvisLineChart(df, xvar=&quot;label&quot;, yvar=c(&quot;val1&quot;,&quot;val2&quot;),</span><br><span class="line">		# set options for the graph (list) - title and location of legend</span><br><span class="line">        options=list(title=&quot;Hello World&quot;, legend=&quot;bottom&quot;,</span><br><span class="line">        		# set title text style</span><br><span class="line">                titleTextStyle=&quot;&#123;color:&apos;red&apos;, fontSize:18&#125;&quot;,</span><br><span class="line">                # set vertical gridlines</span><br><span class="line">                vAxis=&quot;&#123;gridlines:&#123;color:&apos;red&apos;, count:3&#125;&#125;&quot;,</span><br><span class="line">                # set horizontal axis title and style</span><br><span class="line">                hAxis=&quot;&#123;title:&apos;My Label&apos;, titleTextStyle:&#123;color:&apos;blue&apos;&#125;&#125;&quot;,</span><br><span class="line">                # set plotting style of the data</span><br><span class="line">                series=&quot;[&#123;color:&apos;green&apos;, targetAxisIndex: 0&#125;,</span><br><span class="line">                         &#123;color: &apos;blue&apos;,targetAxisIndex:1&#125;]&quot;,</span><br><span class="line">                # set vertical axis labels and formats</span><br><span class="line">                vAxes=&quot;[&#123;title:&apos;Value 1 (%)&apos;, format:&apos;##,######%&apos;&#125;,</span><br><span class="line">                                  &#123;title:&apos;Value 2 (\U00A3)&apos;&#125;]&quot;,</span><br><span class="line">                # set line plot to be smoothed and set width and height of the plot</span><br><span class="line">                curveType=&quot;function&quot;, width=500, height=300</span><br><span class="line">                ))</span><br><span class="line"># print the chart in JavaScript</span><br><span class="line">plot(Line)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>fig.width </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/1.png&quot;))</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h3 id="example-merging-graphs">Example (merging graphs)</h3>
+<figure class="highlight plain"><figcaption><span>results </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">G &lt;- gvisGeoChart(Exports, &quot;Country&quot;, &quot;Profit&quot;,options=list(width=200, height=100))</span><br><span class="line">T1 &lt;- gvisTable(Exports,options=list(width=200, height=270))</span><br><span class="line">M &lt;- gvisMotionChart(Fruits, &quot;Fruit&quot;, &quot;Year&quot;, options=list(width=400, height=370))</span><br><span class="line">GT &lt;- gvisMerge(G,T1, horizontal=FALSE)</span><br><span class="line">GTM &lt;- gvisMerge(GT, M, horizontal=TRUE,tableOptions=&quot;bgcolor=\&quot;#CCCCCC\&quot; cellspacing=10&quot;)</span><br><span class="line">plot(GTM)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>fig.width </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/2.png&quot;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><em><strong>Note</strong>: the motion chart only displays when it is hosted on a server or a trusted Macromedia source, see <a href="http://cran.r-project.org/web/packages/googleVis/vignettes/googleVis.pdf">googlVis vignette</a> for more details </em></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="shinyapps.io-link">ShinyApps.io (<a href="https://www.shinyapps.io">link</a>)</h2>
+<ul>
+<li>platform created by RStudio to share Shiny apps on the web</li>
+<li>log in through GitHub/Google, and set up access in R
+<ol type="1">
+<li>Make sure you have <code>devtools</code> installed in R (<code>install.packages(&quot;devtools&quot;)</code>)</li>
+<li>enter <code>devtools::install_github('rstudio/shinyapps')</code>, which installs the <code>shinyapps</code> package from GitHub</li>
+<li>follow the instructions to authenticate your shiny apps account in R through the generated token</li>
+<li>publish your app through <code>deployApp()</code> command</li>
+</ol></li>
+<li>the apps your deploy will be hosted on ShinyApps.io under your account</li>
+</ul>
+<h2 id="plot.ly-link">plot.ly (<a href="https://plot.ly/">link</a>)</h2>
+<ul>
+<li>platform share and edit plots modularly on the web (<a href="https://plot.ly/feed/">examples</a>)
+<ul>
+<li>every part of the plot can be customized and modified</li>
+<li>graphs can be converted from one language to another</li>
+</ul></li>
+<li>you can choose to log in through Facebook/Twitter/Google/GitHub
+<ol type="1">
+<li>make sure you have <code>devtools</code> installed in R</li>
+<li>enter <code>devtools::install_github(&quot;ropensci/plotly&quot;)</code>, which installs <code>plotly</code> package from GitHub</li>
+<li>go to <a href="https://plot.ly/r/getting-started/" class="uri">https://plot.ly/r/getting-started/</a> and follow the instructions</li>
+<li>enter <code>library(plotly); set_credentials_file(&quot;&lt;username&gt;&quot;, &quot;&lt;token&gt;&quot;)</code> with the appropriate username and token filled in</li>
+<li>use <code>plotly()</code> methods to upload plots to your account</li>
+<li>modify any part of the plot as you like once uploaded</li>
+<li>share the plot</li>
+</ol></li>
+</ul>
+<h3 id="example-2">Example</h3>
+<figure class="highlight plain"><figcaption><span>fig.width </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># load packages</span><br><span class="line">library(plotly); library(ggplot2)</span><br><span class="line"># make sure your plot.ly credentials are set correctly using the following command</span><br><span class="line">#   set_credentials_file(username=&lt;FILL IN&gt;, api_key=&lt;FILL IN&gt;)</span><br><span class="line"></span><br><span class="line"># load data</span><br><span class="line">load(&quot;courseraData.rda&quot;)</span><br><span class="line"># bar plot using ggplot2</span><br><span class="line">g &lt;- ggplot(myData, aes(y = enrollment, x = class, fill = as.factor(offering)))</span><br><span class="line">g &lt;- g + geom_bar(stat = &quot;identity&quot;)</span><br><span class="line">g</span><br><span class="line"># initiate plotly object</span><br><span class="line">py &lt;- plotly()</span><br><span class="line"># interface with plot.ly and ggplot2 to upload the plot to plot.ly under your credentials</span><br><span class="line">out &lt;- py$ggplotly(g)</span><br><span class="line"># typing this in R console will return the url of the generated plot</span><br><span class="line">out$response$url</span><br></pre></td></tr></table></figure>
+<ul>
+<li>the above is the response URL for the plot created on plot.ly
+<ul>
+<li><em><strong>Note</strong>: this particular URL corresponds to the plot on my personal account </em></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="structure-of-a-data-analysis-report">Structure of a Data Analysis Report</h2>
+<ul>
+<li>can be blog post or formal report for analysis of given dataset</li>
+<li>components
+<ul>
+<li><em><strong>prompt</strong> file</em> = analysis being performed (this file is not mandatory/available in all cases)</li>
+<li><em><strong>data</strong> folder</em> = data to be analyzed + report files
+<ul>
+<li><em><strong>Note</strong>: always keep track of data provenance (for reproducibility)</em></li>
+</ul></li>
+<li><em><strong>code</strong> folder</em>= rawcode vs finalcode
+<ul>
+<li><em>rawcode</em> = analysis performed (<code>.Rmd</code> file)
+<ul>
+<li>all exploratory data analysis</li>
+<li>not for sharing with others</li>
+</ul></li>
+<li><em>finalcode</em> = only analysis to be shared with other people/summarizations (<code>.Rmd</code> file)
+<ul>
+<li>not necessarily final but pertinent to analysis discussed in final report</li>
+</ul></li>
+<li><em><strong>figures</strong> folder</em> = final plots that have all appropriate formatting for distribution/presentation</li>
+<li><em><strong>writing</strong> folder</em> = final analysis report and final figure caption
+<ul>
+<li>report should have the following sections: title, introduction, methods, results, conclusions, references</li>
+<li>final figure captions should correspond with the figures created</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="slidify">Slidify</h2>
+<ul>
+<li>create data-centric presentations created by Ramnath Vaidyanathan</li>
+<li>amalgamation of knitr, Markdown, JavaScript libraries for HTML5 presentations</li>
+<li>easily extendable/customizable</li>
+<li>allows embedded code chunks and mathematical formulas (MathJax JS library) to be rendered correctly</li>
+<li><p>final products are HTML files, which can be viewed with any web browser and shared easily</p></li>
+<li><strong>installation</strong>
+<ol type="1">
+<li>make sure you have <code>devtools</code> package installed in R</li>
+<li>enter <code>install_github('slidify', 'ramnathv'); install_github('slidifyLibraries', 'ramnathv')</code> to install the slidify packages</li>
+<li>load slidify package with <code>library(slidify)</code></li>
+<li>set the working directory to the project you are working on with <code>setwd(&quot;~/project&quot;)</code></li>
+</ol></li>
+<li><code>author(&quot;title&quot;)</code> = sets up initial files for a new slidify project (performs the following things)
+<ol type="1">
+<li><code>title</code> (or any name you typed) directory is created inside the current working directory</li>
+<li><code>assets</code> subdirectory and a file named <code>index.Rmd</code> are created inside <code>title</code> directory</li>
+<li><code>assets</code> subdirectory is populated with the following empty folders:
+<ul>
+<li><code>css</code></li>
+<li><code>img</code></li>
+<li><code>js</code></li>
+<li><code>layouts</code></li>
+<li><em><strong>Note</strong>: any custom CSS/images/JavaScript you want to use should be put into the above folders correspondingly </em></li>
+</ul></li>
+<li><code>index.Rmd</code> R Markdown file will open up in RStudio</li>
+</ol></li>
+<li><code>slidify(&quot;index.Rmd&quot;)</code> = processes the R Markdown file into a HTML page and imports all necessary libraries</li>
+<li><code>library(knitr); browseURL(&quot;index.html&quot;)</code> = opens up the built-in web browser in R Studio and displays the slidify presentation
+<ul>
+<li><em><strong>Note</strong>: this is only necessary the first time; you can refresh the page to reflect any changes after saving the HTML file </em></li>
+</ul></li>
+</ul>
+<h3 id="yaml-yaml-aint-markup-languageyet-another-markup-language">YAML (YAML Ain’t Markup Language/Yet Another Markup Language)</h3>
+<ul>
+<li>used to specify options for the R Markdown/slidify at the beginning of the file</li>
+<li>format: <code>field : value # comment</code>
+<ul>
+<li><code>title</code> = title of document</li>
+<li><code>subtitle</code> = subtitle of document</li>
+<li><code>author</code> = author of document</li>
+<li><code>job</code> = occupation of author (can be left blank)</li>
+<li><code>framework</code> = controls formatting, usually the name of a library is used (i.e. <code>io2012</code>)
+<ul>
+<li><a href="https://code.google.com/p/io-2012-slides/">io2012</a></li>
+<li><a href="https://code.google.com/p/html5slides/">html5slides</a></li>
+<li><a href="http://imakewebthings.com/deck.js/">deck.js</a></li>
+<li><a href="http://paulrouget.com/dzslides/">dzslides</a></li>
+<li><a href="https://github.com/adamzap/landslide">landslide</a></li>
+<li><a href="http://www.w3.org/Talks/Tools/Slidy2/Overview.html#">Slidy</a></li>
+</ul></li>
+<li><code>highlighter</code> = controls effects for presentation (i.e <code>highlight.js</code>)</li>
+<li><code>hitheme</code> = specifies theme of code (i.e. <code>tomorrow</code>)</li>
+<li><code>widgets</code> = loads additional libraries to display LaTeX math equations(<code>mathjax</code>), quiz-styles components (quiz), and additional style (<code>bootstrap</code> = Twitter-created style)
+<ul>
+<li>for math expressions, the code should be enclosed in <code>$expresion$</code> for inline expressions, and <code>$$expression$$</code> for block equations</li>
+</ul></li>
+<li><code>mode = selfcontained/standalone/draft</code> = depending whether the presentation will be given with Internet access or not
+<ul>
+<li><code>standalone</code> = all the JavaScript libraries will be save locally so that the presentation can be executed without Internet access</li>
+<li><code>selfcontained</code> = load all JavaScript library at time of presentation</li>
+</ul></li>
+<li><code>logo</code> = displays a logo in title slide</li>
+<li><code>url</code> = specify path to assets/other folders that are used in the presentation
+<ul>
+<li><em><strong>Note</strong>: <code>../</code> signifies the parent directory </em></li>
+</ul></li>
+</ul></li>
+<li><strong>example</strong></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="string">title</span>       <span class="string">:</span> <span class="string">Slidify</span></span><br><span class="line"><span class="string">subtitle</span>    <span class="string">:</span> <span class="string">Data</span> <span class="string">meets</span> <span class="string">presentation</span></span><br><span class="line"><span class="string">author</span>      <span class="string">:</span> <span class="string">Jeffrey</span> <span class="string">Leek,</span> <span class="string">Assistant</span> <span class="string">Professor</span> <span class="string">of</span> <span class="string">Biostatistics</span></span><br><span class="line"><span class="string">job</span>         <span class="string">:</span> <span class="string">Johns</span> <span class="string">Hopkins</span> <span class="string">Bloomberg</span> <span class="string">School</span> <span class="string">of</span> <span class="string">Public</span> <span class="string">Health</span></span><br><span class="line"><span class="string">logo</span>        <span class="string">:</span> <span class="string">bloomberg_shield.png</span></span><br><span class="line"><span class="string">framework</span>   <span class="string">:</span> <span class="string">io2012</span>        <span class="comment"># &#123;io2012, html5slides, shower, dzslides, ...&#125;</span></span><br><span class="line"><span class="string">highlighter</span> <span class="string">:</span> <span class="string">highlight.js</span>  <span class="comment"># &#123;highlight.js, prettify, highlight&#125;</span></span><br><span class="line"><span class="string">hitheme</span>     <span class="string">:</span> <span class="string">tomorrow</span>      <span class="comment">#</span></span><br><span class="line"><span class="attr">url:</span></span><br><span class="line"><span class="attr">  lib:</span> <span class="string">../../libraries</span></span><br><span class="line"><span class="attr">  assets:</span> <span class="string">../../assets</span></span><br><span class="line"><span class="string">widgets</span>     <span class="string">:</span> <span class="string">[mathjax]</span>            <span class="comment"># &#123;mathjax, quiz, bootstrap&#125;</span></span><br><span class="line"><span class="string">mode</span>        <span class="string">:</span> <span class="string">selfcontained</span> <span class="comment"># &#123;standalone, draft&#125;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<h3 id="slides">Slides</h3>
+<ul>
+<li><code>##</code> = signifies the title of the slide <span class="math inline">\(\rightarrow\)</span> equivalent of <code>h1</code> element in HTML</li>
+<li><code>---</code> = marks the end of a slide</li>
+<li><code>.class #id</code> = assigns <code>class</code> and <code>id</code> attributes (CSS) to the slide and can be used to customize the style of the page</li>
+<li><em><strong>Note</strong>: make sure to leave space between each component of the slidify document (title, code, text, etc) to avoid errors </em></li>
+<li>advanced HTML can be added directly to the <code>index.Rmd</code> file and most of the time it should function correctly</li>
+<li>interactive element (quiz questions, rCharts, shiny apps) can be embedded into slidify documents (<a href="http://slidify.github.io/dcmeetup/demos/interactive/">demos</a>)
+<ul>
+<li>quiz elements
+<ul>
+<li><code>--- &amp;radio</code> before slide content for multiple choice (make sure quiz is included in widgets)</li>
+<li><code>##</code> = signifies title of questions</li>
+<li>the question can be type in plain text format</li>
+<li>the multiple choice options are listed by number (<code>1. a</code>, <code>2. b</code>, etc.)
+<ul>
+<li>wrap the correct answer in underscores (<code>2. _b_</code>)</li>
+</ul></li>
+<li><code>*** .hint</code> = denotes the hint that will be displayed when the user clicks on <strong><em>Show Hint</em></strong> button</li>
+<li><code>*** .explanation</code> = denotes the explanation that will be displayed when the user clicks on <strong><em>Show Answer</em></strong> button</li>
+<li>a page like the one below will be generated when processed with <code>slidify</code></li>
+</ul></li>
+</ul></li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">--- &amp;radio</span><br><span class="line"></span><br><span class="line"><span class="section">## Question 1</span></span><br><span class="line"></span><br><span class="line">What is 1 + 1?</span><br><span class="line"></span><br><span class="line"><span class="bullet">1. </span>1</span><br><span class="line"><span class="bullet">2. </span><span class="emphasis">_2_</span></span><br><span class="line"><span class="bullet">3. </span>3</span><br><span class="line"><span class="bullet">4. </span>4</span><br><span class="line"></span><br><span class="line"><span class="emphasis">***</span> .hint</span><br><span class="line">This is a hint</span><br><span class="line"></span><br><span class="line"><span class="emphasis">***</span> .explanation</span><br><span class="line">This is an explanation</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>fig.width </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/3.png&quot;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>knit HTML</code></strong> button can be used to generate previews for the presentation as well</li>
+</ul>
+<h3 id="publishing">Publishing</h3>
+<ul>
+<li>first, you will need to create a new repository on GitHub</li>
+<li><code>publish_github(&quot;user&quot;, &quot;repo&quot;)</code> can be used to publish the slidify document on to your on-line repo</li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="rstudio-presentation">RStudio Presentation</h2>
+<ul>
+<li>presentation authoring tool within the RStudio IDE (<a href="http://www.rstudio.com/ide/docs/presentations/overview">tutorial</a>)</li>
+<li>output = html5 presentation</li>
+<li><code>.Rpres</code> file <span class="math inline">\(\rightarrow\)</span> converted to <code>.md</code> file <span class="math inline">\(\rightarrow\)</span> <code>.html</code> file</li>
+<li>uses R Markdown format as slidify/knitr
+<ul>
+<li><strong>mathjax</strong> JS library is loaded by default</li>
+</ul></li>
+<li>RStudio format/runs the code when the document is saved</li>
+</ul>
+<h3 id="creating-presentation">Creating Presentation</h3>
+<ul>
+<li>file <span class="math inline">\(\rightarrow\)</span> New File <span class="math inline">\(\rightarrow\)</span> R Presentation (<code>alt-f</code> + <code>f</code> + <code>p</code>)</li>
+<li><code>class: classname</code> = specify slide-specific control from CSS</li>
+<li><code>css: file.css</code> = can be used to import an external CSS file
+<ul>
+<li>alternatively, a css file that has the same name as the presentation will be automatically loaded</li>
+</ul></li>
+<li>knowledge of CSS/HTML/JavaScript useful to customize presentation more granularly
+<ul>
+<li><em><strong>Note</strong>: though the end HTML file can be edited directly, it should be used as a last resort as it defeats the purpose of reproducible presentations </em></li>
+</ul></li>
+<li>clicking on <strong>Preview</strong> button brings up <strong><em>Presentation</em></strong> viewer in RStudio
+<ul>
+<li><em>navigation controls</em> (left and right arrows) are located in right bottom corner</li>
+<li>the <em>Notepad</em> icon on the menu bar above displays the section of code that corresponds with the current slide in the main window</li>
+<li>the <em>More</em> button has four options
+<ul>
+<li>“Clear Knitr Cache” = clears cache for the generated presentation previews</li>
+<li>“View in Browser” = creates temporary HTML file and opens in default web browser (does not create a local file)</li>
+<li>“Save as Web Page” = creates a copy of the presentation as a web page</li>
+<li>“Publish to RPubs” = publishes presentation on RPubs</li>
+</ul></li>
+<li>the <em>Refresh</em> button refreshes the page</li>
+<li>the <em>Zoom</em> button opens a new window to display the presentation</li>
+</ul></li>
+<li><strong>transitions between slides</strong>
+<ul>
+<li>just after the beginning of each slide, the <code>transition</code> property (similar to YAML) can be specified to control the transition between the previous and current slides</li>
+<li><code>transition: linear</code> = creates 2D linear transition (html5) between slides</li>
+<li><code>transition: rotate</code> = creates 3D rotating transition (html5) between slides</li>
+<li>more transition options are found <a href="https://support.rstudio.com/hc/en-us/articles/200714013-Slide-Transitions-and-Navigation">here</a></li>
+</ul></li>
+<li><strong>hierarchical organization</strong>
+<ul>
+<li>attribute <code>type</code> can be added to specify the appearance of the slide (“slide type”)</li>
+<li><code>type: section</code> and <code>type: sub-section</code> = distinct background and font colors, slightly larger heading text, appear at a different indent level within the slide navigation menu</li>
+<li><code>type: prompt</code> and <code>type: alert</code> = distinct background color to communicate to viewers that the slide has different intent</li>
+</ul></li>
+<li><strong>columns</strong>
+<ul>
+<li>simply place <code>***</code> in between two sections of content on a slide to separate it into two columns</li>
+<li><code>left: 70%</code> can be used to specify the proportions of each column</li>
+<li><code>right: 30%</code> works similarly</li>
+</ul></li>
+<li><strong>change slide font (<a href="https://support.rstudio.com/hc/en-us/articles/200532307-Customizing-Fonts-and-Appearance">guide</a>)</strong>
+<ul>
+<li><code>font-family: fontname</code> = changes the font of slide (specified in the same way as HTML)</li>
+<li><code>font-import: http://fonts.googleapis.com/css?family=Risque</code> = imports font
+<ul>
+<li><em><strong>Note</strong>: fonts must be present on the system for presentation (or have Internet), or default fonts will be used </em></li>
+</ul></li>
+<li><em><strong>Note</strong>: CSS selectors for class and IDs must be preceded by <code>.reveal</code> to work (<code>.reveal section del</code> applies to any text enclosed by <code>~~text~~</code>) </em></li>
+</ul></li>
+</ul>
+<h2 id="slidify-vs-rstudio-presenter">Slidify vs RStudio Presenter</h2>
+<ul>
+<li><strong>Slidify</strong>
+<ul>
+<li>flexible control from the <code>.Rmd</code> file</li>
+<li>under constant development</li>
+<li>large user base, more likely to get answer on <em>StackOverflow</em></li>
+<li>lots of styles and options by default</li>
+<li>steeper learning curve</li>
+<li>more command-line oriented</li>
+</ul></li>
+<li><strong>R Studio Presenter</strong>
+<ul>
+<li>embedded in R Studio</li>
+<li>more GUI oriented</li>
+<li>very easy to get started</li>
+<li>smaller set of easy styles and options</li>
+<li>default styles look nice</li>
+<li>as flexible as Slidify with CSS/HTML knowledge</li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="r-package">R Package</h2>
+<ul>
+<li>R packages = collection of functions/data objects, extends base functionality of R
+<ul>
+<li>organized to provide consistency</li>
+<li>written by people all over the world</li>
+</ul></li>
+<li>primarily available from CRAN and Bioconductor
+<ul>
+<li>installed with <code>install.packages()</code></li>
+</ul></li>
+<li>also available on GitHub/BitBucket/etc
+<ul>
+<li>installed using <code>devtools::install_github()</code></li>
+</ul></li>
+<li><strong>documentation/vignettes</strong> = forces author to provide detailed explanation for the arguments/results of their functions and objects
+<ul>
+<li>allows for well defined Application Programming Interface (API) to tell users what and how to use the functions</li>
+<li>much of the implementation details can be hidden from the user so that updates can be made without interfering with use cases</li>
+</ul></li>
+<li>if package is available on CRAN then it must hold standards of reliability and robustness</li>
+<li><p>fairly easily maintained with proper documentation</p></li>
+<li><strong>package development process</strong>
+<ul>
+<li>write code in R script</li>
+<li>desire to make code available to others</li>
+<li>incorporate R script file into R package structure</li>
+<li>write documentation for user functions</li>
+<li>include examples/demos/datasets/tutorials</li>
+<li>package the contents</li>
+<li>submit to CRAN/Bioconductor</li>
+<li>push source code repository to GitHub/other code sharing site
+<ul>
+<li>people find problems with code and expect the author to fix it</li>
+<li>alternatively, people might fix the problem and show the author the changes</li>
+</ul></li>
+<li>incorporate changes and release a new version</li>
+</ul></li>
+</ul>
+<h3 id="r-package-components">R Package Components</h3>
+<ul>
+<li><strong><em>directory</em></strong> with name of R package = created as first step</li>
+<li><strong><em>DESCRIPTION file</em></strong> = metadata/information about package</li>
+<li><strong><em>R code</em></strong> = code should be in <code>R/</code> sub-directory</li>
+<li><strong><em>Documentation</em></strong> = file should be in <code>man/</code> sub-directory</li>
+<li><strong><em>NAMESPACE</em></strong> = optional but common and best practice</li>
+<li>full requirements documented in <a href="http://cran.r-project.org/doc/manuals/r-release/R-exts.html">Writing R Extensions</a></li>
+</ul>
+<h3 id="description-file">DESCRIPTION file</h3>
+<ul>
+<li><strong><em>Package</em></strong> = name of package (e.g. <code>library(name)</code> to load the package)</li>
+<li><strong><em>Title</em></strong> = full name of package</li>
+<li><strong><em>description</em></strong> = longer description of package in one or two sentences</li>
+<li><strong><em>Version</em></strong> = version number (usually <code>M.m-p</code> format, “majorNumber.minorNumber-patchLevel”)</li>
+<li><strong><em>Author</em></strong> = Name of the original author(s)</li>
+<li><strong><em>Maintainer</em></strong> = name + email of person (maintainer) who fixes problems</li>
+<li><strong><em>License</em></strong> = license for the source code, describes the term that the source code is released under
+<ul>
+<li>common licenses include GNU/BSD/MIT</li>
+<li>typically a standard open source license is used</li>
+</ul></li>
+<li>optional fields
+<ul>
+<li><strong><em>Depends</em></strong> = R packages that your package depends on</li>
+<li><strong><em>Suggests</em></strong> = optional R packages that users may want to have installed</li>
+<li><strong><em>Date</em></strong> = release date in YYYY-MM-DD format</li>
+<li><strong><em>URL</em></strong> = package home page/link to repository</li>
+<li><strong><em>Other</em></strong> = fields can be added (generally ignored by R)</li>
+</ul></li>
+<li><strong><em>example: <code>gpclib</code></em></strong>
+<ul>
+<li><em>Package</em>: gpclib</li>
+<li><em>Title</em>: General Polygon Clipping Library for R</li>
+<li><em>Description</em>: General polygon clipping routines for R based on Alan Murta’s C library</li>
+<li><em>Version</em>: 1.5-5</li>
+<li><em>Author</em>: Roger D. Peng <a href="mailto:rpeng@jhsph.edu">rpeng@jhsph.edu</a> with contributions from Duncan Murdoch and Barry Rowlingson; GPC library by Alan Murta</li>
+<li><em>Maintainer</em>: Roger D. Peng <a href="mailto:rpeng@jhsph.edu">rpeng@jhsph.edu</a></li>
+<li><em>License</em>: file LICENSE</li>
+<li><em>Depends</em>: R (&gt;= 2.14.0), methods</li>
+<li><em>Imports</em>: graphics</li>
+<li><em>Date</em>: 2013-04-01</li>
+<li><em>URL</em>: http://www.cs.man.ac.uk/~toby/gpc/, http://github.com/rdpeng/gpclib</li>
+</ul></li>
+</ul>
+<h3 id="r-code">R Code</h3>
+<ul>
+<li>copy R code to <code>R/</code> directory</li>
+<li>can be any number of files</li>
+<li>separate out files to logical groups (read/fit models)</li>
+<li>all code should be included here and not anywhere else in the package</li>
+</ul>
+<h3 id="namespace-file">NAMESPACE file</h3>
+<ul>
+<li>effectively an API for the package</li>
+<li>indicates which functions are <em>exported</em> <span class="math inline">\(\rightarrow\)</span> public functions that users have access to and can use
+<ul>
+<li>functions not exported cannot be called directly by the user</li>
+<li>hides the implementation details from the users (clean package interface)</li>
+</ul></li>
+<li>lists all dependencies on other packages/indicate what functions you <em>imported</em> from other packages
+<ul>
+<li>allows for your package to use other packages without making them visible to the user</li>
+<li>importing a function loads the package but <em>does not</em> attach it to the search list</li>
+</ul></li>
+<li><strong>key directives</strong>
+<ul>
+<li><code>export(&quot;\&lt;function&gt;&quot;)</code> = export a function</li>
+<li><code>import(&quot;\&lt;package&gt;&quot;)</code> = import a package</li>
+<li><code>importFrom(&quot;\&lt;package&gt;&quot;, &quot;\&lt;function&gt;&quot;)</code> = import specific function from a package</li>
+<li><code>exportClasses(&quot;\&lt;class&gt;&quot;)</code> = indicate the new types of S4 (4<sup>th</sup> version of <em>S</em>) classes created with the package (objects of the specified class can be created)</li>
+<li><code>exportMethods(&quot;\&lt;generic&gt;&quot;)</code> = methods that can operate on the new class objects</li>
+<li><em><strong>Note</strong>: though they look like R functions, the above directives are not functions that users can use freely </em></li>
+</ul></li>
+<li><strong><em>example</em></strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># read.polyfile/write.polyfile are functions available to user</span></span><br><span class="line">export(<span class="string">"read.polyfile"</span>, <span class="string">"write.polyfile"</span>)</span><br><span class="line"><span class="comment"># import plot function from graphics package</span></span><br><span class="line">importFrom(graphics, plot)</span><br><span class="line"><span class="comment"># gpc.poly/gpc.poly.nohole classes can be created by the user</span></span><br><span class="line">exportClasses(<span class="string">"gpc.poly"</span>, <span class="string">"gpc.poly.nohole"</span>)</span><br><span class="line"><span class="comment"># the listed methods can be applied to the gpc.poly/gpc.poly.nohole classes</span></span><br><span class="line">exportMethods(<span class="string">"show"</span>, <span class="string">"get.bbox"</span>, <span class="string">"plot"</span>, <span class="string">"intersect”, "</span>union”, <span class="string">"setdiff"</span>,</span><br><span class="line">              <span class="string">"["</span>, <span class="string">"append.poly"</span>, <span class="string">"scale.poly"</span>, <span class="string">"area.poly"</span>, <span class="string">"get.pts"</span>,</span><br><span class="line">              <span class="string">"coerce"</span>, <span class="string">"tristrip"</span>, <span class="string">"triangulate"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li>documentation files (<code>.Rd</code>) should be placed in the <code>man/</code> sub-directory</li>
+<li>written in specific markup language</li>
+<li>required for every exported function available to the user (serves to limit the number of exported functions)</li>
+<li><p>concepts/package/datasets overview can also be documented</p></li>
+<li><strong>components</strong>
+<ul>
+<li><code>\name{}</code> = name of function</li>
+<li><code>\alias{}</code> = anything listed as alias will bring up the help file (<code>?line</code> is the same as <code>?residuals.tukeyline</code>)
+<ul>
+<li>multiple aliases possible</li>
+</ul></li>
+<li><code>\title{}</code> = full title of the function</li>
+<li><code>\description{}</code> = full description of the purpose of function</li>
+<li><code>\usage{}</code> = format/syntax of function</li>
+<li><code>\arguments{}</code> = explanation of the arguments in the syntax of function</li>
+<li><code>\details{}</code> = notes/details about limitation/features of the function</li>
+<li><code>\value{}</code> = specifies what object is returned</li>
+<li><code>\reference{}</code> = references for the function (paper/book from which the method is created)</li>
+</ul></li>
+<li><p><strong><em>example: <code>line</code> function</em></strong></p></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">\name&#123;line&#125;</span><br><span class="line">\alias&#123;line&#125;</span><br><span class="line">\alias&#123;residuals.tukeyline&#125;</span><br><span class="line">\title&#123;Robust Line Fitting&#125;</span><br><span class="line">\description&#123;</span><br><span class="line">  Fit a line robustly as recommended <span class="keyword">in</span> \emph&#123;Exploratory Data Analysis&#125;.</span><br><span class="line">&#125;</span><br><span class="line">\usage&#123;</span><br><span class="line">line(x, y)</span><br><span class="line">&#125;</span><br><span class="line">\arguments&#123;</span><br><span class="line">  \item&#123;x, y&#125;&#123;the arguments can be any way of specifying x-y pairs.  See</span><br><span class="line">    \code&#123;\link&#123;xy.coords&#125;&#125;.&#125;</span><br><span class="line">&#125;</span><br><span class="line">\details&#123;</span><br><span class="line">  Cases with missing values are omitted.</span><br><span class="line"></span><br><span class="line">  Long vectors are not supported.</span><br><span class="line">&#125;</span><br><span class="line">\value&#123;</span><br><span class="line">  An object of class \code&#123;<span class="string">"tukeyline"</span>&#125;.</span><br><span class="line"></span><br><span class="line">  Methods are available <span class="keyword">for</span> the generic functions \code&#123;coef&#125;,</span><br><span class="line">  \code&#123;residuals&#125;, \code&#123;fitted&#125;, and \code&#123;print&#125;.</span><br><span class="line">&#125;</span><br><span class="line">\references&#123;</span><br><span class="line">  Tukey, J. W. (<span class="number">1977</span>).</span><br><span class="line">  \emph&#123;Exploratory Data Analysis&#125;,</span><br><span class="line">  Reading Massachusetts: Addison-Wesley.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="buildingchecking-package">Building/Checking Package</h3>
+<ul>
+<li><strong>R CMD (Command) Build</strong> = command-line program that creates a package archive file (format = <code>.tar.gz</code>)</li>
+<li><strong>R CMD Check</strong> = command-line program that runs a battery of tests on the package to ensure structure is consistent/all components are present/export and import are appropriately specified</li>
+<li>R CMD Build/R CMD check can be run from the command-line using terminal/command-shell applications</li>
+<li>alternatively, they can be run from R using the <code>system()</code> function
+<ul>
+<li><code>system(&quot;R CMD build newpackage&quot;)</code></li>
+<li><code>system(&quot;R CMD check newpackage&quot;)</code></li>
+</ul></li>
+<li>the package must pass <strong><em>all</em></strong> tests to be put on CRAN
+<ul>
+<li>documentation exists for all exported function</li>
+<li>code can be loaded without any major coding problems/errors</li>
+<li>contains license</li>
+<li>ensure examples in documentation can be executed</li>
+<li>check documentation of arguments matches argument in the code</li>
+</ul></li>
+<li><code>package.skeleton()</code> function in the <code>utils</code> package = creates a “skeleton” R package
+<ul>
+<li>automatically creates directory structure (<code>R/</code>, <code>man/</code>), DESCRIPTION file, NAMESPACE file, documentation files</li>
+<li>if there are any visible/stored functions in the current workspace, their code will be written as R code files in the <code>R/</code> directory</li>
+<li>documentation stubs are created in <code>man/</code> directory</li>
+<li>the rest of the content can then be modified and added</li>
+</ul></li>
+<li>alternatively, you can click on the menu on the top right hand corner of RStudio: <em>Project</em> <span class="math inline">\(\rightarrow\)</span> <em>New Project</em> <span class="math inline">\(\rightarrow\)</span> <em>New Directory</em> <span class="math inline">\(\rightarrow\)</span> <em>R Package</em> <span class="math inline">\(\rightarrow\)</span> fill in package names and details <span class="math inline">\(\rightarrow\)</span> automatically generate structure/skeleton of a new R package</li>
+</ul>
+<h3 id="checklist-for-creating-package">Checklist for Creating Package</h3>
+<ul>
+<li>create a new directory with <code>R/</code> and <code>man/</code> sub-directories (or just use <code>package.skeleton()</code>)</li>
+<li>write a DESCRIPTION file</li>
+<li>copy R code into the <code>R/</code> sub-directory</li>
+<li>write documentation files in <code>man/</code> sub-directory</li>
+<li>write a NAMESPACE file with exports/imports</li>
+<li>build and check</li>
+</ul>
+<h3 id="example-topten-function">Example: <code>topten</code> function</h3>
+<ul>
+<li>when creating a package, generate skeleton by clicking on <em>Project</em> <span class="math inline">\(\rightarrow\)</span> <em>New Project</em> <span class="math inline">\(\rightarrow\)</span> <em>New Directory</em> <span class="math inline">\(\rightarrow\)</span> <em>R Package</em> <span class="math inline">\(\rightarrow\)</span> fill in package names and details</li>
+<li>write the code first in a <code>.R</code> script and add documentation directly to the script
+<ul>
+<li><strong>Roxygen2</strong> package will be leveraged to extract and format the documentation from R script automatically</li>
+</ul></li>
+<li>Roxygen2 syntax
+<ul>
+<li><code>#'</code> = denotes the beginning of documentation
+<ul>
+<li>R will automatically add <code>#'</code> on the subsequent lines as you type or complete sections</li>
+</ul></li>
+<li>title should be on the first line (relatively concise, a few words)
+<ul>
+<li>press <strong>ENTER</strong> after you are finished and R will automatically insert an empty line and move the cursor to the next section</li>
+</ul></li>
+<li>description/summary should begin on the third line (one/two sentences)
+<ul>
+<li>press <strong>ENTER</strong> after you are finished and R will automatically insert an empty line and move the cursor to the next section</li>
+</ul></li>
+<li><code>@param x definition</code> = format of the documentation for the arguments
+<ul>
+<li><code>x</code> = argument name (formatted in code format when processed to differentiate from definition)</li>
+<li><code>definiton</code> = explanation of the what x represents</li>
+</ul></li>
+<li><code>@author</code> = author of the function</li>
+<li><code>@details</code> = detailed description of the function and its purpose</li>
+<li><code>@seealso</code> = links to relevant functions used in creating the current function that may be of interest to the user</li>
+<li><code>@import package function</code> = imports specific function from specified package</li>
+<li><code>@export</code> = denotes that this function is exported for public use</li>
+<li><code>@return</code> = specifies what is returned by the method</li>
+</ul></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#' Building a Model with Top Ten Features</span></span><br><span class="line"><span class="comment">#'</span></span><br><span class="line"><span class="comment">#' This function develops a prediction algorithm based on the top 10 features</span></span><br><span class="line"><span class="comment">#' in 'x' that are most predictive of 'y'.</span></span><br><span class="line"><span class="comment">#'</span></span><br><span class="line"><span class="comment">#' @param x a n x p matrix of n observations and p predictors</span></span><br><span class="line"><span class="comment">#' @param y a vector of length n representing the response</span></span><br><span class="line"><span class="comment">#' @return a 'lm' object representing the linear model with the top 10 predictors</span></span><br><span class="line"><span class="comment">#' @author Roger Peng</span></span><br><span class="line"><span class="comment">#' @details</span></span><br><span class="line"><span class="comment">#' This function runs a univariate regression of y on each predictor in x and</span></span><br><span class="line"><span class="comment">#' calculates the p-value indicating the significance of the association. The</span></span><br><span class="line"><span class="comment">#' final set of 10 predictors is the taken from the 10 smallest p-values.</span></span><br><span class="line"><span class="comment">#' @seealso \code&#123;lm&#125;</span></span><br><span class="line"><span class="comment">#' @import stats</span></span><br><span class="line"><span class="comment">#' @export</span></span><br><span class="line"></span><br><span class="line">topten &lt;- <span class="keyword">function</span>(x, y) &#123;</span><br><span class="line">        p &lt;- ncol(x)</span><br><span class="line">        <span class="keyword">if</span>(p &lt; <span class="number">10</span>)</span><br><span class="line">                <span class="keyword">stop</span>(<span class="string">"there are less than 10 predictors"</span>)</span><br><span class="line">        pvalues &lt;- numeric(p)</span><br><span class="line">        <span class="keyword">for</span>(i <span class="keyword">in</span> seq_len(p)) &#123;</span><br><span class="line">                fit &lt;- lm(y ~ x[, i])</span><br><span class="line">                summ &lt;- summary(fit)</span><br><span class="line">                pvalues[i] &lt;- summ$coefficients[<span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">        &#125;</span><br><span class="line">        ord &lt;- order(pvalues)</span><br><span class="line">        x10 &lt;- x[, ord]</span><br><span class="line">        fit &lt;- lm(y ~ x10)</span><br><span class="line">        coef(fit)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#' Prediction with Top Ten Features</span></span><br><span class="line"><span class="comment">#'</span></span><br><span class="line"><span class="comment">#' This function takes a set coefficients produced by the \code&#123;topten&#125;</span></span><br><span class="line"><span class="comment">#' function and makes a prediction for each of the values provided in the</span></span><br><span class="line"><span class="comment">#' input 'X' matrix.</span></span><br><span class="line"><span class="comment">#'</span></span><br><span class="line"><span class="comment">#' @param X a n x 10 matrix containing n observations</span></span><br><span class="line"><span class="comment">#' @param b a vector of coefficients obtained from the \code&#123;topten&#125; function</span></span><br><span class="line"><span class="comment">#' @return a numeric vector containing the predicted values</span></span><br><span class="line"></span><br><span class="line">predict10 &lt;- <span class="keyword">function</span>(X, b) &#123;</span><br><span class="line">        X &lt;- cbind(<span class="number">1</span>, X)</span><br><span class="line">        drop(X %*% b)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="r-classes-and-methods">R Classes and Methods</h2>
+<ul>
+<li>represents new data types (i.e. list) and its own structure/functions that R doesn’t support yet</li>
+<li>R classes and method <span class="math inline">\(\rightarrow\)</span> system for object oriented programming (OOP)</li>
+<li>R is interactive and supports OOP where as a lot of the other common OOP languages (C++, Java, Python, Perl) are generally not interactive</li>
+<li>John Chambers wrote most of the code support classes/methods (documented in <em>Programming with Data</em>)</li>
+<li>goal is to allow <em>user</em> (leverage system capabilities) to become <em>programmers</em> (extend system capabilities)</li>
+<li><p>OOB structure in R is structured differently than most of the other languages</p></li>
+<li><strong>two style of classes and methods</strong>
+<ul>
+<li>S3 (version three of the <em>S</em> language)
+<ul>
+<li>informal, “old-style”, kludgey (functional but not elegant)</li>
+</ul></li>
+<li>S4 (version four of the <em>S</em> language)
+<ul>
+<li>rigorous standard, more formal, “new-style”</li>
+<li>code for implementing S4 classes and methods found in <code>methods</code> package</li>
+</ul></li>
+<li>two systems living side by side
+<ul>
+<li>each is independent but S4 are encouraged for new projects</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="objected-oriented-programming-in-r">Objected Oriented Programming in R</h3>
+<ul>
+<li><strong><em>class</em></strong> = description of some thing/object (new data type/idea)
+<ul>
+<li>can be defined using <code>setClass()</code> function in <code>methods</code> package</li>
+<li>all objects in R have a class, which can be determined through the <code>class()</code> function
+<ul>
+<li><code>numeric</code> = number data, can be vectors as well (series of numbers)</li>
+<li><code>logical</code> = TRUE, FALSE, NA
+<ul>
+<li><em><strong>Note</strong>: NA is by default of logical class, however you can have numeric/character NA’s as results of operations </em></li>
+</ul></li>
+<li><code>character</code> = string of characters</li>
+<li><code>lm</code> = linear model class, output from a linear model</li>
+</ul></li>
+</ul></li>
+<li><strong><em>object</em></strong> = instances of a class
+<ul>
+<li>can be created using <code>new()</code></li>
+</ul></li>
+<li><strong><em>method</em></strong> = function that operates on certain class of objects
+<ul>
+<li>also can be thought of as an implementation of a <em>generic function</em> for an object of particular class</li>
+<li>can write new method for existing generic functions or create new generic function and associated methods</li>
+<li><code>getS3method(&lt;genericFunction&gt;, &lt;class&gt;)</code> = returns code for S3 method for a given class
+<ul>
+<li>some S3 methods can be called directly (i.e. <code>mean.default</code>)</li>
+<li>but you should <strong>never</strong> call them, always use the generic</li>
+</ul></li>
+<li><code>getMethod(&lt;genericFunction&gt;, &lt;signature/class&gt;)</code> = returns code for S4 method for a given class
+<ul>
+<li><em>signature</em> = character vector indicating class of objects accepted by the method</li>
+<li>S4 methods can not be called at all</li>
+</ul></li>
+</ul></li>
+<li><strong><em>generic function</em></strong> = R function that dispatches methods to perform a certain task (i.e. <code>plot, mean, predict</code>)
+<ul>
+<li>performs different calculations depending on context</li>
+<li><em><strong>Note</strong>: generic functions themselves don’t perform any computation; typing the function name by itself (i.e. <code>plot</code>) will return the content of the function </em></li>
+<li>S3 and S4 functions look different but are similar conceptually</li>
+<li><code>methods(&quot;mean&quot;)</code> = returns methods associated with S3 generic function</li>
+<li><code>showMethods(&quot;show&quot;)</code> = returns methods associated with S4 generic function
+<ul>
+<li><em><strong>Note</strong>: <code>show</code> is equivalent of <code>print</code>, but generally not called directly as objects are auto-printed </em></li>
+</ul></li>
+<li>first argument = object of particular class</li>
+<li><em><strong>process</strong></em>:
+<ol type="1">
+<li>generic function checks class of object</li>
+<li>if appropriate method for class exists, call that method on object (process complete)</li>
+<li>if no method exists for class, search for default method</li>
+<li>if default method exists, default method is called on object (process complete)</li>
+<li>if no default method exists, error thrown (process complete)</li>
+</ol></li>
+<li>for classes like <code>data.frame</code> where each column can be of different class, the function uses the methods correspondingly
+<ul>
+<li>plotting <code>as.ts(x)</code> and x are completed different
+<ul>
+<li><code>as.ts()</code> = converts object to time series</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><em><strong>Note</strong>: <code>?Classes</code>, <code>?Methods</code>, <code>?setClass</code>, <code>?setMethod</code>, and <code>?setGeneric</code> contains very helpful documentation </em></p></li>
+<li><p><strong><em>example</em></strong></p></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># S3 method: mean</span><br><span class="line">mean</span><br><span class="line"># associated methods</span><br><span class="line">methods(&quot;mean&quot;)</span><br><span class="line"># code for mean (first 10 lines)</span><br><span class="line"># note: no specific funcyion got numeric class, so default is used</span><br><span class="line">head(getS3method(&quot;mean&quot;, &quot;default&quot;), 10)</span><br><span class="line"># S4 method: show</span><br><span class="line">show</span><br><span class="line"># associated methods</span><br><span class="line">showMethods(&quot;show&quot;)</span><br></pre></td></tr></table></figure>
+<h3 id="creating-a-new-classmethods">Creating a New Class/Methods</h3>
+<ul>
+<li>reason for creating new classes/data type (not necessarily unknown to the world, but just unknown to R)
+<ul>
+<li>powerful way to extend the functionality of R</li>
+<li>represent new types of data (e.g. gene expression, space-time, hierarchical, sparse matrices)</li>
+<li>new concepts/ideas that haven’t been thought of yet (e.g. a fitted point process model, mixed-effects model, a sparse matrix)</li>
+<li>abstract/hide implementation details from the user</li>
+</ul></li>
+<li><strong>classes</strong> = define new data types</li>
+<li><p><strong>methods</strong> = extend <em>generic functions</em> to specify the behavior of generic functions on new classes</p></li>
+<li><code>setClass()</code> = function to create new class
+<ul>
+<li>at minimum, name of class needs to be specified</li>
+<li><em>slots</em> or attributes can also be specified
+<ul>
+<li>a class is effectively a list, so slots are elements of that list</li>
+</ul></li>
+</ul></li>
+<li><code>setMethod()</code> = define methods for class
+<ul>
+<li><code>@</code> is used to access the slots/attributes of the class</li>
+</ul></li>
+<li><code>showClass()</code> = displays definition/information about class</li>
+<li>when drafting new class, new methods for <code>print</code>  <code>show</code>, <code>summary</code>, and <code>plot</code> should be written</li>
+<li><em><strong>Note</strong>: creating classes are not something to be done on the console and are much better suited for a script </em></li>
+<li><strong><em>example</em></strong>
+<ul>
+<li>create <code>ploygon</code> class with set of (x, y) coordinates with <code>setClass()</code></li>
+<li>define a new plot function by extending existing <code>plot</code> function with <code>setMethod()</code></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.width </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># load methods library</span><br><span class="line">library(methods)</span><br><span class="line"># create polygon class with x and y coordinates as slots</span><br><span class="line">setClass(&quot;polygon&quot;, representation(x = &quot;numeric&quot;, y = &quot;numeric&quot;))</span><br><span class="line"># create plot method for ploygon class (ploygon = signature in this case)</span><br><span class="line">setMethod(&quot;plot&quot;, &quot;polygon&quot;,</span><br><span class="line">	# create function</span><br><span class="line">	function(x, y, ...) &#123;</span><br><span class="line">		# plot the x and y coordinates</span><br><span class="line">		plot(x@x, x@y, type = &quot;n&quot;, ...)</span><br><span class="line">		# plots lines between all (x, y) pairs</span><br><span class="line">		# x@x[1] is added at the end because we need</span><br><span class="line">		# to connect the last point of polygon to the first</span><br><span class="line">		xp &lt;- c(x@x, x@x[1])</span><br><span class="line">		yp &lt;- c(x@y, x@y[1])</span><br><span class="line">		lines(xp, yp)</span><br><span class="line">	  &#125;)</span><br><span class="line"># print polygon method</span><br><span class="line">showMethods(&quot;plot&quot;)</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="yhat-link">Yhat (<a href="http://cloud.yhathq.com/">link</a>)</h2>
+<ul>
+<li>develop back-ends to algorithms to be hosted on-line for other people to access</li>
+<li>others can create APIs (front-ends) to leverage the algorithm/model</li>
+<li>before uploading, create an account and set up API key</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Create dataset of PM and O3 for all US taking year 2013 (annual</span></span><br><span class="line"><span class="comment">## data from EPA)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## This uses data from</span></span><br><span class="line"><span class="comment">## http://aqsdr1.epa.gov/aqsweb/aqstmp/airdata/download_files.html</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Read in the 2013 Annual Data</span></span><br><span class="line">d &lt;- read.csv(<span class="string">"annual_all_2013.csv"</span>, nrow = <span class="number">68210</span>)</span><br><span class="line"><span class="comment"># subset data to just variables we are interested in</span></span><br><span class="line">sub &lt;- subset(d, Parameter.Name %<span class="keyword">in</span>% c(<span class="string">"PM2.5 - Local Conditions"</span>, <span class="string">"Ozone"</span>)</span><br><span class="line">              &amp; Pullutant.Standard %<span class="keyword">in</span>% c(<span class="string">"Ozone 8-Hour 2008"</span>, <span class="string">"PM25 Annual 2006"</span>),</span><br><span class="line">              c(Longitude, Latitude, Parameter.Name, Arithmetic.Mean))</span><br><span class="line"><span class="comment"># calculate the average pollution for each location</span></span><br><span class="line">pollavg &lt;- aggregate(sub[, <span class="string">"Arithmetic.Mean"</span>],</span><br><span class="line">                     sub[, c(<span class="string">"Longitude"</span>, <span class="string">"Latitude"</span>, <span class="string">"Parameter.Name"</span>)],</span><br><span class="line">                     mean, na.rm = <span class="literal">TRUE</span>)</span><br><span class="line"><span class="comment"># refactors the Name parameter to drop all other levels</span></span><br><span class="line">pollavg$Parameter.Name &lt;- factor(pollavg$Parameter.Name, labels = c(<span class="string">"ozone"</span>, <span class="string">"pm25"</span>))</span><br><span class="line"><span class="comment"># renaming the last column from "x" (automatically generated) to "level"</span></span><br><span class="line">names(pollavg)[<span class="number">4</span>] &lt;- <span class="string">"level"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove unneeded objects</span></span><br><span class="line">rm(d, sub)</span><br><span class="line"><span class="comment"># extract out just the location information for convenience</span></span><br><span class="line">monitors &lt;- data.matrix(pollavg[, c(<span class="string">"Longitude"</span>, <span class="string">"Latitude"</span>)])</span><br><span class="line"><span class="comment"># load fields package which allows us to calculate distances on earth</span></span><br><span class="line"><span class="keyword">library</span>(fields)</span><br><span class="line"><span class="comment"># build function to calculate the distances for the given set of coordinates</span></span><br><span class="line"><span class="comment"># input = lon (longitude), lat (latitude), radius (radius in miles for finding monitors)</span></span><br><span class="line">pollutant &lt;- <span class="keyword">function</span>(df) &#123;</span><br><span class="line">		<span class="comment"># extract longitude/lagitude</span></span><br><span class="line">        x &lt;- data.matrix(df[, c(<span class="string">"lon"</span>, <span class="string">"lat"</span>)])</span><br><span class="line">        <span class="comment"># extract radius</span></span><br><span class="line">        r &lt;- df$radius</span><br><span class="line">        <span class="comment"># calculate distances between all monitors and input coordinates</span></span><br><span class="line">        d &lt;- rdist.earth(monitors, x)</span><br><span class="line">        <span class="comment"># locations for find which distance is less than the input radius</span></span><br><span class="line">        use &lt;- lapply(seq_len(ncol(d)), <span class="keyword">function</span>(i) &#123;</span><br><span class="line">                which(d[, i] &lt; r[i])</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment"># calculate levels of ozone and pm2.5 at each selected locations</span></span><br><span class="line">        levels &lt;- sapply(use, <span class="keyword">function</span>(idx) &#123;</span><br><span class="line">                with(pollavg[idx, ], tapply(level, Parameter.Name, mean))</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment"># convert to data.frame and transpose</span></span><br><span class="line">        dlevel &lt;- as.data.frame(t(levels))</span><br><span class="line">        <span class="comment"># return the input data frame and the calculated levels</span></span><br><span class="line">        data.frame(df, dlevel)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="deploying-the-model">Deploying the Model</h3>
+<ul>
+<li>once the functions are complete, three more functions should be written in order to upload to yhat,
+<ul>
+<li><code>model.require(){}</code> = defines dependencies on other packages
+<ul>
+<li>if there are no dependencies, this does not need to be defined</li>
+</ul></li>
+<li><code>model.transform(){}</code> = needed if the data needs to be transformed in anyway before feeding into the model</li>
+<li><code>model.predict(){}</code> = performs the prediction</li>
+</ul></li>
+<li>store the following information as a vector named <code>yhat.config</code>
+<ul>
+<li><code>username = &quot;&lt;user@email.com&gt;&quot;</code> = user name for yhat website</li>
+<li><code>apikey = &quot;&lt;generatedKey&gt;&quot;</code> = unique API key generated when you open an account with yhat</li>
+<li><code>env=&quot;http://sandbox.yhathq.com/&quot;</code> = software environment (always going to be this link)</li>
+</ul></li>
+<li><code>yhat.deploy(&quot;name&quot;)</code> = uploads the model to yhat servers with provided credentials under the specified name
+<ul>
+<li>returns a data frame with status/model information</li>
+</ul></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Send to yhat</span></span><br><span class="line"><span class="keyword">library</span>(yhatr)</span><br><span class="line"></span><br><span class="line">model.require &lt;- <span class="keyword">function</span>() &#123;</span><br><span class="line">        <span class="keyword">library</span>(fields)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">model.transform &lt;- <span class="keyword">function</span>(df) &#123;</span><br><span class="line">        df</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">model.predict &lt;- <span class="keyword">function</span>(df) &#123;</span><br><span class="line">        pollutant(df)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">yhat.config  &lt;- c(</span><br><span class="line">        username=<span class="string">"email@gmail.com"</span>,</span><br><span class="line">        apikey=<span class="string">"90d2a80bb532cabb2387aa51ac4553cc"</span>,</span><br><span class="line">        env=<span class="string">"http://sandbox.yhathq.com/"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">yhat.deploy(<span class="string">"pollutant"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="accessing-the-model">Accessing the Model</h3>
+<ul>
+<li>once uploaded, the model can be accessed directly on the yhat website
+<ul>
+<li>click on name of the model after logging in or go to “http://cloud.yhathq.com/model/name” where name is the name you uploaded the model under</li>
+<li>enter the inputs in JSON format (associative arrays): <code>{ &quot;variable&quot; : &quot;value&quot;}</code>
+<ul>
+<li><em>example</em>: <code>{ &quot;lon&quot; : -76.61, &quot;lat&quot;: 39.28, &quot;radius&quot;: 50 }</code></li>
+</ul></li>
+<li>click on <strong>Send Data to Model</strong></li>
+<li>results return in the <em>Model Response</em> section</li>
+</ul></li>
+<li>the model can also be accessed from R directly through the <code>yhat.predict</code> function
+<ul>
+<li>store the data you want to predict on in a data frame with the correct variable names</li>
+<li>set up the configuration information through <code>yhat.config</code> (see above section)</li>
+<li><code>yhat.predict(&quot;name&quot;, df)</code> = returns the result by feeding the input data to the model hosted on yhat under your credentials</li>
+<li>can be applied to multiple rows of data at the same time</li>
+</ul></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(yhatr)</span><br><span class="line">yhat.config  &lt;- c(</span><br><span class="line">        username=<span class="string">"email@gmail.com"</span>,</span><br><span class="line">        apikey=<span class="string">"90d2a80bb532cabb2387aa51ac4553cc"</span>,</span><br><span class="line">        env=<span class="string">"http://sandbox.yhathq.com/"</span></span><br><span class="line">)</span><br><span class="line">df &lt;- data.frame(lon = c(-<span class="number">76.6167</span>, -<span class="number">118.25</span>), lat = c(<span class="number">39.2833</span>, <span class="number">34.05</span>),</span><br><span class="line">                 radius = <span class="number">20</span>)</span><br><span class="line">yhat.predict(<span class="string">"pollutant"</span>, df)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>the model can also directly from command line interfaces (CLI) such as cmd on Windows and terminal on Mac</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST -H <span class="string">"Content-Type: application/json"</span> \</span><br><span class="line">    --user email@gmail.com:90d2a80bb532cabb2387aa51ac4553cc \</span><br><span class="line">    --data <span class="string">'&#123; "lon" : -76.61, "lat": 39.28, "radius": 50 &#125;'</span> \</span><br><span class="line">    http://cloud.yhathq.com/rdpeng@gmail.com/models/pollutant/</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><em>additional example</em></strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># load library</span></span><br><span class="line"><span class="keyword">library</span>(yhatr)</span><br><span class="line"><span class="comment"># yhat functions</span></span><br><span class="line">model.require &lt;- <span class="keyword">function</span>() &#123;&#125;</span><br><span class="line">model.transform &lt;- <span class="keyword">function</span>(df) &#123;</span><br><span class="line">        transform(df, Wind = as.numeric(as.character(Wind)),</span><br><span class="line">                  Temp = as.integer(as.character(Temp)))</span><br><span class="line">&#125;</span><br><span class="line">model.predict &lt;- <span class="keyword">function</span>(df) &#123;</span><br><span class="line">        result &lt;- data.frame(Ozone = predict(fit, newdata = df))</span><br><span class="line">        cl &lt;- data.frame(clWind = class(df$Wind), clTemp = class(df$Temp))</span><br><span class="line">        data.frame(result, Temp = as.character(df$Temp),</span><br><span class="line">                   Wind = as.character(df$Wind), cl)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># model</span></span><br><span class="line">fit &lt;- lm(Ozone ~ Wind + Temp, data = airquality)</span><br><span class="line"><span class="comment"># configuration</span></span><br><span class="line">yhat.config  &lt;- c(</span><br><span class="line">        username=<span class="string">"email@gmail.com"</span>,</span><br><span class="line">        apikey=<span class="string">"90d2a80bb532cabb2387aa51ac4553cc"</span>,</span><br><span class="line">        env=<span class="string">"http://sandbox.yhathq.com/"</span></span><br><span class="line">)</span><br><span class="line"><span class="comment"># deploy to yhat</span></span><br><span class="line">yhat.deploy(<span class="string">"ozone"</span>)</span><br><span class="line"><span class="comment"># predict using uploaded model</span></span><br><span class="line">yhat.predict(<span class="string">"ozone"</span>, data.frame(Wind = <span class="number">9.7</span>, Temp = <span class="number">67</span>))</span><br></pre></td></tr></table></figure>
+-->
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Xing Su</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://yoursite.com/2018/08/07/Developing-Data-Products/" title="Developing Data Products">http://yoursite.com/2018/08/07/Developing-Data-Products/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"># R</a>
+          
+            <a href="/tags/DataScience/" rel="tag"># DataScience</a>
+          
+            <a href="/tags/R-Markdown/" rel="tag"># R Markdown</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/07/Practical-Machine-Learning/" rel="next" title="Practical Machine Learning">
+                <i class="fa fa-chevron-left"></i> Practical Machine Learning
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODY0Mi8xNTE3MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avator.png"
+                alt="Autoz" />
+            
+              <p class="site-author-name" itemprop="name">Autoz</p>
+              <p class="site-description motion-element" itemprop="description">Fidelty.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/autolordz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:autolordz@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#shiny-tutorial"><span class="nav-number">1.</span> <span class="nav-text">Shiny (tutorial)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#structure-of-shiny-app"><span class="nav-number">1.1.</span> <span class="nav-text">Structure of Shiny App</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ui.r"><span class="nav-number">1.2.</span> <span class="nav-text">ui.R</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ui.r-example"><span class="nav-number">1.3.</span> <span class="nav-text">ui.R Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#server.r"><span class="nav-number">1.4.</span> <span class="nav-text">server.R</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#server.r-example"><span class="nav-number">1.5.</span> <span class="nav-text">server.R Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#distributing-shiny-application"><span class="nav-number">1.6.</span> <span class="nav-text">Distributing Shiny Application</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#debugging"><span class="nav-number">1.7.</span> <span class="nav-text">Debugging</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#manipulate-package"><span class="nav-number">2.</span> <span class="nav-text">manipulate Package</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-number">2.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rcharts"><span class="nav-number">3.</span> <span class="nav-text">rCharts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example-1"><span class="nav-number">3.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ggvis-package"><span class="nav-number">4.</span> <span class="nav-text">ggvis package</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Autoz</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">514k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">7:47</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.3.0"></script>
+
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="\(\pagebreak\) Replication  ultimate standard for strengthening of scientific evidence reproduce findings and conduct studies with independent investigators/data/analytical methods/laboratories/in">
+<meta name="keywords" content="R,DataScience,R Markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reproducible Research">
+<meta property="og:url" content="http://yoursite.com/2018/08/07/Reproducible-Research/index.html">
+<meta property="og:site_name" content="AutozLand">
+<meta property="og:description" content="\(\pagebreak\) Replication  ultimate standard for strengthening of scientific evidence reproduce findings and conduct studies with independent investigators/data/analytical methods/laboratories/in">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-08-07T06:06:57.052Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reproducible Research">
+<meta name="twitter:description" content="\(\pagebreak\) Replication  ultimate standard for strengthening of scientific evidence reproduce findings and conduct studies with independent investigators/data/analytical methods/laboratories/in">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/07/Reproducible-Research/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Reproducible Research | AutozLand</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AutozLand</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Autoz's Learning Blogs</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">12</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">3</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/07/Reproducible-Research/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Autoz">
+      <meta itemprop="description" content="Fidelty.">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AutozLand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Reproducible Research<a href="https://github.com/theme-next/theme-next.org/_posts/tree/master/Reproducible-Research.md" class="post-edit-link" title="Edit this post" target="_blank">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-07 14:05:25 / Modified: 14:06:57" itemprop="dateCreated datePublished" datetime="2018-08-07T14:05:25+08:00">2018-08-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">38k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">34 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="replication">Replication</h2>
+<ul>
+<li>ultimate standard for strengthening of scientific evidence</li>
+<li>reproduce findings and conduct studies with independent investigators/data/analytical methods/laboratories/instruments</li>
+<li>particularly important in studies that affect policy</li>
+<li>HOWEVER, some studies can’t be replicated (time, opportunity, money, unique)
+<ul>
+<li>Make research reproducible (making available data/code so others may reproduce analysis)</li>
+</ul></li>
+</ul>
+<h2 id="reproducibility">Reproducibility</h2>
+<ul>
+<li>bridges gap between replication and letting the study stand alone</li>
+<li>take data/code and replicate findings <span class="math inline">\(\rightarrow\)</span> validate their findings</li>
+<li>why we need reproducible research
+<ul>
+<li>new technologies increase data throughput while adding complexities and dimension to data</li>
+<li>existing databases merged into bigger collection of data</li>
+<li>computational power increased</li>
+</ul></li>
+<li><strong>Research Pipeline</strong></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># install grid and png packages if not present</span><br><span class="line">library(png)</span><br><span class="line">library(grid)</span><br><span class="line">grid.raster(readPNG(&quot;figures/1.jpg&quot;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Institute of Medicine report - Evolution of Translational Omics
+<ul>
+<li>Data/meta data should be made available</li>
+<li>Computer code/fully specified computational procedures need to be available</li>
+<li>Data processing and computational analysis steps described</li>
+</ul></li>
+<li><strong>Necessities for Reproducible Research</strong>
+<ul>
+<li>analytical data (not raw data)</li>
+<li>analytical code (applied to data, i.e. regression model etc.)</li>
+<li>documentation of data/code</li>
+<li>standard means of distribution</li>
+</ul></li>
+<li><strong>Challenges</strong>
+<ul>
+<li>authors make considerable effort to make data/results available</li>
+<li>readers must download data/results individually and piece it all together</li>
+<li>readers may not have the same resources as authors (computing clusters, etc.)</li>
+<li>few tools for readers/authors</li>
+<li>In reality, authors just put their content online (often disorganized, but there are some central databases for various fields) and readers have to find the data and piece it together</li>
+</ul></li>
+</ul>
+<h2 id="literatestatistical-programming">Literate/Statistical Programming</h2>
+<ul>
+<li>Notion of an article is a stream of <strong>text</strong> and <strong>code</strong></li>
+<li>original idea came from <em>Don Knuth</em></li>
+<li>statistical analysis is divided into text and code chunks
+<ul>
+<li>text explains whats going on</li>
+<li>code loads data/computes results</li>
+<li>presentation code formats results (tables, graphics, etc)</li>
+</ul></li>
+<li>Literate Programming requires
+<ul>
+<li><strong>documentation language</strong> - [<strong><em>weave</em></strong>] produce human-readable docs (HTML/PDF)</li>
+<li><strong>programming language</strong> - [<strong><em>tangle</em></strong>] produce machine-readable code</li>
+</ul></li>
+<li><strong>Sweave</strong> - original program in R designed to do literate programming
+<ul>
+<li>LaTeX for documentation, R for programming</li>
+<li>developed by <em>Friedrich Leisch</em> (member of R core)</li>
+<li>still maintained by R core</li>
+<li><strong><em>limitations</em></strong>
+<ul>
+<li>focus on LaTeX, difficult to learn markup languages</li>
+<li>lacks features like caching, multiple plots per chunk, mixing programming languages with many other technical terms</li>
+<li>not frequently updated/actively developed</li>
+</ul></li>
+</ul></li>
+<li><strong><code>knitr</code></strong> = alternative literate programming package
+<ul>
+<li>R for programming (can use others as well)</li>
+<li>LaTeX/HTML/Markdown for documentation</li>
+<li>developed by Iowa grad student <em>Yihui Xie</em></li>
+</ul></li>
+<li><strong>reproducible research</strong> = minimum standard for non-replicable/computationally intensive studies
+<ul>
+<li>infrastructure still need for creating/distributing reproducible documents</li>
+</ul></li>
+</ul>
+<h2 id="structure-of-data-analysis">Structure of Data Analysis</h2>
+<h3 id="key-challenge-in-data-analysis">Key Challenge in Data Analysis</h3>
+<blockquote>
+<p>“Ask yourselves, what problem have you solved, ever, that was worth solving, where you knew all of the given information in advance? Where you didn’t have a surplus of information and have to filter it out, or you had insufficient information and have to go find some?” - <strong><em>Dan Myer</em></strong></p>
+</blockquote>
+<h3 id="define-the-question">Define The Question</h3>
+<ul>
+<li>most powerful dimension reduction tool, narrowing down question reduces noise/simply problem</li>
+<li>Science <span class="math inline">\(\rightarrow\)</span> Data <span class="math inline">\(\rightarrow\)</span> Applied Statistics <span class="math inline">\(\rightarrow\)</span> Theoretical Statistics</li>
+<li>properly using the combination of science/data/applied statistics = proper data analysis</li>
+<li><strong><em>example</em></strong>
+<ul>
+<li>general question: Can I automatically detect emails that are SPAM from those that are not?</li>
+<li>concrete question: Can I use quantitative characteristics of the emails to classify them as SPAM/HAM?</li>
+</ul></li>
+</ul>
+<h3 id="determine-the-ideal-data-set">Determine the Ideal Data Set</h3>
+<ul>
+<li>after having the concrete question, find the data set that is suitable for your goal:
+<ul>
+<li><strong><em>Descriptive</em></strong> = whole population</li>
+<li><strong><em>Exploratory</em></strong> = random sample with multiple variables measured</li>
+<li><strong><em>Inferential</em></strong> = drawing conclusion from a sample for a larger population, so choosing the right population, and carefully/randomly sampled</li>
+<li><strong><em>Predictive</em></strong> = need training and test data sets from the same population to build a model and classifier</li>
+<li><strong><em>Causal</em></strong> = (if this is modified, then that happens) experimental data from randomized study</li>
+<li><strong><em>Mechanistic</em></strong> = data from all components of system that you want to describe</li>
+</ul></li>
+</ul>
+<h3 id="determine-what-data-you-can-access">Determine What Data You Can Access</h3>
+<ul>
+<li>often won’t have access to the ideal data set</li>
+<li>free data from the web, paid data from provider (must respect terms of use)</li>
+<li>if data doesn’t exist, you may need to generate some of the data</li>
+</ul>
+<h3 id="obtain-the-data">Obtain The Data</h3>
+<ul>
+<li>try to obtain the raw data and reference the source</li>
+<li>if loading data from internet source, record at the minimum url and time of access</li>
+</ul>
+<h3 id="clean-the-data">Clean The Data</h3>
+<ul>
+<li>raw data need to be processed to be fed into modeling program</li>
+<li>if already processed, need to understand how and understand documentation on how the pre-processing was done</li>
+<li>understanding source of data (i.e. survey - how survey was done?)</li>
+<li>may need to reformat/subsample data <span class="math inline">\(\rightarrow\)</span> need to record steps</li>
+<li>determine if data is good enough to solve the problem <span class="math inline">\(\rightarrow\)</span> if not, find other data/quit/change question to avoid misleading conclusions</li>
+</ul>
+<h3 id="exploratory-data-analysis">Exploratory Data Analysis</h3>
+<ul>
+<li>for the purpose of the SPAM question, data needs to be split into training and test test (Predictive)</li>
+</ul>
+<figure class="highlight plain"><figcaption><span>warning </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># If it isn&apos;t installed, install the kernlab package with install.packages()</span><br><span class="line">library(kernlab)</span><br><span class="line">data(spam)</span><br><span class="line">set.seed(3435)</span><br><span class="line">trainIndicator = rbinom(4601, size = 1, prob = 0.5)</span><br><span class="line">table(trainIndicator)</span><br><span class="line">trainSpam = spam[trainIndicator == 1, ]</span><br><span class="line">testSpam = spam[trainIndicator == 0, ]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>look at one/two-dimensional summaries of data, what the distribution looks like, relationships between variables
+<ul>
+<li><code>names()</code>, <code>summary()</code>, <code>head()</code></li>
+<li><code>table(trainSpam$type)</code></li>
+</ul></li>
+<li>check for missing data/why there is missing data</li>
+<li>create exploratory plots
+<ul>
+<li><code>plot(trainSpam$capitalAve ~ trainSpam$type)</code></li>
+<li><code>plot(log10(trainSpam$capitalAve + 1) ~ trainSpam$type)</code>
+<ul>
+<li>because data is skewed <span class="math inline">\(\rightarrow\)</span> use <code>log</code></li>
+<li>a lot of zeroes <span class="math inline">\(\rightarrow\)</span> <code>+1</code></li>
+</ul></li>
+</ul></li>
+<li>perform exploratory analysis (clustering)
+<ul>
+<li>relationships between predictors</li>
+<li><code>plot(log10(trainSpam[, 1:4] + 1))</code>
+<ul>
+<li>log transformations diagrams between pairs of variables</li>
+</ul></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/2.jpg&quot;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>hierarchical cluster analysis (<strong>Dendrogram</strong>) = what words/characteristics tend to cluster together
+<ul>
+<li><code>hCluster = hclust(dist(t(trainSpam[, 1:57])))</code>
+<ul>
+<li><em><strong>Note</strong>: Dendrograms can be sensitive to skewness in distribution of individual variables, so maybe useful to transform predictor (see below) </em></li>
+</ul></li>
+<li><code>hClusterUpdated = hclust(dist(t(log10(trainSpam[, 1:55] + 1))))</code></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/3.jpg&quot;))</span><br></pre></td></tr></table></figure>
+<h3 id="statistical-modellingprediction">Statistical Modelling/Prediction</h3>
+<ul>
+<li>should be guided by exploratory analysis</li>
+<li>exact methods depend on the question of interest</li>
+<li>account for data transformation/processing
+<ul>
+<li>go through each variable in the dataset and fit logistic regression to see if we can predict if an email is spam or not by using a single variable</li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>cache </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">trainSpam$numType = as.numeric(trainSpam$type) - 1</span><br><span class="line">costFunction = function(x, y) sum(x != (y &gt; 0.5))</span><br><span class="line">cvError = rep(NA, 55)</span><br><span class="line">library(boot)</span><br><span class="line">for (i in 1:55) &#123;</span><br><span class="line">    # creates formula with one variable and the result</span><br><span class="line">    lmFormula = reformulate(names(trainSpam)[i], response = &quot;numType&quot;)</span><br><span class="line">    glmFit = glm(lmFormula, family = &quot;binomial&quot;, data = trainSpam)</span><br><span class="line">    # cross validated error</span><br><span class="line">    cvError[i] = cv.glm(trainSpam, glmFit, costFunction, 2)$delta[2]</span><br><span class="line">&#125;</span><br><span class="line"># Which predictor has minimum cross-validated error?</span><br><span class="line">names(trainSpam)[which.min(cvError)]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>think about measures/sources of uncertainty</li>
+</ul>
+<figure class="highlight plain"><figcaption><span>warning </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Use the best model from the group</span><br><span class="line">predictionModel = glm(numType ~ charDollar,family=&quot;binomial&quot;,data=trainSpam)</span><br><span class="line"># Get predictions on the test set</span><br><span class="line">predictionTest = predict(predictionModel,testSpam)</span><br><span class="line">predictedSpam = rep(&quot;nonspam&quot;,dim(testSpam)[1])</span><br><span class="line"># Classify as &apos;spam&apos; for those with prob &gt; 0.5</span><br><span class="line">predictedSpam[predictionModel$fitted &gt; 0.5] = &quot;spam&quot;</span><br><span class="line"># Classification table</span><br><span class="line">table(predictedSpam, testSpam$type)</span><br><span class="line"># Error rate</span><br><span class="line">(61 + 458)/(1346 + 458 + 61 + 449)</span><br></pre></td></tr></table></figure>
+<h3 id="interpret-results">Interpret Results</h3>
+<ul>
+<li>use appropriate language and not go over what you performed
+<ul>
+<li>describes, correlates/associated with, lead to/causes, predicts</li>
+</ul></li>
+<li>give explanation of the results (why certain models predict better than others)</li>
+<li>interpret coefficients
+<ul>
+<li>The fraction of characters that are dollar signs can be used to predict if an email is Spam</li>
+<li>Anything with more than 6.6% dollar signs is classified as Spam</li>
+<li>More dollar signs always means more Spam under our prediction</li>
+</ul></li>
+<li>interpret measures of uncertainty to calibrate your interpretation of results
+<ul>
+<li>Our test set error rate was 22.4%</li>
+</ul></li>
+</ul>
+<h3 id="challenge-results">Challenge Results</h3>
+<ul>
+<li>good to challenge the whole process/all results you found (because somebody else will)
+<ul>
+<li>question <span class="math inline">\(\rightarrow\)</span> data source <span class="math inline">\(\rightarrow\)</span> processing <span class="math inline">\(\rightarrow\)</span> analysis <span class="math inline">\(\rightarrow\)</span> conclusion</li>
+</ul></li>
+<li>challenge measures of uncertainty and choices in what to include in the model</li>
+<li>think about alternative analyses, maybe useful to try in case they produce interesting/better models/predictions</li>
+</ul>
+<h3 id="synthesizewrite-up-and-results">Synthesize/Write Up and Results</h3>
+<ul>
+<li>tell coherent story of the most important part of analysis</li>
+<li>lead with question <span class="math inline">\(\rightarrow\)</span> provide context to better understand framework of analysis
+<ul>
+<li>Can I use quantitative characteristics of the emails to classify them as SPAM/HAM?</li>
+</ul></li>
+<li>summarize the analysis into the story
+<ul>
+<li>Collected data from UCI <span class="math inline">\(\rightarrow\)</span> created training/test sets</li>
+<li>Explored relationships</li>
+<li>Choose logistic model on training set by cross validation</li>
+<li>Applied to test, 78% test set accuracy</li>
+</ul></li>
+<li>don’t need every analysis performed, only include the ones that are needed for the story or address a challenge
+<ul>
+<li>Number of dollar signs seems to indicate SPAM, “Make money with Viagra $ $ $ $!”</li>
+<li>78% isn’t that great</li>
+<li>I could use more variables</li>
+<li>Why logistic regression?</li>
+</ul></li>
+<li>order analysis according to story rather than chronologically</li>
+<li>include well defined figures to help understanding</li>
+</ul>
+<h3 id="create-reproducible-code">Create Reproducible Code</h3>
+<ul>
+<li>document your analysis as you do them using markdown or <code>knitr</code>
+<ul>
+<li>preserve any R code or written summary in a single document using <code>knitr</code></li>
+</ul></li>
+<li>ensure all analysis is reproducible (standard that most data analysis are judged on)</li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="organizing-data-analysis">Organizing Data Analysis</h2>
+<ul>
+<li>key data analysis files
+<ul>
+<li><strong>data</strong>: raw
+<ul>
+<li>should be store in analysis folder</li>
+<li>if accessed from the web, include in README file the URL, where the data is from, what the data is, brief description of what it is for, date of access</li>
+<li>if data is store in Git repository, can use the log to talk about the above info</li>
+</ul></li>
+<li><strong>data</strong>: processed
+<ul>
+<li>should be names so that its easy to see what script generated what data</li>
+<li>In README, important to document what code files were used to transform raw data to processed data</li>
+<li>processed data should be tidy/organized</li>
+</ul></li>
+<li><strong>figures</strong>: exploratory
+<ul>
+<li>made during process of analysis, not necessarily all part of final report</li>
+<li>don’t need to be well formatted/annotated</li>
+<li>need to be usable enough so that the author can easily understand what is being presented and how to reproduce it</li>
+</ul></li>
+<li><strong>figures</strong>: final
+<ul>
+<li>more polished, better organized, more readable, possibly multiple panels</li>
+<li>usually a small subset or original exploratory figures (typical journal article contains 5-6 figures)</li>
+<li>clearly labeled and well annotated, axes/color set to make figure clear</li>
+</ul></li>
+<li><strong>R code</strong>: raw/unused scripts
+<ul>
+<li>could be less commented, multiple versions</li>
+<li>may include analyses that are later discarded</li>
+<li>important to name/document appropriately to understand what was performed</li>
+<li>placed in a separate part of the data analysis directory (separate from final)</li>
+</ul></li>
+<li><strong>R code</strong>: final scripts
+<ul>
+<li>clearly commented - small comments for what/when/why/how, big comment blocks for whole sections to explain what is being done</li>
+<li>include processing details for the raw data</li>
+<li>should pertain to only analyses that appear in in the final write up</li>
+</ul></li>
+<li><strong>R code</strong>: R markdown files
+<ul>
+<li>not necessary or require but useful to summarize parts of analysis</li>
+<li>can be used to generate reproducible reports, as it can embed code and text into single document and processing the document into readable webpage/pdf doc</li>
+<li>easy to create in Rstudio</li>
+</ul></li>
+<li><strong>text</strong>: README file
+<ul>
+<li>explain what is going on in project directory</li>
+<li>not necessary if you have R markdown files (don’t separate analysis and code - literate programming principle)</li>
+<li>should contain step-by-step instructions for how analysis was conducted, what code files are called first, what are used to process the data, what are used to fit models, what are used to generate figures, etc.</li>
+</ul></li>
+<li><strong>text</strong>: text of analysis/report
+<ul>
+<li>should include title, introduction/motivation for problem, the method (statistical method), the results (including measures of uncertainty) and conclusions (including pitfalls/problems)</li>
+<li>coherent story from all analysis performed, but does not need to include all analysis performed but only the most important and relevant parts</li>
+<li>should include references for statistical methods, software packages, implementation that were used (for reproducibility)</li>
+</ul></li>
+</ul></li>
+<li><strong>Resources</strong>
+<ul>
+<li><a href="http://projecttemplate.net/" target="_blank" rel="noopener">Project template</a> = a external R package</li>
+<li><a href="http://www.r-statistics.com/2010/09/managing-a-statistical-analysis-project-guidelines-and-best-practices/" target="_blank" rel="noopener">Managing a statistical analysis project guidelines and best practices</a></li>
+</ul></li>
+</ul>
+<h2 id="coding-standards-in-r">Coding Standards in R</h2>
+<ul>
+<li>write code in text editor and save as text file</li>
+<li>indenting (4 space minimum)</li>
+<li>limit the width of your code (80 columns)</li>
+<li>limit the length of functions</li>
+</ul>
+<h2 id="markdown-documentation">Markdown (<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="noopener">documentation</a>)</h2>
+<ul>
+<li>Markdown = text-to-HTML conversion tool for web writers.
+<ul>
+<li>simplified version of markup language</li>
+<li>write using easy-to-read, easy-to-write plain text format</li>
+<li>any text editor can create markdown document</li>
+<li>convert the text to structurally valid XHTML/HTML</li>
+<li>created by John Gruber</li>
+</ul></li>
+<li><strong>italics</strong> = <code>*text*</code></li>
+<li><strong>bold</strong> = <code>**text**</code></li>
+<li><strong>main heading</strong> = <code>#Heading</code></li>
+<li><strong>secondary heading</strong> = <code>##Heading</code></li>
+<li><strong>tertiary main heading</strong> = <code>###Heading</code></li>
+<li><strong>unordered list</strong> = <code>- first element</code></li>
+<li><strong>ordered list</strong> = <code>1. first element</code>
+<ul>
+<li>the number in front actually doesn’t matter, as long as there is a number there, markdown will be compiled to an ordered list (no need for renumbering)</li>
+</ul></li>
+<li><strong>links</strong> = <code>[text](url)</code>
+<ul>
+<li>OR <code>[text][1]</code> <span class="math inline">\(\rightarrow\)</span> later in the document, define all of the links in this format: <code>[1]: url &quot;text&quot;</code></li>
+</ul></li>
+<li><strong>new lines</strong> = requires a <strong><em>double space</em></strong> after the end of a line</li>
+</ul>
+<h2 id="r-markdown">R Markdown</h2>
+<ul>
+<li>integration of R code and markdown
+<ul>
+<li>allows creating documents containing “live” R code</li>
+<li>R code is evaluated as a part of the processing of the markdown</li>
+<li>results from R code inserted into markdown document</li>
+<li>core tool for literate statistical programming</li>
+<li><strong>pros</strong>
+<ul>
+<li>text/code all in one place in logical order</li>
+<li>data/results automatically updated to reflect external changes</li>
+<li>code is live = automatic test when building document</li>
+</ul></li>
+<li><strong>cons</strong>
+<ul>
+<li>text/code all in one place, can be difficult to read especially if there’s a lot of code</li>
+<li>can substantially slowdown processing of documents</li>
+</ul></li>
+</ul></li>
+<li><strong><code>knitr</code> package</strong>
+<ul>
+<li>written by YihuiXie, built into RStudio</li>
+<li>support Markdown, LaTeX, HTML as documentation languages</li>
+<li>Exports PDF/HTML</li>
+<li>good for manuals, short/medium technical documents, tutorials, periodic reports, data preprocessing documents/summaries</li>
+<li>not good for long research articles, complex time-consuming computations, precisely formatted documents</li>
+<li>evaluates R markdown documents and return/records the results, and write out a Markdown files</li>
+<li>Markdown file can then be converted into HTML using markdown package</li>
+<li>solidify package converts R markdown into presentation slides</li>
+</ul></li>
+<li>In RStudio, create new R Markdown files by clicking New <span class="math inline">\(\rightarrow\)</span> R Markdown
+<ul>
+<li><code>========</code> = indicates title of document (large text)</li>
+<li><code>$expression$</code> = indicates LaTeX expression/formatting</li>
+<li>`<code>text</code>` = changes text to code format (typewriter font)</li>
+<li>```<code>{r name, echo = FALSE, results = hide}...</code>``` = R code chunk
+<ul>
+<li><code>name</code> = name of the code chunk</li>
+<li><code>echo = FALSE</code> = turns off the echo of the R code chunk, which means display only the result</li>
+<li><em><strong>Note</strong>: by default code in code chunk is echoed = print code AND results </em></li>
+<li><code>results = hide</code> = hides the results from being placed in the markdown document</li>
+</ul></li>
+<li>inline text computations
+<ul>
+<li>`<code>r</code> <code>variable</code>` = prints the value of that variable directly inline with the text</li>
+</ul></li>
+<li>incorporating graphics
+<ul>
+<li>```<code>{r scatterplot, fig.height = 4, fig.width = 6} ... plot() ...</code>``` = inserts a plot into markdown document
+<ul>
+<li><code>scatterplot</code> = name of this code chunk (can be anything)</li>
+<li><code>fig.height = 4</code> = adjusts height of the figure, specifying this alone will produce a rectangular plot rather than a square one by default</li>
+<li><code>fig.width = 6</code> = adjusts width of the figure</li>
+</ul></li>
+<li>knitr produces HTML, with the image embedded in HTML using base64 encoding
+<ul>
+<li>does not depend on external image files</li>
+<li>not efficient but highly transportable</li>
+</ul></li>
+</ul></li>
+<li>incorporating tables (xtable package: <code>install.packages(&quot;xtable&quot;)</code>)
+<ul>
+<li><code>xtable</code>prints the table in html format, which is better presented than plain text normally</li>
+</ul></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>showtable, results </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">library(datasets)</span><br><span class="line">library(xtable)</span><br><span class="line">fit &lt;- lm(Ozone ~ Wind + Temp + Solar.R, data = airquality)</span><br><span class="line">xt &lt;- xtable(summary(fit))</span><br><span class="line">print(xt, &quot;html&quot;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>setting global options</strong>
+<ul>
+<li>```<code>{r setoptions, echo = FALSE} opts_chunk$set(echo = FALSE, results = &quot;hide&quot;)</code>``` = sets the default option to not print the code/results unless otherwise specified</li>
+</ul></li>
+<li><strong>common options</strong>
+<ul>
+<li><strong>output</strong>: <code>results = &quot;asis&quot;</code> OR <code>&quot;hide&quot;</code>
+<ul>
+<li><code>&quot;asis&quot;</code> = output to stay in original format and not compiled into HTML</li>
+</ul></li>
+<li><strong>output</strong>: <code>echo = TRUE</code> OR <code>FALSE</code></li>
+<li><strong>figures</strong>: <code>fig.height = numeric</code></li>
+<li><strong>figures</strong>: <code>fig.width = numeric</code></li>
+</ul></li>
+<li><strong>caching computations</strong>
+<ul>
+<li>add argument to code chunk: <code>cache = TRUE</code></li>
+<li>computes and stores result of code the first time it is run, and calls the stored result directly from file for each subsequent call</li>
+<li>useful for complex computations</li>
+<li>caveats:
+<ul>
+<li>if data/code changes, you will need to re-run cached code chunks</li>
+<li>dependencies not checked explicitly (changes in other parts of the code <span class="math inline">\(\rightarrow\)</span> need to re-run the cached code)</li>
+<li>if code does something outside of the document (i.e. produce a png file), the operation cannot be cached</li>
+</ul></li>
+</ul></li>
+<li><strong>“Knit HTML”</strong> button to process the document
+<ul>
+<li>alternatively, when not in RStudio, the process can be accomplished through the following</li>
+</ul></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(knitr)</span><br><span class="line">setwd(&lt;working directory&gt;)</span><br><span class="line">knit2html(<span class="string">"document.Rmd"</span>)</span><br><span class="line">browseURL(<span class="string">"document.html"</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>processing of <code>knitr</code> documents
+<ul>
+<li>author drafts R Markdown (.Rmd) <span class="math inline">\(\rightarrow\)</span> <code>knitr</code> processes file to Markdown (.md) <span class="math inline">\(\rightarrow\)</span> <code>knitr</code> converts file to HTML</li>
+<li><em><strong>Note</strong>: author should NOT edit/save the .md or .html document until you are done with the document </em></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="communicating-results">Communicating Results</h2>
+<ul>
+<li>when presenting information, it is important to breakdown results of an analysis into different levels of granularity/detail</li>
+<li>below are listed in order of <strong><em>least <span class="math inline">\(\rightarrow\)</span> most specific</em></strong></li>
+</ul>
+<h3 id="hierarchy-of-information---research-paper">Hierarchy of Information - Research Paper</h3>
+<ul>
+<li><strong>title/author list</strong> = description of topic covered</li>
+<li><strong>abstract</strong> = a few hundred words about the problem, motivation, and solution</li>
+<li><strong>body/results</strong> = detailed methods, results, sensitivity analysis, discussion/implication of findings</li>
+<li><strong>supplementary material</strong> = granular details about analysis performed and method used</li>
+<li><strong>code/detail</strong> = material to reproduce analysis/finding</li>
+</ul>
+<h3 id="hierarchy-of-information---email-presentation">Hierarchy of Information - Email Presentation</h3>
+<ul>
+<li><strong>subject line/sender</strong> = must have, should be concise/descriptive, summarize findings in one sentence if possible</li>
+<li><strong>email body</strong> = should be 1-2 paragraphs, brief description of problem/context, summarize findings/results
+<ul>
+<li>If action needs to be taken, suggest some options and make them as concrete as possible</li>
+<li>If questions need to be addressed, try to make them yes/no</li>
+</ul></li>
+<li><strong>attachment(s)</strong> = R Markdown/report containing more details, should still stay concise (not pages of code)</li>
+<li><strong>links to supplementary materials</strong> = GitHub/web link to code, software, data</li>
+</ul>
+<h3 id="rpubs-link">RPubs (<a href="http://rpubs.com/" target="_blank" rel="noopener">link</a>)</h3>
+<ul>
+<li>built-in service with RStudio and works seamlessly with <code>knitr</code></li>
+<li>after kniting the R Markdown file in HTML, you can click on <strong>Publish</strong> to publish the HTML document on RPubs</li>
+<li><em><strong>Note</strong>: all publications to RPups are publicly available immediately</em></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="reproducible-research-checklist">Reproducible Research Checklist</h2>
+<ul>
+<li><strong>Checklist</strong>
+<ul>
+<li>Are we doing good science?</li>
+<li>Was any part of this analysis done by hand?
+<ul>
+<li>If so, are those parts <em>precisely</em> document?</li>
+<li>Does the documentation match reality?</li>
+</ul></li>
+<li>Have we taught a computer to do as much as possible (i.e. coded)?</li>
+<li>Are we using a version control system?</li>
+<li>Have we documented our software environment?</li>
+<li>Have we saved any output that we cannot reconstruct from original data + code?</li>
+<li>How far back in the analysis pipeline can we go before our results are no longer (automatically) reproducible?</li>
+</ul></li>
+</ul>
+<h3 id="dos">Do’s</h3>
+<ul>
+<li><strong><em>start with good science</em></strong>
+<ul>
+<li>work on interesting problem (to you &amp; other people)</li>
+<li>form coherent/focused question to simplify problem</li>
+<li>collaborate with others to reinforce good practices and habits</li>
+</ul></li>
+<li><strong><em>teach a computer</em></strong>
+<ul>
+<li>worthwhile to automate all tasks through script/programming</li>
+<li>code = precise instructions to process/analyze data</li>
+<li>teaching the computer almost guarantee’s reproducibility</li>
+<li><code>download.file(&quot;url&quot;, &quot;filename&quot;)</code> = convenient way to download file
+<ul>
+<li>full URL specified (instead series of links/clicks)</li>
+<li>name of file specified</li>
+<li>directory specified</li>
+<li>code can be executed in R (as long as link is available)</li>
+</ul></li>
+</ul></li>
+<li><strong><em>use version control</em></strong>
+<ul>
+<li>GitHub/BitBucket are good tools</li>
+<li>helps to slow down
+<ul>
+<li>forces the author to think about changes made and commit changes and keep track of analysis performed</li>
+</ul></li>
+<li>helps to keep track of history/snapshots</li>
+<li>allows reverting to old versions</li>
+</ul></li>
+<li><strong><em>keep track of software environment</em></strong>
+<ul>
+<li>some tools/datasets may only work on certain software/environment
+<ul>
+<li>software and computing environment are critical to reproducing analysis</li>
+<li>everything should be documented</li>
+</ul></li>
+<li><strong>computer architecture</strong>: CPU (Intel, AMD, ARM), GPUs, 32 vs 64bit</li>
+<li><strong>operating system</strong>: Windows, Mac OS, Linux/Unix</li>
+<li><strong>software toolchain</strong>: compilers, interpreters, command shell, programming languages (C, Perl, Python, etc.), database backends, data analysis software</li>
+<li><strong>supporting software/infrastructure</strong>: Libraries, R packages, dependencies</li>
+<li><strong>external dependencies</strong>: web sites, data repositories (data source), remote databases, software repositories</li>
+<li><strong>version numbers</strong>: ideally, for everything (if available)</li>
+<li><code>sessionInfo()</code> = prints R version, operating system, local, base/attached/utilized packages</li>
+</ul></li>
+<li><strong><em>set random number generator seed</em></strong>
+<ul>
+<li>random number generators produce pseudo-random numbers based on initial seed (usually number/set of numbers)
+<ul>
+<li><code>set.seed()</code> can be used to specify seet for random generator in R</li>
+</ul></li>
+<li>setting seed allows stream of random numbers to be reproducible</li>
+<li>whenever you need to generate steam of random numbers for non-trivial purpose (i.e. simulations, Markov Chain Monte Carlo analysis), <strong><em>always</em></strong> set the seed.</li>
+</ul></li>
+<li><strong><em>think about entire pipeline</em></strong>
+<ul>
+<li>data analysis is length process, important to ensure each piece is reproducible
+<ul>
+<li>final product is important, but the process is just as important</li>
+</ul></li>
+<li>raw data <span class="math inline">\(\rightarrow\)</span> processed data <span class="math inline">\(\rightarrow\)</span> analysis <span class="math inline">\(\rightarrow\)</span> report</li>
+<li>the more of the pipeline that is made reproducible, the more credible the results are</li>
+</ul></li>
+</ul>
+<h3 id="donts">Don’ts</h3>
+<ul>
+<li><strong><em>do things by hand</em></strong>
+<ul>
+<li>may lead to unreproducible results
+<ul>
+<li>edit spreadsheets using Excel</li>
+<li>remove outliers (without noting criteria)</li>
+<li>edit tables/figures</li>
+<li>validate/quality control for data</li>
+</ul></li>
+<li>downloading data from website (clicking on link)
+<ul>
+<li>need lengthy set of instructions to obtain the same data set</li>
+</ul></li>
+<li>moving/split/reformat data (no record of what was done)</li>
+<li>if necessary, manual tasks must be documented precisely (account for people with different background/context)</li>
+</ul></li>
+<li><strong><em>point and click</em></strong>
+<ul>
+<li>graphical user interfaces (GUI) make it easy to process/analyze data
+<ul>
+<li>GUIs are intuitive to use but actions are <strong>difficult</strong> to track and for others to reproduce</li>
+<li>some GUIs include log files that can be utilized for review</li>
+</ul></li>
+<li>any interactive software should be carefully used to ensure all results can be reproduced</li>
+<li>text editors are usually ok, but when in doubt, document it</li>
+</ul></li>
+<li><strong><em>save output for convenience</em></strong>
+<ul>
+<li>avoid saving data analysis output
+<ul>
+<li>tables, summaries, figures, processed, data</li>
+</ul></li>
+<li>output saved stand-alone without code/steps on how it is produced is not reproducible</li>
+<li>when data changes or error is detected in parts of analysis the output is dependent on, the original graph/table will not be updated</li>
+<li>intermediate files (processed data) are ok to keep but clear/precise documentation must be created</li>
+<li>should save the <strong>data/code</strong> instead of the output</li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="replication-vs-reproducibility">Replication vs Reproducibility</h2>
+<ul>
+<li><strong>Replication</strong>
+<ul>
+<li>focuses on validity of scientific claim</li>
+<li>if a study states “if X is related to Y” then we ask “is the claim true?”</li>
+<li>need to reproduce results with new investigators, data, analytical methods, laboratories, instruments, etc.</li>
+<li>particularly important in studies that can impact broad policy or regulatory decisions</li>
+<li>stands as <strong>ultimate standard</strong> for strengthening scientific evidence</li>
+</ul></li>
+<li><strong>Reproducibility</strong>
+<ul>
+<li>focuses on validity of data analysis</li>
+<li>“Can we trust this analysis?”</li>
+<li>reproduce results new investigators, same data, same methods</li>
+<li>important when replication is impossible</li>
+<li>arguably a <strong>minimum standard</strong> for any scientific study</li>
+</ul></li>
+</ul>
+<h3 id="background-and-underlying-trend-for-reproducibility">Background and Underlying Trend for Reproducibility</h3>
+<ul>
+<li>some studies cannot be replicated (money/time/unique/opportunistic) <span class="math inline">\(\rightarrow\)</span> 25 year studies in epidemiology</li>
+<li>technology increases rate of collection/complexity of data</li>
+<li>existing databases merged to become bigger databases (sometimes used off-label) <span class="math inline">\(\rightarrow\)</span> administrative data used in health studies</li>
+<li>computing power allows for more sophisitcated analyses</li>
+<li>“computational” fields are ubiquitous</li>
+<li>all of the above leads to the following
+<ul>
+<li>analysis are difficult to describe</li>
+<li>inadequate training in statistics/computing and cause errors to be more easily produced through the pipeline</li>
+<li>large data throughput, complex analysis, and failure to explain the process can inhibit knowledge transfer</li>
+<li>results are difficult to replicate (knowledge/cost)</li>
+<li>complicated analyses are not as easily trusted</li>
+</ul></li>
+</ul>
+<h3 id="problems-with-reproducibility">Problems with Reproducibility</h3>
+<ul>
+<li>aiming for reproducibility provides for
+<ul>
+<li>transparency of data analysis
+<ul>
+<li>check validity of analysis <span class="math inline">\(\rightarrow\)</span> people check each other <span class="math inline">\(\rightarrow\)</span> “self-correcting” community</li>
+<li>re-run the analysis</li>
+<li>check the code for bugs/errors/sensitivity</li>
+<li>try alternate approaches</li>
+</ul></li>
+<li>data/software/methods availability</li>
+<li>improved transfer of knowledge
+<ul>
+<li>focuses on “downstream” aspect of research dissemination (does solve problems with erroneous analysis)</li>
+</ul></li>
+</ul></li>
+<li>reproducibility does not guarantee
+<ul>
+<li>correctness of analysis (reproducible <span class="math inline">\(\neq\)</span> true)</li>
+<li>trustworthiness of analysis</li>
+<li>deterrence of bad analysis</li>
+</ul></li>
+</ul>
+<h3 id="evidence-based-data-analysis">Evidence-based Data Analysis</h3>
+<ul>
+<li>create analytic pipelines from evidence-based components – standardize it (<a href="http://goo.gl/Qvlhuv" target="_blank" rel="noopener">“Deterministic Statistical Machine”</a>)
+<ul>
+<li>apply thoroughly-studied (via statistical research), <strong><em>mutually-agreed-upon methods</em></strong> to analyze data whenever possible</li>
+<li>once pipeline is established, shouldn’t change it (“transparent box”)</li>
+<li>this reduces the “researcher degrees of freedom” (restricting the ability to alter different parts of analysis pipeline)
+<ul>
+<li>analogous to a pre-specified clinical trial protocol</li>
+</ul></li>
+<li><strong><em>example</em></strong>: time series of air pollution/health
+<ul>
+<li><em>key question</em>: “Are short-term changes in pollution associated with short-term changes in a population health outcome?”</li>
+<li>long history of statistical research investigating proper methods of analysis</li>
+<li>pipeline
+<ol type="1">
+<li>check for outliers, high leverage, overdispersion <span class="math inline">\(\rightarrow\)</span> skewedness of data</li>
+<li>Fill in missing data? <span class="math inline">\(\rightarrow\)</span> NO! (systematic missing data, imputing would add noise)</li>
+<li>model selection: estimate degrees of freedom to adjust for unmeasured confounding variables</li>
+<li>multiple lag analysis</li>
+<li>sensitivity analysis with respect to unmeasured confounder adjustment/influential points</li>
+</ol></li>
+</ul></li>
+</ul></li>
+<li>this provides standardized, best practices for given scientific areas and questions</li>
+<li>gives reviewers an important tool without dramatically increasing the burden on them</li>
+<li>allows more effort to be focused on improving the quality of “upstream” aspects of scientific research</li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="caching-computations">Caching Computations</h2>
+<ul>
+<li>Literate (Statistical) Programming
+<ul>
+<li>paper/code chunks <span class="math inline">\(\rightarrow\)</span> database/cached computations <span class="math inline">\(\rightarrow\)</span> published report</li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/4.png&quot;))</span><br></pre></td></tr></table></figure>
+<h3 id="cacher-package"><code>cacher</code> Package</h3>
+<ul>
+<li>evaluates code in files and stores intermediate results in a key-value database</li>
+<li>R expressions are given <strong><em>SHA-1 hash values</em></strong> so changes can be tracked and code can be re-evaluated if necessary</li>
+<li><strong>cacher packages</strong>
+<ul>
+<li>used by authors to create data analyses packages for distribution</li>
+<li>used by readers to clone analysis and inspect/evaluate subset of code/data objects <span class="math inline">\(\rightarrow\)</span> readers may not have resources/want to see entire analysis</li>
+</ul></li>
+<li><strong>conceptual model</strong>
+<ul>
+<li>dataset/code <span class="math inline">\(\rightarrow\)</span> source file <span class="math inline">\(\rightarrow\)</span> result</li>
+</ul></li>
+<li><strong>process for authors</strong>
+<ul>
+<li><code>cacher</code> package parses R source files and creates necessary cache directories/subdirectories</li>
+<li>if expression = never evaluated
+<ul>
+<li>evaluate it and store any results R objects in cached data (similar to <code>cache = TRUE</code> function for <code>knitr</code>)</li>
+</ul></li>
+<li>else if cached result exists
+<ul>
+<li>lazy load the results from cache database and move on to next expression</li>
+</ul></li>
+<li>if expression <em>does not</em> create any R objects (nothing to cache)
+<ul>
+<li>add expression to list where evaluation needs to be forced</li>
+</ul></li>
+<li>write out metadata for this expression to metadata file</li>
+<li><code>cachepackage</code> function creates <code>cacher</code> package storing
+<ul>
+<li>source file</li>
+<li>cached data objects</li>
+<li>metadata</li>
+</ul></li>
+<li>package file is zipped and can be distributed</li>
+</ul></li>
+<li><strong>process for readers</strong>
+<ul>
+<li>a journal article can say that “the code and data for this analysis can be found in the cacher package 092dcc7dda4b93e42f23e038a60e1d44dbec7b3f”
+<ul>
+<li>the code is the SHA-1 hash code and can be loaded/cloned using the <code>cacher</code> package</li>
+</ul></li>
+<li>when analysis is cloned, local directories are created, source files/metadata are downloaded
+<ul>
+<li>data objects are <strong><em>NOT</em></strong> downloaded by default</li>
+<li>references to data objects are loaded and corresponding data can be lazy-loaded on demand
+<ul>
+<li>when user examines it, then it is downloaded/calculated</li>
+</ul></li>
+</ul></li>
+<li>readers are free to examine and evaluate the code
+<ul>
+<li><code>clone(id = &quot;####&quot;)</code> = loads data from cache
+<ul>
+<li>using the first 4 characters is generally enough to identify</li>
+</ul></li>
+<li><code>showfiles()</code> = lists R scripts available in cache</li>
+<li><code>sourcefile(&quot;name.R&quot;)</code> = loads cached R file</li>
+<li><code>code()</code> = prints the content of the R file line by line</li>
+<li><code>graphcode()</code> = plots a graph to demonstrate dependencies/structure of code</li>
+<li><code>objectcode(&quot;object&quot;)</code> = shows lines of code that were used to generate that specific object (tracing all the way back to reading data)</li>
+<li><code>runcode()</code> = executes code by loading data from cached database (much faster than regular)
+<ul>
+<li>by default, expressions that result in object being created are <strong><em>NOT</em></strong> run and are loaded from cached databases</li>
+<li>expressions not resulting in object <strong><em>ARE</em></strong> evaluated (i.e. plots)</li>
+</ul></li>
+<li><code>checkcode()</code> = evaluates all expressions from scratch
+<ul>
+<li>results of evaluation are checked against stored results to see if they are the same</li>
+<li>setting random number generators are critical for this to work</li>
+</ul></li>
+<li><code>checkobjects()</code> = check for integrity of data objects (i.e. see if there are possible data corruption)</li>
+<li><code>loadcache()</code> = loads pointers to data objects in the data base
+<ul>
+<li>when a specific object is called, cache is then transferred and the data is downloaded</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong><em>example</em></strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(cacher)</span><br><span class="line">clonecache(id = <span class="string">"092dcc7dda4b93e42f23e038a60e1d44dbec7b3f"</span>)</span><br><span class="line">clonecache(id = <span class="string">"092d"</span>)  <span class="comment">## effectively the same as above</span></span><br><span class="line"><span class="comment"># output: created cache directory '.cache'</span></span><br><span class="line">showfiles() <span class="comment"># show files stored in cache</span></span><br><span class="line"><span class="comment"># output: [1] "top20.R"</span></span><br><span class="line">sourcefile(<span class="string">"top20.R"</span>) <span class="comment"># load R script</span></span><br><span class="line"></span><br><span class="line">code() <span class="comment"># examine the content of the code</span></span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="comment"># source file: top20.R</span></span><br><span class="line"><span class="comment"># 1  cities &lt;- readLines("citylist.txt")</span></span><br><span class="line"><span class="comment"># 2  classes &lt;- readLines("colClasses.txt")</span></span><br><span class="line"><span class="comment"># 3  vars &lt;- c("date", "dow", "death",</span></span><br><span class="line"><span class="comment"># 4  data &lt;- lapply(cities, function(city) &#123;</span></span><br><span class="line"><span class="comment"># 5  names(data) &lt;- cities</span></span><br><span class="line"><span class="comment"># 6  estimates &lt;- sapply(data, function(city) &#123;</span></span><br><span class="line"><span class="comment"># 7  effect &lt;- weighted.mean(estimates[1,</span></span><br><span class="line"><span class="comment"># 8  stderr &lt;- sqrt(1/sum(1/estimates[2,</span></span><br><span class="line"></span><br><span class="line">graphcode() <span class="comment"># generate graph showing structure of code</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/5.png&quot;))</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">objectcode(“data”)</span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="comment"># source file: top20.R</span></span><br><span class="line"><span class="comment"># 1  cities &lt;- readLines("citylist.txt")</span></span><br><span class="line"><span class="comment"># 2  classes &lt;- readLines("colClasses.txt")</span></span><br><span class="line"><span class="comment"># 3  vars &lt;- c("date", "dow", "death", "tmpd", "rmtmpd", "dptp", "rmdptp", "l1pm10tmean")</span></span><br><span class="line"><span class="comment"># 4  data &lt;- lapply(cities, function(city) &#123;</span></span><br><span class="line"><span class="comment">#    		filename &lt;- file.path("data", paste(city, "csv", sep = "."))</span></span><br><span class="line"><span class="comment">#         d0 &lt;- read.csv(filename, colClasses = classes, nrow = 5200)</span></span><br><span class="line"><span class="comment"># 		d0[, vars]</span></span><br><span class="line"><span class="comment">#    &#125;)</span></span><br><span class="line"><span class="comment"># 5  names(data) &lt;- cities</span></span><br><span class="line"></span><br><span class="line">loadcache()</span><br><span class="line">ls()</span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="comment"># [1] "cities"    "classes" 	"data"      "effect"</span></span><br><span class="line"><span class="comment"># [5] "estimates" "stderr" 		"vars"</span></span><br><span class="line"></span><br><span class="line">cities</span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="comment"># / transferring cache db file b8fd490bcf1d48cd06...</span></span><br><span class="line"><span class="comment">#  [1] "la"   "ny"   "chic" "dlft" "hous" "phoe"</span></span><br><span class="line"><span class="comment">#  [7] "staa" "sand" "miam" "det"  "seat" "sanb"</span></span><br><span class="line"><span class="comment"># [13] "sanj" "minn" "rive" "phil" "atla" "oakl"</span></span><br><span class="line"><span class="comment"># [19] "denv" "clev"</span></span><br><span class="line"></span><br><span class="line">effect</span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="comment"># / transferring cache db file 584115c69e5e2a4ae5...</span></span><br><span class="line"><span class="comment"># [1] 0.0002313219</span></span><br><span class="line"></span><br><span class="line">stderr</span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="comment"># / transferring cache db file 81b6dc23736f3d72c6...</span></span><br><span class="line"><span class="comment"># [1] 0.000052457</span></span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="case-study-air-pollution">Case Study: Air Pollution</h2>
+<ul>
+<li>reanalysis of data from MMAPS and link with PM chemical constituent data
+<ul>
+<li>Lippmann <em>et al.</em> found strong evidence that Ni modified the short-term effect of <span class="math inline">\(PM_{10}\)</span> across 60 US communities</li>
+<li>National Morbidity, Mortality, and Air Pollution Study (NMMAPS) = national study of the short-term health effects of ambient air pollution
+<ul>
+<li>focused primarily on particulate matter (<span class="math inline">\(PM_{10}\)</span>) and ozone (<span class="math inline">\(O_3\)</span>)</li>
+<li>health outcomes included mortality from all causes and hospitalizations for cardiovascular and respiratory diseases</li>
+<li>Data made available at the Internet-based Health and Air Pollution Surveillance System (iHAPSS)</li>
+</ul></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/6.png&quot;))</span><br></pre></td></tr></table></figure>
+<h3 id="analysis-does-nickel-make-pm-toxic">Analysis: Does Nickel Make PM Toxic?</h3>
+<ul>
+<li>Long-term average nickel concentrations appear correlated with PM risk (<span class="math inline">\(p &lt; 0.01\)</span> <span class="math inline">\(\rightarrow\)</span> statistically significant)</li>
+<li>there appear to be some outliers on the right-hand side (New York City)
+<ul>
+<li>adjusting the data by removing the New York counties altered the regression line (shown in blue)</li>
+<li>though the relationship is still positive, regression line no longer statistically significant (<span class="math inline">\(p &lt; 0.31\)</span>)</li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/7.png&quot;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>sensitivity analysis shows that the regression line is particularly sensative to the New York data</li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/8.png&quot;))</span><br></pre></td></tr></table></figure>
+<h3 id="conclusions-and-lessons-learnt">Conclusions and Lessons Learnt</h3>
+<ul>
+<li>New York havs very high levels of nickel and vanadium, much higher than any other US community</li>
+<li>there is evidence of a positive relationship between Ni concentrations and <span class="math inline">\(PM_{10}\)</span> risk</li>
+<li>strength of this relationship is highly sensitive to the observations from New York City</li>
+<li>most of the information in the data is derived from just 3 observations</li>
+<li>reproducibility of NMMAPS allowed for a secondary analysis (and linking with PM chemical constituent data) investigating a novel hypothesis (Lippmann <em>et al.</em>), as well as a critique of that analysis and new findings (Dominici <em>et al.</em>)</li>
+<li>original hypothesis not necessarily invalidated, but evidence not as strong as originally suggested (more work should be done)</li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="case-study-high-throughput-biology">Case Study: High Throughput Biology</h2>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/9.png&quot;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Potti <em>et al.</em> published in 2006 that microarray data from cell lines (the NCI60) can be used to define drug response “signatures”, which can be used to predict whether patients will respond</li>
+<li>however, analysis performed were fundamentally flawed as there exist much misclassification and mishandling of data and were unreproducible</li>
+<li>the results of their study, even after being corrected twice, still contained many errors and were unfortunately used as guidelines for clinical trials</li>
+<li>the fiasco with this paper and associated research, though spectacular in its own light, was by no means an unique occurrence</li>
+</ul>
+<h3 id="conclusions-and-lessons-learnt-1">Conclusions and Lessons Learnt</h3>
+<ul>
+<li>most common mistakes are simple
+<ul>
+<li>confounding in the experimental design</li>
+<li>mixing up the sample labels</li>
+<li>mixing up the gene labels</li>
+<li>mixing up the group labels</li>
+</ul></li>
+<li>most mixups involve simple switches or offsets
+<ul>
+<li>this simplicity is often hidden due to incomplete documentation</li>
+</ul></li>
+<li>research papers should include the following (particularly those that would potentially lead to clinical trials)
+<ul>
+<li>data (with column names)</li>
+<li>provenance (who owns what data/which sample is which)</li>
+<li>code</li>
+<li>descriptions of non-scriptable steps</li>
+<li>descriptions of planned design (if used)</li>
+</ul></li>
+<li><strong>reproducible research</strong> is the key to minimize these errors
+<ul>
+<li>literate programming</li>
+<li>reusing templates</li>
+<li>report structure</li>
+<li>executive summaries</li>
+<li>appendices (sessionInfo, saves, file location)</li>
+</ul></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Xing Su</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://yoursite.com/2018/08/07/Reproducible-Research/" title="Reproducible Research">http://yoursite.com/2018/08/07/Reproducible-Research/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"># R</a>
+          
+            <a href="/tags/DataScience/" rel="tag"># DataScience</a>
+          
+            <a href="/tags/R-Markdown/" rel="tag"># R Markdown</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/07/Exploratory-Data-Analysis/" rel="next" title="Exploratory Data Analysis">
+                <i class="fa fa-chevron-left"></i> Exploratory Data Analysis
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/07/Statistical-Inference/" rel="prev" title="Statistical Inference">
+                Statistical Inference <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODY0Mi8xNTE3MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avator.png"
+                alt="Autoz" />
+            
+              <p class="site-author-name" itemprop="name">Autoz</p>
+              <p class="site-description motion-element" itemprop="description">Fidelty.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/autolordz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:autolordz@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#replication"><span class="nav-number">1.</span> <span class="nav-text">Replication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reproducibility"><span class="nav-number">2.</span> <span class="nav-text">Reproducibility</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#literatestatistical-programming"><span class="nav-number">3.</span> <span class="nav-text">Literate/Statistical Programming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#structure-of-data-analysis"><span class="nav-number">4.</span> <span class="nav-text">Structure of Data Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#key-challenge-in-data-analysis"><span class="nav-number">4.1.</span> <span class="nav-text">Key Challenge in Data Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#define-the-question"><span class="nav-number">4.2.</span> <span class="nav-text">Define The Question</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#determine-the-ideal-data-set"><span class="nav-number">4.3.</span> <span class="nav-text">Determine the Ideal Data Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#determine-what-data-you-can-access"><span class="nav-number">4.4.</span> <span class="nav-text">Determine What Data You Can Access</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#obtain-the-data"><span class="nav-number">4.5.</span> <span class="nav-text">Obtain The Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clean-the-data"><span class="nav-number">4.6.</span> <span class="nav-text">Clean The Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exploratory-data-analysis"><span class="nav-number">4.7.</span> <span class="nav-text">Exploratory Data Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#statistical-modellingprediction"><span class="nav-number">4.8.</span> <span class="nav-text">Statistical Modelling/Prediction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interpret-results"><span class="nav-number">4.9.</span> <span class="nav-text">Interpret Results</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#challenge-results"><span class="nav-number">4.10.</span> <span class="nav-text">Challenge Results</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#synthesizewrite-up-and-results"><span class="nav-number">4.11.</span> <span class="nav-text">Synthesize/Write Up and Results</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#create-reproducible-code"><span class="nav-number">4.12.</span> <span class="nav-text">Create Reproducible Code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#organizing-data-analysis"><span class="nav-number">5.</span> <span class="nav-text">Organizing Data Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#coding-standards-in-r"><span class="nav-number">6.</span> <span class="nav-text">Coding Standards in R</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown-documentation"><span class="nav-number">7.</span> <span class="nav-text">Markdown (documentation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#r-markdown"><span class="nav-number">8.</span> <span class="nav-text">R Markdown</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#communicating-results"><span class="nav-number">9.</span> <span class="nav-text">Communicating Results</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hierarchy-of-information---research-paper"><span class="nav-number">9.1.</span> <span class="nav-text">Hierarchy of Information - Research Paper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hierarchy-of-information---email-presentation"><span class="nav-number">9.2.</span> <span class="nav-text">Hierarchy of Information - Email Presentation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rpubs-link"><span class="nav-number">9.3.</span> <span class="nav-text">RPubs (link)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reproducible-research-checklist"><span class="nav-number">10.</span> <span class="nav-text">Reproducible Research Checklist</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dos"><span class="nav-number">10.1.</span> <span class="nav-text">Do’s</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#donts"><span class="nav-number">10.2.</span> <span class="nav-text">Don’ts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#replication-vs-reproducibility"><span class="nav-number">11.</span> <span class="nav-text">Replication vs Reproducibility</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#background-and-underlying-trend-for-reproducibility"><span class="nav-number">11.1.</span> <span class="nav-text">Background and Underlying Trend for Reproducibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#problems-with-reproducibility"><span class="nav-number">11.2.</span> <span class="nav-text">Problems with Reproducibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#evidence-based-data-analysis"><span class="nav-number">11.3.</span> <span class="nav-text">Evidence-based Data Analysis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#caching-computations"><span class="nav-number">12.</span> <span class="nav-text">Caching Computations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cacher-package"><span class="nav-number">12.1.</span> <span class="nav-text">cacher Package</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#case-study-air-pollution"><span class="nav-number">13.</span> <span class="nav-text">Case Study: Air Pollution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#analysis-does-nickel-make-pm-toxic"><span class="nav-number">13.1.</span> <span class="nav-text">Analysis: Does Nickel Make PM Toxic?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#conclusions-and-lessons-learnt"><span class="nav-number">13.2.</span> <span class="nav-text">Conclusions and Lessons Learnt</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#case-study-high-throughput-biology"><span class="nav-number">14.</span> <span class="nav-text">Case Study: High Throughput Biology</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#conclusions-and-lessons-learnt-1"><span class="nav-number">14.1.</span> <span class="nav-text">Conclusions and Lessons Learnt</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Autoz</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">514k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">7:47</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.3.0"></script>
+
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
