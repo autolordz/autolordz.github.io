@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="\(\pagebreak\) Principle of Analytic Graphics  Principle 1: Show Comparisons  always comparative (compared to what) randomized trial - compare control group to test group evidence for a hypothe">
+<meta name="keywords" content="R,DataScience,R Markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Exploratory Data Analysis">
+<meta property="og:url" content="http://yoursite.com/2018/08/07/Exploratory-Data-Analysis/index.html">
+<meta property="og:site_name" content="AutozLand">
+<meta property="og:description" content="\(\pagebreak\) Principle of Analytic Graphics  Principle 1: Show Comparisons  always comparative (compared to what) randomized trial - compare control group to test group evidence for a hypothe">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2018/08/07/Exploratory-Data-Analysis/figures/17.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/07/Exploratory-Data-Analysis/figures/18.jpg">
+<meta property="og:updated_time" content="2018-08-07T06:02:45.223Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Exploratory Data Analysis">
+<meta name="twitter:description" content="\(\pagebreak\) Principle of Analytic Graphics  Principle 1: Show Comparisons  always comparative (compared to what) randomized trial - compare control group to test group evidence for a hypothe">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/07/Exploratory-Data-Analysis/figures/17.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/07/Exploratory-Data-Analysis/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Exploratory Data Analysis | AutozLand</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AutozLand</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Autoz's Learning Blogs</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">7</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">3</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/07/Exploratory-Data-Analysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Autoz">
+      <meta itemprop="description" content="Fidelty.">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AutozLand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Exploratory Data Analysis<a href="https://github.com/theme-next/theme-next.org/_posts/tree/master/Exploratory-Data-Analysis.md" class="post-edit-link" title="Edit this post" target="_blank">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-07 14:01:01 / Modified: 14:02:45" itemprop="dateCreated datePublished" datetime="2018-08-07T14:01:01+08:00">2018-08-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">52k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">48 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="principle-of-analytic-graphics">Principle of Analytic Graphics</h2>
+<ul>
+<li><strong>Principle 1: Show Comparisons</strong>
+<ul>
+<li>always comparative (compared to what)</li>
+<li>randomized trial - compare control group to test group</li>
+<li>evidence for a hypothesis is always relative to another competing hypothesis</li>
+</ul></li>
+<li><strong>Principle 2: Show causality/mechanism/explanation/systematic structure</strong>
+<ul>
+<li>form hypothesis to evidence showing a relationship (causal framework, why something happened)</li>
+</ul></li>
+<li><strong>Principle 3: Show multivariate data</strong>
+<ul>
+<li>more than 2 variables because the real world is multivariate</li>
+<li>show as much data on a plot as you can</li>
+<li><strong><em>example</em></strong></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># install grid and png packages if not present</span><br><span class="line">library(png)</span><br><span class="line">library(grid)</span><br><span class="line">grid.raster(readPNG(&quot;figures/1.jpg&quot;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>slightly negative relationship between pollution and mortality
+<ul>
+<li>when split up by season, the relationships are all positive <span class="math inline">\(\rightarrow\)</span> season = confounding variable</li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/2.jpg&quot;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Principle 4: Integration of evidence</strong>
+<ul>
+<li>use as many modes of evidence/displaying evidence as possible (modes of data presentation)</li>
+<li>integrate words/numbers/images/diagrams (information rich)</li>
+<li>analysis should drive the tool</li>
+</ul></li>
+<li><strong>Principle 5: Describe/document evidence with appropriate labels/scales/sources</strong>
+<ul>
+<li>add credibility to that data graphic</li>
+</ul></li>
+<li><strong>Principle 6: Content is the most important</strong>
+<ul>
+<li>analytical presentations ultimately stand/fall depending on quality/relevance/integrity of content</li>
+</ul></li>
+</ul>
+<h2 id="exploratory-graphs-examples">Exploratory Graphs (<a href="http://gallery.r-enthusiasts.com/" target="_blank" rel="noopener">examples</a>)</h2>
+<ul>
+<li><strong>Purpose</strong>: understand data properties, find pattern in data, suggest modeling strategies, debug</li>
+<li><strong>Characteristics</strong>: made quickly, large number produced, gain personal understanding, appearances and presentation are aren’t as important</li>
+</ul>
+<h3 id="one-dimension-summary-of-data">One Dimension Summary of Data</h3>
+<ul>
+<li><code>summary(data)</code> = returns min, 1st quartile, median, mean, 3rd quartile, max</li>
+<li><code>boxplot(data, col = “blue”)</code> = produces a box with middles 50% highlighted in the specified color
+<ul>
+<li><code>whiskers</code> = <span class="math inline">\(\pm 1.58IQR/\sqrt{n}\)</span>
+<ul>
+<li>IQR = interquartile range, Q<span class="math inline">\(_3\)</span> - Q<span class="math inline">\(_1\)</span></li>
+</ul></li>
+<li><code>box</code> = 25%, median, 75%</li>
+</ul></li>
+<li><code>histograms(data, col = “green”)</code> = produces a histogram with specified breaks and color
+<ul>
+<li><code>breaks = 100</code> = the higher the number is the smaller/narrower the histogram columns are</li>
+</ul></li>
+<li><code>rug(data)</code> = density plot, add a strip under the histogram indicating location of each data point</li>
+<li><p><code>barplot(data, col = wheat)</code> = produces a bar graph, usually for categorical data</p></li>
+<li><strong>Overlaying Features</strong></li>
+<li><code>abline(h/v = 12)</code> = overlays horizontal/vertical line at specified location
+<ul>
+<li><code>col = “red”</code> = specifies color</li>
+<li><code>lwd = 4</code> = line width</li>
+<li><code>lty = 2</code> = line type</li>
+</ul></li>
+</ul>
+<h3 id="two-dimensional-summaries">Two Dimensional Summaries</h3>
+<ul>
+<li>multiple/overlay 1D plots (using lattice/ggplot2)</li>
+<li><strong>box plots</strong>: <code>boxplot(pm25 ~ region, data = pollution, col = “red”)</code></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/3.jpg&quot;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>histogram</strong>:
+<ul>
+<li><code>par(mfrow = c(2, 1), mar = c(4, 4, 2, 1))</code> = set margin</li>
+<li><code>hist(subset(pollution, region == &quot;east&quot;)$pm25, col = &quot;green&quot;)</code> = first histogram</li>
+<li><code>hist(subset(pollution, region == &quot;west&quot;)$pm25, col = &quot;green&quot;)</code> = second histogram</li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/4.jpg&quot;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>scatterplot</strong>
+<ul>
+<li><code>with(pollution, plot(latitude, pm25, col = region))</code></li>
+<li><code>abline(h = 12, lwd = 2, lty = 2)</code> = plots horizontal dotted line</li>
+<li><code>plot(jitter(child, 4)~parent, galton)</code> = spreads out data points at the same position to simulate measurement error/make high frequency more visibble</li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/5.jpg&quot;))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(UsingR); data(galton)</span><br><span class="line">plot(jitter(child, 4)~parent, galton)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>multiple scatter plots</strong>
+<ul>
+<li><code>par(mfrow = c(1, 2), mar = c(5, 4, 2, 1))</code> = sets margins</li>
+<li><code>with(subset(pollution, region == &quot;west&quot;), plot(latitude, pm25, main = &quot;West&quot;))</code> = left scatterplot</li>
+<li><code>with(subset(pollution, region == &quot;east&quot;), plot(latitude,  pm25, main = &quot;East&quot;))</code> = right scatterplot</li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/6.jpg&quot;))</span><br></pre></td></tr></table></figure>
+<h3 id="process-of-making-a-plotconsiderations">Process of Making a Plot/Considerations</h3>
+<ul>
+<li>where will plot be made? screen or file?</li>
+<li>how will plot be used? viewing on screen/web browser/print/presentation?</li>
+<li>large amount of data vs few points?</li>
+<li>need to be able to dynamically resize?</li>
+<li><strong>plotting system</strong>: base, lattice, ggplot2?</li>
+</ul>
+<h2 id="base-plotting">Base Plotting</h2>
+<ul>
+<li>blank canvas, “artist’s palette”, start with plot function</li>
+<li>annotations - text, lines, points, axis</li>
+<li>convenient, but cannot go back when started (need to plan ahead)</li>
+<li>everything need to be manually set carefully to be able to achieve the desired effect (margins)</li>
+<li>core plotting/graphics engine in R encapsulated in the following
+<ul>
+<li><strong><em>graphics</em></strong>: plotting functions for vase graphing system (plot, hist, boxplot, text)</li>
+<li><strong><em>grDevices</em></strong>: contains all the code implementing the various graphics devices (x11, PDF, PostScript, PNG, etc)</li>
+</ul></li>
+<li><strong><em>Two phase</em></strong>: initialize, annotate</li>
+<li>calling <code>plot(x, y)</code> or <code>hist(x)</code> will launch a graphics device and draw a plot on device
+<ul>
+<li>if no argument specified, default called</li>
+<li>parameters documented in “<code>?par</code>”</li>
+<li><em><strong>Note</strong>: it is some times necessary to convert column/variable to factor to make plotting easier </em>
+<ul>
+<li><code>airquality &lt;- transform(airquality, Month = factor(month))</code></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="base-graphics-functions-and-parameters">Base Graphics Functions and Parameters</h3>
+<ul>
+<li><strong>arguments</strong>
+<ul>
+<li><code>pch</code>: plotting symbol (default = open circle)</li>
+<li><code>lty</code>: line type (default is solid)
+<ul>
+<li>0=blank, 1=solid (default), 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash</li>
+</ul></li>
+<li><code>lwd</code>: line width (integer)</li>
+<li><code>col</code>: plotting color (number string or hexcode, colors() returns vector of colors)</li>
+<li><code>xlab</code>, <code>ylab</code>: x-y label character strings</li>
+<li><code>cex</code>: numerical value giving the amount by which plotting text/symbols should be magnified relative to the default
+<ul>
+<li><code>cex = 0.15 * variable</code>: plot size as an additional variable</li>
+</ul></li>
+</ul></li>
+<li><code>par()</code> function = specifies global graphics parameters, affects all plots in an R session (can be overridden)
+<ul>
+<li><code>las</code>: orientation of axis labels</li>
+<li><code>bg</code>: background color</li>
+<li><code>mar</code>: margin size (order = bottom left top right)</li>
+<li><code>oma</code>: outer margin size (default = 0 for all sides)</li>
+<li><code>mfrow</code>: number of plots per row, column (plots are filled row-wise)</li>
+<li><code>mfcol</code>: number of plots per row, column (plots are filled column-wise)</li>
+<li>can verify all above parameters by calling <code>par(&quot;parameter&quot;)</code></li>
+</ul></li>
+<li><strong>plotting functions</strong>
+<ul>
+<li><code>lines</code>: adds liens to a plot, given a vector of x values and corresponding vector of y values</li>
+<li><code>points</code>: adds a point to the plot</li>
+<li><code>text</code>: add text labels to a plot using specified x,y coordinates</li>
+<li><code>title</code>: add annotations to x,y axis labels, title, subtitles, outer margin</li>
+<li><code>mtext</code>: add arbitrary text to margins (inner or outer) of plot</li>
+<li><code>axis</code>: specify axis ticks</li>
+</ul></li>
+</ul>
+<h3 id="base-plot-example">Base Plot Example</h3>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">library(datasets)</span><br><span class="line"># type =“n” sets up the plot and does not fill it with data</span><br><span class="line">with(airquality, plot(Wind, Ozone, main = &quot;Ozone and Wind in New York City&quot;, type = &quot;n&quot;))</span><br><span class="line"># subsets of data are plotted here using different colors</span><br><span class="line">with(subset(airquality, Month == 5), points(Wind, Ozone, col = &quot;blue&quot;))</span><br><span class="line">with(subset(airquality, Month != 5), points(Wind, Ozone, col = &quot;red&quot;))</span><br><span class="line">legend(&quot;topright&quot;, pch = 1, col = c(&quot;blue&quot;, &quot;red&quot;), legend = c(&quot;May&quot;, &quot;Other Months&quot;))</span><br><span class="line">model &lt;- lm(Ozone ~ Wind, airquality)</span><br><span class="line"># regression line is produced here</span><br><span class="line">abline(model, lwd = 2)</span><br></pre></td></tr></table></figure>
+<h3 id="multiple-plot-example">Multiple Plot Example</h3>
+<ul>
+<li><em><strong>Note</strong>: typing <code>example(points)</code> in R will launch a demo of base plotting system and may provide some helpful tips on graphing </em></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># this expression sets up a plot with 1 row 3 columns, sets the margin and outer margins</span><br><span class="line">par(mfrow = c(1, 3), mar = c(4, 4, 2, 1), oma = c(0, 0, 2, 0))</span><br><span class="line">with(airquality, &#123;</span><br><span class="line">	# here three plots are filled in with their respective titles</span><br><span class="line">	plot(Wind, Ozone, main = &quot;Ozone and Wind&quot;)</span><br><span class="line">	plot(Solar.R, Ozone, main = &quot;Ozone and Solar Radiation&quot;)</span><br><span class="line">	plot(Temp, Ozone, main = &quot;Ozone and Temperature&quot;)</span><br><span class="line">	# this adds a line of text in the outer margin*</span><br><span class="line">	mtext(&quot;Ozone and Weather in New York City&quot;, outer = TRUE)&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="graphics-device">Graphics Device</h2>
+<ul>
+<li>A graphics device is something where you can make a plot appear
+<ul>
+<li><strong>window on screen</strong> (screen device) = quick visualizations and exploratory analysis</li>
+<li><strong>pdf</strong> (file device) = plots that may be printed out or incorporated in to document</li>
+<li><strong>PNG/JPEG</strong> (file device) = plots that may be printed out or incorporated in to document</li>
+<li><strong>scalable vector graphics</strong> (SVG)</li>
+</ul></li>
+<li>When a plot is created in R, it has to be sent to a graphics device</li>
+<li><strong>Most common is screen device</strong>
+<ul>
+<li><code>quartz()</code> on Mac, <code>windows()</code> on Windows, <code>x11()</code> on Unix/Linux</li>
+<li><code>?Devices</code> = lists devices found</li>
+</ul></li>
+<li><strong>Plot creation</strong>
+<ul>
+<li>screen device
+<ul>
+<li>call plot/xplot/qplot <span class="math inline">\(\rightarrow\)</span> plot appears on screen device <span class="math inline">\(\rightarrow\)</span> annotate as necessary <span class="math inline">\(\rightarrow\)</span> use</li>
+</ul></li>
+<li>file devices
+<ul>
+<li>explicitly call graphics device <span class="math inline">\(\rightarrow\)</span> plotting function to make plot (write to file) <span class="math inline">\(\rightarrow\)</span> annotate as necessary <span class="math inline">\(\rightarrow\)</span> explicitly close graphics device with <code>dev.off()</code></li>
+</ul></li>
+</ul></li>
+<li><strong>Graphics File Devices</strong>
+<ul>
+<li><strong><em>Vector Formats</em></strong> (good for line drawings/plots w/ solid colors, a modest number of points)
+<ul>
+<li><code>pdf</code>: useful for line type graphics, resizes well, usually portable, not efficient if too many points</li>
+<li><code>svg</code>: XML based scalable vector graphics, support animation and interactivity, web based</li>
+<li><code>win.metafile</code>: Windows metafile format</li>
+<li><code>postscript</code>: older format, resizes well, usually portable, can create encapsulated postscript file, Windows often don’t have postscript viewer (postscript = predecessor of PDF)</li>
+</ul></li>
+<li><strong><em>Bitmap Formats</em></strong> (good for plots w/ large number of points, natural scenes/webbased plots)
+<ul>
+<li><code>png</code>: Portable Network Graphics, good for line drawings/image with solid colors, uses lossless compression, most web browsers read this natively, good for plotting a lot of data points, does not resize well</li>
+<li><code>JPEG</code>: good for photographs/natural scenes/gradient colors, size efficient, uses lossy compression, good for plotting many points, does not resize well, can be read by almost any computer/browser, not great for line drawings (aliasing on edges)</li>
+<li><code>tiff</code>: common bitmap format supports lossless compression</li>
+<li><code>bmp</code>: native Windows bitmapped format</li>
+</ul></li>
+</ul></li>
+<li><strong>Multiple Open Graphics Devices</strong>
+<ul>
+<li>possible to open multiple graphics devices (screen, file, or both)</li>
+<li>plotting occurs only one device at a time</li>
+<li><code>dev.cur()</code> = returns the currently active device</li>
+<li>every open graphics device is assigned an integer &gt;= 2</li>
+<li><code>dev.set(&lt;integer&gt;)</code> = change the active graphics device <code>&lt;integer&gt;</code> = number associated with the graphics device you want to switch to</li>
+</ul></li>
+<li><strong>Copying plots</strong>
+<ul>
+<li><code>dev.copy()</code> = copy a plot from one device to another</li>
+<li><code>dev.copy2pdf()</code> = specifically for copying to PDF files</li>
+<li><em><strong>Note</strong>: copying a plot is not an exact operation, so the result may not be identical to the original </em></li>
+<li><strong><em>example</em></strong></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">## Create plot on screen device</span><br><span class="line">with(faithful, plot(eruptions, waiting))</span><br><span class="line">## Add a main title</span><br><span class="line">title(main = &quot;Old Faithful Geyser data&quot;)</span><br><span class="line">## Copy my plot to a PNG file</span><br><span class="line">dev.copy(png, file = &quot;geyserplot.png&quot;)</span><br><span class="line">## Don&apos;t forget to close the PNG device!</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="lattice-plotting-system"><code>lattice</code> Plotting System</h2>
+<ul>
+<li><code>library(lattice)</code> = load lattice system</li>
+<li>implemented using the <code>lattice</code> and <code>grid</code> packages
+<ul>
+<li><code>lattice</code> package = contains code for producing <strong><em>Trellis</em></strong> graphics (independent from base graphics system)</li>
+<li><code>grid</code> package = implements the graphing system; lattice build on top of grid</li>
+</ul></li>
+<li>all plotting and annotation is done with <strong><em>single function call</em></strong>
+<ul>
+<li>margins/spacing/labels set automatically for entire plot, good for putting multiple on the screen</li>
+<li>good for conditioning plots <span class="math inline">\(\rightarrow\)</span> examining same plots over different conditions how y changes vs x across different levels of z</li>
+<li><code>panel</code> functions can be specified/customized to modify the subplots</li>
+</ul></li>
+<li>lattice graphics functions return an object of class “trellis”, where as base graphics functions plot data directly to graphics device
+<ul>
+<li>print methods for lattice functions actually plots the data on graphics device</li>
+<li>trellis objects are auto-printed</li>
+<li><code>trellis.par.set()</code> <span class="math inline">\(\rightarrow\)</span> can be used to set global graphic parameters for all trellis objects</li>
+</ul></li>
+<li>hard to annotate, awkward to specify entire plot in one function call</li>
+<li>cannot add to plot once created, panel/subscript functions hard to prepare</li>
+</ul>
+<h3 id="lattice-functions-and-parameters"><code>lattice</code> Functions and Parameters</h3>
+<ul>
+<li><strong>Funtions</strong>
+<ul>
+<li><code>xyplot()</code> = main function for creating scatterplots</li>
+<li><code>bwplot()</code> = box and whiskers plots (box plots)</li>
+<li><code>histogram()</code> = histograms</li>
+<li><code>stripplot()</code> = box plot with actual points</li>
+<li><code>dotplot()</code> = plot dots on “violin strings”</li>
+<li><code>splom()</code> = scatterplot matrix (like pairs() in base plotting system)</li>
+<li><code>levelplot()</code>/<code>contourplot()</code> = plotting image data</li>
+</ul></li>
+<li><strong>Arguments</strong> for <code>xyplot(y ~ x | f * g, data, layout, panel)</code>
+<ul>
+<li>default blue open circles for data points</li>
+<li>formula notation is used here (<code>~</code>) = left hand side is the y-axis variable, and the right hand side is the x-axis variable</li>
+<li><code>f</code>/<code>g</code> = conditioning/categorical variables (optional)
+<ul>
+<li>basically creates multi-panelled plots (for different factor levels)</li>
+<li><code>*</code> indicates interaction between two variables</li>
+<li>intuitively, the xyplot displays a graph between x and y for every level of <code>f</code> and <code>g</code></li>
+</ul></li>
+<li><code>data</code> = the data frame/list from which the variables should be looked up
+<ul>
+<li>if nothing is passed, the parent frame is used (searching for variables in the workspace)</li>
+<li>if no other arguments are passed, defaults will be used</li>
+</ul></li>
+<li><code>layout</code> = specifies how the different plots will appear
+<ul>
+<li><code>layout = c(5, 1)</code> = produces 5 subplots in a horizontal fashion</li>
+<li>padding/spacing/margin automatically set</li>
+</ul></li>
+<li>[optional] <code>panel</code> function can be added to control what is plotted inside each panel of the plot
+<ul>
+<li><code>panel</code> functions receive x/y coordinates of the data points in their panel (along with any additional arguments)</li>
+<li><code>?panel.xyplot</code> = brings up documentation for the panel functions</li>
+<li><em><strong>Note</strong>: no base plot functions can be used for lattice plots </em></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="lattice-example"><code>lattice</code> Example</h3>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">library(lattice)</span><br><span class="line">set.seed(10)</span><br><span class="line">x &lt;- rnorm(100)</span><br><span class="line">f &lt;- rep(0:1, each = 50)</span><br><span class="line">y &lt;- x + f - f * x+ rnorm(100, sd = 0.5)</span><br><span class="line">f &lt;- factor(f, labels = c(&quot;Group 1&quot;, &quot;Group 2&quot;))</span><br><span class="line">## Plot with 2 panels with custom panel function</span><br><span class="line">xyplot(y ~ x | f, panel = function(x, y, ...) &#123;</span><br><span class="line">	# call the default panel function for xyplot</span><br><span class="line">	panel.xyplot(x, y, ...)</span><br><span class="line">	# adds a horizontal line at the median</span><br><span class="line">	panel.abline(h = median(y), lty = 2)</span><br><span class="line">	# overlays a simple linear regression line</span><br><span class="line">	panel.lmline(x, y, col = 2)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="ggplot2-plotting-system"><code>ggplot2</code> Plotting System</h2>
+<ul>
+<li><code>library(ggplot2)</code> = loads ggplot2 package</li>
+<li>implementation of Grammar of Graphics by Leland Wilkinson, written by Hadley Wickham (created RStudio)</li>
+</ul>
+<blockquote>
+<p>“In brief, the grammar tells us that a statistical graphic is a mapping from data to aesthetic attributes (color, shape, size) of geometric objects (points, lines, bars). The plot may also contain statistical transformations of the data and is drawn on a specific coordinate system”</p>
+</blockquote>
+<ul>
+<li>grammar graphics plot, splits the different between base and lattice systems</li>
+<li>automatically sets spacings/text/tiles but also allows annotations to be added</li>
+<li>default makes a lot of choices, but still customizable</li>
+</ul>
+<h3 id="ggplot2-functions-and-parameters"><code>ggplot2</code> Functions and Parameters</h3>
+<ul>
+<li><strong>basic components</strong> of a <code>ggplot2</code> graphic
+<ul>
+<li><strong>data frame</strong> = source of data</li>
+<li><strong>aesthetic mappings</strong> = how data are mappped to color/size (x vs y)</li>
+<li><strong>geoms</strong> = geometric objects like points/lines/shapes to put on page</li>
+<li><strong>facets</strong> = conditional plots using factor variables/multiple panels</li>
+<li><strong>stats</strong> = statistical transformations like binning/quantiles/smoothing</li>
+<li><strong>scales</strong> = scale aesthetic map uses (i.e. male = red, female = blue)</li>
+<li><strong>coordinate system</strong> = system in which data are plotted</li>
+</ul></li>
+<li><code>qplot(x, y, data , color, geom)</code> = quick plot, analogous to base system’s <code>plot()</code> function
+<ul>
+<li><strong>default style</strong>: gray background, white gridlines, x and y labels automatic, and solid black circles for data points</li>
+<li>data always comes from data frame (in unspecified, function will look for data in workspace)</li>
+<li>plots are made up of aesthetics (size, shape, color) and geoms (points, lines)</li>
+<li><em><strong>Note</strong>: capable of producing quick graphics, but difficult to customize in detail</em></li>
+</ul></li>
+<li><strong>factor variables</strong>: important for graphing subsets of data = they should be labelled with specific information, and not just 1, 2, 3
+<ul>
+<li><code>color = factor1</code> = use the factor variable to display subsets of data in different colors on the same plot (legend automatically generated)</li>
+<li><code>shape = factor2</code> = use the factor variable to display subsets of data in different shapes on the same plot (legend automatically generated)</li>
+<li><strong><em>example</em></strong></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(ggplot2)</span><br><span class="line">qplot(displ, hwy, data = mpg, color = drv, shape = drv)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>adding statistics</strong>: <code>geom = c(&quot;points&quot;, &quot;smooth&quot;)</code> = add a smoother/“low S”
+<ul>
+<li>“points” plots the data themselves, “smooth” plots a smooth mean line in blue with an area of 95% confidence interval shaded in dark gray</li>
+<li><code>method = &quot;lm&quot;</code> = additional argument method can be specified to create different lines/confidence intervals
+<ul>
+<li><code>lm</code> = linear regression</li>
+</ul></li>
+<li><strong><em>example</em></strong></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qplot(displ, hwy, data = mpg, geom = c(&quot;point&quot;, &quot;smooth&quot;), method=&quot;lm&quot;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>histograms</strong>: if only one value is specified, a histogram is produced
+<ul>
+<li><code>fill = factor1</code> = can be used to fill the histogram with different colors for the subsets (legend automatically generated)</li>
+<li><strong><em>example</em></strong></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qplot(hwy, data = mpg, fill = drv)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>facets</strong>: similar to panels in lattice, split data according to factor variables
+<ul>
+<li><code>facets = rows ~ columns</code> = produce different subplots by factor variables specified (rows/columns)</li>
+<li><code>&quot;.&quot;</code> indicates there are no addition row or column</li>
+<li><code>facets = . ~ columns</code> = creates 1 by col subplots</li>
+<li><code>facets = row ~ .</code> = creates row row by 1 subplots</li>
+<li>labels get generated automatically based on factor variable values</li>
+<li><strong><em>example</em></strong></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">qplot(displ, hwy, data = mpg, facets = . ~ drv)</span><br><span class="line">qplot(hwy, data = mpg, facets = drv ~ ., binwidth = 2)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>density smooth</strong>: smooths the histograms into a line tracing its shape
+<ul>
+<li><code>geom = &quot;density&quot;</code> = replaces the default scatterplot with density smooth curve</li>
+<li><strong><em>example</em></strong></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/16.jpg&quot;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>ggplot()</code></strong>
+<ul>
+<li>built up in layers/modularly (similar to base plotting system)
+<ul>
+<li>data <span class="math inline">\(\rightarrow\)</span> overlay summary <span class="math inline">\(\rightarrow\)</span> metadata/annotation</li>
+</ul></li>
+<li><code>g &lt;- ggplot(data, aes(var1, var2))</code>
+<ul>
+<li>initiates call to <code>ggplot</code> and specifies the data frame that will be used</li>
+<li><code>aes(var1, var2)</code> = specifies aesthetic mapping, or var1 = x variable, and var2 = y variable</li>
+<li><code>summary(g)</code> = displays summary of ggplot object</li>
+<li><code>print(g)</code> = returns error (“no layer on plot”) which means the plot does know how to draw the data yet</li>
+</ul></li>
+<li><code>g + geom_point()</code> = takes information from g object and produces scatter plot</li>
+<li><code>+ geom_smooth()</code> = adds low S mean curve with confidence interval
+<ul>
+<li><code>method = &quot;lm&quot;</code> = changes the smooth curve to be linear regression</li>
+<li><code>size = 4</code>, <code>linetype = 3</code> = can be specified to change the size/style of the line</li>
+<li><code>se = FALSE</code> = turns off confidence interval</li>
+</ul></li>
+<li><code>+ facet_grid(row ~ col)</code> = splits data into subplots by factor variables (see facets from <code>qplot()</code>)
+<ul>
+<li>conditioning on continous variables is possible through cutting/making a new categorical variable</li>
+<li><code>cutPts &lt;- quantiles(df$cVar, seq(0, 1, length=4), na.rm = TRUE)</code> = creates quantiles where the continuous variable will be cut
+<ul>
+<li><code>seq(0, 1, length=4)</code> = creates 4 quantile points</li>
+<li><code>na.rm = TRUE</code> = removes all NA values</li>
+</ul></li>
+<li><code>df$newFactor &lt;- cut(df$cVar, cutPts)</code> = creates new categorical/factor variable by using the cutpoints
+<ul>
+<li>creates n-1 ranges from n points = in this case 3</li>
+</ul></li>
+</ul></li>
+<li><strong><em>annotations</em></strong>:
+<ul>
+<li><code>xlab()</code>, <code>ylab()</code>, <code>labs()</code>, <code>ggtitle()</code> = for labels and titles
+<ul>
+<li><code>labs(x = expression(&quot;log &quot; * PM[2.5]), y = &quot;Nocturnal&quot;)</code> = specifies x and y labels</li>
+<li><code>expression()</code> = used to produce mathematical expressions</li>
+</ul></li>
+<li><code>geom</code> functions = many options to modify</li>
+<li><code>theme()</code> = for global changes in presentation
+<ul>
+<li><strong><em>example</em></strong>: <code>theme(legend.position = &quot;none&quot;)</code></li>
+</ul></li>
+<li>two standard themes defined: <code>theme_gray()</code> and <code>theme_bw()</code></li>
+<li><code>base_family = &quot;Times&quot;</code> = changes font to Times</li>
+</ul></li>
+<li><strong><em>aesthetics</em></strong>
+<ul>
+<li><code>+ geom_point(color, size, alpha)</code> = specifies how the points are supposed to be plotted on the graph (style)
+<ul>
+<li><em><strong>Note</strong>: this translates to geom_line()/other forms of plots </em></li>
+<li><code>color = &quot;steelblue&quot;</code> = specifies color of the data points</li>
+<li><code>aes(color = var1)</code> = wrapping color argument this way allows a factor variable to be assigned to the data points, thus subsetting it with different colors based on factor variable values</li>
+<li><code>size = 4</code> = specifies size of the data points</li>
+<li><code>alpha = 0.5</code> = specifies transparency of the data points</li>
+</ul></li>
+<li><strong><em>example</em></strong></li>
+</ul></li>
+</ul>
+<figure>
+<img src="figures/17.jpg" alt="Alpha Level"><figcaption>Alpha Level</figcaption>
+</figure>
+<ul>
+<li><strong><em>axis limits</em></strong>
+<ul>
+<li><code>+ ylim(-3, 3)</code> = limits the range of y variable to a specific range
+<ul>
+<li><em><strong>Note</strong>: ggplot will exclude (not plot) points that fall outside of this range (outliers), potentially leaving gaps in plot </em></li>
+</ul></li>
+<li><code>+ coord_cartesian(ylim(-3, 3))</code> = this will limit the visible range but plot all points of the data</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="ggplot2-comprehensive-example"><code>ggplot2</code> Comprehensive Example</h3>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># initiates ggplot</span></span><br><span class="line">g &lt;- ggplot(maacs, aes(logpm25, NocturnalSympt))</span><br><span class="line">g + geom_point(alpha = <span class="number">1</span>/<span class="number">3</span>) 					        <span class="comment"># adds points</span></span><br><span class="line">  + facet_wrap(bmicat ~ no2dec, nrow = <span class="number">2</span>, ncol = <span class="number">4</span>)     <span class="comment"># make panels</span></span><br><span class="line">  + geom_smooth(method=<span class="string">"lm"</span>, se=<span class="literal">FALSE</span>, col=<span class="string">"steelblue"</span>) <span class="comment"># adds smoother</span></span><br><span class="line">  + theme_bw(base_family = <span class="string">"Avenir"</span>, base_size = <span class="number">10</span>)    <span class="comment"># change theme</span></span><br><span class="line">  + labs(x = expression(<span class="string">"log "</span> * PM[<span class="number">2.5</span>])   		    <span class="comment"># add labels</span></span><br><span class="line">  + labs(y = <span class="string">"Nocturnal Symptoms”)</span></span><br><span class="line"><span class="string">  + labs(title = "</span>MAACS Cohort”)</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="figures/18.jpg" alt="Final Plot"><figcaption>Final Plot</figcaption>
+</figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="hierarchical-clustering">Hierarchical Clustering</h2>
+<ul>
+<li>useful for visualizing high dimensional data, organizes things that are close into groups</li>
+<li><strong>agglomerative approach</strong> (most common) — bottom up
+<ol type="1">
+<li>start with data</li>
+<li>find closest pairs, put them together (create “super point” and remove original data)</li>
+<li>find the next closest</li>
+<li>repeat = yields a tree showing order of merging (dendrogram)</li>
+</ol>
+<ul>
+<li>requires
+<ul>
+<li><strong><em>merging approach</em></strong>: how to merge two points</li>
+<li><strong><em>distance metric</em></strong>: calculating distance between two points</li>
+<li><strong>continuous</strong> - <em>Euclidean distance</em> <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(\sqrt{(A_1 - A_2)^2 + (B_1 - B_2)^2 + \dots + (Z_1 -Z_2)^2 }\)</span></li>
+<li><strong>continuous</strong> - <em>correlation similarity</em> <span class="math inline">\(\rightarrow\)</span> how correlated two data points are</li>
+<li><strong>binary</strong> - <em>Manhattan distance</em> (“city block distance”) <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(|A_1 - A_2| + |B_1 - B_2| + \dots + |Z_1 -Z_2|\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/25.png&quot;))</span><br></pre></td></tr></table></figure>
+<h3 id="procedure-for-constructing-hierarchical-clusters-hclust-function">Procedure for Constructing Hierarchical Clusters (<code>hclust</code> function)</h3>
+<ol type="1">
+<li>calculate all pair wise distances between all points to see which points are closest together
+<ul>
+<li><code>dist(data.frame(x=x, y=y)</code> = returns pair wise distances for all of the (x,y) coordinates</li>
+<li><em><strong>Note</strong>: <code>dist()</code> function uses Euclidean distance by default </em></li>
+</ul></li>
+<li>group two closest points from the calculated distances and merge them to a single point</li>
+<li>find the next two closest points and merge them, and repeat</li>
+<li>order of clustering is shown in the dendrogram</li>
+</ol>
+<h3 id="approaches-for-merging-pointsclusters">Approaches for Merging Points/Clusters</h3>
+<ul>
+<li>the approach is specified in the argument <code>method = &quot;complete&quot;</code> or <code>&quot;average&quot;</code> in <code>hclust()</code> function</li>
+<li><strong><em>average linkage</em></strong> = taking average of the x and y coordinates for both points/clusters (center of mass effectively)</li>
+<li><strong><em>complete linkage</em></strong> = to measure distance of two clusters, take the two points in the clusters that are the furthest apart</li>
+<li><em><strong>Note</strong>: two approaches may produce different results so it’s a good idea to use both approaches to validate results </em></li>
+</ul>
+<h3 id="characteristics-of-hierarchical-clustering-algorithms">Characteristics of Hierarchical Clustering Algorithms</h3>
+<ul>
+<li>clustering result/plot maybe <strong><em>unstable</em></strong>
+<ul>
+<li>changing few points/outliers could lead to large changes</li>
+<li>change different distance metrics to see how sensitive the clustering is</li>
+<li>change merging strategy</li>
+<li>scaling of variables could affect the clustering (if one unit/measurement is much larger than another)</li>
+</ul></li>
+<li><strong><em>deterministic</em></strong> = running the <code>hclust</code> function with same parameters and the same data will produce the same plot</li>
+<li>determining how many clusters there are (where to cut) may <strong><em>not always be clear</em></strong></li>
+<li><strong><em>primarily used for exploratory data analysis</em></strong>, to see over all pattern in data if there is any at all</li>
+</ul>
+<h3 id="hclust-function-and-example"><code>hclust</code> Function and Example</h3>
+<ul>
+<li><code>hh &lt;- hclust(dist(dataFrame))</code> function = produces a hierarchical cluster object based on pair wise distances from a data frame of x and y values
+<ul>
+<li><code>dist()</code> = defaults to Euclidean, calculates the distance/similarity between two observations; when applied to a data frame, the function applies the <span class="math inline">\(\sqrt{(A_1 - A_2)^2 + (B_1 - B_2)^2 + ... + (Z_1 -Z_2)^2 }\)</span> formula to every pair of rows of data to construct a matrix of distances between the roes
+<ul>
+<li>order of the hierarchical cluster is derived from the distance</li>
+</ul></li>
+<li><code>plot(hh)</code> = plots the dendrogram</li>
+<li>automatically sorts column and row according to cluster</li>
+<li><code>names(hh)</code> = returns all parameters of the <code>hclust</code> object
+<ul>
+<li><code>hh$order</code> = returns the order of the rows/clusters from the dendrogram</li>
+<li><code>hh$dist.method</code> = returns method for calculating distance/similarity</li>
+</ul></li>
+</ul></li>
+<li><em><strong>Note</strong>: dendrogram that gets generated <strong>DOES NOT</strong> show how many clusters there are, so cutting (at 2.0 level for example) must be done to determine number of clusters — must be a convenient and sensible point </em></li>
+<li><strong><code>hclust</code> Example</strong></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">set.seed(1234)</span><br><span class="line">x &lt;- rnorm(12,mean=rep(1:3,each=4),sd=0.2)</span><br><span class="line">y &lt;- rnorm(12,mean=rep(c(1,2,1),each=4),sd=0.2)</span><br><span class="line">dataFrame &lt;- data.frame(x=x,y=y)</span><br><span class="line">distxy &lt;- dist(dataFrame)</span><br><span class="line">hClustering &lt;- hclust(distxy)</span><br><span class="line">plot(hClustering)</span><br></pre></td></tr></table></figure>
+<h3 id="myplcclust-function-and-example"><code>myplcclust</code> Function and Example</h3>
+<ul>
+<li><em><strong>Note</strong>: <code>myplcclust</code> = a function to plot <code>hclust</code> objects in color (clusters labeled 1 2 3 etc.), but must know how many clusters there are initially </em></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">myplclust &lt;- function(hclust, lab = hclust$labels,</span><br><span class="line">	lab.col = rep(1, length(hclust$labels)), hang = 0.1, ...) &#123;</span><br><span class="line">	## modifiction of plclust for plotting hclust objects *in colour*! Copyright</span><br><span class="line">	## Eva KF Chan 2009 Arguments: hclust: hclust object lab: a character vector</span><br><span class="line">	## of labels of the leaves of the tree lab.col: colour for the labels;</span><br><span class="line">	## NA=default device foreground colour hang: as in hclust &amp; plclust Side</span><br><span class="line">	## effect: A display of hierarchical cluster with coloured leaf labels.</span><br><span class="line">	y &lt;- rep(hclust$height, 2)</span><br><span class="line">	x &lt;- as.numeric(hclust$merge)</span><br><span class="line">	y &lt;- y[which(x &lt; 0)]</span><br><span class="line">	x &lt;- x[which(x &lt; 0)]</span><br><span class="line">	x &lt;- abs(x)</span><br><span class="line">	y &lt;- y[order(x)]</span><br><span class="line">	x &lt;- x[order(x)]</span><br><span class="line">	plot(hclust, labels = FALSE, hang = hang, ...)</span><br><span class="line">	text(x = x, y = y[hclust$order] - (max(hclust$height) * hang), labels = lab[hclust$order],</span><br><span class="line"> col = lab.col[hclust$order], srt = 90, adj = c(1, 0.5), xpd = NA, ...)</span><br><span class="line">&#125;</span><br><span class="line"># example</span><br><span class="line">dataFrame &lt;- data.frame(x = x, y = y)</span><br><span class="line">distxy &lt;- dist(dataFrame)</span><br><span class="line">hClustering &lt;- hclust(distxy)</span><br><span class="line">myplclust(hClustering, lab = rep(1:3, each = 4), lab.col = rep(1:3, each = 4))</span><br></pre></td></tr></table></figure>
+<h3 id="heatmap-function-and-example"><code>heatmap</code> Function and Example</h3>
+<ul>
+<li><code>heatmap(data.matrix)</code> function = similar to <code>image(t(x))</code>
+<ul>
+<li>good for visualizing high-dimension matrix data, runs hierarchical analysis on rows and columns of table</li>
+<li>yellow = high value, red = low value</li>
+<li><em><strong>Note</strong>: the input must be a numeric matrix, so as.matrix(data.frame) can be used to convert if necessary </em></li>
+</ul></li>
+<li><strong><em>example</em></strong></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set.seed(12345)</span><br><span class="line">data &lt;- matrix(rnorm(400), nrow = 40)</span><br><span class="line">heatmap(data)</span><br></pre></td></tr></table></figure>
+<h3 id="image-function-and-example"><code>image</code> Function and Example</h3>
+<ul>
+<li><code>image(x, y, t(dataMatrix)[, nrow(dataMatrix):1])</code> = produces similar color grid plot as the <code>heatmap()</code> without the dendrograms
+<ul>
+<li><code>t(dataMatrix)[, nrow(dataMatrix)]</code>
+<ul>
+<li><code>t(dataMatrix)</code> = transpose of dataMatrix, this is such that the plot will be displayed in the same fashion as the matrix (rows as values on the y axis and columns as values on the x axis)
+<ul>
+<li><strong><em>example</em></strong> 40 x 10 matrix will have graph the 10 columns as x values and 40 rows as y values</li>
+</ul></li>
+<li><code>[, nrow(dataMatrix)]</code> = subsets the data frame in reverse column order; when combined with the <code>t()</code> function, it reorders the rows of data from 40 to 1, such that the data from the matrix is displayed in order from top to bottom
+<ul>
+<li><em><strong>Note</strong>: without this statement the rows will be displayed in order from bottom to top, as that is in line with the positive y axis </em></li>
+</ul></li>
+</ul></li>
+<li><code>x</code>, <code>y</code> = used to specify the values displayed on the x and y axis
+<ul>
+<li><em><strong>Note</strong>: must be in increasing order </em></li>
+</ul></li>
+</ul></li>
+<li><strong><em>example</em></strong></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image(1:10, 1:40, t(data)[, nrow(data):1])</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="k-means-clustering">K-means Clustering</h2>
+<ul>
+<li>similar to hierarchical clustering, focuses on finding things that are close together
+<ul>
+<li>define close, groups, visualizing/interpreting grouping</li>
+</ul></li>
+<li><strong>partitioning approach</strong>
+<ol type="1">
+<li>set number of clusters initially</li>
+<li>find centroids for each cluster</li>
+<li>assign points to the closest centroid</li>
+<li>recalculate centroid</li>
+<li>repeat = yields estimate of cluster centroids and which cluster each point belongs to</li>
+</ol>
+<ul>
+<li><strong>requires</strong>
+<ul>
+<li>distance metric</li>
+<li>initial number of clusters</li>
+<li>initial guess as to where the cluster centroids are</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="procedure-for-constructing-k-means-clusters-kmeans-function">Procedure for Constructing K-means Clusters (<code>kmeans</code> function)</h3>
+<ol type="1">
+<li>choose three random points as the starting centroids</li>
+<li>take each of the data points and assign it to the closest centroid (creating a cluster around each starting point)</li>
+<li>take each cluster and recalculate the centroid (taking the mean) with its enclosed data points</li>
+<li>repeat step 2 and 3 (reassign points to centroids and update centroid locations) until a stable result is achieved</li>
+</ol>
+<ul>
+<li><strong><em>example</em></strong></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">set.seed(1234)</span><br><span class="line">x &lt;- rnorm(12,mean=rep(1:3,each=4),sd=0.2)</span><br><span class="line">y &lt;- rnorm(12,mean=rep(c(1,2,1),each=4),sd=0.2)</span><br><span class="line">dataFrame &lt;- data.frame(x=x,y=y)</span><br><span class="line"># specifies initial number of clusters to be 3</span><br><span class="line">kmeansObj &lt;- kmeans(dataFrame,centers=3)</span><br><span class="line">names(kmeansObj)</span><br><span class="line"># returns cluster assignments</span><br><span class="line">kmeansObj$cluster</span><br><span class="line">par(mar=rep(0.2,4))</span><br><span class="line">plot(x,y,col=kmeansObj$cluster,pch=19,cex=2)</span><br><span class="line">points(kmeansObj$centers,col=1:3,pch=3,cex=3,lwd=3)</span><br></pre></td></tr></table></figure>
+<h3 id="characteristics-of-k-means-clustering-algorithms">Characteristics of K-means Clustering Algorithms</h3>
+<ul>
+<li>requires number of clusters initially
+<ul>
+<li>pick by eye/intuition</li>
+<li>pick by cross validation/information theory, etc. [link]</li>
+</ul></li>
+<li>not deterministic (starting points chosen at random)
+<ul>
+<li>useful to run the algorithms a few times with different starting points to validate results</li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="dimension-reduction">Dimension Reduction</h2>
+<ul>
+<li>two kinds of problems that relate to high-dimension dataset/matrix with many variables
+<ol type="1">
+<li>find a new set (smaller) of variables that are uncorrelated and explain as much variance of data as possible
+<ul>
+<li>normally many variables are not independent (i.e. height vs weight)</li>
+<li>statistical problem, commonly solved with PCA</li>
+</ul></li>
+<li>find a lower rank matrix (best matrix created with fewer variables) that still explains the data
+<ul>
+<li>data compression problem, commonly solved SVD</li>
+</ul></li>
+</ol></li>
+<li><strong><em>example</em></strong>
+<ul>
+<li><em><strong>Note</strong>: we are arbitrarily introduced pattern in data: we flip a coin and if the it is heads, we replace the row with [0, 0, 0, 0, 0, 3, 3, 3, 3, 3] </em></li>
+<li>here we plot the patterns in rows and columns (already sorted)</li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">for(i in 1:40)&#123;</span><br><span class="line">  # flip a coin</span><br><span class="line">  coinFlip &lt;- rbinom(1,size=1,prob=0.5)</span><br><span class="line">  # if coin is heads add a common pattern to that row</span><br><span class="line">  if(coinFlip)&#123;</span><br><span class="line">    data[i,] &lt;- data[i,] + rep(c(0,3),each=5)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"># hierarchical clustering</span><br><span class="line">hh &lt;- hclust(dist(data))</span><br><span class="line">dataOrdered &lt;- data[hh$order,]</span><br><span class="line"># create 1 x 3 panel plot</span><br><span class="line">par(mfrow=c(1,3))</span><br><span class="line"># heat map (sorted)</span><br><span class="line">image(t(dataOrdered)[,nrow(dataOrdered):1])</span><br><span class="line"># row means (40 rows)</span><br><span class="line">plot(rowMeans(dataOrdered),40:1,,xlab=&quot;Row Mean&quot;,ylab=&quot;Row&quot;,pch=19)</span><br><span class="line"># column means (10 columns)</span><br><span class="line">plot(colMeans(dataOrdered),xlab=&quot;Column&quot;,ylab=&quot;Column Mean&quot;,pch=19)</span><br></pre></td></tr></table></figure>
+<h3 id="singular-value-decomposition-svd">Singular Value Decomposition (SVD)</h3>
+<ul>
+<li>Let <span class="math inline">\(X\)</span> = matrix which each variable in column (measurement) and each observation in row (subject)</li>
+<li>SVD in this case is a <strong>matrix decomposition</strong> process, in which X is divided into <strong><em>three</em></strong> separate matrices as follows: <span class="math display">\[X = UDV^T\]</span>
+<ul>
+<li><span class="math inline">\(U\)</span> = left singular vector, orthogonal matrix (columns independent of each other)</li>
+<li><span class="math inline">\(D\)</span> = singular values, diagonal matrix</li>
+<li><span class="math inline">\(V\)</span> = right singular vector, orthogonal matrix (columns independent of each other)</li>
+<li><em><strong>Note</strong>: orthogonal implies that a matrix is always invertible [<span class="math inline">\(A^{-1} = A^T\)</span>] and that the product of the matrix and its transpose equals the identity matrix [<span class="math inline">\(AA^T = I\)</span>] </em>
+<ul>
+<li>when a orthogonal matrices, <span class="math inline">\(A\)</span>, is multiplied by another matrix, <span class="math inline">\(B\)</span>, it is effectively a linear transformation in that the length and angles of <span class="math inline">\(B\)</span> are preserved</li>
+</ul></li>
+<li><em><strong>Note</strong>: diagonal implies that any value outside of the main diagonal (<span class="math inline">\(\searrow\)</span>) = 0 </em>
+<ul>
+<li>example <span class="math display">\[A = \begin{bmatrix}
+ 1 &amp; 0 &amp; 0 \\
+ 0 &amp; 2 &amp; 0 \\
+ 0 &amp; 0 &amp; 3 \end{bmatrix}\]</span></li>
+</ul></li>
+</ul></li>
+<li><em><strong>Note</strong>: scale of data matters for SVD/PCA (scaling the data may help), patterns detected maybe mixed together, and computation is intensive for these operations </em></li>
+</ul>
+<h3 id="principal-components-analysis-pca">Principal Components Analysis (PCA)</h3>
+<ul>
+<li>first scale the variables and run SVD on normalized matrix
+<ul>
+<li><strong>scaling</strong> = subtract each column by its mean and divide by its standard deviation</li>
+</ul></li>
+<li><strong>principal components</strong> = the right singular values or the <span class="math inline">\(V\)</span> matrix</li>
+</ul>
+<h3 id="svd-and-pca-example">SVD and PCA Example</h3>
+<ul>
+<li><strong><span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> Matrices</strong>
+<ul>
+<li><code>s &lt;- svd(data)</code> = performs SVD on data (<span class="math inline">\(n \times m\)</span> matrix) and splits it into <span class="math inline">\(u\)</span>, <span class="math inline">\(v\)</span>, and <span class="math inline">\(d\)</span> matrices
+<ul>
+<li><code>s$u</code> = <span class="math inline">\(n \times m\)</span> matrix <span class="math inline">\(\rightarrow\)</span> horizontal variation</li>
+<li><code>s$d</code> = <span class="math inline">\(1 \times m\)</span> vector <span class="math inline">\(\rightarrow\)</span> vector of the singular/diagonal values
+<ul>
+<li><code>diag(s$d)</code> = <span class="math inline">\(m \times m\)</span> diagonal matrix</li>
+</ul></li>
+<li><code>s$v</code> = <span class="math inline">\(m \times m\)</span> matrix <span class="math inline">\(\rightarrow\)</span> vertical variation</li>
+<li><code>s$u %*% diag(s$d) %*% t(s$v)</code> = returns the original data <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(X = UDV^T\)</span></li>
+</ul></li>
+<li><code>scale(data)</code> = scales the original data by subtracting each data point by its column mean and dividing by its column standard deviation</li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># running svd</span><br><span class="line">svd1 &lt;- svd(scale(dataOrdered))</span><br><span class="line"># create 1 by 3 panel plot</span><br><span class="line">par(mfrow=c(1,3))</span><br><span class="line"># data heatmap (sorted)</span><br><span class="line">image(t(dataOrdered)[,nrow(dataOrdered):1])</span><br><span class="line"># U Matrix - first column</span><br><span class="line">plot(svd1$u[,1],40:1,,xlab=&quot;Row&quot;,ylab=&quot;First left singular vector&quot;,pch=19)</span><br><span class="line"># V vector - first column</span><br><span class="line">plot(svd1$v[,1],xlab=&quot;Column&quot;,ylab=&quot;First right singular vector&quot;,pch=19)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><span class="math inline">\(D\)</span> Matrix and Variance Explained</strong>
+<ul>
+<li><span class="math inline">\(d\)</span> matrix (<code>s$d</code> vector) captures the singular values, or <strong><em>variation in data that is explained by that particular component</em></strong> (variable/column/dimension)</li>
+<li><strong>proportion of variance Explained</strong> = converting the singular values to variance (square the values) and divide by the total variance (sum of the squared singular values)
+<ul>
+<li>effectively the same pattern as the singular values, just converted to percentage</li>
+<li>in this case, the first component/dimension, which captures the shift in means (see previous plot) of SVD captures about 40% of the variation</li>
+</ul></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># create 1 x 2 panel plot</span><br><span class="line">par(mfrow=c(1,2))</span><br><span class="line"># plot singular values</span><br><span class="line">plot(svd1$d,xlab=&quot;Column&quot;,ylab=&quot;Singular value&quot;,pch=19)</span><br><span class="line"># plot proportion of variance explained</span><br><span class="line">plot(svd1$d^2/sum(svd1$d^2),xlab=&quot;Column&quot;,ylab=&quot;Prop. of variance explained&quot;,pch=19)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Relationship to PCA</strong>
+<ul>
+<li><code>p &lt;- prcomp(data, scale = TRUE)</code> = performs PCA on data specified
+<ul>
+<li><code>scale = TRUE</code> = scales the data before performing PCA</li>
+<li>returns <code>prcomp</code> object</li>
+<li><code>summary(p)</code> = prints out the principal component’s standard deviation, proportion of variance, and cumulative proportion</li>
+</ul></li>
+<li>PCA’s rotation vectors are equivalent to their counterparts in the V matrix from the SVD</li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># SVD</span><br><span class="line">svd1 &lt;- svd(scale(dataOrdered))</span><br><span class="line"># PCA</span><br><span class="line">pca1 &lt;- prcomp(dataOrdered,scale=TRUE)</span><br><span class="line"># Plot the rotation from PCA (Principal Components) vs v vector from SVD</span><br><span class="line">plot(pca1$rotation[,1],svd1$v[,1],pch=19,xlab=&quot;Principal Component 1&quot;,</span><br><span class="line">	ylab=&quot;Right Singular Vector 1&quot;)</span><br><span class="line">abline(c(0,1))</span><br><span class="line"># summarize PCA</span><br><span class="line">summary(pca1)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>More Complex Patterns</strong>
+<ul>
+<li>SVD can be used to <strong><em>detect unknown patterns</em></strong> within the data (we rarely know the true distribution/pattern about the population we’re analyzing)</li>
+<li>however, it may be hard to pinpoint exact patterns as the principal components may confound each other
+<ul>
+<li>in the example below, you can see that the two principal components that capture the most variation have both horizontal shifts and alternating patterns captured in them</li>
+</ul></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>,fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">set.seed(678910)</span><br><span class="line"># setting pattern</span><br><span class="line">data &lt;- matrix(rnorm(400), nrow = 40)</span><br><span class="line">for(i in 1:40)&#123;</span><br><span class="line">  # flip a coin</span><br><span class="line">  coinFlip1 &lt;- rbinom(1,size=1,prob=0.5)</span><br><span class="line">  coinFlip2 &lt;- rbinom(1,size=1,prob=0.5)</span><br><span class="line">  # if coin is heads add a common pattern to that row</span><br><span class="line">  if(coinFlip1)&#123;</span><br><span class="line">    data[i,] &lt;- data[i,] + rep(c(0,5),each=5)</span><br><span class="line">  &#125;</span><br><span class="line">  if(coinFlip2)&#123;</span><br><span class="line">    data[i,] &lt;- data[i,] + rep(c(0,5),5)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">hh &lt;- hclust(dist(data)); dataOrdered &lt;- data[hh$order,]</span><br><span class="line"></span><br><span class="line"># perform SVD</span><br><span class="line">svd2 &lt;- svd(scale(dataOrdered))</span><br><span class="line">par(mfrow=c(2,3))</span><br><span class="line">image(t(dataOrdered)[,nrow(dataOrdered):1])</span><br><span class="line">plot(rep(c(0,1),each=5),pch=19,xlab=&quot;Column&quot;, main=&quot;True Pattern 1&quot;)</span><br><span class="line">plot(rep(c(0,1),5),pch=19,xlab=&quot;Column&quot;,main=&quot;True Pattern 2&quot;)</span><br><span class="line">image(t(dataOrdered)[,nrow(dataOrdered):1])</span><br><span class="line">plot(svd2$v[,1],pch=19,xlab=&quot;Column&quot;,ylab=&quot;First right singular vector&quot;,</span><br><span class="line">	main=&quot;Detected Pattern 1&quot;)</span><br><span class="line">plot(svd2$v[,2],pch=19,xlab=&quot;Column&quot;,ylab=&quot;Second right singular vector&quot;,</span><br><span class="line">	main=&quot;Detected Pattern 2&quot;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Missing Data</strong>
+<ul>
+<li>SVD cannot be performed on dataset with <code>NA</code> values</li>
+<li><code>impute</code> package from <a href="http://bioconductor.org" target="_blank" rel="noopener">Bioconductor</a> can help approximate missing values from surrounding values
+<ul>
+<li><code>impute.knn</code> function takes the missing row and imputes the data using the <code>k</code> nearest neighbors to that row
+<ul>
+<li><code>k=10</code> = default value (take the nearest 10 rows)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">library(impute)  ## Available from http://bioconductor.org</span><br><span class="line">data2 &lt;- dataOrdered</span><br><span class="line"># set random samples = NA</span><br><span class="line">data2[sample(1:100,size=40,replace=FALSE)] &lt;- NA</span><br><span class="line">data2 &lt;- impute.knn(data2)$data</span><br><span class="line">svd1 &lt;- svd(scale(dataOrdered)); svd2 &lt;- svd(scale(data2))</span><br><span class="line">par(mfrow=c(1,2))</span><br><span class="line">plot(svd1$v[,1],pch=19, main=&quot;Original&quot;)</span><br><span class="line">plot(svd2$v[,1],pch=19, main=&quot;Imputed&quot;)</span><br></pre></td></tr></table></figure>
+<h3 id="create-approximationsdata-compression">Create Approximations/Data Compression</h3>
+<ul>
+<li>SVD can be used to create lower rank representation, or compressed representation of data</li>
+<li>if we look at the variance explained plot below, <strong><em>most of the variation</em></strong> is explained by the <strong><em>first few principal components</em></strong></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># load faceData</span><br><span class="line">load(&quot;figures/face.rda&quot;)</span><br><span class="line"># perform SVD</span><br><span class="line">svd3 &lt;- svd(scale(faceData))</span><br><span class="line">plot(svd3$d^2/sum(svd3$d^2),pch=19,xlab=&quot;Singular vector&quot;,ylab=&quot;Variance explained&quot;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>approximations can thus be created by taking the first few components and using matrix multiplication with the corresponding <span class="math inline">\(U\)</span>, <span class="math inline">\(V\)</span>, and <span class="math inline">\(D\)</span> components</li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">approx1 &lt;- svd3$u[,1] %*% t(svd3$v[,1]) * svd3$d[1]</span><br><span class="line">approx5 &lt;- svd3$u[,1:5] %*% diag(svd3$d[1:5])%*% t(svd3$v[,1:5])</span><br><span class="line">approx10 &lt;- svd3$u[,1:10] %*% diag(svd3$d[1:10])%*% t(svd3$v[,1:10])</span><br><span class="line"># create 1 x 4 panel plot</span><br><span class="line">par(mfrow=c(1,4))</span><br><span class="line"># plot original facedata</span><br><span class="line">image(t(approx1)[,nrow(approx1):1], main = &quot;1 Component&quot;)</span><br><span class="line">image(t(approx5)[,nrow(approx5):1], main = &quot;5 Component&quot;)</span><br><span class="line">image(t(approx10)[,nrow(approx10):1], main = &quot;10 Component&quot;)</span><br><span class="line">image(t(faceData)[,nrow(faceData):1], main = &quot;Original&quot;)</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="color-packages-in-r-plots">Color Packages in R Plots</h2>
+<ul>
+<li>proper use of color can help convey the message by improving clarity/contrast of data presented</li>
+<li>default color schemes for most plots in R are fairly terrible, so some external packages are helpful</li>
+</ul>
+<h3 id="grdevices-package"><code>grDevices</code> Package</h3>
+<ul>
+<li><code>colors()</code> function = lists names of colors available in any plotting function</li>
+<li><strong><code>colorRamp</code> function</strong>
+<ul>
+<li>takes any set of colors and return a function that takes values between 0 and 1, indicating the extremes of the color palette (e.g. see the <code>gray</code> function)</li>
+<li><code>pal &lt;- colorRamp(c(&quot;red&quot;, &quot;blue&quot;))</code> = defines a <code>colorRamp</code> function</li>
+<li><code>pal(0)</code> returns a 1 x 3 matrix containing values for RED, GREEN, and BLUE values that range from 0 to 255</li>
+<li><code>pal(seq(0, 1, len = 10))</code> returns a 10 x 3 matrix of 10 colors that range from RED to BLUE (two ends of spectrum defined in the object)</li>
+<li><strong><em>example</em></strong></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># define colorRamp function</span><br><span class="line">pal &lt;- colorRamp(c(&quot;red&quot;, &quot;blue&quot;))</span><br><span class="line"># create a color</span><br><span class="line">pal(0.67)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>colorRampPalette</code> function</strong>
+<ul>
+<li>takes any set of colors and return a function that takes integer arguments and returns a vector of colors interpolating the palette (like <code>heat.colors</code> or <code>topo.colors</code>)</li>
+<li><code>pal &lt;- colorRampPalette(c(&quot;red&quot;, &quot;yellow&quot;))</code> defines a <code>colorRampPalette</code> function</li>
+<li><code>pal(10)</code> returns 10 interpolated colors in hexadecimal format that range between the defined ends of spectrum</li>
+<li><strong><em>example</em></strong></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># define colorRampPalette function</span><br><span class="line">pal &lt;- colorRampPalette(c(&quot;red&quot;, &quot;yellow&quot;))</span><br><span class="line"># create 10 colors</span><br><span class="line">pal(10)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>rgb</code> function</strong>
+<ul>
+<li><code>red</code>, <code>green</code>, and <code>blue</code> arguments = values between 0 and 1</li>
+<li><code>alpha = 0.5</code> = transparency control, values between 0 and 1</li>
+<li>returns hexadecimal string for color that can be used in <code>plot</code>/<code>image</code> commands</li>
+<li><code>colorspace</code> package <code>cna</code> be used for different control over colors</li>
+<li><strong><em>example</em></strong></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- rnorm(200); y &lt;- rnorm(200)</span><br><span class="line">par(mfrow=c(1,2))</span><br><span class="line"># normal scatter plot</span><br><span class="line">plot(x, y, pch = 19, main = &quot;Default&quot;)</span><br><span class="line"># using transparency shows data much better</span><br><span class="line">plot(x, y, col = rgb(0, 0, 0, 0.2), main = &quot;With Transparency&quot;)</span><br></pre></td></tr></table></figure>
+<h3 id="rcolorbrewer-package"><code>RColorBrewer</code> Package</h3>
+<ul>
+<li>can be found on CRAN that has predefined color palettes
+<ul>
+<li><code>library(RColorBrewer)</code></li>
+</ul></li>
+<li><strong>types of palettes</strong>
+<ul>
+<li><em>Sequential</em> = numerical/continuous data that is ordered from low to high</li>
+<li><em>Diverging</em> = data that deviate from a value, increasing in two directions (i.e. standard deviations from the mean)</li>
+<li><em>Qualitative</em> = categorical data/factor variables</li>
+</ul></li>
+<li>palette information from the <code>RColorBrewer</code> package can be used by <code>colorRamp</code> and <code>colorRampPalette</code> functions</li>
+<li><strong>available colors palettes</strong></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid.raster(readPNG(&quot;figures/color.png&quot;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>brewer.pal(n, &quot;BuGn&quot;)</code> function</strong>
+<ul>
+<li><code>n</code> = number of colors to generated</li>
+<li><code>&quot;BuGn&quot;</code> = name of palette
+<ul>
+<li><code>?brewer.pal</code> list all available palettes to use</li>
+</ul></li>
+<li>returns list of <code>n</code> hexadecimal colors</li>
+</ul></li>
+<li><strong><em>example</em></strong></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">library(RColorBrewer)</span><br><span class="line"># generate 3 colors using brewer.pal function</span><br><span class="line">cols &lt;- brewer.pal(3, &quot;BuGn&quot;)</span><br><span class="line">pal &lt;- colorRampPalette(cols)</span><br><span class="line">par(mfrow=c(1,3))</span><br><span class="line"># heat.colors/default</span><br><span class="line">image(volcano, main = &quot;Heat.colors/Default&quot;)</span><br><span class="line"># topographical colors</span><br><span class="line">image(volcano, col = topo.colors(20), main = &quot;Topographical Colors&quot;)</span><br><span class="line"># RColorBrewer colors</span><br><span class="line">image(volcano, col = pal(20), main = &quot;RColorBrewer Colors&quot;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>smoothScatter</code> function</strong>
+<ul>
+<li>used to plot large quantities of data points</li>
+<li>creates 2D histogram of points and plots the histogram</li>
+<li>default color scheme = “Blues” palette from <code>RColorBrewer</code> package</li>
+<li><strong><em>example</em></strong></li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>fig.height </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- rnorm(10000); y &lt;- rnorm(10000)</span><br><span class="line">smoothScatter(x, y)</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="case-study-human-activity-tracking-with-smart-phones">Case Study: Human Activity Tracking with Smart Phones</h2>
+<p><strong>Loading Training Set of Samsung S2 Data from <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones" target="_blank" rel="noopener">UCI Repository</a></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># load data frame provided</span><br><span class="line">load(&quot;samsungData.rda&quot;)</span><br><span class="line"># table of 6 types of activities</span><br><span class="line">table(samsungData$activity)</span><br></pre></td></tr></table></figure>
+<p><strong>Plotting Average Acceleration for First Subject</strong></p>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># set up 1 x 2 panel plot</span><br><span class="line">par(mfrow=c(1, 2), mar = c(5, 4, 1, 1))</span><br><span class="line"># converts activity to a factor variable</span><br><span class="line">samsungData &lt;- transform(samsungData, activity = factor(activity))</span><br><span class="line"># find only the subject 1 data</span><br><span class="line">sub1 &lt;- subset(samsungData, subject == 1)</span><br><span class="line"># plot mean body acceleration in X direction</span><br><span class="line">plot(sub1[, 1], col = sub1$activity, ylab = names(sub1)[1],</span><br><span class="line">	main = &quot;Mean Body Acceleration for X&quot;)</span><br><span class="line"># plot mean body acceleration in Y direction</span><br><span class="line">plot(sub1[, 2], col = sub1$activity, ylab = names(sub1)[2],</span><br><span class="line">	main = &quot;Mean Body Acceleration for Y&quot;)</span><br><span class="line"># add legend</span><br><span class="line">legend(&quot;bottomright&quot;,legend=unique(sub1$activity),col=unique(sub1$activity), pch = 1)</span><br></pre></td></tr></table></figure>
+<p><strong>Clustering Based on Only Average Acceleration</strong></p>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># load myplclust function</span><br><span class="line">source(&quot;myplclust.R&quot;)</span><br><span class="line"># calculate distance matrix</span><br><span class="line">distanceMatrix &lt;- dist(sub1[,1:3])</span><br><span class="line"># form hclust object</span><br><span class="line">hclustering &lt;- hclust(distanceMatrix)</span><br><span class="line"># run myplclust on data</span><br><span class="line">myplclust(hclustering, lab.col = unclass(sub1$activity))</span><br></pre></td></tr></table></figure>
+<p><strong>Plotting Max Acceleration for the First Subject</strong></p>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># create 1 x 2 panel</span><br><span class="line">par(mfrow=c(1,2))</span><br><span class="line"># plot max accelecrations in x and y direction</span><br><span class="line">plot(sub1[,10],pch=19,col=sub1$activity,ylab=names(sub1)[10],</span><br><span class="line">	main = &quot;Max Body Acceleration for X&quot;)</span><br><span class="line">plot(sub1[,11],pch=19,col = sub1$activity,ylab=names(sub1)[11],</span><br><span class="line">	main = &quot;Max Body Acceleration for Y&quot;)</span><br></pre></td></tr></table></figure>
+<p><strong>Clustering Based on Maximum Acceleration</strong></p>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># calculate distance matrix for max distances</span><br><span class="line">distanceMatrix &lt;- dist(sub1[,10:12])</span><br><span class="line">hclustering &lt;- hclust(distanceMatrix)</span><br><span class="line">myplclust(hclustering,lab.col=unclass(sub1$activity))</span><br></pre></td></tr></table></figure>
+<p><strong>Singular Value Decomposition</strong></p>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># perform SVD minus last two columns (subject and activity)</span><br><span class="line">svd1 = svd(scale(sub1[,-c(562,563)]))</span><br><span class="line"># create 1 x 2 panel plot</span><br><span class="line">par(mfrow=c(1,2))</span><br><span class="line"># plot first two left singular vector</span><br><span class="line"># separate moving from non moving</span><br><span class="line">plot(svd1$u[,1],col=sub1$activity,pch=19, main = &quot;First Left Singular Vector&quot;)</span><br><span class="line">plot(svd1$u[,2],col=sub1$activity,pch=19, main = &quot;Second Left Singular Vector&quot;)</span><br></pre></td></tr></table></figure>
+<p><strong>New Clustering with Maximum Contributers</strong></p>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># find the max contributing feature</span><br><span class="line">maxContrib &lt;- which.max(svd1$v[,2])</span><br><span class="line"># recalculate distance matrix</span><br><span class="line">distanceMatrix &lt;- dist(sub1[, c(10:12,maxContrib)])</span><br><span class="line">hclustering &lt;- hclust(distanceMatrix)</span><br><span class="line">myplclust(hclustering,lab.col=unclass(sub1$activity))</span><br><span class="line"># name of max contributing factor</span><br><span class="line">names(samsungData)[maxContrib]</span><br></pre></td></tr></table></figure>
+<p><strong>K-means Clustering (nstart=1, first try)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># specify 6 centers for data</span><br><span class="line">kClust &lt;- kmeans(sub1[,-c(562,563)],centers=6)</span><br><span class="line"># tabulate 6 clusteres against 6 activity but many clusters contain multiple activities</span><br><span class="line">table(kClust$cluster,sub1$activity)</span><br></pre></td></tr></table></figure>
+<p><strong>K-means clustering (nstart=100, first try)</strong></p>
+<figure class="highlight plain"><figcaption><span>cache</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># run k-means algorithm 100 times</span><br><span class="line">kClust &lt;- kmeans(sub1[,-c(562,563)],centers=6,nstart=100)</span><br><span class="line"># tabulate results</span><br><span class="line">table(kClust$cluster,sub1$activity)</span><br></pre></td></tr></table></figure>
+<p><strong>K-means clustering (nstart=100, second try)</strong></p>
+<figure class="highlight plain"><figcaption><span>cache</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># run k-means algorithm 100 times</span><br><span class="line">kClust &lt;- kmeans(sub1[,-c(562,563)],centers=6,nstart=100)</span><br><span class="line"># tabulate results</span><br><span class="line">table(kClust$cluster,sub1$activity)</span><br></pre></td></tr></table></figure>
+<p><strong>Cluster 1 Variable Centers (Laying)</strong></p>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># plot first 10 centers of k-means for laying to understand which features drive the activity</span><br><span class="line">plot(kClust$center[1,1:10],pch=19,ylab=&quot;Cluster Center&quot;,xlab=&quot;&quot;)</span><br></pre></td></tr></table></figure>
+<p><strong>Cluster 2 Variable Centers (Walking)</strong></p>
+<figure class="highlight plain"><figcaption><span>fig.height</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># plot first 10 centers of k-means for laying to understand which features drive the activity</span><br><span class="line">plot(kClust$center[4,1:10],pch=19,ylab=&quot;Cluster Center&quot;,xlab=&quot;&quot;)</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\pagebreak\)</span></p>
+<h2 id="case-study-fine-particle-pollution-in-the-u.s.-from-1999-to-2012">Case Study: Fine Particle Pollution in the U.S. from 1999 to 2012</h2>
+<p><strong>Read Raw Data from 1999 and 2012</strong></p>
+<figure class="highlight plain"><figcaption><span>cache </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># read in raw data from 1999</span><br><span class="line">pm0 &lt;- read.table(&quot;pm25_data/RD_501_88101_1999-0.txt&quot;, comment.char = &quot;#&quot;, header = FALSE, sep = &quot;|&quot;, na.strings = &quot;&quot;)</span><br><span class="line"># read in headers/column lables</span><br><span class="line">cnames &lt;- readLines(&quot;pm25_data/RD_501_88101_1999-0.txt&quot;, 1)</span><br><span class="line"># convert string into vector</span><br><span class="line">cnames &lt;- strsplit(substring(cnames, 3), &quot;|&quot;, fixed = TRUE)</span><br><span class="line"># make vector the column names</span><br><span class="line">names(pm0) &lt;- make.names(cnames[[1]])</span><br><span class="line"># we are interested in the pm2.5 readings in the &quot;Sample.Value&quot; column</span><br><span class="line">x0 &lt;- pm0$Sample.Value</span><br><span class="line"># read in the data from 2012</span><br><span class="line">pm1 &lt;- read.table(&quot;pm25_data/RD_501_88101_2012-0.txt&quot;, comment.char = &quot;#&quot;, header = FALSE, sep = &quot;|&quot;,</span><br><span class="line">	na.strings = &quot;&quot;, nrow = 1304290)</span><br><span class="line"># make vector the column names</span><br><span class="line">names(pm1) &lt;- make.names(cnames[[1]])</span><br><span class="line"># take the 2012 data for pm2.5 readings</span><br><span class="line">x1 &lt;- pm1$Sample.Value</span><br></pre></td></tr></table></figure>
+<p><strong>Summaries for Both Periods</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># generate 6 number summaries</span><br><span class="line">summary(x1)</span><br><span class="line">summary(x0)</span><br><span class="line"># calculate % of missing values, Are missing values important here?</span><br><span class="line">data.frame(NA.1990 = mean(is.na(x0)), NA.2012 = mean(is.na(x1)))</span><br></pre></td></tr></table></figure>
+<p><strong>Make a boxplot of both 1999 and 2012</strong></p>
+<figure class="highlight plain"><figcaption><span>warning</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">par(mfrow = c(1,2))</span><br><span class="line"># regular boxplot, data too right skewed</span><br><span class="line">boxplot(x0, x1, main = &quot;Regular Boxplot&quot;)</span><br><span class="line"># log boxplot, significant difference in means, but more spread</span><br><span class="line">boxplot(log10(x0), log10(x1), main = &quot;log Boxplot&quot;)</span><br></pre></td></tr></table></figure>
+<p><strong>Check for Negative Values in ‘x1’</strong></p>
+<figure class="highlight plain"><figcaption><span>fig.width </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># summary again</span><br><span class="line">summary(x1)</span><br><span class="line"># create logical vector for</span><br><span class="line">negative &lt;- x1 &lt; 0</span><br><span class="line"># count number of negatives</span><br><span class="line">sum(negative, na.rm = T)</span><br><span class="line"># calculate percentage of negatives</span><br><span class="line">mean(negative, na.rm = T)</span><br><span class="line"># capture the date data</span><br><span class="line">dates &lt;- pm1$Date</span><br><span class="line">dates &lt;- as.Date(as.character(dates), &quot;%Y%m%d&quot;)</span><br><span class="line"># plot the histogram</span><br><span class="line">hist(dates, &quot;month&quot;)  ## Check what&apos;s going on in months 1--6</span><br></pre></td></tr></table></figure>
+<p><strong>Check Same New York Monitors at 1999 and 2012</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># find unique monitors in New York in 1999</span><br><span class="line">site0 &lt;- unique(subset(pm0, State.Code == 36, c(County.Code, Site.ID)))</span><br><span class="line"># find unique monitors in New York in 2012</span><br><span class="line">site1 &lt;- unique(subset(pm1, State.Code == 36, c(County.Code, Site.ID)))</span><br><span class="line"># combine country codes and siteIDs of the monitors</span><br><span class="line">site0 &lt;- paste(site0[,1], site0[,2], sep = &quot;.&quot;)</span><br><span class="line">site1 &lt;- paste(site1[,1], site1[,2], sep = &quot;.&quot;)</span><br><span class="line"># find common monitors in both</span><br><span class="line">both &lt;- intersect(site0, site1)</span><br><span class="line"># print common monitors in 1999 and 2012</span><br><span class="line">print(both)</span><br></pre></td></tr></table></figure>
+<p><strong>Find how many observations available at each monitor</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># add columns for combined county/site for the original data</span><br><span class="line">pm0$county.site &lt;- with(pm0, paste(County.Code, Site.ID, sep = &quot;.&quot;))</span><br><span class="line">pm1$county.site &lt;- with(pm1, paste(County.Code, Site.ID, sep = &quot;.&quot;))</span><br><span class="line"># find subsets where state = NY and county/site = what we found previously</span><br><span class="line">cnt0 &lt;- subset(pm0, State.Code == 36 &amp; county.site %in% both)</span><br><span class="line">cnt1 &lt;- subset(pm1, State.Code == 36 &amp; county.site %in% both)</span><br><span class="line"># split data by the county/size values and count oberservations</span><br><span class="line">sapply(split(cnt0, cnt0$county.site), nrow)</span><br><span class="line">sapply(split(cnt1, cnt1$county.site), nrow)</span><br></pre></td></tr></table></figure>
+<p><strong>Choose Monitor where County = 63 and Side ID = 2008</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># filter data by state/county/siteID</span><br><span class="line">pm1sub &lt;- subset(pm1, State.Code == 36 &amp; County.Code == 63 &amp; Site.ID == 2008)</span><br><span class="line">pm0sub &lt;- subset(pm0, State.Code == 36 &amp; County.Code == 63 &amp; Site.ID == 2008)</span><br><span class="line"># there are 30 observations from 2012, and 122 from 1999</span><br><span class="line">dim(pm1sub)</span><br><span class="line">dim(pm0sub)</span><br></pre></td></tr></table></figure>
+<p><strong>Plot Data for 2012</strong></p>
+<figure class="highlight plain"><figcaption><span>fig.width</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># capture the dates of the subset of data</span><br><span class="line">dates1 &lt;- pm1sub$Date</span><br><span class="line"># capture measurements for the subset of data</span><br><span class="line">x1sub &lt;- pm1sub$Sample.Value</span><br><span class="line"># convert dates to appropriate format</span><br><span class="line">dates1 &lt;- as.Date(as.character(dates1), &quot;%Y%m%d&quot;)</span><br><span class="line"># plot pm2.5 value vs time</span><br><span class="line">plot(dates1, x1sub, main = &quot;PM2.5 Polution Level in 2012&quot;)</span><br></pre></td></tr></table></figure>
+<p><strong>Plot data for 1999</strong></p>
+<figure class="highlight plain"><figcaption><span>fig.width</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># capture the dates of the subset of data</span><br><span class="line">dates0 &lt;- pm0sub$Date</span><br><span class="line"># convert dates to appropriate format</span><br><span class="line">dates0 &lt;- as.Date(as.character(dates0), &quot;%Y%m%d&quot;)</span><br><span class="line"># capture measurements for the subset of data</span><br><span class="line">x0sub &lt;- pm0sub$Sample.Value</span><br><span class="line"># plot pm2.5 value vs time</span><br><span class="line">plot(dates0, x0sub, main = &quot;PM2.5 Polution Level in 1999&quot;)</span><br></pre></td></tr></table></figure>
+<p><strong>Panel Plot for Both Years</strong></p>
+<figure class="highlight plain"><figcaption><span>fig.width</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># find max range for data</span><br><span class="line">rng &lt;- range(x0sub, x1sub, na.rm = T)</span><br><span class="line"># create 1 x 2 panel plot</span><br><span class="line">par(mfrow = c(1, 2), mar = c(4, 4, 2, 1))</span><br><span class="line"># plot time series plot for 1999</span><br><span class="line">plot(dates0, x0sub, pch = 20, ylim = rng, main=&quot;Pollution in 1999&quot;)</span><br><span class="line"># plot the median</span><br><span class="line">abline(h = median(x0sub, na.rm = T))</span><br><span class="line"># plot time series plot for 2012</span><br><span class="line">plot(dates1, x1sub, pch = 20, ylim = rng, main=&quot;Pollution in 2012&quot;)</span><br><span class="line"># plot the median</span><br><span class="line">abline(h = median(x1sub, na.rm = T))</span><br></pre></td></tr></table></figure>
+<p><strong>Find State-wide Means and Trend</strong></p>
+<figure class="highlight plain"><figcaption><span>fig.width</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># divide data by state and find tne mean of pollution level for 1999</span><br><span class="line">mn0 &lt;- with(pm0, tapply(Sample.Value, State.Code, mean, na.rm = T))</span><br><span class="line"># divide data by state and find tne mean of pollution level for 1999</span><br><span class="line">mn1 &lt;- with(pm1, tapply(Sample.Value, State.Code, mean, na.rm = T))</span><br><span class="line"># convert to data frames while preserving state names</span><br><span class="line">d0 &lt;- data.frame(state = names(mn0), mean = mn0)</span><br><span class="line">d1 &lt;- data.frame(state = names(mn1), mean = mn1)</span><br><span class="line"># merge the 1999 and 2012 means by state</span><br><span class="line">mrg &lt;- merge(d0, d1, by = &quot;state&quot;)</span><br><span class="line"># dimension of combined data frame</span><br><span class="line">dim(mrg)</span><br><span class="line"># first few lines of data</span><br><span class="line">head(mrg)</span><br><span class="line"></span><br><span class="line"># plot the pollution levels data points for 1999</span><br><span class="line">with(mrg, plot(rep(1, 52), mrg[, 2], xlim = c(.8, 2.2), ylim = c(3, 20),</span><br><span class="line">	main = &quot;PM2.5 Pollution Level by State for 1999 &amp; 2012&quot;,</span><br><span class="line">	xlab = &quot;&quot;, ylab = &quot;State-wide Mean PM&quot;))</span><br><span class="line"># plot the pollution levels data points for 2012</span><br><span class="line">with(mrg, points(rep(2, 52), mrg[, 3]))</span><br><span class="line"># connected the dots</span><br><span class="line">segments(rep(1, 52), mrg[, 2], rep(2, 52), mrg[, 3])</span><br><span class="line"># add 1999 and 2012 labels</span><br><span class="line">axis(1, c(1, 2), c(&quot;1999&quot;, &quot;2012&quot;))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Xing Su</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://yoursite.com/2018/08/07/Exploratory-Data-Analysis/" title="Exploratory Data Analysis">http://yoursite.com/2018/08/07/Exploratory-Data-Analysis/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"># R</a>
+          
+            <a href="/tags/DataScience/" rel="tag"># DataScience</a>
+          
+            <a href="/tags/R-Markdown/" rel="tag"># R Markdown</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/07/R-Programming-Course-Notes/" rel="next" title="R Programming Course Notes">
+                <i class="fa fa-chevron-left"></i> R Programming Course Notes
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODY0Mi8xNTE3MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avator.png"
+                alt="Autoz" />
+            
+              <p class="site-author-name" itemprop="name">Autoz</p>
+              <p class="site-description motion-element" itemprop="description">Fidelty.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/autolordz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:autolordz@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#principle-of-analytic-graphics"><span class="nav-number">1.</span> <span class="nav-text">Principle of Analytic Graphics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exploratory-graphs-examples"><span class="nav-number">2.</span> <span class="nav-text">Exploratory Graphs (examples)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#one-dimension-summary-of-data"><span class="nav-number">2.1.</span> <span class="nav-text">One Dimension Summary of Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#two-dimensional-summaries"><span class="nav-number">2.2.</span> <span class="nav-text">Two Dimensional Summaries</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#process-of-making-a-plotconsiderations"><span class="nav-number">2.3.</span> <span class="nav-text">Process of Making a Plot/Considerations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#base-plotting"><span class="nav-number">3.</span> <span class="nav-text">Base Plotting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#base-graphics-functions-and-parameters"><span class="nav-number">3.1.</span> <span class="nav-text">Base Graphics Functions and Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#base-plot-example"><span class="nav-number">3.2.</span> <span class="nav-text">Base Plot Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multiple-plot-example"><span class="nav-number">3.3.</span> <span class="nav-text">Multiple Plot Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#graphics-device"><span class="nav-number">4.</span> <span class="nav-text">Graphics Device</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lattice-plotting-system"><span class="nav-number">5.</span> <span class="nav-text">lattice Plotting System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lattice-functions-and-parameters"><span class="nav-number">5.1.</span> <span class="nav-text">lattice Functions and Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lattice-example"><span class="nav-number">5.2.</span> <span class="nav-text">lattice Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ggplot2-plotting-system"><span class="nav-number">6.</span> <span class="nav-text">ggplot2 Plotting System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ggplot2-functions-and-parameters"><span class="nav-number">6.1.</span> <span class="nav-text">ggplot2 Functions and Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ggplot2-comprehensive-example"><span class="nav-number">6.2.</span> <span class="nav-text">ggplot2 Comprehensive Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hierarchical-clustering"><span class="nav-number">7.</span> <span class="nav-text">Hierarchical Clustering</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#procedure-for-constructing-hierarchical-clusters-hclust-function"><span class="nav-number">7.1.</span> <span class="nav-text">Procedure for Constructing Hierarchical Clusters (hclust function)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#approaches-for-merging-pointsclusters"><span class="nav-number">7.2.</span> <span class="nav-text">Approaches for Merging Points/Clusters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#characteristics-of-hierarchical-clustering-algorithms"><span class="nav-number">7.3.</span> <span class="nav-text">Characteristics of Hierarchical Clustering Algorithms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hclust-function-and-example"><span class="nav-number">7.4.</span> <span class="nav-text">hclust Function and Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#myplcclust-function-and-example"><span class="nav-number">7.5.</span> <span class="nav-text">myplcclust Function and Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#heatmap-function-and-example"><span class="nav-number">7.6.</span> <span class="nav-text">heatmap Function and Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#image-function-and-example"><span class="nav-number">7.7.</span> <span class="nav-text">image Function and Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-means-clustering"><span class="nav-number">8.</span> <span class="nav-text">K-means Clustering</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#procedure-for-constructing-k-means-clusters-kmeans-function"><span class="nav-number">8.1.</span> <span class="nav-text">Procedure for Constructing K-means Clusters (kmeans function)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#characteristics-of-k-means-clustering-algorithms"><span class="nav-number">8.2.</span> <span class="nav-text">Characteristics of K-means Clustering Algorithms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dimension-reduction"><span class="nav-number">9.</span> <span class="nav-text">Dimension Reduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#singular-value-decomposition-svd"><span class="nav-number">9.1.</span> <span class="nav-text">Singular Value Decomposition (SVD)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#principal-components-analysis-pca"><span class="nav-number">9.2.</span> <span class="nav-text">Principal Components Analysis (PCA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#svd-and-pca-example"><span class="nav-number">9.3.</span> <span class="nav-text">SVD and PCA Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#create-approximationsdata-compression"><span class="nav-number">9.4.</span> <span class="nav-text">Create Approximations/Data Compression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#color-packages-in-r-plots"><span class="nav-number">10.</span> <span class="nav-text">Color Packages in R Plots</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#grdevices-package"><span class="nav-number">10.1.</span> <span class="nav-text">grDevices Package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rcolorbrewer-package"><span class="nav-number">10.2.</span> <span class="nav-text">RColorBrewer Package</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#case-study-human-activity-tracking-with-smart-phones"><span class="nav-number">11.</span> <span class="nav-text">Case Study: Human Activity Tracking with Smart Phones</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#case-study-fine-particle-pollution-in-the-u.s.-from-1999-to-2012"><span class="nav-number">12.</span> <span class="nav-text">Case Study: Fine Particle Pollution in the U.S. from 1999 to 2012</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Autoz</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">120k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">1:49</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.3.0"></script>
+
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
