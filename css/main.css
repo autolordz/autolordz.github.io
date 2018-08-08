@@ -186,7 +186,7 @@ th {
 body {
   position: relative;
   font-family: "Microsoft YaHei", Verdana, sans-serif;
-  font-size: 5px;
+  font-size: 10px;
   line-height: 1.4;
   color: #555;
   background: #eee;
@@ -565,7 +565,7 @@ pre,
   overflow: auto;
   margin: 20px 0;
   padding: 0;
-  font-size: 5px;
+  font-size: 10px;
   color: #eaeaea;
   background: #000;
   line-height: 1.2;
@@ -580,7 +580,7 @@ code {
   color: #555;
   background: #eee;
   border-radius: 3px;
-  font-size: 5px;
+  font-size: 10px;
 }
 pre {
   padding: 10px;
@@ -1309,7 +1309,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: -20px auto 15px;
   text-align: center;
-  font-size: 5px;
+  font-size: 10px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1931,7 +1931,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3bf947;
+  background: #7e4bd6;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2370,7 +2370,7 @@ ul.popular-posts .popular-posts-item {
 }
 ul.popular-posts .popular-posts-item .popular-posts-title {
   font-weight: normal;
-  font-size: 5px;
+  font-size: 10px;
   margin: 0;
   line-height: 1.68;
 }
