@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="gradient-descent-optimization a python script of a function summarize some popular methods about gradient descent 监督学习目标函数：普通最小二乘OLS 非监督学习目标函数：矩阵近似 机器学习模型与优化求解的练手项目 Python编写并使用简明的数学符号 源代码链接:  T">
+<meta name="keywords" content="Python,最小二乘,梯度下降,矩阵填充,矩阵分解,凸优化,稀疏约束,机器学习,线性回归,求解线性方程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gradient Descent Optimization">
+<meta property="og:url" content="http://yoursite.com/2019/05/10/Gradient-Descent-Optimization/index.html">
+<meta property="og:site_name" content="AutozLand">
+<meta property="og:description" content="gradient-descent-optimization a python script of a function summarize some popular methods about gradient descent 监督学习目标函数：普通最小二乘OLS 非监督学习目标函数：矩阵近似 机器学习模型与优化求解的练手项目 Python编写并使用简明的数学符号 源代码链接:  T">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github">
+<meta property="og:image" content="http://yoursite.com/2019/05/10/Gradient-Descent-Optimization/img/gf4.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/10/Gradient-Descent-Optimization/img/gf1.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/10/Gradient-Descent-Optimization/img/gf2.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/10/Gradient-Descent-Optimization/img/gf3.png">
+<meta property="og:updated_time" content="2019-05-10T09:03:29.667Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gradient Descent Optimization">
+<meta name="twitter:description" content="gradient-descent-optimization a python script of a function summarize some popular methods about gradient descent 监督学习目标函数：普通最小二乘OLS 非监督学习目标函数：矩阵近似 机器学习模型与优化求解的练手项目 Python编写并使用简明的数学符号 源代码链接:  T">
+<meta name="twitter:image" content="https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/10/Gradient-Descent-Optimization/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Gradient Descent Optimization | AutozLand</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AutozLand</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Autoz's Learning Blogs</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">9</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">39</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/10/Gradient-Descent-Optimization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Autoz">
+      <meta itemprop="description" content="Fidelty.">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AutozLand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Gradient Descent Optimization<a href="https://github.com/theme-next/theme-next.org/_posts/tree/master/Gradient-Descent-Optimization.md" class="post-edit-link" title="Edit this post" target="_blank">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-10 16:47:13 / Modified: 17:03:29" itemprop="dateCreated datePublished" datetime="2019-05-10T16:47:13+08:00">2019-05-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">2.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="gradient-descent-optimization">gradient-descent-optimization</h1>
+<p>a python script of a function summarize some popular methods about gradient descent<br>
+监督学习目标函数：普通最小二乘OLS<br>
+非监督学习目标函数：矩阵近似<br>
+机器学习模型与优化求解的练手项目<br>
+Python编写并使用简明的数学符号</p>
+<p>源代码链接: <a href="https://github.com/autolordz/gradient-descent-optimization" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a></p>
+<h2 id="toc">TOC</h2>
+<!-- MarkdownTOC  autoanchor="false" autolink="true" uri_encoding="false" -->
+<ul>
+<li><a href="#updated">Updated</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#licence">Licence</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+<h2 id="updated">Updated</h2>
+<p><a id="updated"></a></p>
+<p>【2019-5-6】<br>
+矩阵分解和推荐系统等内容</p>
+<p>【2019-4-25】<br>
+添加约束优化L1L2等内容<br>
+<img src="./img/gf4.png"></p>
+<h2 id="features">Features</h2>
+<p><a id="features"></a></p>
+<ul>
+<li>[x] 一阶优化(非约束)
+<ul>
+<li>原版
+<ul>
+<li>GD 全批梯度下降 mm10</li>
+<li>minibatch-GD 小批梯度下降 mm10</li>
+<li>SGD 随机梯度下降 mm10</li>
+</ul></li>
+<li>带动量
+<ul>
+<li>Polyak’s 动量 mm21,mm22</li>
+<li>Nesterov 加速梯度 (NAG) mm23,mm24,mm25</li>
+<li>FISTA (NAG 近端梯度版) mm26</li>
+</ul></li>
+</ul></li>
+<li>[x] 二阶优化
+<ul>
+<li>牛顿法 mm30</li>
+<li>沿直线最小化 mm31</li>
+<li>共轭梯度法 mm32</li>
+<li>拟牛顿法Quasi-Newton(Broyden) mm33</li>
+</ul></li>
+<li>[x] 非凸优化
+<ul>
+<li>Adagrad(自适应梯度) mm40</li>
+<li>RMSProp mm41</li>
+<li>Adadelta mm42</li>
+<li>Adam mm43</li>
+<li>AdaMax mm44</li>
+<li>Nadam mm45</li>
+<li>AMSGrad mm46</li>
+</ul></li>
+<li>[x] 坐标下降
+<ul>
+<li>循环坐标逐步 mm90</li>
+<li>循环坐标标准 mm91,mm92</li>
+<li>随机坐标 mm93</li>
+<li>随机块坐标 mm93</li>
+</ul></li>
+<li>[x] 速率(学习率)
+<ul>
+<li>Armijo rules mm11</li>
+<li>[ ] Wolfe conditions</li>
+</ul></li>
+<li>[x] 约束优化
+<ul>
+<li>L0(Best subset selection)
+<ul>
+<li>向前逐步回归(匹配追踪)</li>
+</ul></li>
+<li>L1(Lasso)
+<ul>
+<li>软阈值坐标下降</li>
+<li>近端梯度(广义梯度)</li>
+<li>对偶ADMM</li>
+</ul></li>
+<li>L2(岭回归)</li>
+<li>L2(组Lasso)</li>
+<li>L1+L2(弹性网)</li>
+<li>L1+L2(稀疏组Lasso)</li>
+</ul></li>
+<li>[x] 矩阵相关
+<ul>
+<li>[x]矩阵填充(分解)
+<ul>
+<li>稀疏矩阵近似 ∥∥Z^∥∥l1 ≤ c</li>
+<li>奇异值分解 rank(Z^) ≤ c</li>
+<li>原子范数约束 ∥∥Z^∥∥⋆ ≤ c</li>
+<li>惩罚SVD Z^=UDVT,ϕ1(uj)≤c1,ϕ2(vk)≤c2</li>
+</ul></li>
+</ul></li>
+<li>[ ] 非凸约束
+<ul>
+<li>自适应Lasso</li>
+</ul></li>
+</ul>
+<a id="more"></a>
+<h2 id="usage">Usage</h2>
+<p><a id="usage"></a></p>
+<p>spyder下直接块运行 或者py xxx.py</p>
+<p>Sample:<br>
+<img src="./img/gf1.png"> <img src="./img/gf2.png"> <img src="./img/gf3.png"></p>
+<p>矩阵近似(填充)的推荐系统:</p>
+<p>===svd aproxi===<br>
+====r= 2 =====</p>
+<p>0.47 %<br>
+0.94 %<br>
+1 : obj= 0.04616 ratio= 0.7232133195138838<br>
+[[ 0.865 0.016 0.175 nan nan]<br>
+[-0.6 nan -0.212 nan nan]<br>
+[-0.717 nan nan 0.064 -0.098]<br>
+[ 0.697 -0.503 0.558 1.544 nan]<br>
+[ 1.231 -0.342 -0.81 -0.82 -0.133]<br>
+[ 0.266 0.145 nan nan -2.241]]</p>
+<p>[[ 8.655e-01 1.565e-02 1.748e-01 1.223e-03 -2.939e-02]<br>
+[-6.004e-01 -1.474e-01 -2.119e-01 -3.598e-02 1.956e-02]<br>
+[-7.169e-01 -1.224e-01 2.289e-02 6.437e-02 -9.754e-02]<br>
+[ 6.966e-01 -5.033e-01 5.585e-01 1.544e+00 -2.776e-01]<br>
+[ 1.231e+00 -3.423e-01 -8.103e-01 -8.201e-01 -1.326e-01]<br>
+[ 2.664e-01 1.449e-01 -3.540e-02 2.657e-01 -2.241e+00]]</p>
+<h2 id="reference">Reference</h2>
+<p><a id="reference"></a></p>
+<p><a href="http://ruder.io/optimizing-gradient-descent/index.html#nesterovacceleratedgradient" target="_blank" rel="noopener">梯度下降总结</a><br>
+<a href="https://www.cs.cmu.edu/~ggordon/10725-F12/schedule.html" target="_blank" rel="noopener">卡内基凸优化2012秋</a><br>
+<a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent" target="_blank" rel="noopener">SGD wiki</a><br>
+<a href="https://en.wikipedia.org/wiki/Backtracking_line_search" target="_blank" rel="noopener">Armijo wiki</a><br>
+<a href="https://en.wikipedia.org/wiki/Wolfe_conditions" target="_blank" rel="noopener">Wolfe wiki</a><br>
+<a href="https://en.wikipedia.org/wiki/Quasi-Newton_method" target="_blank" rel="noopener">Quasi-Newton wiki</a><br>
+<a href="https://item.jd.com/12444377.html" target="_blank" rel="noopener">分布式机器学习:算法、理论与实践-第4、5章</a><br>
+<a href="https://item.jd.com/12316912.html" target="_blank" rel="noopener">深度学习核心技术与实践-第6章</a><br>
+<a href="hagan.okstate.edu/nnd.html">神经网络设计-第9章</a><br>
+<a href="https://web.stanford.edu/~hastie/StatLearnSparsity_files/SLS_corrected_1.4.16.pdf" target="_blank" rel="noopener">statistical learning with sparsity</a><br>
+<a href="https://item.jd.com/12296738.html" target="_blank" rel="noopener">稀疏统计学习及其应用[中文]</a><br>
+<a href="https://stats.stackexchange.com/questions/123672/coordinate-descent-soft-thresholding-update-operator-for-lasso" target="_blank" rel="noopener">坐标下降软阈值Lasso推导</a><br>
+<a href="https://book.douban.com/subject/1257113/" target="_blank" rel="noopener">矩阵分析与应用-张贤达-第3、4章</a></p>
+<h2 id="licence">Licence</h2>
+<p><a id="licence"></a></p>
+<p><a href="#gradient-descent-optimization">MIT Go to this</a></p>
+<p>THE END Enjoy</p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Autoz</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://yoursite.com/2019/05/10/Gradient-Descent-Optimization/" title="Gradient Descent Optimization">http://yoursite.com/2019/05/10/Gradient-Descent-Optimization/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/最小二乘/" rel="tag"># 最小二乘</a>
+          
+            <a href="/tags/梯度下降/" rel="tag"># 梯度下降</a>
+          
+            <a href="/tags/矩阵填充/" rel="tag"># 矩阵填充</a>
+          
+            <a href="/tags/矩阵分解/" rel="tag"># 矩阵分解</a>
+          
+            <a href="/tags/凸优化/" rel="tag"># 凸优化</a>
+          
+            <a href="/tags/稀疏约束/" rel="tag"># 稀疏约束</a>
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/线性回归/" rel="tag"># 线性回归</a>
+          
+            <a href="/tags/求解线性方程/" rel="tag"># 求解线性方程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/10/Docx-content-modify/" rel="next" title="邮单内容批量修改">
+                <i class="fa fa-chevron-left"></i> 邮单内容批量修改
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/10/File-Batch-Renamer/" rel="prev" title="File Batch Renamer">
+                File Batch Renamer <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODY0Mi8xNTE3MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avator.png"
+                alt="Autoz" />
+            
+              <p class="site-author-name" itemprop="name">Autoz</p>
+              <p class="site-description motion-element" itemprop="description">Fidelty.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/autolordz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:autolordz@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gradient-descent-optimization"><span class="nav-number">1.</span> <span class="nav-text">gradient-descent-optimization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#toc"><span class="nav-number">1.1.</span> <span class="nav-text">TOC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#updated"><span class="nav-number">1.2.</span> <span class="nav-text">Updated</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#features"><span class="nav-number">1.3.</span> <span class="nav-text">Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#usage"><span class="nav-number">1.4.</span> <span class="nav-text">Usage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">1.5.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#licence"><span class="nav-number">1.6.</span> <span class="nav-text">Licence</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Autoz</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">64k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">59 mins.</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.3.0"></script>
+
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="docx-content-modify    中国法院人员批量邮寄脚本(公开法律文书)court staffs postal receipt generate 给予法院邮政人员从OA数据表(excel)和公开判决书(docx)提取当事人地址内容，批量直接生成邮单 减轻相关员负担，尤其系列案，人员多地址多，手打地址重复性劳动太多，信息容易错漏    技术:python-docx,">
+<meta name="keywords" content="Python,批量,自动化,修改,邮单,快递单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="邮单内容批量修改">
+<meta property="og:url" content="http://yoursite.com/2019/05/10/Docx-content-modify/index.html">
+<meta property="og:site_name" content="AutozLand">
+<meta property="og:description" content="docx-content-modify    中国法院人员批量邮寄脚本(公开法律文书)court staffs postal receipt generate 给予法院邮政人员从OA数据表(excel)和公开判决书(docx)提取当事人地址内容，批量直接生成邮单 减轻相关员负担，尤其系列案，人员多地址多，手打地址重复性劳动太多，信息容易错漏    技术:python-docx,">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&logo=github&colorB=ff69b4">
+<meta property="og:image" content="https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github">
+<meta property="og:image" content="https://img.shields.io/github/license/autolordz/docx-content-modify.svg?style=popout&logo=github">
+<meta property="og:updated_time" content="2019-05-10T08:45:54.942Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="邮单内容批量修改">
+<meta name="twitter:description" content="docx-content-modify    中国法院人员批量邮寄脚本(公开法律文书)court staffs postal receipt generate 给予法院邮政人员从OA数据表(excel)和公开判决书(docx)提取当事人地址内容，批量直接生成邮单 减轻相关员负担，尤其系列案，人员多地址多，手打地址重复性劳动太多，信息容易错漏    技术:python-docx,">
+<meta name="twitter:image" content="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&logo=github&colorB=ff69b4">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/10/Docx-content-modify/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>邮单内容批量修改 | AutozLand</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AutozLand</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Autoz's Learning Blogs</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">9</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">39</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/10/Docx-content-modify/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Autoz">
+      <meta itemprop="description" content="Fidelty.">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AutozLand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">邮单内容批量修改<a href="https://github.com/theme-next/theme-next.org/_posts/tree/master/Docx-content-modify.md" class="post-edit-link" title="Edit this post" target="_blank">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-10 16:26:45 / Modified: 16:45:54" itemprop="dateCreated datePublished" datetime="2019-05-10T16:26:45+08:00">2019-05-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">2.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="docx-content-modify">docx-content-modify</h2>
+<p><a id="docx-content-modify"></a></p>
+<blockquote>
+<ul>
+<li>中国法院人员批量邮寄脚本(公开法律文书)court staffs postal receipt generate</li>
+<li>给予法院邮政人员从OA数据表(excel)和公开判决书(docx)提取当事人地址内容，批量直接生成邮单</li>
+<li>减轻相关员负担，尤其系列案，人员多地址多，手打地址重复性劳动太多，信息容易错漏</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>技术:python-docx,pandas,StyleFrame,configparser 打包程序:pyinstaller</p>
+</blockquote>
+<p><a href="https://github.com/autolordz/docx-content-modify/releases" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&amp;logo=github&amp;colorB=ff69b4"></a><br>
+<a href="https://github.com/autolordz/docx-content-modify" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a><br>
+<a href="https://github.com/autolordz/docx-content-modify/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/docx-content-modify.svg?style=popout&amp;logo=github"></a></p>
+<h2 id="toc">TOC</h2>
+<!-- MarkdownTOC autoanchor="false" autolink="true" uri_encoding="false" -->
+<ul>
+<li><a href="#updated">Updated</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#rules">Rules</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#licence">Licence</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+<h2 id="updated">Updated</h2>
+<p><a id="updated"></a></p>
+<p>【2018-11-13】</p>
+<blockquote>
+<ul>
+<li>优化配置文件日期范围和打印记录</li>
+<li>优化拷贝判决书上地址兼容性</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h2 id="features">Features</h2>
+<p><a id="features"></a></p>
+<ul>
+<li>[x] 重命名判决书
+<ul>
+<li>手动下载公开的判决书<a href="http://wenshu.court.gov.cn/" target="_blank" rel="noopener">中国裁判文书网</a></li>
+<li>自动重命名格式 <strong>判决书_XXX.docx</strong></li>
+</ul></li>
+<li>[x] 批量填充判决书地址到数据模板
+<ul>
+<li>手动从 <strong>法院人员OA系统</strong>(非公开)下载信息表</li>
+<li>自动添加OA数据<a href="./demo_docs/data_oa.xlsx">data_oa.xlsx</a>到数据模板</li>
+<li>自动填充判决书<a href="./demo_docs/jdocs">判决书_XXX.docx</a>的<strong>非精确</strong>的地址到数据模板<a href="./demo_docs/data_main.xlsx">data_main.xlsx</a></li>
+<li>手动填充<strong>精确</strong>的律师(代理人)及当事人信息</li>
+</ul></li>
+<li>[x] 批量生成寄送邮单
+<ul>
+<li>自动通过<a href="./demo_docs/sheet.docx">邮单模板</a>,批量生成寄送邮单</li>
+<li>自动生成临时文件 <strong><em>data_temp.xlsx</em></strong> 用于校对,是邮单信息来源</li>
+</ul></li>
+</ul>
+<h2 id="rules">Rules</h2>
+<p><a id="rules"></a></p>
+<ol type="1">
+<li>当事人收信规则，没代理律师的每个当事人一份，有委托律师的只要寄给律师一份，多个律师寄给第一个律师，同一律所也是一份</li>
+<li>法院OA系统表格【data_oa.xlsx】必须包含如下字段:</li>
+</ol>
+<p>【OA.xlsx】字段: | 【立案日期】 | 【案号】 | 【原一审案号】 | 【承办人】 | 【当事人】 | 【其他】… | 注意：<strong>【承办人】转换为【主审法官】</strong></p>
+<p>【data_main.xlsx】字段:<br>
+| 【立案日期】 | 【案号】 | 【原一审案号】 | 【主审法官】 | 【当事人】 | 【诉讼代理人】 | 【地址】 | 【其他】… |</p>
+<h2 id="usage">Usage</h2>
+<p><a id="usage"></a></p>
+<ol type="1">
+<li>判决书docx文件放在 /jdocs<br>
+</li>
+<li><p>首次运行会生成配置文件conf.txt: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[config]</span><br><span class="line">data_xlsx = data_main.xlsx    <span class="comment"># 数据模板地址</span></span><br><span class="line">data_oa_xlsx = data_oa.xlsx    <span class="comment"># OA数据地址</span></span><br><span class="line">sheet_docx = sheet.docx    <span class="comment"># 邮单模板地址</span></span><br><span class="line">flag_rename_jdocs = <span class="number">1</span>    <span class="comment"># 是否重命名判决书</span></span><br><span class="line">flag_fill_jdocs_adr = <span class="number">1</span>    <span class="comment"># 是否填充判决书地址</span></span><br><span class="line">flag_fill_phone = <span class="number">0</span>    <span class="comment"># 是否填充伪手机</span></span><br><span class="line">flag_append_oa = <span class="number">1</span>    <span class="comment"># 是否导入OA数据</span></span><br><span class="line">flag_to_postal = <span class="number">1</span>    <span class="comment"># 是否打印邮单</span></span><br><span class="line">flag_check_jdocs = <span class="number">1</span>    <span class="comment"># 是否检查用户格式,输出提示信息</span></span><br><span class="line">flag_check_postal = <span class="number">0</span>    <span class="comment"># 是否检查邮单格式,输出提示信息</span></span><br><span class="line">date_range_oa_data = <span class="comment"># 2018-01-01:2018-12-01    # 导入OA和打印数据日期范围,比行数优先,去掉注释后读取,井号注释掉</span></span><br><span class="line">last_lines_oa_data = <span class="number">200</span>    <span class="comment"># 导入OA和打印数据的最后几行</span></span><br></pre></td></tr></table></figure></p></li>
+<li>首次运行会自动填写诉讼人员电话地址<br>
+</li>
+<li>修改conf.txt<br>
+</li>
+<li><p>除了部分当事人地址自动填充外,填充律师规则如下:</p></li>
+</ol>
+<p><strong>注意：姓名要保持一致包括曾用名,姓名/姓名_电话,逗号表示分隔,顿号表示一起,’/地址：’不能缺</strong></p>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>【当事人】</th>
+<th>【诉讼代理人】</th>
+<th>【地址】</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>申请人:姓名A,被申请人:姓名B</td>
+<td>姓名A/律师姓名C_电话,姓名B_电话</td>
+<td>姓名B<strong>/地址：</strong>XXX市XXX,姓名C/地址：XXX市XXX</td>
+</tr>
+<tr class="even">
+<td>申请人:张三(曾用名张五)、李四、王五</td>
+<td>张三(曾用名张五)/律师张二三_123123_李三四_123123</td>
+<td>张二三<strong>/地址：</strong>XXX市XXX</td>
+</tr>
+<tr class="odd">
+<td>申请人:赵六(曾用名:赵五)、孙七、周八</td>
+<td>赵六(曾用名:赵五),孙七、周八/代理人吴九_123123,郑十/委托人张三_123123</td>
+<td>赵六(曾用名:赵五)/地址：XXX市XXX,吴九/地址：XXX市XXX,张三/地址：XXX市XXX</td>
+</tr>
+</tbody>
+</table>
+<ol start="6" type="1">
+<li>再次运行exe</li>
+<li>生成的邮单在<strong>postal/</strong>,当事人没有律师的单独一份,有律师的几个当事人合一份</li>
+<li>看不懂说明的可以直接下载最新的exe版本<a href="https://github.com/autolordz/docx-content-modify/releases/download/1.0.1/exe-win7win10-8962f68c.zip" target="_blank" rel="noopener">win7/win10</a></li>
+</ol>
+<h2 id="licence">Licence</h2>
+<p><a id="licence"></a></p>
+<p><a href="#docx-content-modify">Go to Licence</a></p>
+<p>THE END Enjoy</p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Autoz</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://yoursite.com/2019/05/10/Docx-content-modify/" title="邮单内容批量修改">http://yoursite.com/2019/05/10/Docx-content-modify/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/批量/" rel="tag"># 批量</a>
+          
+            <a href="/tags/自动化/" rel="tag"># 自动化</a>
+          
+            <a href="/tags/修改/" rel="tag"># 修改</a>
+          
+            <a href="/tags/邮单/" rel="tag"># 邮单</a>
+          
+            <a href="/tags/快递单/" rel="tag"># 快递单</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/07/Data-Scientists-Toolbox/" rel="next" title="Data Scientists Toolbox Course Notes">
+                <i class="fa fa-chevron-left"></i> Data Scientists Toolbox Course Notes
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/10/Gradient-Descent-Optimization/" rel="prev" title="Gradient Descent Optimization">
+                Gradient Descent Optimization <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODY0Mi8xNTE3MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avator.png"
+                alt="Autoz" />
+            
+              <p class="site-author-name" itemprop="name">Autoz</p>
+              <p class="site-description motion-element" itemprop="description">Fidelty.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/autolordz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:autolordz@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#docx-content-modify"><span class="nav-number">1.</span> <span class="nav-text">docx-content-modify</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc"><span class="nav-number">2.</span> <span class="nav-text">TOC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#updated"><span class="nav-number">3.</span> <span class="nav-text">Updated</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#features"><span class="nav-number">4.</span> <span class="nav-text">Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rules"><span class="nav-number">5.</span> <span class="nav-text">Rules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#usage"><span class="nav-number">6.</span> <span class="nav-text">Usage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#licence"><span class="nav-number">7.</span> <span class="nav-text">Licence</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Autoz</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">64k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">59 mins.</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.3.0"></script>
+
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>

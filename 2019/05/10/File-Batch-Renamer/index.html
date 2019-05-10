@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="file-batch-renamer   Python 批量重命名文件脚本 a file batch renamer based on python (include Chinese) 本脚本(exe)用于解决文件夹里文件批量重命名这种繁琐事情，基于python和第三方java库Tika(可选) 命名规则：从头读取一段内容 代码非常易读，就是引用第三方包读取各式各样文件，并且文件名截">
+<meta name="keywords" content="Python,自动化,批处理脚本,重命名,Tika,OCR,文本识别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="File Batch Renamer">
+<meta property="og:url" content="http://yoursite.com/2019/05/10/File-Batch-Renamer/index.html">
+<meta property="og:site_name" content="AutozLand">
+<meta property="og:description" content="file-batch-renamer   Python 批量重命名文件脚本 a file batch renamer based on python (include Chinese) 本脚本(exe)用于解决文件夹里文件批量重命名这种繁琐事情，基于python和第三方java库Tika(可选) 命名规则：从头读取一段内容 代码非常易读，就是引用第三方包读取各式各样文件，并且文件名截">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github">
+<meta property="og:image" content="https://img.shields.io/github/license/autolordz/file-batch-renamer.svg?style=popout&logo=github">
+<meta property="og:updated_time" content="2019-05-10T09:08:03.353Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="File Batch Renamer">
+<meta name="twitter:description" content="file-batch-renamer   Python 批量重命名文件脚本 a file batch renamer based on python (include Chinese) 本脚本(exe)用于解决文件夹里文件批量重命名这种繁琐事情，基于python和第三方java库Tika(可选) 命名规则：从头读取一段内容 代码非常易读，就是引用第三方包读取各式各样文件，并且文件名截">
+<meta name="twitter:image" content="https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/10/File-Batch-Renamer/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>File Batch Renamer | AutozLand</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AutozLand</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Autoz's Learning Blogs</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">9</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">39</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/10/File-Batch-Renamer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Autoz">
+      <meta itemprop="description" content="Fidelty.">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AutozLand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">File Batch Renamer<a href="https://github.com/theme-next/theme-next.org/_posts/tree/master/File-Batch-Renamer.md" class="post-edit-link" title="Edit this post" target="_blank">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-10 16:52:55 / Modified: 17:08:03" itemprop="dateCreated datePublished" datetime="2019-05-10T16:52:55+08:00">2019-05-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="file-batch-renamer">file-batch-renamer</h2>
+<p><a id="file-batch-renamer "></a></p>
+<blockquote>
+<p>Python 批量重命名文件脚本<br>
+a file batch renamer based on python (include Chinese)<br>
+本脚本(exe)用于解决文件夹里文件批量重命名这种繁琐事情，基于python和第三方java库Tika(可选)<br>
+命名规则：从头读取一段内容<br>
+代码非常易读，就是引用第三方包读取各式各样文件，并且文件名截取做了处理，去除杂乱内容<br>
+简单安装，开箱即用，方便办公和科研下载众多杂乱文件<br>
+简单练手，python初学者必备</p>
+</blockquote>
+<p><a href="https://github.com/autolordz/file-batch-renamer" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a><br>
+<a href="https://github.com/autolordz/file-batch-renamer/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/file-batch-renamer.svg?style=popout&amp;logo=github"></a></p>
+<p>===</p>
+<h2 id="toc">TOC</h2>
+<!-- MarkdownTOC autoanchor="false" autolink="true" uri_encoding="false" -->
+<ul>
+<li><a href="#updated">Updated</a>
+<ul>
+<li><a href="#1-tika-and-tesseract-ocr">1. Tika and Tesseract OCR</a></li>
+<li><a href="#2-python-3rd-party-and-tesseract-ocr">2. Python 3rd party and Tesseract OCR</a></li>
+</ul></li>
+<li><a href="#to-do">To Do</a></li>
+<li><a href="#licence">Licence</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+<hr>
+<h2 id="updated">Updated</h2>
+<p><a id="updated"></a></p>
+<ul>
+<li>Updated 2019.1.2:
+<ul>
+<li>新版 <strong>Apache Tika</strong> 解析全文件版本</li>
+<li>旧版 <strong>Python 3rd party</strong> 解析文件版本</li>
+</ul></li>
+</ul>
+<a id="more"></a>
+<h3 id="tika-and-tesseract-ocr">1. Tika and Tesseract OCR</h3>
+<p><a id="1-tika-and-tesseract-ocr"></a></p>
+<ul>
+<li>Files
+<ul>
+<li>batch-renamer-tika.py</li>
+</ul></li>
+<li>Requirements
+<ul>
+<li><a href="https://pypi.org/project/zhon/" target="_blank" rel="noopener">zhon</a> zhon to deal with Chinese</li>
+<li><a href="https://pypi.org/project/tika/" target="_blank" rel="noopener">tika</a> tika for python</li>
+<li><a href="https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html" target="_blank" rel="noopener">Java Jre jre-8u91-windows-x64</a> Jre8 is at least and fitting package</li>
+<li><a href="https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w32-setup-v4.0.0.20181030.exe" target="_blank" rel="noopener">Tesseract v4.0.0.20181030</a> Tesseract for Image OCR</li>
+</ul></li>
+<li>Supported Platform:
+<ul>
+<li>[x] win7 32bit,win10 64bit,其他没测试过</li>
+</ul></li>
+<li>Supported Files:
+<ul>
+<li>[x] docx,pptx,xlsx</li>
+<li>[x] doc,ppt,xls</li>
+<li>[x] epub,rar,zip,tar,html,pdf</li>
+<li>[x] png,jpg,jpeg,bmp,tif</li>
+<li>[x] others(follows <a href="http://tika.apache.org/1.20/formats.html" target="_blank" rel="noopener">tika</a>)</li>
+</ul></li>
+<li>Usage:
+<ul>
+<li>安装必须
+<ul>
+<li>installplug.bat</li>
+<li>setenv.bat</li>
+</ul></li>
+<li>要重命名的文件放在当前目录</li>
+<li>执行batch-renamer-tika.(py|exe)</li>
+</ul></li>
+</ul>
+<h3 id="python-3rd-party-and-tesseract-ocr">2. Python 3rd party and Tesseract OCR</h3>
+<p><a id="2-python-3rd-party-and-tesseract-ocr"></a></p>
+<ul>
+<li>Files
+<ul>
+<li>batch-renamer.py</li>
+<li>extrectImage.py (Author: BJ Jang (jangbi882 at gmail.com))</li>
+</ul></li>
+<li>Requirements
+<ul>
+<li><a href="https://pypi.org/project/python-pptx/" target="_blank" rel="noopener">python-pptx</a> ppt格式</li>
+<li><a href="https://pypi.org/project/python-docx/" target="_blank" rel="noopener">python-docx</a> word格式</li>
+<li><a href="https://pypi.org/project/xlrd/" target="_blank" rel="noopener">xlrd</a> excel格式</li>
+<li><a href="https://pypi.org/project/zhon/" target="_blank" rel="noopener">zhon</a> 提取中文</li>
+<li><a href="https://github.com/mstamy2/PyPDF2" target="_blank" rel="noopener">PyPDF2</a> 提取PDF</li>
+<li><a href="https://github.com/euske/pdfminer/" target="_blank" rel="noopener">PDFMiner</a> 提取PDF</li>
+<li><a href="https://pypi.org/project/pytesseract/" target="_blank" rel="noopener">pytesseract</a> 识别图像</li>
+</ul></li>
+<li>Supported Platform:
+<ul>
+<li>[x] win7 32bit,win10 64bit,其他没测试过</li>
+</ul></li>
+<li>Supported Files:
+<ul>
+<li>[x] docx,pptx,xlsx</li>
+<li>[x] doc,ppt,xls</li>
+<li>[x] pdf</li>
+<li>[x] png,jpg,jpeg,bmp,tif</li>
+</ul></li>
+<li>Usage:
+<ul>
+<li>安装必须或手动安装包
+<ul>
+<li>installplug.bat</li>
+<li>setenv.bat</li>
+</ul></li>
+<li>要重命名的文件放在当前目录</li>
+<li>执行batch-renamer.(py|exe)</li>
+</ul></li>
+</ul>
+<h2 id="to-do">To Do</h2>
+<p><a id="to-do"></a></p>
+<ul>
+<li>[x] 提取抬头命名</li>
+<li>[x] 提取图像内容命名</li>
+<li>[ ] 提取文章关键词命名</li>
+<li>[ ] 提取文章摘要(NLP自然语言处理)命名</li>
+</ul>
+<h2 id="licence">Licence</h2>
+<p><a id="licence"></a></p>
+<p><a href="#file-batch-renamer">See Licence</a></p>
+<p>That’s it,enjoy.</p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Autoz</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://yoursite.com/2019/05/10/File-Batch-Renamer/" title="File Batch Renamer">http://yoursite.com/2019/05/10/File-Batch-Renamer/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/自动化/" rel="tag"># 自动化</a>
+          
+            <a href="/tags/批处理脚本/" rel="tag"># 批处理脚本</a>
+          
+            <a href="/tags/重命名/" rel="tag"># 重命名</a>
+          
+            <a href="/tags/Tika/" rel="tag"># Tika</a>
+          
+            <a href="/tags/OCR/" rel="tag"># OCR</a>
+          
+            <a href="/tags/文本识别/" rel="tag"># 文本识别</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/10/Gradient-Descent-Optimization/" rel="next" title="Gradient Descent Optimization">
+                <i class="fa fa-chevron-left"></i> Gradient Descent Optimization
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/10/Car-Evaluation-Analysis/" rel="prev" title="Car Evaluation Analysis">
+                Car Evaluation Analysis <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODY0Mi8xNTE3MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avator.png"
+                alt="Autoz" />
+            
+              <p class="site-author-name" itemprop="name">Autoz</p>
+              <p class="site-description motion-element" itemprop="description">Fidelty.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/autolordz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:autolordz@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#file-batch-renamer"><span class="nav-number">1.</span> <span class="nav-text">file-batch-renamer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc"><span class="nav-number">2.</span> <span class="nav-text">TOC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#updated"><span class="nav-number">3.</span> <span class="nav-text">Updated</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tika-and-tesseract-ocr"><span class="nav-number">3.1.</span> <span class="nav-text">1. Tika and Tesseract OCR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-3rd-party-and-tesseract-ocr"><span class="nav-number">3.2.</span> <span class="nav-text">2. Python 3rd party and Tesseract OCR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#to-do"><span class="nav-number">4.</span> <span class="nav-text">To Do</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#licence"><span class="nav-number">5.</span> <span class="nav-text">Licence</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Autoz</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">64k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">59 mins.</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.3.0"></script>
+
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
