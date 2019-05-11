@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="en">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -114,7 +114,7 @@
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="AutozLand">
 <meta property="og:description" content="Fidelty.">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AutozLand">
 <meta name="twitter:description" content="Fidelty.">
@@ -174,7 +174,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -205,7 +205,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -225,7 +225,7 @@
           
           <li class="menu-item menu-item-home menu-item-active">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -233,7 +233,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">9</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">9</span></a>
   </li>
         
         
@@ -241,7 +241,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">39</span></a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">39</span></a>
   </li>
         
         
@@ -249,7 +249,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">2</span></a>
   </li>
         
         
@@ -257,7 +257,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
   </li>
 
       
@@ -347,19 +347,31 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-05-10 17:28:46 / Modified: 17:46:18" itemprop="dateCreated datePublished" datetime="2019-05-10T17:28:46+08:00">2019-05-10</time>
+              <time title="创建时间：2019-05-10 17:28:46" itemprop="dateCreated datePublished" datetime="2019-05-10T17:28:46+08:00">2019-05-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-11 11:11:24" itemprop="dateModified" datetime="2019-05-11T11:11:24+08:00">2019-05-11</time>
               
             
           </span>
@@ -373,7 +385,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
@@ -402,9 +414,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Symbols count in article: </span>
+                  <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="Symbols count in article">31k</span>
+                <span title="本文字数">31k</span>
               
 
               
@@ -416,9 +428,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">29 mins.</span>
+                <span title="阅读时长">29 分钟</span>
               
             </div>
           
@@ -439,29 +451,55 @@
 
       
         
-          
-          汽车数据R语言机器学习分析
-
-title: “Car Evaluation Analysis”
-author: “Suraj Vidyadaran”
-date: “Sunday, February 21, 2016”
-output: md_document
-
-对汽车数据使用17种分类算法进行数据分析,对代码进行实践应用和内容翻译
-
-
-Load the data 读取数据
-Exploratory Data Analysis 探索数据
-Classification Analysis 分类
-
-Linear Classification 线性分类
-
-1 Logistic
-          ...
+          <h2 id="汽车数据r语言机器学习分析">汽车数据R语言机器学习分析</h2>
+<ul>
+<li>title: “Car Evaluation Analysis”</li>
+<li>author: “Suraj Vidyadaran”</li>
+<li>date: “Sunday, February 21, 2016”</li>
+<li>output: md_document</li>
+</ul>
+<p>对汽车数据使用17种分类算法进行数据分析,对代码进行实践应用和内容翻译</p>
+<p><a href="https://github.com/autolordz/Car-Evaluation-Analysis" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a><br>
+<a href="https://github.com/autolordz/Car-Evaluation-Analysis/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/Car-Evaluation-Analysis.svg?style=popout&amp;logo=github"></a></p>
+<!-- MarkdownTOC autoanchor="false" autolink="true" uri_encoding="false" -->
+<ul>
+<li><a href="#load-the-data-读取数据">Load the data 读取数据</a></li>
+<li><a href="#exploratory-data-analysis-探索数据">Exploratory Data Analysis 探索数据</a></li>
+<li><a href="#classification-analysis-分类">Classification Analysis 分类</a>
+<ul>
+<li><a href="#linear-classification-线性分类">Linear Classification 线性分类</a>
+<ul>
+<li><a href="#1-logistic-regression-逻辑回归">1 Logistic Regression 逻辑回归</a></li>
+<li><a href="#2-linear-discriminant-analysis-线性判别">2 Linear Discriminant Analysis 线性判别</a></li>
+</ul></li>
+<li><a href="#non-linear-classification-非线性分类">Non-Linear Classification 非线性分类</a>
+<ul>
+<li><a href="#3-mixture-discriminant-analysis-混合判别">3 Mixture Discriminant Analysis 混合判别</a></li>
+<li><a href="#4-quadratic-discriminant-analysis-二次判别">4 Quadratic Discriminant Analysis 二次判别</a></li>
+<li><a href="#5-regularized-discriminant-analysis-正则约束判别">5 Regularized Discriminant Analysis 正则约束判别</a></li>
+<li><a href="#6-neural-network-神经网络">6 Neural Network 神经网络</a></li>
+<li><a href="#7-flexible-discriminant-analysis-弹性判别">7 Flexible Discriminant Analysis 弹性判别</a></li>
+<li><a href="#8-support-vector-machine-支持向量机">8 Support Vector Machine 支持向量机</a></li>
+<li><a href="#9-k-nearest-neighbors-k近邻">9 k-Nearest Neighbors k近邻</a></li>
+<li><a href="#10-naive-bayes-朴素贝叶斯">10 Naive Bayes 朴素贝叶斯</a></li>
+</ul></li>
+<li><a href="#non-linear-classification-with-decision-trees-非线性树模型">Non-Linear Classification with Decision Trees 非线性树模型</a>
+<ul>
+<li><a href="#11-classification-and-regression-treescart-分类回归树">11 Classification and Regression Trees(CART) 分类回归树</a></li>
+<li><a href="#12-c45-c45树">12 C4.5 C4.5树</a></li>
+<li><a href="#13-part-分区树">13 PART 分区树</a></li>
+<li><a href="#14-bagging-cart-背包树">14 Bagging CART 背包树</a></li>
+<li><a href="#15-random-forest-随机森林">15 Random Forest 随机森林</a></li>
+<li><a href="#16-gradient-boosted-machine-梯度加速机器">16 Gradient Boosted Machine 梯度加速机器</a></li>
+<li><a href="#17-boosted-c50-加速树">17 Boosted C5.0 加速树</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<!-- /MarkdownTOC -->
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/05/10/Car-Evaluation-Analysis/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -559,19 +597,31 @@ Linear Classification 线性分类
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-05-10 16:52:55 / Modified: 17:08:03" itemprop="dateCreated datePublished" datetime="2019-05-10T16:52:55+08:00">2019-05-10</time>
+              <time title="创建时间：2019-05-10 16:52:55" itemprop="dateCreated datePublished" datetime="2019-05-10T16:52:55+08:00">2019-05-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-11 11:18:35" itemprop="dateModified" datetime="2019-05-11T11:18:35+08:00">2019-05-11</time>
               
             
           </span>
@@ -585,7 +635,7 @@ Linear Classification 线性分类
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
@@ -614,9 +664,9 @@ Linear Classification 线性分类
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Symbols count in article: </span>
+                  <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="Symbols count in article">1.7k</span>
+                <span title="本文字数">1.7k</span>
               
 
               
@@ -628,9 +678,9 @@ Linear Classification 线性分类
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">2 mins.</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -664,7 +714,6 @@ a file batch renamer based on python (include Chinese)<br>
 </blockquote>
 <p><a href="https://github.com/autolordz/file-batch-renamer" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a><br>
 <a href="https://github.com/autolordz/file-batch-renamer/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/file-batch-renamer.svg?style=popout&amp;logo=github"></a></p>
-<p>===</p>
 <h2 id="toc">TOC</h2>
 <!-- MarkdownTOC autoanchor="false" autolink="true" uri_encoding="false" -->
 <ul>
@@ -690,7 +739,7 @@ a file batch renamer based on python (include Chinese)<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/05/10/File-Batch-Renamer/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -788,19 +837,31 @@ a file batch renamer based on python (include Chinese)<br>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-05-10 16:47:13 / Modified: 17:03:29" itemprop="dateCreated datePublished" datetime="2019-05-10T16:47:13+08:00">2019-05-10</time>
+              <time title="创建时间：2019-05-10 16:47:13" itemprop="dateCreated datePublished" datetime="2019-05-10T16:47:13+08:00">2019-05-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-11 11:17:22" itemprop="dateModified" datetime="2019-05-11T11:17:22+08:00">2019-05-11</time>
               
             
           </span>
@@ -814,7 +875,7 @@ a file batch renamer based on python (include Chinese)<br>
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
@@ -843,9 +904,9 @@ a file batch renamer based on python (include Chinese)<br>
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Symbols count in article: </span>
+                  <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="Symbols count in article">2.1k</span>
+                <span title="本文字数">2.1k</span>
               
 
               
@@ -857,9 +918,9 @@ a file batch renamer based on python (include Chinese)<br>
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">2 mins.</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -886,7 +947,8 @@ a file batch renamer based on python (include Chinese)<br>
 非监督学习目标函数：矩阵近似<br>
 机器学习模型与优化求解的练手项目<br>
 Python编写并使用简明的数学符号</p>
-<p>源代码链接: <a href="https://github.com/autolordz/gradient-descent-optimization" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a></p>
+<p>源代码链接: <a href="https://github.com/autolordz/gradient-descent-optimization" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a><br>
+<a href="https://github.com/autolordz/gradient-descent-optimization/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/gradient-descent-optimization.svg?style=popout&amp;logo=github"></a></p>
 <h2 id="toc">TOC</h2>
 <!-- MarkdownTOC  autoanchor="false" autolink="true" uri_encoding="false" -->
 <ul>
@@ -903,7 +965,7 @@ Python编写并使用简明的数学符号</p>
 矩阵分解和推荐系统等内容</p>
 <p>【2019-4-25】<br>
 添加约束优化L1L2等内容<br>
-<img src="./img/gf4.png"></p>
+</p>
 <h2 id="features">Features</h2>
 <p><a id="features"></a></p>
 <ul>
@@ -986,7 +1048,7 @@ Python编写并使用简明的数学符号</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/05/10/Gradient-Descent-Optimization/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1084,14 +1146,14 @@ Python编写并使用简明的数学符号</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-05-10 16:26:45 / Modified: 16:45:54" itemprop="dateCreated datePublished" datetime="2019-05-10T16:26:45+08:00">2019-05-10</time>
+              <time title="创建时间：2019-05-10 16:26:45 / 修改时间：16:45:54" itemprop="dateCreated datePublished" datetime="2019-05-10T16:26:45+08:00">2019-05-10</time>
             
 
             
@@ -1110,7 +1172,7 @@ Python编写并使用简明的数学符号</p>
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
@@ -1139,9 +1201,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Symbols count in article: </span>
+                  <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="Symbols count in article">2.1k</span>
+                <span title="本文字数">2.1k</span>
               
 
               
@@ -1153,9 +1215,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">2 mins.</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -1213,7 +1275,7 @@ Python编写并使用简明的数学符号</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/05/10/Docx-content-modify/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1311,14 +1373,14 @@ Python编写并使用简明的数学符号</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-08-07 11:43:09" itemprop="dateCreated datePublished" datetime="2018-08-07T11:43:09+08:00">2018-08-07</time>
+              <time title="创建时间：2018-08-07 11:43:09" itemprop="dateCreated datePublished" datetime="2018-08-07T11:43:09+08:00">2018-08-07</time>
             
 
             
@@ -1333,9 +1395,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Modified: 2019-05-10 16:23:06" itemprop="dateModified" datetime="2019-05-10T16:23:06+08:00">2019-05-10</time>
+                <time title="修改时间：2019-05-10 16:23:06" itemprop="dateModified" datetime="2019-05-10T16:23:06+08:00">2019-05-10</time>
               
             
           </span>
@@ -1349,7 +1411,7 @@ Python编写并使用简明的数学符号</p>
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
@@ -1378,9 +1440,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Symbols count in article: </span>
+                  <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="Symbols count in article">4.9k</span>
+                <span title="本文字数">4.9k</span>
               
 
               
@@ -1392,9 +1454,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">4 mins.</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -1474,7 +1536,7 @@ Python编写并使用简明的数学符号</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/08/07/Data-Scientists-Toolbox/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1572,14 +1634,14 @@ Python编写并使用简明的数学符号</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-08-06 22:08:38" itemprop="dateCreated datePublished" datetime="2018-08-06T22:08:38+08:00">2018-08-06</time>
+              <time title="创建时间：2018-08-06 22:08:38" itemprop="dateCreated datePublished" datetime="2018-08-06T22:08:38+08:00">2018-08-06</time>
             
 
             
@@ -1594,9 +1656,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Modified: 2018-08-07 11:53:15" itemprop="dateModified" datetime="2018-08-07T11:53:15+08:00">2018-08-07</time>
+                <time title="修改时间：2018-08-07 11:53:15" itemprop="dateModified" datetime="2018-08-07T11:53:15+08:00">2018-08-07</time>
               
             
           </span>
@@ -1610,7 +1672,7 @@ Python编写并使用简明的数学符号</p>
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
@@ -1639,9 +1701,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Symbols count in article: </span>
+                  <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="Symbols count in article">4.6k</span>
+                <span title="本文字数">4.6k</span>
               
 
               
@@ -1653,9 +1715,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">4 mins.</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -1700,7 +1762,7 @@ Python编写并使用简明的数学符号</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/08/06/JHU-Coursera-Rprogramming-Course-Project-3/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1798,14 +1860,14 @@ Python编写并使用简明的数学符号</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-08-06 18:26:18" itemprop="dateCreated datePublished" datetime="2018-08-06T18:26:18+08:00">2018-08-06</time>
+              <time title="创建时间：2018-08-06 18:26:18" itemprop="dateCreated datePublished" datetime="2018-08-06T18:26:18+08:00">2018-08-06</time>
             
 
             
@@ -1820,9 +1882,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Modified: 2018-08-07 11:53:02" itemprop="dateModified" datetime="2018-08-07T11:53:02+08:00">2018-08-07</time>
+                <time title="修改时间：2018-08-07 11:53:02" itemprop="dateModified" datetime="2018-08-07T11:53:02+08:00">2018-08-07</time>
               
             
           </span>
@@ -1836,7 +1898,7 @@ Python编写并使用简明的数学符号</p>
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
@@ -1865,9 +1927,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Symbols count in article: </span>
+                  <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="Symbols count in article">2.8k</span>
+                <span title="本文字数">2.8k</span>
               
 
               
@@ -1879,9 +1941,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">3 mins.</span>
+                <span title="阅读时长">3 分钟</span>
               
             </div>
           
@@ -1915,7 +1977,7 @@ Python编写并使用简明的数学符号</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/08/06/JHU-Coursera-Rprogramming-Assignment-2/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -2013,14 +2075,14 @@ Python编写并使用简明的数学符号</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-08-06 17:28:52" itemprop="dateCreated datePublished" datetime="2018-08-06T17:28:52+08:00">2018-08-06</time>
+              <time title="创建时间：2018-08-06 17:28:52" itemprop="dateCreated datePublished" datetime="2018-08-06T17:28:52+08:00">2018-08-06</time>
             
 
             
@@ -2035,9 +2097,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Modified: 2018-08-07 11:52:54" itemprop="dateModified" datetime="2018-08-07T11:52:54+08:00">2018-08-07</time>
+                <time title="修改时间：2018-08-07 11:52:54" itemprop="dateModified" datetime="2018-08-07T11:52:54+08:00">2018-08-07</time>
               
             
           </span>
@@ -2051,7 +2113,7 @@ Python编写并使用简明的数学符号</p>
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
@@ -2080,9 +2142,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Symbols count in article: </span>
+                  <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="Symbols count in article">6k</span>
+                <span title="本文字数">6k</span>
               
 
               
@@ -2094,9 +2156,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">5 mins.</span>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
           
@@ -2200,7 +2262,7 @@ Python编写并使用简明的数学符号</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/08/06/JHU-Coursera-Datatools-Course-Project/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -2298,14 +2360,14 @@ Python编写并使用简明的数学符号</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-08-03 00:00:00" itemprop="dateCreated datePublished" datetime="2018-08-03T00:00:00+08:00">2018-08-03</time>
+              <time title="创建时间：2018-08-03 00:00:00" itemprop="dateCreated datePublished" datetime="2018-08-03T00:00:00+08:00">2018-08-03</time>
             
 
             
@@ -2320,9 +2382,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Modified: 2019-05-10 17:18:49" itemprop="dateModified" datetime="2019-05-10T17:18:49+08:00">2019-05-10</time>
+                <time title="修改时间：2019-05-10 17:18:49" itemprop="dateModified" datetime="2019-05-10T17:18:49+08:00">2019-05-10</time>
               
             
           </span>
@@ -2336,7 +2398,7 @@ Python编写并使用简明的数学符号</p>
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
@@ -2365,9 +2427,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Symbols count in article: </span>
+                  <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="Symbols count in article">8.9k</span>
+                <span title="本文字数">8.9k</span>
               
 
               
@@ -2379,9 +2441,9 @@ Python编写并使用简明的数学符号</p>
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">8 mins.</span>
+                <span title="阅读时长">8 分钟</span>
               
             </div>
           
@@ -2540,7 +2602,7 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/08/03/jhu-coursera-regression-model-quizes/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -2634,7 +2696,7 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">9</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -2651,7 +2713,7 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -2742,7 +2804,7 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
                       
                     
                     <span class="site-state-item-count">39</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -2814,9 +2876,9 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
       <i class="fa fa-area-chart"></i>
     </span>
     
-      <span class="post-meta-item-text">Symbols count total: </span>
+      <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="Symbols count total">64k</span>
+    <span title="站点总字数">64k</span>
   
 
   
@@ -2825,16 +2887,16 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
       <i class="fa fa-coffee"></i>
     </span>
     
-      <span class="post-meta-item-text">Reading time total &asymp;</span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="Reading time total">59 mins.</span>
+    <span title="站点阅读时长">59 分钟</span>
   
 </div>
 
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.5.0</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.5.0</div>
 
 
 
@@ -2842,23 +2904,23 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
 
 
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
@@ -3099,7 +3161,7 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
     $('.highlight').each(function (i, e) {
       var $wrap = $('<div>').addClass('highlight-wrap')
       $(e).after($wrap)
-      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
         var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
           return $(e).text()
         }).toArray().join('\n')
@@ -3114,14 +3176,14 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
         var result = document.execCommand('copy')
         document.body.removeChild(ta)
         
-          if(result)$(this).text('Copied')
-          else $(this).text('Copy failed')
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
         
         $(this).blur()
       })).on('mouseleave', function (e) {
         var $b = $(this).find('.copy-btn')
         setTimeout(function () {
-          $b.text('Copy')
+          $b.text('复制')
         }, 300)
       }).append(e)
     })
