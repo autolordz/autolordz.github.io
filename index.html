@@ -53,6 +53,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -241,7 +267,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">39</span></a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">41</span></a>
   </li>
         
         
@@ -292,6 +318,787 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/12/Gradient-Descent-Optimization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Autoz">
+      <meta itemprop="description" content="Fidelty.">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AutozLand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/12/Gradient-Descent-Optimization/" itemprop="url">
+                  Gradient Descent Optimization
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-12 16:47:13" itemprop="dateCreated datePublished" datetime="2019-05-12T16:47:13+08:00">2019-05-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-13 00:28:16" itemprop="dateModified" datetime="2019-05-13T00:28:16+08:00">2019-05-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">2 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="梯度下降优化算法">梯度下降优化算法</h1>
+<p>a python script of a function summarize some popular methods about gradient descent<br>
+监督学习目标函数：普通最小二乘OLS<br>
+非监督学习目标函数：矩阵近似<br>
+机器学习模型与优化求解的练手项目<br>
+Python编写并使用简明的数学符号</p>
+<img src="/2019/05/12/Gradient-Descent-Optimization/gf1.png" title="This is an image">
+<p>源代码链接: <a href="https://github.com/autolordz/gradient-descent-optimization" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a><br>
+<a href="https://github.com/autolordz/gradient-descent-optimization/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/gradient-descent-optimization.svg?style=popout&amp;logo=github"></a></p>
+<h2 id="toc">TOC</h2>
+<!-- MarkdownTOC  autoanchor="false" autolink="true" uri_encoding="false" -->
+<ul>
+<li><a href="#updated">Updated</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#licence">Licence</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+<h2 id="updated">Updated</h2>
+<p><a id="updated"></a></p>
+<p>【2019-5-6】<br>
+矩阵分解和推荐系统等内容</p>
+<p>【2019-4-25】<br>
+添加约束优化L1L2等内容</p>
+<h2 id="features">Features</h2>
+<p><a id="features"></a></p>
+<ul>
+<li>[x] 一阶优化(非约束)
+<ul>
+<li>原版
+<ul>
+<li>GD 全批梯度下降 mm10</li>
+<li>minibatch-GD 小批梯度下降 mm10</li>
+<li>SGD 随机梯度下降 mm10</li>
+</ul></li>
+<li>带动量
+<ul>
+<li>Polyak’s 动量 mm21,mm22</li>
+<li>Nesterov 加速梯度 (NAG) mm23,mm24,mm25</li>
+<li>FISTA (NAG 近端梯度版) mm26</li>
+</ul></li>
+</ul></li>
+<li>[x] 二阶优化
+<ul>
+<li>牛顿法 mm30</li>
+<li>沿直线最小化 mm31</li>
+<li>共轭梯度法 mm32</li>
+<li>拟牛顿法Quasi-Newton(Broyden) mm33</li>
+</ul></li>
+<li>[x] 非凸优化
+<ul>
+<li>Adagrad(自适应梯度) mm40</li>
+<li>RMSProp mm41</li>
+<li>Adadelta mm42</li>
+<li>Adam mm43</li>
+<li>AdaMax mm44</li>
+<li>Nadam mm45</li>
+<li>AMSGrad mm46</li>
+</ul></li>
+<li>[x] 坐标下降
+<ul>
+<li>循环坐标逐步 mm90</li>
+<li>循环坐标标准 mm91,mm92</li>
+<li>随机坐标 mm93</li>
+<li>随机块坐标 mm93</li>
+</ul></li>
+<li>[x] 速率(学习率)
+<ul>
+<li>Armijo rules mm11</li>
+<li>[ ] Wolfe conditions</li>
+</ul></li>
+<li>[x] 约束优化
+<ul>
+<li>L0(Best subset selection)
+<ul>
+<li>向前逐步回归(匹配追踪)</li>
+</ul></li>
+<li>L1(Lasso)
+<ul>
+<li>软阈值坐标下降</li>
+<li>近端梯度(广义梯度)</li>
+<li>对偶ADMM</li>
+</ul></li>
+<li>L2(岭回归)</li>
+<li>L2(组Lasso)</li>
+<li>L1+L2(弹性网)</li>
+<li>L1+L2(稀疏组Lasso)</li>
+</ul></li>
+<li>[x] 矩阵相关
+<ul>
+<li>[x]矩阵填充(分解)
+<ul>
+<li>稀疏矩阵近似 ∥∥Z^∥∥l1 ≤ c</li>
+<li>奇异值分解 rank(Z^) ≤ c</li>
+<li>原子范数约束 ∥∥Z^∥∥⋆ ≤ c</li>
+<li>惩罚SVD Z^=UDVT,ϕ1(uj)≤c1,ϕ2(vk)≤c2</li>
+</ul></li>
+</ul></li>
+<li>[ ] 非凸约束
+<ul>
+<li>自适应Lasso</li>
+</ul></li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/12/Gradient-Descent-Optimization/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/11/File-Batch-Renamer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Autoz">
+      <meta itemprop="description" content="Fidelty.">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AutozLand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/11/File-Batch-Renamer/" itemprop="url">
+                  File Batch Renamer
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-11 16:52:55" itemprop="dateCreated datePublished" datetime="2019-05-11T16:52:55+08:00">2019-05-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-13 00:17:51" itemprop="dateModified" datetime="2019-05-13T00:17:51+08:00">2019-05-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">2 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="python-批量重命名文件脚本">Python 批量重命名文件脚本</h2>
+<blockquote>
+<p>英文名:file-batch-renamer a file batch renamer based on python (include Chinese)<br>
+本脚本(exe)用于解决文件夹里文件批量重命名这种繁琐事情，基于python和第三方java库Tika(可选)<br>
+命名规则：从头读取一段内容，读取失败一直向后，读到为止 代码非常易读，就是引用第三方包读取各式各样文件，并且文件名截取做了处理，去除杂乱内容<br>
+简单安装，开箱即用，方便办公和科研下载众多杂乱文件<br>
+简单练手，python初学者必备</p>
+</blockquote>
+<p><a href="https://github.com/autolordz/file-batch-renamer" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a><br>
+<a href="https://github.com/autolordz/file-batch-renamer/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/file-batch-renamer.svg?style=popout&amp;logo=github"></a></p>
+<h2 id="toc">TOC</h2>
+<!-- MarkdownTOC autoanchor="false" autolink="true" uri_encoding="false" -->
+<ul>
+<li><a href="#updated">Updated</a>
+<ul>
+<li><a href="#1-tika-and-tesseract-ocr">1. Tika and Tesseract OCR</a></li>
+<li><a href="#2-python-3rd-party-and-tesseract-ocr">2. Python 3rd party and Tesseract OCR</a></li>
+</ul></li>
+<li><a href="#to-do">To Do</a></li>
+<li><a href="#licence">Licence</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+<hr>
+<h2 id="updated">Updated</h2>
+<p><a id="updated"></a></p>
+<ul>
+<li>Updated 2019.1.2:
+<ul>
+<li>新版 <strong>Apache Tika</strong> 解析全文件版本</li>
+<li>旧版 <strong>Python 3rd party</strong> 解析文件版本</li>
+</ul></li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/11/File-Batch-Renamer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/11/Docx-content-modify/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Autoz">
+      <meta itemprop="description" content="Fidelty.">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AutozLand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/11/Docx-content-modify/" itemprop="url">
+                  Docx Content Modify
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-11 16:26:45" itemprop="dateCreated datePublished" datetime="2019-05-11T16:26:45+08:00">2019-05-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-13 00:29:50" itemprop="dateModified" datetime="2019-05-13T00:29:50+08:00">2019-05-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">2 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="寄件邮单内容批量修改器">寄件邮单内容批量修改器</h2>
+<blockquote>
+<p>法院人员批量邮寄脚本(公开法律文书)court staffs postal receipt generate<br>
+给予法院邮政人员从OA数据表(excel)和公开判决书(docx)提取当事人地址内容，批量直接生成邮单<br>
+减轻相关员负担，尤其系列案，人员多地址多，手打地址重复性劳动太多，信息容易错漏<br>
+技术:python-docx,pandas,StyleFrame,configparser<br>
+打包程序:pyinstaller</p>
+</blockquote>
+<p><a href="https://github.com/autolordz/docx-content-modify/releases" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&amp;logo=github&amp;colorB=ff69b4"></a><br>
+<a href="https://github.com/autolordz/docx-content-modify" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a><br>
+<a href="https://github.com/autolordz/docx-content-modify/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/docx-content-modify.svg?style=popout&amp;logo=github"></a></p>
+<h2 id="toc">TOC</h2>
+<!-- MarkdownTOC autoanchor="false" autolink="true" uri_encoding="false" -->
+<ul>
+<li><a href="#updated">Updated</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#rules">Rules</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#licence">Licence</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+<h2 id="updated">Updated</h2>
+<p><a id="updated"></a></p>
+<p>【2018-11-13】</p>
+<blockquote>
+<ul>
+<li>优化配置文件日期范围和打印记录</li>
+<li>优化拷贝判决书上地址兼容性</li>
+</ul>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/11/Docx-content-modify/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -371,7 +1178,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-11 11:11:24" itemprop="dateModified" datetime="2019-05-11T11:11:24+08:00">2019-05-11</time>
+                <time title="修改时间：2019-05-13 00:29:25" itemprop="dateModified" datetime="2019-05-13T00:29:25+08:00">2019-05-13</time>
               
             
           </span>
@@ -558,782 +1365,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/10/File-Batch-Renamer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Autoz">
-      <meta itemprop="description" content="Fidelty.">
-      <meta itemprop="image" content="/images/avator.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AutozLand">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/10/File-Batch-Renamer/" itemprop="url">
-                  File Batch Renamer
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-10 16:52:55" itemprop="dateCreated datePublished" datetime="2019-05-10T16:52:55+08:00">2019-05-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-11 11:18:35" itemprop="dateModified" datetime="2019-05-11T11:18:35+08:00">2019-05-11</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">1.7k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">2 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="file-batch-renamer">file-batch-renamer</h2>
-<p><a id="file-batch-renamer "></a></p>
-<blockquote>
-<p>Python 批量重命名文件脚本<br>
-a file batch renamer based on python (include Chinese)<br>
-本脚本(exe)用于解决文件夹里文件批量重命名这种繁琐事情，基于python和第三方java库Tika(可选)<br>
-命名规则：从头读取一段内容<br>
-代码非常易读，就是引用第三方包读取各式各样文件，并且文件名截取做了处理，去除杂乱内容<br>
-简单安装，开箱即用，方便办公和科研下载众多杂乱文件<br>
-简单练手，python初学者必备</p>
-</blockquote>
-<p><a href="https://github.com/autolordz/file-batch-renamer" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a><br>
-<a href="https://github.com/autolordz/file-batch-renamer/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/file-batch-renamer.svg?style=popout&amp;logo=github"></a></p>
-<h2 id="toc">TOC</h2>
-<!-- MarkdownTOC autoanchor="false" autolink="true" uri_encoding="false" -->
-<ul>
-<li><a href="#updated">Updated</a>
-<ul>
-<li><a href="#1-tika-and-tesseract-ocr">1. Tika and Tesseract OCR</a></li>
-<li><a href="#2-python-3rd-party-and-tesseract-ocr">2. Python 3rd party and Tesseract OCR</a></li>
-</ul></li>
-<li><a href="#to-do">To Do</a></li>
-<li><a href="#licence">Licence</a></li>
-</ul>
-<!-- /MarkdownTOC -->
-<hr>
-<h2 id="updated">Updated</h2>
-<p><a id="updated"></a></p>
-<ul>
-<li>Updated 2019.1.2:
-<ul>
-<li>新版 <strong>Apache Tika</strong> 解析全文件版本</li>
-<li>旧版 <strong>Python 3rd party</strong> 解析文件版本</li>
-</ul></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/10/File-Batch-Renamer/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-      
-
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/10/Gradient-Descent-Optimization/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Autoz">
-      <meta itemprop="description" content="Fidelty.">
-      <meta itemprop="image" content="/images/avator.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AutozLand">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/10/Gradient-Descent-Optimization/" itemprop="url">
-                  Gradient Descent Optimization
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-10 16:47:13" itemprop="dateCreated datePublished" datetime="2019-05-10T16:47:13+08:00">2019-05-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-11 11:17:22" itemprop="dateModified" datetime="2019-05-11T11:17:22+08:00">2019-05-11</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">2.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">2 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="gradient-descent-optimization">gradient-descent-optimization</h1>
-<p>a python script of a function summarize some popular methods about gradient descent<br>
-监督学习目标函数：普通最小二乘OLS<br>
-非监督学习目标函数：矩阵近似<br>
-机器学习模型与优化求解的练手项目<br>
-Python编写并使用简明的数学符号</p>
-<p>源代码链接: <a href="https://github.com/autolordz/gradient-descent-optimization" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a><br>
-<a href="https://github.com/autolordz/gradient-descent-optimization/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/gradient-descent-optimization.svg?style=popout&amp;logo=github"></a></p>
-<h2 id="toc">TOC</h2>
-<!-- MarkdownTOC  autoanchor="false" autolink="true" uri_encoding="false" -->
-<ul>
-<li><a href="#updated">Updated</a></li>
-<li><a href="#features">Features</a></li>
-<li><a href="#usage">Usage</a></li>
-<li><a href="#reference">Reference</a></li>
-<li><a href="#licence">Licence</a></li>
-</ul>
-<!-- /MarkdownTOC -->
-<h2 id="updated">Updated</h2>
-<p><a id="updated"></a></p>
-<p>【2019-5-6】<br>
-矩阵分解和推荐系统等内容</p>
-<p>【2019-4-25】<br>
-添加约束优化L1L2等内容<br>
-</p>
-<h2 id="features">Features</h2>
-<p><a id="features"></a></p>
-<ul>
-<li>[x] 一阶优化(非约束)
-<ul>
-<li>原版
-<ul>
-<li>GD 全批梯度下降 mm10</li>
-<li>minibatch-GD 小批梯度下降 mm10</li>
-<li>SGD 随机梯度下降 mm10</li>
-</ul></li>
-<li>带动量
-<ul>
-<li>Polyak’s 动量 mm21,mm22</li>
-<li>Nesterov 加速梯度 (NAG) mm23,mm24,mm25</li>
-<li>FISTA (NAG 近端梯度版) mm26</li>
-</ul></li>
-</ul></li>
-<li>[x] 二阶优化
-<ul>
-<li>牛顿法 mm30</li>
-<li>沿直线最小化 mm31</li>
-<li>共轭梯度法 mm32</li>
-<li>拟牛顿法Quasi-Newton(Broyden) mm33</li>
-</ul></li>
-<li>[x] 非凸优化
-<ul>
-<li>Adagrad(自适应梯度) mm40</li>
-<li>RMSProp mm41</li>
-<li>Adadelta mm42</li>
-<li>Adam mm43</li>
-<li>AdaMax mm44</li>
-<li>Nadam mm45</li>
-<li>AMSGrad mm46</li>
-</ul></li>
-<li>[x] 坐标下降
-<ul>
-<li>循环坐标逐步 mm90</li>
-<li>循环坐标标准 mm91,mm92</li>
-<li>随机坐标 mm93</li>
-<li>随机块坐标 mm93</li>
-</ul></li>
-<li>[x] 速率(学习率)
-<ul>
-<li>Armijo rules mm11</li>
-<li>[ ] Wolfe conditions</li>
-</ul></li>
-<li>[x] 约束优化
-<ul>
-<li>L0(Best subset selection)
-<ul>
-<li>向前逐步回归(匹配追踪)</li>
-</ul></li>
-<li>L1(Lasso)
-<ul>
-<li>软阈值坐标下降</li>
-<li>近端梯度(广义梯度)</li>
-<li>对偶ADMM</li>
-</ul></li>
-<li>L2(岭回归)</li>
-<li>L2(组Lasso)</li>
-<li>L1+L2(弹性网)</li>
-<li>L1+L2(稀疏组Lasso)</li>
-</ul></li>
-<li>[x] 矩阵相关
-<ul>
-<li>[x]矩阵填充(分解)
-<ul>
-<li>稀疏矩阵近似 ∥∥Z^∥∥l1 ≤ c</li>
-<li>奇异值分解 rank(Z^) ≤ c</li>
-<li>原子范数约束 ∥∥Z^∥∥⋆ ≤ c</li>
-<li>惩罚SVD Z^=UDVT,ϕ1(uj)≤c1,ϕ2(vk)≤c2</li>
-</ul></li>
-</ul></li>
-<li>[ ] 非凸约束
-<ul>
-<li>自适应Lasso</li>
-</ul></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/10/Gradient-Descent-Optimization/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-      
-
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/10/Docx-content-modify/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Autoz">
-      <meta itemprop="description" content="Fidelty.">
-      <meta itemprop="image" content="/images/avator.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AutozLand">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/10/Docx-content-modify/" itemprop="url">
-                  邮单内容批量修改
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-10 16:26:45 / 修改时间：16:45:54" itemprop="dateCreated datePublished" datetime="2019-05-10T16:26:45+08:00">2019-05-10</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">2.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">2 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="docx-content-modify">docx-content-modify</h2>
-<p><a id="docx-content-modify"></a></p>
-<blockquote>
-<ul>
-<li>中国法院人员批量邮寄脚本(公开法律文书)court staffs postal receipt generate</li>
-<li>给予法院邮政人员从OA数据表(excel)和公开判决书(docx)提取当事人地址内容，批量直接生成邮单</li>
-<li>减轻相关员负担，尤其系列案，人员多地址多，手打地址重复性劳动太多，信息容易错漏</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>技术:python-docx,pandas,StyleFrame,configparser 打包程序:pyinstaller</p>
-</blockquote>
-<p><a href="https://github.com/autolordz/docx-content-modify/releases" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&amp;logo=github&amp;colorB=ff69b4"></a><br>
-<a href="https://github.com/autolordz/docx-content-modify" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a><br>
-<a href="https://github.com/autolordz/docx-content-modify/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/docx-content-modify.svg?style=popout&amp;logo=github"></a></p>
-<h2 id="toc">TOC</h2>
-<!-- MarkdownTOC autoanchor="false" autolink="true" uri_encoding="false" -->
-<ul>
-<li><a href="#updated">Updated</a></li>
-<li><a href="#features">Features</a></li>
-<li><a href="#rules">Rules</a></li>
-<li><a href="#usage">Usage</a></li>
-<li><a href="#licence">Licence</a></li>
-</ul>
-<!-- /MarkdownTOC -->
-<h2 id="updated">Updated</h2>
-<p><a id="updated"></a></p>
-<p>【2018-11-13】</p>
-<blockquote>
-<ul>
-<li>优化配置文件日期范围和打印记录</li>
-<li>优化拷贝判决书上地址兼容性</li>
-</ul>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/10/Docx-content-modify/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-      
-
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/07/Data-Scientists-Toolbox/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1397,7 +1428,7 @@ Python编写并使用简明的数学符号</p>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-10 16:23:06" itemprop="dateModified" datetime="2019-05-10T16:23:06+08:00">2019-05-10</time>
+                <time title="修改时间：2019-05-13 00:30:44" itemprop="dateModified" datetime="2019-05-13T00:30:44+08:00">2019-05-13</time>
               
             
           </span>
@@ -1477,7 +1508,8 @@ Python编写并使用简明的数学符号</p>
 
       
         
-          <blockquote>
+          <h1 id="数据科学工具课程笔记">数据科学工具课程笔记</h1>
+<blockquote>
 <p>数据科学工具课程,包含命令行,R语言,Markdown等用法</p>
 </blockquote>
 <h2 id="cli-命令行-command-line-interface">CLI (命令行 Command Line Interface)</h2>
@@ -1658,7 +1690,7 @@ Python编写并使用简明的数学符号</p>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-07 11:53:15" itemprop="dateModified" datetime="2018-08-07T11:53:15+08:00">2018-08-07</time>
+                <time title="修改时间：2019-05-13 00:26:12" itemprop="dateModified" datetime="2019-05-13T00:26:12+08:00">2019-05-13</time>
               
             
           </span>
@@ -1738,10 +1770,10 @@ Python编写并使用简明的数学符号</p>
 
       
         
-          <blockquote>
+          <h1 id="医院病例数据分析项目">医院病例数据分析项目</h1>
+<blockquote>
 <p>JHU DataScience Specialization/Cousers Rprogramming/Week3/Course Project 3</p>
 </blockquote>
-<h1 id="医院病例数据分析">医院病例数据分析</h1>
 <p>作业练习目标:通过分析医院数据,编写函数,通过函数分析各州医院指定的病例排名</p>
 <p><a href="https://spark-public.s3.amazonaws.com/compdata/data/ProgAssignment3-data.zip" target="_blank" rel="noopener">数据文档打包</a></p>
 <ul>
@@ -1884,7 +1916,7 @@ Python编写并使用简明的数学符号</p>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-07 11:53:02" itemprop="dateModified" datetime="2018-08-07T11:53:02+08:00">2018-08-07</time>
+                <time title="修改时间：2019-05-13 00:25:25" itemprop="dateModified" datetime="2019-05-13T00:25:25+08:00">2019-05-13</time>
               
             
           </span>
@@ -1966,10 +1998,10 @@ Python编写并使用简明的数学符号</p>
 
       
         
-          <blockquote>
+          <h1 id="programming-assignment-2-函数与缓存作业">Programming Assignment 2 函数与缓存作业</h1>
+<blockquote>
 <p>JHU DataScience Specialization/Cousers R Programming/Week2/Programming Assignment 2</p>
 </blockquote>
-<h1 id="programming-assignment-2-函数与缓存">Programming Assignment 2 函数与缓存</h1>
 <p>This two functions below are used to create a special object that stores a numeric matrix and cache’s its inverse</p>
 <h2 id="第一步编写一个函数存储四个函数">第一步编写一个函数存储四个函数</h2>
 <p>makeCacheMatrix creates a list containing a function to 1. set the value of the matrix 2. get the value of the matrix 3. set the value of inverse of the matrix 4. get the value of inverse of the matrix</p>
@@ -2099,7 +2131,7 @@ Python编写并使用简明的数学符号</p>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-07 11:52:54" itemprop="dateModified" datetime="2018-08-07T11:52:54+08:00">2018-08-07</time>
+                <time title="修改时间：2019-05-13 00:23:49" itemprop="dateModified" datetime="2019-05-13T00:23:49+08:00">2019-05-13</time>
               
             
           </span>
@@ -2179,11 +2211,13 @@ Python编写并使用简明的数学符号</p>
 
       
         
-          <blockquote>
+          <h1 id="datatools-course-project-数据工具项目">Datatools Course Project 数据工具项目</h1>
+<blockquote>
 <p>JHU DataScience Specialization/Cousers The Data Scientist’s Toolbox/Week??/Course Project</p>
 </blockquote>
-<h1 id="datatools-course-project-数据科学工具">Datatools Course Project 数据科学工具</h1>
-<p>由于这个非常入门的课程，共4Week每周一个小quiz，这个应该是最后的Project忘记了 主要是熟练掌握一些R语言的数据处理工具例如 xlsx,XML等格式，以及readr这些有用的R包用法 以下代码下载资源比较大暂不执行有兴趣的读者可以自己尝试</p>
+<p>由于这个非常入门的课程，共4Week每周一个小quiz，这个应该是最后的Project忘记了<br>
+主要是熟练掌握一些R语言的数据处理工具例如 xlsx,XML等格式，以及readr这些有用的R包用法<br>
+以下代码下载资源比较大暂不执行有兴趣的读者可以自己尝试</p>
 <h2 id="读取csv格式-2006年美国社区调查acs">读取csv格式 2006年美国社区调查（ACS）</h2>
 <p>The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here:</p>
 <ul>
@@ -2384,7 +2418,7 @@ Python编写并使用简明的数学符号</p>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-10 17:18:49" itemprop="dateModified" datetime="2019-05-10T17:18:49+08:00">2019-05-10</time>
+                <time title="修改时间：2019-05-13 00:24:50" itemprop="dateModified" datetime="2019-05-13T00:24:50+08:00">2019-05-13</time>
               
             
           </span>
@@ -2466,10 +2500,10 @@ Python编写并使用简明的数学符号</p>
 
       
         
-          <blockquote>
+          <h1 id="jhu-coursera-regression-model-quizes-回归模型问题集">JHU Coursera Regression Model Quizes 回归模型问题集</h1>
+<blockquote>
 <p>JHU DataScience Specialization/Cousers Reproducible Data/Week1-4/Regression Model Quizes</p>
 </blockquote>
-<h1 id="jhu-coursera-regression-model-quizes">JHU Coursera Regression Model Quizes</h1>
 <p>主要练习手工计算回归模型的基础方法</p>
 <h2 id="week-2">Week 2</h2>
 <h3 id="quiz-1">Quiz 1</h3>
@@ -2803,7 +2837,11 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
                     
                       
                     
-                    <span class="site-state-item-count">39</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">41</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
