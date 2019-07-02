@@ -134,22 +134,23 @@
 
 
 
-  <meta name="description" content="寄件邮单内容批量修改器  法院人员批量邮寄脚本(公开法律文书)court staffs postal receipt generate 给予法院邮政人员从OA数据表(excel)和公开判决书(docx)提取当事人地址内容，批量直接生成邮单 减轻相关员负担，尤其系列案，人员多地址多，手打地址重复性劳动太多，信息容易错漏 技术:python-docx,pandas,StyleFrame,co">
+  <meta name="description" content="邮单自动批量生成器   法院法务自动化批量生成邮寄单据-Legal agency postal notes automatically generate app 给予法务邮递人员从法务OA数据表(excel)和公开的判决书(docx)提取当事人地址内容，批量直接生成邮单。 减轻相关员负担，尤其系列案，人员多地址多，手工输入地址重复性劳动太多，信息容易错漏      环境">
 <meta name="keywords" content="Python,批量,自动化,修改,邮单,快递单">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docx Content Modify">
 <meta property="og:url" content="http://yoursite.com/2019/05/11/Docx-content-modify/index.html">
 <meta property="og:site_name" content="AutozLand">
-<meta property="og:description" content="寄件邮单内容批量修改器  法院人员批量邮寄脚本(公开法律文书)court staffs postal receipt generate 给予法院邮政人员从OA数据表(excel)和公开判决书(docx)提取当事人地址内容，批量直接生成邮单 减轻相关员负担，尤其系列案，人员多地址多，手打地址重复性劳动太多，信息容易错漏 技术:python-docx,pandas,StyleFrame,co">
+<meta property="og:description" content="邮单自动批量生成器   法院法务自动化批量生成邮寄单据-Legal agency postal notes automatically generate app 给予法务邮递人员从法务OA数据表(excel)和公开的判决书(docx)提取当事人地址内容，批量直接生成邮单。 减轻相关员负担，尤其系列案，人员多地址多，手工输入地址重复性劳动太多，信息容易错漏      环境">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/05/11/Docx-content-modify/logistbrand.png">
 <meta property="og:image" content="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&logo=github&colorB=ff69b4">
 <meta property="og:image" content="https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github">
 <meta property="og:image" content="https://img.shields.io/github/license/autolordz/docx-content-modify.svg?style=popout&logo=github">
-<meta property="og:updated_time" content="2019-05-12T16:29:50.444Z">
+<meta property="og:updated_time" content="2019-07-02T09:05:27.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docx Content Modify">
-<meta name="twitter:description" content="寄件邮单内容批量修改器  法院人员批量邮寄脚本(公开法律文书)court staffs postal receipt generate 给予法院邮政人员从OA数据表(excel)和公开判决书(docx)提取当事人地址内容，批量直接生成邮单 减轻相关员负担，尤其系列案，人员多地址多，手打地址重复性劳动太多，信息容易错漏 技术:python-docx,pandas,StyleFrame,co">
-<meta name="twitter:image" content="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&logo=github&colorB=ff69b4">
+<meta name="twitter:description" content="邮单自动批量生成器   法院法务自动化批量生成邮寄单据-Legal agency postal notes automatically generate app 给予法务邮递人员从法务OA数据表(excel)和公开的判决书(docx)提取当事人地址内容，批量直接生成邮单。 减轻相关员负担，尤其系列案，人员多地址多，手工输入地址重复性劳动太多，信息容易错漏      环境">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/11/Docx-content-modify/logistbrand.png">
 
 
 
@@ -401,7 +402,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-13 00:29:50" itemprop="dateModified" datetime="2019-05-13T00:29:50+08:00">2019-05-13</time>
+                <time title="修改时间：2019-07-02 17:05:27" itemprop="dateModified" datetime="2019-07-02T17:05:27+08:00">2019-07-02</time>
               
             
           </span>
@@ -454,7 +455,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.1k</span>
+                <span title="本文字数">2.9k</span>
               
 
               
@@ -468,7 +469,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">3 分钟</span>
               
             </div>
           
@@ -488,80 +489,78 @@
       
 
       
-        <h2 id="寄件邮单内容批量修改器">寄件邮单内容批量修改器</h2>
-<blockquote>
-<p>法院人员批量邮寄脚本(公开法律文书)court staffs postal receipt generate<br>
-给予法院邮政人员从OA数据表(excel)和公开判决书(docx)提取当事人地址内容，批量直接生成邮单<br>
-减轻相关员负担，尤其系列案，人员多地址多，手打地址重复性劳动太多，信息容易错漏<br>
-技术:python-docx,pandas,StyleFrame,configparser<br>
-打包程序:pyinstaller</p>
-</blockquote>
-<p><a href="https://github.com/autolordz/docx-content-modify/releases" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&amp;logo=github&amp;colorB=ff69b4"></a><br>
-<a href="https://github.com/autolordz/docx-content-modify" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a><br>
-<a href="https://github.com/autolordz/docx-content-modify/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/docx-content-modify.svg?style=popout&amp;logo=github"></a></p>
-<h2 id="toc">TOC</h2>
-<!-- MarkdownTOC autoanchor="false" autolink="true" uri_encoding="false" -->
-<ul>
-<li><a href="#updated">Updated</a></li>
-<li><a href="#features">Features</a></li>
-<li><a href="#rules">Rules</a></li>
-<li><a href="#usage">Usage</a></li>
-<li><a href="#licence">Licence</a></li>
-</ul>
-<!-- /MarkdownTOC -->
-<h2 id="updated">Updated</h2>
-<p><a id="updated"></a></p>
-<p>【2018-11-13】</p>
+        <img src="/2019/05/11/Docx-content-modify/logistbrand.png" title="This is an image">
+<h2 id="邮单自动批量生成器">邮单自动批量生成器</h2>
 <blockquote>
 <ul>
-<li>优化配置文件日期范围和打印记录</li>
-<li>优化拷贝判决书上地址兼容性</li>
+<li>法院法务自动化批量生成邮寄单据-Legal agency postal notes automatically generate app</li>
+<li>给予法务邮递人员从法务OA数据表(excel)和公开的判决书(docx)提取当事人地址内容，批量直接生成邮单。 减轻相关员负担，尤其系列案，人员多地址多，手工输入地址重复性劳动太多，信息容易错漏</li>
 </ul>
 </blockquote>
+<p><a href="https://github.com/autolordz/docx-content-modify/releases" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&amp;logo=github&amp;colorB=ff69b4"></a> <a href="https://github.com/autolordz/docx-content-modify" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a> <a href="https://github.com/autolordz/docx-content-modify/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/docx-content-modify.svg?style=popout&amp;logo=github"></a></p>
+<h2 id="环境">环境</h2>
+<blockquote>
+<ul>
+<li>conda : 4.6.14</li>
+<li>python : 3.7.3.final.0</li>
+<li>Win10 + Spyder3.3.4 (打开脚本自上而下运行,或者自己添加main来py运行)</li>
+<li>组件: python-docx,pandas,StyleFrame,configparser<br>
+</li>
+<li>打包程序: pyinstaller</li>
+</ul>
+</blockquote>
+<h2 id="更新">更新</h2>
+<p>【2019-6-19】</p>
+<blockquote>
+<ul>
+<li>添加合并系列案功能，节省打印资源</li>
+</ul>
+</blockquote>
+<p>【2019-6-12】</p>
+<blockquote>
+<ul>
+<li>更新判决书过滤词汇</li>
+</ul>
+</blockquote>
+<h2 id="内容">内容</h2>
+<ul>
+<li>[x] 按格式重命名判决书
+<ul>
+<li>[x] 提取判决书人员和地址信息</li>
+<li>[x] 自动重命名为 <strong>判决书_AAA号_原_BBB号.docx</strong></li>
+</ul></li>
+<li>[x] 拷贝OA表记录到Data表
+<ul>
+<li>[x] 按数量提取，按日期提取，按指定案号提取</li>
+<li>[x] 整理Data表格式，对表中数据的变形，清洗，符合打印邮单的字段格式</li>
+<li>[x] 填充判决书信息到Data表</li>
+</ul></li>
+<li>[x] 按照Data表输出寄送邮单
+<ul>
+<li>[x] 填充好所有信息，再次运行就能输出Data表指定邮单</li>
+</ul></li>
+</ul>
 <a id="more"></a>
-<h2 id="features">Features</h2>
-<p><a id="features"></a></p>
-<ul>
-<li>[x] 重命名判决书
-<ul>
-<li>手动下载公开的判决书<a href="http://wenshu.court.gov.cn/" target="_blank" rel="noopener">中国裁判文书网</a></li>
-<li>自动重命名格式 <strong>判决书_XXX.docx</strong></li>
-</ul></li>
-<li>[x] 批量填充判决书地址到数据模板
-<ul>
-<li>手动从 <strong>法院人员OA系统</strong>(非公开)下载信息表</li>
-<li>自动添加OA数据<a href="./demo_docs/data_oa.xlsx">data_oa.xlsx</a>到数据模板</li>
-<li>自动填充判决书<a href="./demo_docs/jdocs">判决书_XXX.docx</a>的<strong>非精确</strong>的地址到数据模板<a href="./demo_docs/data_main.xlsx">data_main.xlsx</a></li>
-<li>手动填充<strong>精确</strong>的律师(代理人)及当事人信息</li>
-</ul></li>
-<li>[x] 批量生成寄送邮单
-<ul>
-<li>自动通过<a href="./demo_docs/sheet.docx">邮单模板</a>,批量生成寄送邮单</li>
-<li>自动生成临时文件 <strong><em>data_temp.xlsx</em></strong> 用于校对,是邮单信息来源</li>
-</ul></li>
-</ul>
-<h2 id="rules">Rules</h2>
-<p><a id="rules"></a></p>
+<h2 id="规则">规则</h2>
 <ol type="1">
 <li>当事人收信规则，没代理律师的每个当事人一份，有委托律师的只要寄给律师一份，多个律师寄给第一个律师，同一律所也是一份</li>
-<li>法院OA系统表格【data_oa.xlsx】必须包含如下字段:</li>
 </ol>
-<p>【OA.xlsx】字段: | 【立案日期】 | 【案号】 | 【原一审案号】 | 【承办人】 | 【当事人】 | 【其他】… | 注意：<strong>【承办人】转换为【主审法官】</strong></p>
-<p>【data_main.xlsx】字段:<br>
-| 【立案日期】 | 【案号】 | 【原一审案号】 | 【主审法官】 | 【当事人】 | 【诉讼代理人】 | 【地址】 | 【其他】… |</p>
-<h2 id="usage">Usage</h2>
-<p><a id="usage"></a></p>
-<ol type="1">
-<li>判决书docx文件放在 /jdocs<br>
-</li>
-<li><p>首次运行会生成配置文件conf.txt: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[config]</span><br><span class="line">data_xlsx = data_main.xlsx    <span class="comment"># 数据模板地址</span></span><br><span class="line">data_oa_xlsx = data_oa.xlsx    <span class="comment"># OA数据地址</span></span><br><span class="line">sheet_docx = sheet.docx    <span class="comment"># 邮单模板地址</span></span><br><span class="line">flag_rename_jdocs = <span class="number">1</span>    <span class="comment"># 是否重命名判决书</span></span><br><span class="line">flag_fill_jdocs_adr = <span class="number">1</span>    <span class="comment"># 是否填充判决书地址</span></span><br><span class="line">flag_fill_phone = <span class="number">0</span>    <span class="comment"># 是否填充伪手机</span></span><br><span class="line">flag_append_oa = <span class="number">1</span>    <span class="comment"># 是否导入OA数据</span></span><br><span class="line">flag_to_postal = <span class="number">1</span>    <span class="comment"># 是否打印邮单</span></span><br><span class="line">flag_check_jdocs = <span class="number">1</span>    <span class="comment"># 是否检查用户格式,输出提示信息</span></span><br><span class="line">flag_check_postal = <span class="number">0</span>    <span class="comment"># 是否检查邮单格式,输出提示信息</span></span><br><span class="line">date_range_oa_data = <span class="comment"># 2018-01-01:2018-12-01    # 导入OA和打印数据日期范围,比行数优先,去掉注释后读取,井号注释掉</span></span><br><span class="line">last_lines_oa_data = <span class="number">200</span>    <span class="comment"># 导入OA和打印数据的最后几行</span></span><br></pre></td></tr></table></figure></p></li>
-<li>首次运行会自动填写诉讼人员电话地址<br>
-</li>
-<li>修改conf.txt<br>
-</li>
-<li><p>除了部分当事人地址自动填充外,填充律师规则如下:</p></li>
+<p>1.1 判决书过滤词汇，判决书如果每行包含如下就不提取信息</p>
+<p>词汇1：法定代表|诉讼|代理人|判决|律师|请求|证据|辩称|辩论|不服<br>
+词汇2：上市|省略|区别|借款|保证|签订</p>
+<ol start="2" type="1">
+<li>字段解析:</li>
 </ol>
-<p><strong>注意：姓名要保持一致包括曾用名,姓名/姓名_电话,逗号表示分隔,顿号表示一起,’/地址：’不能缺</strong></p>
+<p>OA表【data_oa.xlsx】必须字段:<br>
+| 【立案日期】 | 【适用程序】 | 【案号】 | 【原一审案号】 | 【承办人】 | 【当事人】 | … |<br>
+Data表【data_main.xlsx】必须字段(包括程序生成):<br>
+| 【立案日期】 | 【适用程序】 | 【案号】 | 【原一审案号】 | 【判决书源号】 | 【主审法官】 | 【当事人】 | 【诉讼代理人】 | 【地址】 | … |<br>
+注意： 数据表处理后【承办人】会更换为【主审法官】</p>
+<ol start="3" type="1">
+<li>【诉讼代理人】规则:</li>
+</ol>
+<p>**注意：姓名和曾用名如例子所示，‘/’前面是当事人，后面是律师，’_‘连接电话，逗号’，‘表示分隔，顿号表示一起，’/地址：’不能缺**</p>
+<p>Data表部分字段演示：</p>
 <table>
 <colgroup>
 <col style="width: 33%">
@@ -577,30 +576,83 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td>申请人:姓名A,被申请人:姓名B</td>
-<td>姓名A/律师姓名C_电话,姓名B_电话</td>
-<td>姓名B<strong>/地址：</strong>XXX市XXX,姓名C/地址：XXX市XXX</td>
+<td>申请人:姓名AAA，被申请人:姓名BBB</td>
+<td>姓名AAA/律师姓名CCC_电话，姓名BBB_电话</td>
+<td>姓名BBB/地址：XXX市XXX，姓名CCC/地址：XXXX市XXX</td>
 </tr>
 <tr class="even">
 <td>申请人:张三(曾用名张五)、李四、王五</td>
 <td>张三(曾用名张五)/律师张二三_123123_李三四_123123</td>
-<td>张二三<strong>/地址：</strong>XXX市XXX</td>
+<td>张二三/地址：XXXX市XXX</td>
 </tr>
 <tr class="odd">
 <td>申请人:赵六(曾用名:赵五)、孙七、周八</td>
-<td>赵六(曾用名:赵五),孙七、周八/代理人吴九_123123,郑十/委托人张三_123123</td>
-<td>赵六(曾用名:赵五)/地址：XXX市XXX,吴九/地址：XXX市XXX,张三/地址：XXX市XXX</td>
+<td>赵六(曾用名:赵五)，孙七、周八/代理人吴九_123123，郑十/委托人张三_123123</td>
+<td>赵六(曾用名:赵五)/地址：XXX市XXX，吴九/地址：XXX市XXX，张三/地址：XXX市XXX</td>
 </tr>
 </tbody>
 </table>
-<ol start="6" type="1">
-<li>再次运行exe</li>
-<li>生成的邮单在<strong>postal/</strong>,当事人没有律师的单独一份,有律师的几个当事人合一份</li>
-<li>看不懂说明的可以直接下载最新的exe版本<a href="https://github.com/autolordz/docx-content-modify/releases/download/1.0.1/exe-win7win10-8962f68c.zip" target="_blank" rel="noopener">win7/win10</a></li>
+<ol start="4" type="1">
+<li>【适用程序】规则(系列案用):</li>
+</ol>
+<p>此处在OA表的【适用程序】填写,人为判断几个案是同一系列案的请在该字段中标注len(str)&gt;3的唯一记号,系列案会自动合并</p>
+<p>len(str)&gt;3 = 记号多于三个字符</p>
+<p>例如：</p>
+<table>
+<thead>
+<tr class="header">
+<th>【适用程序】</th>
+<th>【案号】</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AAA</td>
+<td>2773</td>
+</tr>
+<tr class="even">
+<td>2774-2776</td>
+<td>2774</td>
+</tr>
+<tr class="odd">
+<td>2774-2776</td>
+<td>2775</td>
+</tr>
+<tr class="even">
+<td>2774-2776</td>
+<td>2776</td>
+</tr>
+</tbody>
+</table>
+<ol start="5" type="1">
+<li>config.txt:<br>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[config]</span><br><span class="line">data_xlsx = data_main.xlsx    <span class="comment"># 数据模板地址</span></span><br><span class="line">data_oa_xlsx = data_oa.xlsx    <span class="comment"># OA数据地址</span></span><br><span class="line">sheet_docx = sheet.docx    <span class="comment"># 邮单模板地址</span></span><br><span class="line">flag_fill_jdocs_infos = <span class="number">1</span>    <span class="comment"># 是否填充判决书地址</span></span><br><span class="line">flag_append_oa = <span class="number">1</span>    <span class="comment"># 是否导入OA数据</span></span><br><span class="line">flag_to_postal = <span class="number">1</span>    <span class="comment"># 是否打印邮单</span></span><br><span class="line">flag_check_jdocs = <span class="number">0</span>    <span class="comment"># 是否检查用户格式,输出提示信息</span></span><br><span class="line">flag_check_postal = <span class="number">0</span>    <span class="comment"># 是否检查邮单格式,输出提示信息</span></span><br><span class="line">flag_output_log = <span class="number">1</span>    <span class="comment"># 是否保存打印</span></span><br><span class="line">data_case_codes =    <span class="comment"># 指定打印案号,可接多个,示例:AAA,BBB,优先级1</span></span><br><span class="line">data_date_range =   <span class="comment"># 指定打印数据日期范围示例:2018-09-01:2018-12-01,优先级2</span></span><br><span class="line">data_last_lines = <span class="number">10</span>    <span class="comment"># 指定打印最后行数,优先级3</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="详细指南">详细指南</h2>
+<p>简称：<br>
+- <a href="./demo_docs/data_oa.xlsx">A表: data_oa.xlsx,OA表自己下载,这个只是参考</a><br>
+- <a href="./demo_docs/data_main.xlsx">B表: data_main.xlsx,会自动生成,也要修改</a><br>
+- <a href="./demo_docs/jdocs/">C目录: jdocs/,判决书目录,要放下载的判决书</a><br>
+- <a href="./demo_docs/sheet.docx">D文档: sheet.docx,邮单模板,按照背景生成邮单</a><br>
+- <a href="./demo_docs/postal/">E目录: postal/,邮单目录</a></p>
+<ol type="1">
+<li><p>根据 <strong>A表</strong> 格式,整理自己的OA表(没数据是没用的),先在OA表中修改【适用程序】(系列案),修改conf.txt文件,参考<a href="#规则">规则</a>,如文件丢失再次运行会生成</p></li>
+<li><p>手动下载在线判决书<a href="http://wenshu.court.gov.cn/" target="_blank" rel="noopener">中国裁判文书网</a>,判决书docx文件放在<strong>C目录</strong></p></li>
+<li><p>第一次运行(不带【诉讼代理人】)</p></li>
+</ol>
+<p>3.2. 运行会自动重命名判决书 <strong>C目录</strong> ,提取判决书内容 <strong>address_tmp.xlsx</strong><br>
+3.3. 自动从 <strong>A表</strong> 添加数据到 <strong>B表</strong><br>
+3.4. 自动通过 <strong>D文档</strong> 批量输出寄送邮单到 <strong>E目录</strong><br>
+3.5. 自动生成临时文件 <strong><em>data_tmp.xlsx</em></strong> 用于校对,是邮单信息来源<br>
+3.6. 运行记录在log.txt</p>
+<ol start="4" type="1">
+<li><p>手动填充 <strong>完整</strong> 的律师(代理人)及当事人信息到 <strong>B表</strong>，具体是填写【诉讼代理人】信息(电话地址)，参考<a href="#规则">规则</a></p></li>
+<li><p>第二次运行(带【诉讼代理人】)<br>
+会重复 3.4. 3.5. 3.6.</p></li>
+<li><p>小白没有python环境，可以直接下载最新的exe版本，<a href="https://github.com/autolordz/docx-content-modify/releases/download/1.0.1/exe-win7win10-8962f68c.zip" target="_blank" rel="noopener">win7/win10(32/64))</a>，仍然需要设置config文件</p></li>
 </ol>
 <h2 id="licence">Licence</h2>
-<p><a id="licence"></a></p>
-<p><a href="#docx-content-modify">Go to Licence</a></p>
+<p><a href="https://github.com/autolordz/docx-content-modify/blob/master/LICENSE" target="_blank" rel="noopener">See Licence</a></p>
 <p>THE END Enjoy</p>
 
       
@@ -918,7 +970,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#寄件邮单内容批量修改器"><span class="nav-number">1.</span> <span class="nav-text">寄件邮单内容批量修改器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc"><span class="nav-number">2.</span> <span class="nav-text">TOC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#updated"><span class="nav-number">3.</span> <span class="nav-text">Updated</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#features"><span class="nav-number">4.</span> <span class="nav-text">Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rules"><span class="nav-number">5.</span> <span class="nav-text">Rules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#usage"><span class="nav-number">6.</span> <span class="nav-text">Usage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#licence"><span class="nav-number">7.</span> <span class="nav-text">Licence</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#邮单自动批量生成器"><span class="nav-number">1.</span> <span class="nav-text">邮单自动批量生成器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新"><span class="nav-number">3.</span> <span class="nav-text">更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容"><span class="nav-number">4.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规则"><span class="nav-number">5.</span> <span class="nav-text">规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细指南"><span class="nav-number">6.</span> <span class="nav-text">详细指南</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#licence"><span class="nav-number">7.</span> <span class="nav-text">Licence</span></a></li></ol></div>
             
 
           </div>
@@ -959,7 +1011,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">64k</span>
+    <span title="站点总字数">65k</span>
   
 
   

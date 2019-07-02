@@ -943,7 +943,7 @@ Python编写并使用简明的数学符号</p>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-13 00:29:50" itemprop="dateModified" datetime="2019-05-13T00:29:50+08:00">2019-05-13</time>
+                <time title="修改时间：2019-07-02 17:05:27" itemprop="dateModified" datetime="2019-07-02T17:05:27+08:00">2019-07-02</time>
               
             
           </span>
@@ -988,7 +988,7 @@ Python编写并使用简明的数学符号</p>
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.1k</span>
+                <span title="本文字数">2.9k</span>
               
 
               
@@ -1002,7 +1002,7 @@ Python编写并使用简明的数学符号</p>
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">3 分钟</span>
               
             </div>
           
@@ -1023,36 +1023,57 @@ Python编写并使用简明的数学符号</p>
 
       
         
-          <h2 id="寄件邮单内容批量修改器">寄件邮单内容批量修改器</h2>
-<blockquote>
-<p>法院人员批量邮寄脚本(公开法律文书)court staffs postal receipt generate<br>
-给予法院邮政人员从OA数据表(excel)和公开判决书(docx)提取当事人地址内容，批量直接生成邮单<br>
-减轻相关员负担，尤其系列案，人员多地址多，手打地址重复性劳动太多，信息容易错漏<br>
-技术:python-docx,pandas,StyleFrame,configparser<br>
-打包程序:pyinstaller</p>
-</blockquote>
-<p><a href="https://github.com/autolordz/docx-content-modify/releases" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&amp;logo=github&amp;colorB=ff69b4"></a><br>
-<a href="https://github.com/autolordz/docx-content-modify" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a><br>
-<a href="https://github.com/autolordz/docx-content-modify/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/docx-content-modify.svg?style=popout&amp;logo=github"></a></p>
-<h2 id="toc">TOC</h2>
-<!-- MarkdownTOC autoanchor="false" autolink="true" uri_encoding="false" -->
-<ul>
-<li><a href="#updated">Updated</a></li>
-<li><a href="#features">Features</a></li>
-<li><a href="#rules">Rules</a></li>
-<li><a href="#usage">Usage</a></li>
-<li><a href="#licence">Licence</a></li>
-</ul>
-<!-- /MarkdownTOC -->
-<h2 id="updated">Updated</h2>
-<p><a id="updated"></a></p>
-<p>【2018-11-13】</p>
+          <img src="/2019/05/11/Docx-content-modify/logistbrand.png" title="This is an image">
+<h2 id="邮单自动批量生成器">邮单自动批量生成器</h2>
 <blockquote>
 <ul>
-<li>优化配置文件日期范围和打印记录</li>
-<li>优化拷贝判决书上地址兼容性</li>
+<li>法院法务自动化批量生成邮寄单据-Legal agency postal notes automatically generate app</li>
+<li>给予法务邮递人员从法务OA数据表(excel)和公开的判决书(docx)提取当事人地址内容，批量直接生成邮单。 减轻相关员负担，尤其系列案，人员多地址多，手工输入地址重复性劳动太多，信息容易错漏</li>
 </ul>
 </blockquote>
+<p><a href="https://github.com/autolordz/docx-content-modify/releases" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&amp;logo=github&amp;colorB=ff69b4"></a> <a href="https://github.com/autolordz/docx-content-modify" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&amp;logo=github"></a> <a href="https://github.com/autolordz/docx-content-modify/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/autolordz/docx-content-modify.svg?style=popout&amp;logo=github"></a></p>
+<h2 id="环境">环境</h2>
+<blockquote>
+<ul>
+<li>conda : 4.6.14</li>
+<li>python : 3.7.3.final.0</li>
+<li>Win10 + Spyder3.3.4 (打开脚本自上而下运行,或者自己添加main来py运行)</li>
+<li>组件: python-docx,pandas,StyleFrame,configparser<br>
+</li>
+<li>打包程序: pyinstaller</li>
+</ul>
+</blockquote>
+<h2 id="更新">更新</h2>
+<p>【2019-6-19】</p>
+<blockquote>
+<ul>
+<li>添加合并系列案功能，节省打印资源</li>
+</ul>
+</blockquote>
+<p>【2019-6-12】</p>
+<blockquote>
+<ul>
+<li>更新判决书过滤词汇</li>
+</ul>
+</blockquote>
+<h2 id="内容">内容</h2>
+<ul>
+<li>[x] 按格式重命名判决书
+<ul>
+<li>[x] 提取判决书人员和地址信息</li>
+<li>[x] 自动重命名为 <strong>判决书_AAA号_原_BBB号.docx</strong></li>
+</ul></li>
+<li>[x] 拷贝OA表记录到Data表
+<ul>
+<li>[x] 按数量提取，按日期提取，按指定案号提取</li>
+<li>[x] 整理Data表格式，对表中数据的变形，清洗，符合打印邮单的字段格式</li>
+<li>[x] 填充判决书信息到Data表</li>
+</ul></li>
+<li>[x] 按照Data表输出寄送邮单
+<ul>
+<li>[x] 填充好所有信息，再次运行就能输出Data表指定邮单</li>
+</ul></li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/05/11/Docx-content-modify/#more" rel="contents">
@@ -2916,7 +2937,7 @@ Cor(Y,X) &amp;= 0.5 \qquad Sd(Y) = 1 \qquad Sd(X) = 0.5 \\
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">64k</span>
+    <span title="站点总字数">65k</span>
   
 
   
