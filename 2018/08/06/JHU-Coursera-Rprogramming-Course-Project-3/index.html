@@ -268,7 +268,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">41</span></a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">46</span></a>
   </li>
         
         
@@ -501,8 +501,8 @@
 <p>输出指定州(例子德州TX)函数(best)</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">best &lt;- <span class="keyword">function</span>(state, outcome) &#123;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">## Read the outcome data</span></span><br><span class="line">  dat &lt;- read.csv(<span class="string">"outcome-of-care-measures.csv"</span>, colClasses = <span class="string">"character"</span>)</span><br><span class="line">  <span class="comment">## Check that state and outcome are valid 病例分类，判断州名称</span></span><br><span class="line">  <span class="keyword">if</span> (!state %<span class="keyword">in</span>% unique(dat[, <span class="number">7</span>])) &#123;</span><br><span class="line">    <span class="keyword">stop</span>(<span class="string">"invalid state"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">switch</span>(outcome, `heart attack` = &#123;</span><br><span class="line">    col = <span class="number">11</span></span><br><span class="line">  &#125;, `heart failure` = &#123;</span><br><span class="line">    col = <span class="number">17</span></span><br><span class="line">  &#125;, pneumonia = &#123;</span><br><span class="line">    col = <span class="number">23</span></span><br><span class="line">  &#125;, <span class="keyword">stop</span>(<span class="string">"invalid outcome"</span>))</span><br><span class="line">  <span class="comment">## Return hospital name in that state with lowest 30-day death rate</span></span><br><span class="line">  df = dat[dat$State == state, c(<span class="number">2</span>, col)]</span><br><span class="line">  df[which.min(df[, <span class="number">2</span>]), <span class="number">1</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>例子:输出指定州(德州TX)30天死亡最率最低的医院</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## Warning <span class="keyword">in</span> which.min(df[, <span class="number">2</span>]): 强制改变过程中产生了NA</span><br></pre></td></tr></table></figure>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## [<span class="number">1</span>] <span class="string">"Hospital with lowest 30-day death rate is: CYPRESS FAIRBANKS MEDICAL CENTER"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Warning in which.min(df[, 2]): 强制改变过程中产生了NA</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] "Hospital with lowest 30-day death rate is: CYPRESS FAIRBANKS MEDICAL CENTER"</span></span></span><br></pre></td></tr></table></figure>
 <h2 id="心脏病死亡率最低医院">心脏病死亡率最低医院</h2>
 <p>输出前10字母排名州的心脏病死亡最低医院(rankall)</p>
 <a id="more"></a>
@@ -624,7 +624,7 @@
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">rankhospital &lt;- <span class="keyword">function</span>(state, outcome, num = <span class="string">"best"</span>) &#123;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">## Read the outcome data</span></span><br><span class="line">  dat &lt;- read.csv(<span class="string">"outcome-of-care-measures.csv"</span>, colClasses = <span class="string">"character"</span>)</span><br><span class="line">  <span class="comment">## Check that state and outcome are valid</span></span><br><span class="line">  <span class="keyword">if</span> (!state %<span class="keyword">in</span>% unique(dat[, <span class="number">7</span>])) &#123;</span><br><span class="line">    <span class="keyword">stop</span>(<span class="string">"invalid state"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">switch</span>(outcome, `heart attack` = &#123;</span><br><span class="line">    col = <span class="number">11</span></span><br><span class="line">  &#125;, `heart failure` = &#123;</span><br><span class="line">    col = <span class="number">17</span></span><br><span class="line">  &#125;, pneumonia = &#123;</span><br><span class="line">    col = <span class="number">23</span></span><br><span class="line">  &#125;, <span class="keyword">stop</span>(<span class="string">"invalid outcome"</span>))</span><br><span class="line">  dat[, col] = as.numeric(dat[, col])</span><br><span class="line">  df = dat[dat[, <span class="number">7</span>] == state, c(<span class="number">2</span>, col)]</span><br><span class="line">  df = na.omit(df)</span><br><span class="line">  nhospital = nrow(df)</span><br><span class="line">  <span class="keyword">switch</span>(num, best = &#123;</span><br><span class="line">    num = <span class="number">1</span></span><br><span class="line">  &#125;, worst = &#123;</span><br><span class="line">    num = nhospital</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">if</span> (num &gt; nhospital) &#123;</span><br><span class="line">    <span class="keyword">return</span>(<span class="literal">NA</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  o = order(df[, <span class="number">2</span>], df[, <span class="number">1</span>])</span><br><span class="line">  df[o, ][num, <span class="number">1</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>例子:德州心脏病死亡率第四名低的医院</p>
 <figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## Warning <span class="keyword">in</span> rankhospital(<span class="string">"TX"</span>, <span class="string">"heart attack"</span>, <span class="number">4</span>): 强制改变过程中产生了NA</span><br></pre></td></tr></table></figure>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## [<span class="number">1</span>] <span class="string">"Texias with Heart Attack and lowest 4th death rate is: PARKLAND HEALTH AND HOSPITAL SYSTEM"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] "Texias with Heart Attack and lowest 4th death rate is: PARKLAND HEALTH AND HOSPITAL SYSTEM"</span></span></span><br></pre></td></tr></table></figure>
 <center>
 <strong>THE END</strong>
 </center>
@@ -888,7 +888,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">41</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -979,7 +989,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">65k</span>
+    <span title="站点总字数">66k</span>
   
 
   
@@ -990,7 +1000,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">59 分钟</span>
+    <span title="站点阅读时长">1:01</span>
   
 </div>
 
