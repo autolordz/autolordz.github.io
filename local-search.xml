@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2026/10/31/hello-world/"/>
+    <url>/2026/10/31/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>fapiaofenxi</title>
+    <link href="/2024/06/06/fapiaofenxi/"/>
+    <url>/2024/06/06/fapiaofenxi/</url>
+    
+    <content type="html"><![CDATA[<h1 id="fapiaofenxi"><a href="#fapiaofenxi" class="headerlink" title="fapiaofenxi"></a>fapiaofenxi</h1><p>读取电子发票pdf文件及分析其内容，提取出公司开票信息内容到excel表<br>Read the PDF file of the electronic invoice and analyze its content, extract the company’s invoicing information into an Excel spreadsheet</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+      <tag>python-script</tag>
+      
+      <tag>china-region</tag>
+      
+      <tag>chinese</tag>
+      
+      <tag>company</tag>
+      
+      <tag>invoice</tag>
+      
+      <tag>invoice-pdf</tag>
+      
+      <tag>pdf-analyzer</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>invoice-sortern</title>
+    <link href="/2023/02/26/invoice-sortern/"/>
+    <url>/2023/02/26/invoice-sortern/</url>
+    
+    <content type="html"><![CDATA[<h1 id="invoice-sortern"><a href="#invoice-sortern" class="headerlink" title="invoice-sortern"></a>invoice-sortern</h1><p>一个简单用于生产和学习的自动过程脚本，适合财务人员，记账代理以及个体户管理发票门类、类别<br>想法：将QQ邮箱的发票助手下载的发票再进行分类整理</p><p><a href="https://github.com/autolordz/invoice-sortern/releases"><img src="https://img.shields.io/github/release/autolordz/invoice-sortern.svg?style=popout&logo=github&colorB=ff69b4"></a><br><a href="https://github.com/autolordz/invoice-sortern"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github"></a><br><a href="https://github.com/autolordz/invoice-sortern/blob/master/LICENSE"><img src="https://img.shields.io/github/license/autolordz/invoice-sortern.svg?style=popout&logo=github"></a></p><h2 id="Updated-on-June-1-2023"><a href="#Updated-on-June-1-2023" class="headerlink" title="Updated on June 1, 2023"></a>Updated on June 1, 2023</h2><blockquote><blockquote><p>添加处理ofd格式，添加更多类目</p></blockquote></blockquote><h2 id="Updated-on-March-31-2023-4-49-01-PM"><a href="#Updated-on-March-31-2023-4-49-01-PM" class="headerlink" title="Updated on March 31, 2023, 4:49:01 PM"></a>Updated on March 31, 2023, 4:49:01 PM</h2><blockquote><blockquote><p>添加发票号，添加更多分类，通过读取内容精确判断分类</p></blockquote></blockquote><h2 id="Updated-on-Wed-Mar-15-10-27-33-2023"><a href="#Updated-on-Wed-Mar-15-10-27-33-2023" class="headerlink" title="Updated on Wed Mar 15 10:27:33 2023"></a>Updated on Wed Mar 15 10:27:33 2023</h2><blockquote><blockquote><p>Update QQ邮箱发票助手里手动每页下载的zip包，放在一个位置，循环解压缩zip files</p></blockquote></blockquote><h2 id="Created-on-Tue-Sep-20-13-26-19-2022"><a href="#Created-on-Tue-Sep-20-13-26-19-2022" class="headerlink" title="Created on Tue Sep 20 13:26:19 2022"></a>Created on Tue Sep 20 13:26:19 2022</h2><blockquote><blockquote><p>由头，QQ邮箱发票助手发票整理给财务代理使用，例如每月下载一次发票，发票数量多没能分类，需要分类好方便报销</p></blockquote></blockquote><h3 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h3><p>文件名不需要一定按照QQ邮箱格式，会自动重命名 -&gt; XX公司-金额-时间.pdf<br>为方便可以从QQ邮箱里全选一页下载</p><h3 id="INPUT"><a href="#INPUT" class="headerlink" title="INPUT"></a>INPUT</h3><p>发票复制到要存放的文件夹路径<br>路径在代码的开头</p><h3 id="OUTPUT"><a href="#OUTPUT" class="headerlink" title="OUTPUT"></a>OUTPUT</h3><p>同文件夹输出整理好发票</p><p>公司名folder <br>├─日期folder1 <br>│  ├─类别folder1 <br>│  └─类别folder2 <br>└─日期2 <br>    ├─类别2 <br>    │      文件1.pdf <br>    │      文件2.pdf <br>    └─类别3</p><p>Licence MIT</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+      <tag>batch-processing</tag>
+      
+      <tag>invoice</tag>
+      
+      <tag>invoice-pdf</tag>
+      
+      <tag>file-manager</tag>
+      
+      <tag>file-sort-rename</tag>
+      
+      <tag>file-sorter</tag>
+      
+      <tag>file-sorting</tag>
+      
+      <tag>invoice-generator</tag>
+      
+      <tag>invoice-management</tag>
+      
+      <tag>invoice-parser</tag>
+      
+      <tag>invoices-manager</tag>
+      
+      <tag>invoices-pdf</tag>
+      
+      <tag>python-file-organiser</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>batch-suffix-change</title>
+    <link href="/2023/02/26/batch-suffix-change/"/>
+    <url>/2023/02/26/batch-suffix-change/</url>
+    
+    <content type="html"><![CDATA[<h1 id="batch-suffix-change"><a href="#batch-suffix-change" class="headerlink" title="batch-suffix-change"></a>batch-suffix-change</h1><p>文件名后缀批量更改机 File name suffix batch change script</p><p>本python脚本作用为，</p><p>简单一个tkinter界面几个按钮，学生作业级别，记录下方便大家使用</p><p>INPUT:<br>textbox1, 更改前的后缀<br>textbox2, 更改后的后缀<br>选择指定文件夹</p><p>OUTPUT:<br>文件夹内文件的后缀更改为后者</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+      <tag>automation</tag>
+      
+      <tag>batch-processing</tag>
+      
+      <tag>entry-app</tag>
+      
+      <tag>entry-level</tag>
+      
+      <tag>filerename</tag>
+      
+      <tag>lifelong-learning</tag>
+      
+      <tag>little-apps</tag>
+      
+      <tag>python-script</tag>
+      
+      <tag>rename-files</tag>
+      
+      <tag>rename-script</tag>
+      
+      <tag>school-project</tag>
+      
+      <tag>suffix-automaton</tag>
+      
+      <tag>tik</tag>
+      
+      <tag>tkinter-python</tag>
+      
+      <tag>tutorial-code</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>WechatBot</title>
+    <link href="/2023/02/08/WechatBot/"/>
+    <url>/2023/02/08/WechatBot/</url>
+    
+    <content type="html"><![CDATA[<h1 align="center">Welcome to wechat-chatgpt 👋</h1><p>  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />  <a href="#" target="_blank">    <img alt="License: ISC" src="https://img.shields.io/badge/License-ISC-yellow.svg" />  </a>  <a href="https://twitter.com/fuergaosi" target="_blank">    <img alt="Twitter: fuergaosi" src="https://img.shields.io/twitter/follow/fuergaosi.svg?style=social" />  </a>  </a>  <a href="https://discord.gg/8fXNrxwUJH" target="blank">    <img src="https://img.shields.io/discord/1058994816446369832?label=Join%20Community&logo=discord&style=flat-square" alt="join discord community of github profile readme generator"/>  </a></p><blockquote><p>Use ChatGPT On Wechat via wechaty<br>English | <a href="README_ZH.md">中文文档</a></p></blockquote><p><a href="https://railway.app/new/template/BHJD6L?referralCode=FaJtD_"><img src="https://railway.app/button.svg" alt="Deploy on Railway"></a>  </p><p>If you don’t have a server or want to experience rapid deployment, you can use Railway to do so, see <a href="#usage-with-railway">Usage with Railway</a>.</p><h3 id="Update-Decomber-27-2022"><a href="#Update-Decomber-27-2022" class="headerlink" title="Update Decomber 27, 2022"></a>Update Decomber 27, 2022</h3><p>Using railway &amp; docker deployment, there may be problems that cannot be solved, we are working on it.</p><h3 id="Update-December-20-2022"><a href="#Update-December-20-2022" class="headerlink" title="Update December 20, 2022"></a>Update December 20, 2022</h3><p>Thanks @transitive-bullshit, The ChatGPT API automates the work.<br>You should use password &amp; username to login, and config <a href="#CAPTCHAS">CAPTCHAs</a>.<br>⚠️ There may be a problem with the Docker image because I don’t have an X86 device and Qume doesn’t work.</p><h2 id="🌟-Feature"><a href="#🌟-Feature" class="headerlink" title="🌟 Feature"></a>🌟 Feature</h2><ul><li><input checked="" disabled="" type="checkbox"> Use ChatGPT On Wechat via wechaty</li><li><input checked="" disabled="" type="checkbox"> Support OpenAI Accounts Pool</li><li><input checked="" disabled="" type="checkbox"> Support use proxy to login</li><li><input checked="" disabled="" type="checkbox"> Add conversation Support</li><li><input checked="" disabled="" type="checkbox"> Add Dockerfile</li><li><input checked="" disabled="" type="checkbox"> Publish to Docker.hub</li><li><input checked="" disabled="" type="checkbox"> Add Railway deploy</li><li><input checked="" disabled="" type="checkbox"> Auto Reload OpenAI Accounts Pool</li><li><input checked="" disabled="" type="checkbox"> Add sendmessage retry for 429&#x2F;503</li></ul><h2 id="Use-with-docker-in-Linux-recommended"><a href="#Use-with-docker-in-Linux-recommended" class="headerlink" title="Use with docker in Linux(recommended)"></a>Use with docker in Linux(recommended)</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cp</span> config.yaml.example config.yaml<br><span class="hljs-comment"># Change Config.yaml</span><br><span class="hljs-comment"># run docker command in Linux or WindowsPowerShell</span><br>docker run -d --name wechat-chatgpt -v $(<span class="hljs-built_in">pwd</span>)/config.yaml:/app/config.yaml holegots/wechat-chatgpt:latest<br><span class="hljs-comment"># login with qrcode</span><br>docker logs -f wechat-chatgpt<br></code></pre></td></tr></table></figure><h2 id="Use-with-docker-in-Windows"><a href="#Use-with-docker-in-Windows" class="headerlink" title="Use with docker in Windows"></a>Use with docker in Windows</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># Create and modify config.yaml in the current directory</span><br><span class="hljs-comment"># run docker command in WindowsPowerShell</span><br>docker run -d --name wechat-chatgpt -v $(<span class="hljs-built_in">pwd</span>)/config.yaml:/app/config.yaml holegots/wechat-chatgpt:latest<br><span class="hljs-comment"># In the Windows command line (cmd) environment, you may mount the current directory like this:</span><br>docker run -d --name wechat-chatgpt -v %<span class="hljs-built_in">cd</span>%/config.yaml:/app/config.yaml holegots/wechat-chatgpt:latest<br><span class="hljs-comment"># login with qrcode</span><br>docker logs -f wechat-chatgpt<br></code></pre></td></tr></table></figure><h2 id="Upgrade-docker-image-version"><a href="#Upgrade-docker-image-version" class="headerlink" title="Upgrade docker image version"></a>Upgrade docker image version</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh">docker pull holegots/wechat-chatgpt:latest<br>docker stop wechat-chatgpt<br>docker <span class="hljs-built_in">rm</span> wechat-chatgpt<br><span class="hljs-comment"># run docker command in Linux or WindowsPowerShell</span><br>docker run -d --name wechat-chatgpt -v $(<span class="hljs-built_in">pwd</span>)/config.yaml:/app/config.yaml holegots/wechat-chatgpt:latest<br><span class="hljs-comment"># In the Windows command line (cmd) environment, you may mount the current directory like this:</span><br>docker run -d --name wechat-chatgpt -v %<span class="hljs-built_in">cd</span>%/config.yaml:/app/config.yaml holegots/wechat-chatgpt:latest<br><span class="hljs-comment"># login with qrcode</span><br>docker logs -f wechat-chatgpt<br></code></pre></td></tr></table></figure><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm install<br></code></pre></td></tr></table></figure><blockquote><p>NodeJS Version &gt;&#x3D; 18.0.0</p></blockquote><h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><h3 id="Copy-config"><a href="#Copy-config" class="headerlink" title="Copy config"></a>Copy config</h3><p>You need copy config file for setting up your project.</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cp</span> config.yaml.example config.yaml<br></code></pre></td></tr></table></figure><h3 id="Get-and-config-Openai-account"><a href="#Get-and-config-Openai-account" class="headerlink" title="Get and config Openai account"></a>Get and config Openai account</h3><blockquote><p>If you don’t have this OpenAI account and you live in China, you can get it <a href="https://mirror.xyz/boxchen.eth/9O9CSqyKDj4BKUIil7NC1Sa1LJM-3hsPqaeW_QjfFBc">here</a>.</p></blockquote><h4 id="Use-account-and-password"><a href="#Use-account-and-password" class="headerlink" title="Use account and password"></a>Use account and password</h4><p>You need get OpenAI account and password.<br>Your config.yaml should be like this:</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">chatGPTAccountPool:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">email:</span> <span class="hljs-string">&lt;your</span> <span class="hljs-string">email&gt;</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">&lt;your</span> <span class="hljs-string">password&gt;</span><br><span class="hljs-comment"># if you hope only some keywords can trigger chatgpt on private chat, you can set it like this:</span><br><span class="hljs-attr">chatPrivateTiggerKeyword:</span> <span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure><p>⚠️ Trigger keywords must appear in the first position of the received message.<br>⚠️ Pls make sure your network can log in to OpenAI, and if you fail to login in try setting up a proxy or using SessionToken.</p><p><strong>Setup proxy:</strong></p><p>You can configure in <code>config.yaml</code>:</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">openAIProxy:</span> <span class="hljs-string">&lt;Your</span> <span class="hljs-string">Proxy&gt;</span><br></code></pre></td></tr></table></figure><h3 id="CAPTCHAS"><a href="#CAPTCHAS" class="headerlink" title="CAPTCHAS"></a>CAPTCHAS</h3><blockquote><p>The browser portions of this package use Puppeteer to automate as much as possible, including solving all CAPTCHAs. 🔥</p></blockquote><blockquote><p>Basic Cloudflare CAPTCHAs are handled by default, but if you want to automate the email + password Recaptchas, you’ll need to sign up for one of these paid providers:</p></blockquote><blockquote><ul><li><a href="https://nopecha.com/">nopecha</a> - Uses AI to solve CAPTCHAS<ul><li>Faster and cheaper</li><li>Set the <code>NOPECHA_KEY</code> env var to your nopecha API key</li><li><a href="https://user-images.githubusercontent.com/552829/208235991-de4890f2-e7ba-4b42-bf55-4fcd792d4b19.mp4">Demo video</a> of nopecha solving the login Recaptcha (41 seconds)</li></ul></li><li><a href="https://2captcha.com/">2captcha</a> - Uses real people to solve CAPTCHAS<ul><li>More well-known solution that’s been around longer</li><li>Set the <code>CAPTCHA_TOKEN</code> env var to your 2captcha API token</li></ul></li></ul></blockquote><p>So you should config <code>NOPECHA_KEY</code> or <code>CAPTCHA_TOKEN</code> in your Environment Variables.</p><h2 id="Start-Project"><a href="#Start-Project" class="headerlink" title="Start Project"></a>Start Project</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm run dev<br></code></pre></td></tr></table></figure><h2 id="Usage-with-Railway"><a href="#Usage-with-Railway" class="headerlink" title="Usage with Railway"></a>Usage with Railway</h2><p><a href="https://railway.app/">Railway</a> is a deployment platform where you can provision infrastructure, develop with that infrastructure locally, and then deploy to the cloud.This section describes how to quickly deploy a wechat-chatgpt project using Railway.</p><p>Firstly, you’ll need to sign up for a Railway account and sign in using GitHub verification.</p><p>Then click the one-click deployment button below to deploy.</p><p><a href="https://railway.app/new/template/BHJD6L?referralCode=FaJtD_"><img src="https://railway.app/button.svg" alt="Deploy on Railway"></a></p><p>After some validation is complete, you can begin the deployment.You will see the following interface:</p><p><img src="https://raw.githubusercontent.com/autolordz/WechatBot/refs/heads/main/docs/images/railway-deployment.png" alt="railway-deployment"></p><p>Some environment variables need to be configured:</p><ul><li><p><strong>CHAT_GPT_EMAIL</strong> : Your OpenAI Account email.</p></li><li><p><strong>CHAT_GPT_PASSWORD</strong> : Your OpenAI Account password.</p></li><li><p><strong>CHAT_GPT_RETRY_TIMES</strong> : The number of times to retry when the OpenAI API returns 429 or 503.</p></li><li><p><strong>CHAT_PRIVATE_TRIGGER_KEYWORD</strong> : If you hope only some keywords can trigger chatgpt on private chat, you can set it.</p></li></ul><p>Click the Deploy button and your service will start deploying shortly.The following interface appears to indicate that the deployment has begun:</p><p><img src="https://raw.githubusercontent.com/autolordz/WechatBot/refs/heads/main/docs/images/railway-deploying.png" alt="railway-deploying"></p><p>When the deployment is displayed successfully, click to view the logs and find the WeChat login link in Deploy Logs.</p><p><img src="https://raw.githubusercontent.com/autolordz/WechatBot/refs/heads/main/docs/images/railway-deployed.png" alt="railway-deployed"></p><p>Click to enter and use your prepared WeChat to scan the code to log in.</p><p>Log in successfully and start sending and receiving messages(This process can take several minutes):</p><p><img src="https://raw.githubusercontent.com/autolordz/WechatBot/refs/heads/main/docs/images/railway-succeed.png" alt="railway-success"></p><p>Besides, in deployment, you may encounter the following issues:</p><ul><li><strong>Error: ⚠️ No chatgpt item in pool</strong> : This error means that you have not configured the OpenAI account information correctly. You can solve this problem from the following aspects:1. Check whether the token or openAI account and password are filled in correctly. 2. Redeploy Current Services.Note that the above should be modified on the Variables page in Railway Dashboard. 3. Please make sure that CloudFlare human authentication is present, if it is, Headless browser may not be able to simulate logging into OpenAI.</li><li><strong>After the deployment is complete, the QR code is not generated</strong>.Try <strong>refreshing</strong> the page to see again if the Deploy Logs panel generated a link and QR code.</li><li><strong>The generated QR code cannot be scanned</strong>.On the generated QR code, there is a link that can be clicked to scan the QR code.</li><li><strong>Message feedback is very slow</strong>.Because Railway’s servers are deployed overseas, there is an increase in message feedback latency, but it is still within the acceptance range. If you are time sensitive, you can use your own server deployment.</li></ul><p>If you are logging in for the first time, then you need to scan the qrcode.</p><h2 id="✨-Contributor"><a href="#✨-Contributor" class="headerlink" title="✨ Contributor"></a>✨ Contributor</h2><a href="https://github.com/fuergaosi233/wechat-chatgpt/graphs/contributors">  <img src="https://contrib.rocks/image?repo=fuergaosi233/wechat-chatgpt" /></a><h2 id="🤝-Contributing"><a href="#🤝-Contributing" class="headerlink" title="🤝 Contributing"></a>🤝 Contributing</h2><p>Contributions, issues and feature requests are welcome!<br />Feel free to check <a href="https://github.com/fuergaosi233/wechat-chatgpt/issues">issues page</a>.</p><h2 id="Show-your-support"><a href="#Show-your-support" class="headerlink" title="Show your support"></a>Show your support</h2><p>Give a ⭐️ if this project helped you!</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Car-Evaluation-Analysis</title>
+    <link href="/2019/05/10/Car-Evaluation-Analysis/"/>
+    <url>/2019/05/10/Car-Evaluation-Analysis/</url>
+    
+    <content type="html"><![CDATA[<h2 id="汽车数据R语言机器学习分析"><a href="#汽车数据R语言机器学习分析" class="headerlink" title="汽车数据R语言机器学习分析"></a>汽车数据R语言机器学习分析</h2><ul><li>title: “Car Evaluation Analysis”</li><li>author: “Suraj Vidyadaran”</li><li>date: “Sunday, February 21, 2016”</li><li>output: md_document</li></ul><p>对汽车数据使用17种分类算法进行数据分析,对代码进行实践应用和内容翻译 </p><ul><li><a href="#load-the-data-%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE">Load the data 读取数据</a></li><li><a href="#exploratory-data-analysis-%E6%8E%A2%E7%B4%A2%E6%95%B0%E6%8D%AE">Exploratory Data Analysis 探索数据</a></li><li><a href="#classification-analysis-%E5%88%86%E7%B1%BB">Classification Analysis 分类</a><ul><li><a href="#linear-classification-%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB">Linear Classification 线性分类</a><ul><li><a href="#1-logistic-regression-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92">1 Logistic Regression 逻辑回归</a></li><li><a href="#2-linear-discriminant-analysis-%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB">2 Linear Discriminant Analysis 线性判别</a></li></ul></li><li><a href="#non-linear-classification-%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB">Non-Linear Classification 非线性分类</a><ul><li><a href="#3-mixture-discriminant-analysis-%E6%B7%B7%E5%90%88%E5%88%A4%E5%88%AB">3 Mixture Discriminant Analysis 混合判别</a></li><li><a href="#4-quadratic-discriminant-analysis-%E4%BA%8C%E6%AC%A1%E5%88%A4%E5%88%AB">4 Quadratic Discriminant Analysis 二次判别</a></li><li><a href="#5-regularized-discriminant-analysis-%E6%AD%A3%E5%88%99%E7%BA%A6%E6%9D%9F%E5%88%A4%E5%88%AB">5 Regularized Discriminant Analysis 正则约束判别</a></li><li><a href="#6-neural-network-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">6 Neural Network 神经网络</a></li><li><a href="#7-flexible-discriminant-analysis-%E5%BC%B9%E6%80%A7%E5%88%A4%E5%88%AB">7 Flexible Discriminant Analysis 弹性判别</a></li><li><a href="#8-support-vector-machine-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA">8 Support Vector Machine 支持向量机</a></li><li><a href="#9-k-nearest-neighbors-k%E8%BF%91%E9%82%BB">9 k-Nearest Neighbors k近邻</a></li><li><a href="#10-naive-bayes-%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF">10 Naive Bayes 朴素贝叶斯</a></li></ul></li><li><a href="#non-linear-classification-with-decision-trees-%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%A0%91%E6%A8%A1%E5%9E%8B">Non-Linear Classification with Decision Trees 非线性树模型</a><ul><li><a href="#11-classification-and-regression-treescart-%E5%88%86%E7%B1%BB%E5%9B%9E%E5%BD%92%E6%A0%91">11 Classification and Regression Trees(CART) 分类回归树</a></li><li><a href="#12-c45-c45%E6%A0%91">12 C4.5 C4.5树</a></li><li><a href="#13-part-%E5%88%86%E5%8C%BA%E6%A0%91">13 PART 分区树</a></li><li><a href="#14-bagging-cart-%E8%83%8C%E5%8C%85%E6%A0%91">14 Bagging CART 背包树</a></li><li><a href="#15-random-forest-%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97">15 Random Forest 随机森林</a></li><li><a href="#16-gradient-boosted-machine-%E6%A2%AF%E5%BA%A6%E5%8A%A0%E9%80%9F%E6%9C%BA%E5%99%A8">16 Gradient Boosted Machine 梯度加速机器</a></li><li><a href="#17-boosted-c50-%E5%8A%A0%E9%80%9F%E6%A0%91">17 Boosted C5.0 加速树</a></li></ul></li></ul></li></ul><p>Licence MIT</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+      <tag>algorithms</tag>
+      
+      <tag>classification</tag>
+      
+      <tag>data-science</tag>
+      
+      <tag>dataanalysis</tag>
+      
+      <tag>machine-learning</tag>
+      
+      <tag>r-code</tag>
+      
+      <tag>rstudio</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>gradient-descent-optimization</title>
+    <link href="/2019/04/22/gradient-descent-optimization/"/>
+    <url>/2019/04/22/gradient-descent-optimization/</url>
+    
+    <content type="html"><![CDATA[<h1 id="梯度下降优化算法"><a href="#梯度下降优化算法" class="headerlink" title="梯度下降优化算法"></a>梯度下降优化算法</h1><p>a python script of a function summarize some popular methods about gradient descent<br>一个python数值模拟脚本,包含诸多概念和算法<br>监督学习目标函数：线性回归,普通最小二乘OLS,二次型函数,闭式解和梯度解<br>非监督学习目标函数：矩阵近似, 矩阵分解, 分数推荐<br>机器学习、函数逼近模型和凸优化求解的练手项目<br>Python编写和使用简明的数学符号  </p><h2 id="Updated"><a href="#Updated" class="headerlink" title="Updated"></a>Updated</h2><p>【2019-8-30】<br>添加contour轮廓线<br><img src="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/gcontour1.png"></p><p>【2019-5-6】<br>矩阵分解和推荐系统等内容<br>下图展示非约束矩阵分解的矩阵填充 <a href="https://github.com/cran/softImpute/blob/master/R/simpute.svd.R">参考softImpute_R_code</a><br>n_X是方阵大小, den_X是稀疏密度0~1，k值是选取多少个svd变量，称截取svd<br>x坐标是迭代次数，y坐标是目标函数(矩阵F范数)<br><img src="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/mimpute1.png"></p><p>【2019-4-25】<br>添加约束优化L1L2等内容<br><img src="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/gf4.png"></p><h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul><li><input checked="" disabled="" type="checkbox"> 一阶优化(非约束)<ul><li>原版<ul><li>GD&#x2F;SGD&#x2F;minibatch-GD 全批&#x2F;随机&#x2F;小批梯度下降 mm10</li></ul></li><li>带动量<ul><li>Polyak’s 动量 mm21,mm22</li><li>Nesterov 加速梯度 (NAG) ,mm23,mm24,mm25</li></ul></li></ul></li><li><input checked="" disabled="" type="checkbox"> 二阶优化<ul><li>牛顿法 mm30</li><li>沿直线最小化 mm31</li><li>共轭梯度法 mm32</li><li>拟牛顿法Quasi-Newton(Broyden) mm33</li></ul></li><li><input checked="" disabled="" type="checkbox"> 非凸优化<ul><li>Adagrad(自适应梯度) mm40</li><li>RMSProp mm41</li><li>Adadelta mm42</li><li>Adam mm43</li><li>AdaMax mm44</li><li>Nadam mm45</li><li>AMSGrad mm46</li></ul></li><li><input checked="" disabled="" type="checkbox"> 坐标下降<ul><li>循环坐标逐步(闭式解) mm90,mm91</li><li>随机坐标下降 mm92</li><li>循环块坐标 mm93</li><li>随机块坐标 mm94</li></ul></li><li><input checked="" disabled="" type="checkbox"> 速率(学习率)<ul><li>Armijo rules</li></ul></li><li><input checked="" disabled="" type="checkbox"> 约束优化<ul><li>L0(Best subset selection)<ul><li>向前逐步回归(匹配追踪)</li></ul></li><li>L1(Lasso) <ul><li>软阈值坐标下降,近端梯度(广义梯度) mm52</li><li>对偶ADMM mm54</li><li>FISTA (NAG 近端梯度版) mm26</li></ul></li><li>L2(岭回归) mm51</li><li>L2(组Lasso)</li><li>L1+L2(弹性网) mm53</li><li>L1+L2(稀疏组Lasso)</li></ul></li><li><input checked="" disabled="" type="checkbox"> 矩阵相关<ul><li>[x]矩阵填充(分解)<ul><li>稀疏矩阵近似 ∥∥Z^∥∥l1 ≤ c</li><li>奇异值分解 rank(Z^) ≤ c</li><li>原子范数约束  ∥∥Z^∥∥⋆ ≤ c</li><li>惩罚SVD Z^&#x3D;UDVT,ϕ1(uj)≤c1,ϕ2(vk)≤c2</li></ul></li></ul></li><li><input disabled="" type="checkbox"> 非凸约束<ul><li>自适应Lasso</li></ul></li></ul><h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>spyder下直接块运行<br>或者py xxx.py</p><p>Sample:<br><img src="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/gf1.png"><br><img src="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/gf2.png"><br><img src="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/gf3.png"></p><p>矩阵近似(填充)的推荐系统:  </p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python">===svd aproxi===  <br>====r= <span class="hljs-number">2</span> =====  <br><br> <span class="hljs-number">0.47</span> %  <br> <span class="hljs-number">0.94</span> %  <br><span class="hljs-number">1</span> : obj= <span class="hljs-number">0.04616</span> ratio= <span class="hljs-number">0.7232133195138838</span>  <br>[[ <span class="hljs-number">0.865</span>  <span class="hljs-number">0.016</span>  <span class="hljs-number">0.175</span>    nan    nan]  <br> [-<span class="hljs-number">0.6</span>      nan -<span class="hljs-number">0.212</span>    nan    nan]  <br> [-<span class="hljs-number">0.717</span>    nan    nan  <span class="hljs-number">0.064</span> -<span class="hljs-number">0.098</span>]  <br> [ <span class="hljs-number">0.697</span> -<span class="hljs-number">0.503</span>  <span class="hljs-number">0.558</span>  <span class="hljs-number">1.544</span>    nan]  <br> [ <span class="hljs-number">1.231</span> -<span class="hljs-number">0.342</span> -<span class="hljs-number">0.81</span>  -<span class="hljs-number">0.82</span>  -<span class="hljs-number">0.133</span>]  <br> [ <span class="hljs-number">0.266</span>  <span class="hljs-number">0.145</span>    nan    nan -<span class="hljs-number">2.241</span>]]  <br><br> [[ <span class="hljs-number">8.655e-01</span>  <span class="hljs-number">1.565e-02</span>  <span class="hljs-number">1.748e-01</span>  <span class="hljs-number">1.223e-03</span> -<span class="hljs-number">2.939e-02</span>]  <br> [-<span class="hljs-number">6.004e-01</span> -<span class="hljs-number">1.474e-01</span> -<span class="hljs-number">2.119e-01</span> -<span class="hljs-number">3.598e-02</span>  <span class="hljs-number">1.956e-02</span>]  <br> [-<span class="hljs-number">7.169e-01</span> -<span class="hljs-number">1.224e-01</span>  <span class="hljs-number">2.289e-02</span>  <span class="hljs-number">6.437e-02</span> -<span class="hljs-number">9.754e-02</span>]  <br> [ <span class="hljs-number">6.966e-01</span> -<span class="hljs-number">5.033e-01</span>  <span class="hljs-number">5.585e-01</span>  <span class="hljs-number">1.544e+00</span> -<span class="hljs-number">2.776e-01</span>]  <br> [ <span class="hljs-number">1.231e+00</span> -<span class="hljs-number">3.423e-01</span> -<span class="hljs-number">8.103e-01</span> -<span class="hljs-number">8.201e-01</span> -<span class="hljs-number">1.326e-01</span>]  <br> [ <span class="hljs-number">2.664e-01</span>  <span class="hljs-number">1.449e-01</span> -<span class="hljs-number">3.540e-02</span>  <span class="hljs-number">2.657e-01</span> -<span class="hljs-number">2.241e+00</span>]]  <br></code></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://esl.hohoweiya.xyz/">The Elements of Statistical Learning 统计学习基础(配中文)</a><br><a href="https://item.jd.com/12483083.html">数据科学实战速查表</a><br><a href="http://ruder.io/optimizing-gradient-descent/index.html#nesterovacceleratedgradient">梯度下降总结</a><br><a href="https://www.cs.cmu.edu/~ggordon/10725-F12/schedule.html">卡内基凸优化2012秋</a><br><a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">SGD wiki</a><br><a href="https://en.wikipedia.org/wiki/Backtracking_line_search">Armijo wiki</a><br><a href="https://en.wikipedia.org/wiki/Wolfe_conditions">Wolfe wiki</a><br><a href="https://en.wikipedia.org/wiki/Quasi-Newton_method">Quasi-Newton wiki</a><br><a href="https://item.jd.com/12444377.html">分布式机器学习:算法、理论与实践-第4、5章</a><br><a href="https://item.jd.com/12316912.html">深度学习核心技术与实践-第6章</a><br><a href="hagan.okstate.edu/nnd.html">神经网络设计-第9章</a><br><a href="https://web.stanford.edu/~hastie/StatLearnSparsity_files/SLS_corrected_1.4.16.pdf">statistical learning with sparsity</a><br><a href="https://item.jd.com/12296738.html">稀疏统计学习及其应用[中文]</a><br><a href="https://stats.stackexchange.com/questions/123672/coordinate-descent-soft-thresholding-update-operator-for-lasso">坐标下降软阈值Lasso推导</a><br><a href="https://book.douban.com/subject/1257113/">矩阵分析与应用-张贤达-第3、4章</a>  </p><h2 id="Licence"><a href="#Licence" class="headerlink" title="Licence"></a>Licence</h2><p><a href="#gradient-descent-optimization">MIT Go to this</a></p><p>THE END<br>Enjoy</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+      <tag>algorithms</tag>
+      
+      <tag>machine-learning</tag>
+      
+      <tag>adagrad</tag>
+      
+      <tag>coordinate-descent</tag>
+      
+      <tag>gradient-descent</tag>
+      
+      <tag>impute-algorithm</tag>
+      
+      <tag>least-squares</tag>
+      
+      <tag>math</tag>
+      
+      <tag>mathematical-modelling</tag>
+      
+      <tag>matrix-decompositions</tag>
+      
+      <tag>matrix-factorization</tag>
+      
+      <tag>momentum-strategy</tag>
+      
+      <tag>optimization-algorithms</tag>
+      
+      <tag>plotly</tag>
+      
+      <tag>plotting-in-python</tag>
+      
+      <tag>simulation</tag>
+      
+      <tag>simulation-modeling</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JHU-DataScience-Course-Serials</title>
+    <link href="/2019/04/04/JHU-DataScience-Course-Serials/"/>
+    <url>/2019/04/04/JHU-DataScience-Course-Serials/</url>
+    
+    <content type="html"><![CDATA[<h1 id="JHU-DataScience-Course-Serials"><a href="#JHU-DataScience-Course-Serials" class="headerlink" title="JHU-DataScience-Course-Serials"></a>JHU-DataScience-Course-Serials</h1><p>JHU-DataScience-Coursera-Serials</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>file-batch-renamer</title>
+    <link href="/2018/12/04/file-batch-renamer/"/>
+    <url>/2018/12/04/file-batch-renamer/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Python-批量重命名文件"><a href="#Python-批量重命名文件" class="headerlink" title="Python 批量重命名文件"></a>Python 批量重命名文件</h2><ul><li>一个基于Python的终极重命名机</li><li>a file batch renamer based on python (include Chinese)</li><li>用于自动对文件夹里大部分类型的文件进行分析，并批量重命名</li><li>重命名文件自古就是繁琐事情，谁用谁指导</li><li>方便处理IT办公文件和下载文件夹的杂乱文件</li><li>简单练手，练手第三方包，编写环节综合到各方面，python初学者必备</li><li>基于云端和本地，也可以本地</li><li>对小白提供(exe)，云端提供临时服务器</li></ul><p><a href="https://github.com/autolordz/file-batch-renamer"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github"></a><br><a href="https://github.com/autolordz/file-batch-renamer/blob/master/LICENSE"><img src="https://img.shields.io/github/license/autolordz/file-batch-renamer.svg?style=popout&logo=github"></a></p><h2 id="Tika版架构"><a href="#Tika版架构" class="headerlink" title="Tika版架构"></a>Tika版架构</h2><p><img src="https://raw.githubusercontent.com/autolordz/file-batch-renamer/refs/heads/master/img_tmp/flow.jpg"><br>(假如条件不允许可以全部本地化)  </p><h2 id="Updated"><a href="#Updated" class="headerlink" title="Updated"></a>Updated</h2><ul><li><p>Updated 2019.8.10:</p><ul><li><strong>Apache Tika</strong> 版改进，基于云端和本地，终极自动重命名机</li></ul></li><li><p>Updated 2019.1.2:  </p><ul><li>新版 <strong>Apache Tika</strong> 解析全文件版本 </li><li>旧版 <strong>Python 3rd party</strong> 解析文件版本</li></ul></li></ul><span id="more"></span><hr><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul><li><p>conda : 4.6.14</p></li><li><p>python : 3.7.3</p></li><li><p>Win10 + Spyder3.3.4 (打开脚本自上而下运行,或者自己添加main来py运行)</p></li><li><p>组件: tika版 </p><ul><li><a href="https://pypi.org/project/zhon/">zhon</a> 提供中文字符</li><li><a href="https://pypi.org/project/opencv-python/">opencv</a> 处理图片,阈值滤镜等</li><li><a href="https://pypi.org/project/Pillow/">PIL</a> 处理图片</li><li><a href="https://pypi.org/project/PyMuPDF/">fitz</a> 提取PDF图片</li><li><a href="https://github.com/fxsjy/jieba">jieba</a> 分词词干识别</li><li>[numpy,requests,string,json,glob,time,os,re,string,subprocess,configparser,BeautifulSoup4]</li><li><a href="https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html">Java jre-8u91-windows-x64</a> Jre8 is at least and fitting package</li><li><a href="https://www.apache.org/dyn/closer.cgi/tika/tika-server-1.22.jar">tika server</a> 工程没附带，一定要下载</li><li><strong>Tesseract 云端</strong> 参考云端[Tesseract]安装</li></ul></li><li><p>组件: 普通版 </p><ul><li><a href="https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w32-setup-v4.0.0.20181030.exe">Tesseract v4.0</a> Tesseract for Image OCR</li><li>[PyPDF2,pdfminer,pytesseract,docx,pptx,xlrd,PIL,extrectImage]</li></ul></li><li><p>打包程序: pyinstaller</p></li></ul><ul><li><strong>以下重点更新和维护Tika版，普通版代码保留</strong></li></ul><h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><ul><li><p><input checked="" disabled="" type="checkbox"> 按以下格式重命名</p><ul><li><input checked="" disabled="" type="checkbox"> [‘.txt’,’.html’,’.epub’,’.chm’,’.wps’,’.md’,<br>   ‘.doc’,’.odt’,’.docx’,’.xlsx’,’.csv’,’.xls’,’.rtf’,<br>   ‘.rar’,’.zip’,’.tar’,’.tgz’,’.7z’,<br>   ‘.mp4’,’.gif’,’.flv’,’.mkv’,’.swf’,’.psd’,<br>   ‘.mp3’,’.m4a’,’.flac’,<br>   ‘.pdf’,]</li><li><input checked="" disabled="" type="checkbox"> [‘.ppt’,’.pptx’,’.pptm’]</li><li><input checked="" disabled="" type="checkbox"> [‘.png’,’.jpg’,’.jpeg’,’.bmp’,’.tif’]</li><li><input checked="" disabled="" type="checkbox"> others (rules follow <a href="http://tika.apache.org/1.20/formats.html">tika</a>)</li></ul></li><li><p><input checked="" disabled="" type="checkbox"> 过滤下格式非重命名</p><ul><li><input checked="" disabled="" type="checkbox"> [‘.bat’,’.jar’,’.exe’,’.py’,’.ini’]</li></ul></li><li><p><input checked="" disabled="" type="checkbox"> 支持平台</p><ul><li><input checked="" disabled="" type="checkbox"> win7 32bit,win10 64bit,其他平台请按错误修改代码</li></ul></li></ul><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>相关文件在flask_app目录</p><ul><li>云端[tika]部署</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">Centos启动 tika</span> <br>nohup java -Djava.awt.headless=true -jar tika-server.jar --host=yourhost --port=3232 &gt;/dev/null &amp;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">Centos终止</span> <br>ps -ef | grep tika-server | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9 <br></code></pre></td></tr></table></figure><ul><li>本地[tika]部署</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">win启动 tika</span> <br><br>start /b java -Djava.awt.headless=true -jar tika-server.jar --config=tika-config.xml --host=127.0.0.1 --port=3232<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">[tika-config.xml 用于跳过本地Tesseract,加速非图片文件读取速度]</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">Win终止</span> <br><br>taskkill /F /FI &quot;IMAGENAME eq java.exe&quot;<br></code></pre></td></tr></table></figure><ul><li>云端[flask]部署</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">启动</span><br>nohup python3 /pyweb/app.py &gt;/dev/null &amp;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">终止</span> <br>ps -ef | grep pyweb | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9<br></code></pre></td></tr></table></figure><ul><li><p>云端[Tesseract]安装</p><ul><li>Centos 6.5 安装 Tesseract 4+  </li><li>参考 <a href="https://www.jianshu.com/p/bf8521703143">https://www.jianshu.com/p/bf8521703143</a> 差异如下:  </li><li>autoconf-2.63-5.1.el6.noarch 不用 2.69 也行，保留  </li><li>实际安装了 autoconf-archive-2015.02.24-1.sdl6.noarch.rpm</li></ul></li><li><p>客户端安装</p><ul><li>installplug.bat -&gt; 安装 java 环境</li><li>需要处理文件放在target目录</li><li>点击 -&gt; batch-renamer-tika.exe -&gt; 处理target目录</li><li>cmd -&gt; batch-renamer-tika.py ‘yourfile’ -&gt; 处理yourfile(文件|目录)</li></ul></li></ul><h2 id="未来"><a href="#未来" class="headerlink" title="未来"></a>未来</h2><ul><li><input checked="" disabled="" type="checkbox"> 以文件开始内容命名</li><li><input checked="" disabled="" type="checkbox"> 识别图像内容命名</li><li><input disabled="" type="checkbox"> 提取文章(jieba)关键词命名</li><li><input disabled="" type="checkbox"> 提取文章摘要(NLP)命名</li></ul><h2 id="Licence"><a href="#Licence" class="headerlink" title="Licence"></a>Licence</h2><p><a href="#file-batch-renamer">See Licence</a></p><p>That’s it,enjoy.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+      <tag>rename-files</tag>
+      
+      <tag>python</tag>
+      
+      <tag>chinese</tag>
+      
+      <tag>batch-rename-files</tag>
+      
+      <tag>batch-renamer</tag>
+      
+      <tag>file-format</tag>
+      
+      <tag>file-rename</tag>
+      
+      <tag>file-renaming</tag>
+      
+      <tag>pdf-rename</tag>
+      
+      <tag>python3</tag>
+      
+      <tag>renamer</tag>
+      
+      <tag>windows-desktop</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>docx-content-modify</title>
+    <link href="/2018/08/31/docx-content-modify/"/>
+    <url>/2018/08/31/docx-content-modify/</url>
+    
+    <content type="html"><![CDATA[<h2 id="邮单自动批量生成器"><a href="#邮单自动批量生成器" class="headerlink" title="邮单自动批量生成器"></a>邮单自动批量生成器</h2><blockquote><ul><li>法院法务自动化批量生成邮寄单据-Legal agency postal notes automatically generate app</li><li>给予法务邮递人员从法务OA数据表(excel)和公开的判决书(docx)，提取’当事人’的地址信息等相关字段，组合成新数据表，根据这个数据表批量直接生成寄送当事人的邮单。</li><li>以此减轻相关员负担，尤其系列案，人员多地址多，手工输入地址重复性劳动太多，信息容易错漏</li></ul></blockquote><p><a href="https://github.com/autolordz/docx-content-modify/releases"><img src="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&logo=github&colorB=ff69b4"></a><br><a href="https://github.com/autolordz/docx-content-modify"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github"></a><br><a href="https://github.com/autolordz/docx-content-modify/blob/master/LICENSE"><img src="https://img.shields.io/github/license/autolordz/docx-content-modify.svg?style=popout&logo=github"></a></p><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><blockquote><ul><li>conda : 4.6.14</li><li>python : 3.7.4</li><li>Win10 + Spyder 3.3.6 (打开脚本自上而下运行,或者自己添加main来cmd运行)</li><li>组件: numpy pandas python-docx StyleFrame  </li><li>打包程序: pyinstaller</li></ul></blockquote><h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>【2021-04-21】</p><blockquote><ul><li>新版代码更换提取OA内容规则</li></ul></blockquote><p>【2019-12-25】</p><blockquote><ul><li>更新代码暂时去掉合并系列案功能，以后再启用</li></ul></blockquote><p>【2019-9-19】</p><blockquote><ul><li>整理合并系列案功能，优化代码</li></ul></blockquote><p>【2019-6-19】</p><blockquote><ul><li>添加合并系列案功能，节省打印资源</li></ul></blockquote><h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><ul><li><p><input checked="" disabled="" type="checkbox"> 按格式重命名判决书</p><ul><li><input checked="" disabled="" type="checkbox"> 提取判决书人员和地址信息</li><li><input checked="" disabled="" type="checkbox"> 自动重命名为 <strong>判决书_AAA号_原_BBB号.docx</strong></li></ul></li><li><p><input checked="" disabled="" type="checkbox"> 拷贝OA表记录到Data表</p><ul><li><input checked="" disabled="" type="checkbox"> 按数量提取，按日期提取，按指定案号提取</li><li><input checked="" disabled="" type="checkbox"> 整理Data表格式，对表中数据的变形，清洗，符合打印邮单的字段格式</li><li><input checked="" disabled="" type="checkbox"> 填充判决书信息到Data表</li></ul></li><li><p><input checked="" disabled="" type="checkbox"> 按照Data表输出寄送邮单</p><ul><li><input checked="" disabled="" type="checkbox"> 填充好所有信息，再次运行就能输出Data表指定邮单</li></ul></li></ul><h2 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h2><ol><li>当事人收信规则，没代理律师的每个当事人一份，有委托律师的只要寄给律师一份，多个律师寄给第一个律师，同一律所也是一份</li></ol><p>1.1 判决书过滤词汇，判决书如果每行包含如下就不提取信息  </p><p>词汇1：法定代表|诉讼|代理人|判决|律师|请求|证据|辩称|辩论|不服<br>词汇2：上市|省略|区别|借款|保证|签订  </p><ol start="2"><li>字段解析:</li></ol><p>OA表【data_oa.xlsx】必须字段:<br>| 【立案日期】 | 【适用程序】 | 【案号】 | 【原一审案号】 | 【承办人】 | 【当事人】 | … |<br>Data表【data_main.xlsx】必须字段(包括程序生成):<br>| 【立案日期】 | 【适用程序】 | 【案号】 | 【原一审案号】 | 【判决书源号】 | 【主审法官】 | 【当事人】 | 【诉讼代理人】 | 【地址】 | … |<br>注意： 数据表处理后【承办人】会更换为【主审法官】  </p><ol start="3"><li>【诉讼代理人】规则:</li></ol><p><strong>注意：姓名和曾用名如例子所示，’&#x2F;‘前面是当事人，后面是律师，’_’连接电话，逗号’，’表示分隔，顿号表示一起，’&#x2F;地址：’不能缺</strong>     </p><p>Data表部分字段演示：  </p><table><thead><tr><th>【当事人】</th><th>【诉讼代理人】</th><th>【地址】</th></tr></thead><tbody><tr><td>申请人:姓名AAA，被申请人:姓名BBB</td><td>姓名AAA&#x2F;律师姓名CCC_电话，姓名BBB_电话</td><td>姓名BBB&#x2F;地址：XXX市XXX，姓名CCC&#x2F;地址：XXXX市XXX</td></tr><tr><td>申请人:张三(曾用名张五)、李四、王五</td><td>张三(曾用名张五)&#x2F;律师张二三_123123_李三四_123123</td><td>张二三&#x2F;地址：XXXX市XXX</td></tr><tr><td>申请人:赵六(曾用名:赵五)、孙七、周八</td><td>赵六(曾用名:赵五)，孙七、周八&#x2F;代理人吴九_123123，郑十&#x2F;委托人张三_123123</td><td>赵六(曾用名:赵五)&#x2F;地址：XXX市XXX，吴九&#x2F;地址：XXX市XXX，张三&#x2F;地址：XXX市XXX</td></tr></tbody></table><ol start="4"><li>【适用程序】规则(系列案用):</li></ol><p>此处在OA表中当事人几个案件中完全相同就合并为一个案件,发一次邮单,假如人员稍有差别,仍然按原来分开处理  </p><p>例如：  </p><table><thead><tr><th>【适用程序】</th><th>【案号】</th></tr></thead><tbody><tr><td>2160、2161_集合</td><td>2160</td></tr><tr><td>2160、2161_集合</td><td>2161</td></tr></tbody></table><ol start="5"><li>conf.txt:</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">[config]<br>data_xlsx = data_main.xlsx    <span class="hljs-comment"># 数据模板地址</span><br>data_oa_xlsx = data_oa.xlsx    <span class="hljs-comment"># OA数据地址</span><br>sheet_docx = sheet.docx    <span class="hljs-comment"># 邮单模板地址</span><br>flag_fill_jdocs_infos = <span class="hljs-number">1</span>    <span class="hljs-comment"># 是否填充判决书地址</span><br>flag_append_oa = <span class="hljs-number">1</span>    <span class="hljs-comment"># 是否导入OA数据</span><br>flag_to_postal = <span class="hljs-number">1</span>    <span class="hljs-comment"># 是否打印邮单</span><br>flag_check_jdocs = <span class="hljs-number">0</span>    <span class="hljs-comment"># 是否检查用户格式,输出提示信息</span><br>flag_check_postal = <span class="hljs-number">0</span>    <span class="hljs-comment"># 是否检查邮单格式,输出提示信息</span><br>data_case_codes =    <span class="hljs-comment"># 指定打印案号,可接多个,示例:AAA号,BBB号,优先级1</span><br>data_date_range =   <span class="hljs-comment"># 指定打印数据日期范围示例:2018-09-01:2018-12-01,优先级2</span><br>data_last_lines = <span class="hljs-number">10</span>    <span class="hljs-comment"># 指定打印最后行数,优先级3</span><br></code></pre></td></tr></table></figure><h2 id="详细指南"><a href="#详细指南" class="headerlink" title="详细指南"></a>详细指南</h2><p>简称：  </p><ul><li><a href="./demo_docs/data_oa.xlsx">A表: data_oa.xlsx,OA表自己下载,这个只是参考</a>  </li><li><a href="./demo_docs/data_main.xlsx">B表: data_main.xlsx,会自动生成,也要修改</a>  </li><li><a href="./demo_docs/jdocs/">C目录: jdocs&#x2F;,判决书目录,要放下载的判决书</a>  </li><li><a href="./demo_docs/sheet.docx">D文档: sheet.docx,邮单模板,按照背景生成邮单</a>  </li><li><a href="./demo_docs/postal/">E目录: postal&#x2F;,邮单目录</a></li></ul><ol><li><p>根据 <strong>A表</strong> 格式,整理自己的OA表(没数据是没用的),先在OA表中修改【适用程序】(系列案),修改conf.txt文件,参考<a href="#%E8%A7%84%E5%88%99">规则</a>,如文件丢失再次运行会生成  </p></li><li><p>手动下载在线判决书<a href="http://wenshu.court.gov.cn/">中国裁判文书网</a>,判决书docx文件放在<strong>C目录</strong>   </p></li><li><p>第一次运行(不带【诉讼代理人】)</p></li></ol><p>3.2. 运行会自动重命名判决书 <strong>C目录</strong> ,提取判决书内容 <strong>address_tmp.xlsx</strong><br>3.3. 自动从 <strong>A表</strong> 添加数据到 <strong>B表</strong><br>3.4. 自动通过 <strong>D文档</strong> 批量输出寄送邮单到 <strong>E目录</strong><br>3.5. 自动生成临时文件 <em><strong>data_tmp.xlsx</strong></em> 用于校对,是邮单信息来源<br>3.6. 运行记录在log.txt  </p><ol start="4"><li><p>手动填充 <strong>完整</strong> 的律师(代理人)及当事人信息到 <strong>B表</strong>，具体是填写【诉讼代理人】信息(电话地址)，参考<a href="#%E8%A7%84%E5%88%99">规则</a>  </p></li><li><p>第二次运行(带【诉讼代理人】)<br>会重复 3.4.  3.5. 3.6.  </p></li><li><p>小白没有python环境，可以直接下载最新的exe版本，使用前先配置conf.txt文件</p></li></ol><h2 id="Licence"><a href="#Licence" class="headerlink" title="Licence"></a>Licence</h2><p><a href="https://github.com/autolordz/docx-content-modify/blob/master/LICENSE">See Licence</a></p><p>THE END<br>Enjoy</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+      <tag>batch</tag>
+      
+      <tag>datapreprocessing</tag>
+      
+      <tag>docx</tag>
+      
+      <tag>excel</tag>
+      
+      <tag>generator</tag>
+      
+      <tag>office</tag>
+      
+      <tag>python</tag>
+      
+      <tag>pythonscraping</tag>
+      
+      <tag>text-generator</tag>
+      
+      <tag>xlsx</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JHU-DataScience-Course2-Rprogramming</title>
+    <link href="/2018/08/06/JHU-DataScience-Course2-Rprogramming/"/>
+    <url>/2018/08/06/JHU-DataScience-Course2-Rprogramming/</url>
+    
+    <content type="html"><![CDATA[<h1 id="JHU-DataScience-Course2-Rprogramming"><a href="#JHU-DataScience-Course2-Rprogramming" class="headerlink" title="JHU-DataScience-Course2-Rprogramming"></a>JHU-DataScience-Course2-Rprogramming</h1><p>JHU-DataScience-Course2-Rprogramming Codes and Projects</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JHU-DataScience-Course1-Datatools</title>
+    <link href="/2018/08/05/JHU-DataScience-Course1-Datatools/"/>
+    <url>/2018/08/05/JHU-DataScience-Course1-Datatools/</url>
+    
+    <content type="html"><![CDATA[<h1 id="JHU-DataScience-Course1-Datatools"><a href="#JHU-DataScience-Course1-Datatools" class="headerlink" title="JHU-DataScience-Course1-Datatools"></a>JHU-DataScience-Course1-Datatools</h1><p>JHU DataScience Specialization&#x2F;Cousers The Data Scientist’s Toolbox&#x2F;Week??&#x2F;Course Project</p><h1 id="Datatools-Course-Project-数据科学工具"><a href="#Datatools-Course-Project-数据科学工具" class="headerlink" title="Datatools Course Project 数据科学工具"></a>Datatools Course Project 数据科学工具</h1><p>由于这个非常入门的课程，共4Week每周一个小quiz，这个应该是最后的Project忘记了<br>主要是熟练掌握一些R语言的数据处理工具例如 xlsx,XML等格式，以及readr这些有用的R包用法<br>以下代码下载资源比较大暂不执行有兴趣的读者可以自己尝试</p><h2 id="读取csv格式-2006年美国社区调查（ACS）"><a href="#读取csv格式-2006年美国社区调查（ACS）" class="headerlink" title="读取csv格式 2006年美国社区调查（ACS）"></a>读取csv格式 2006年美国社区调查（ACS）</h2><p>The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here:</p><ul><li>(pid, Population CSV file)</li><li>(hid, Household CSV file)</li></ul><p><a href="https://www.nber.org/acs/PUMS/README">说明书 PUMS</a><br><a href="https://www.nber.org/acs/PUMS/2006/PUMSDataDict06.txt">说明书 DATA DICTIONARY - 2006 HOUSING</a><br><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf">PDF</a></p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs r">fileUrl <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv&quot;</span><br>download.file<span class="hljs-punctuation">(</span>fileUrl<span class="hljs-punctuation">,</span>destfile <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Fss06pid.csv&quot;</span><span class="hljs-punctuation">,</span>method <span class="hljs-operator">=</span> <span class="hljs-string">&quot;libcurl&quot;</span><span class="hljs-punctuation">)</span><br>fileUrl <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv&quot;</span><br>download.file<span class="hljs-punctuation">(</span>fileUrl<span class="hljs-punctuation">,</span>destfile <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Fss06hid.csv&quot;</span><span class="hljs-punctuation">,</span>method <span class="hljs-operator">=</span> <span class="hljs-string">&quot;libcurl&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure><h3 id="读取几十上百m的数据算大文件，运算应该考虑花销"><a href="#读取几十上百m的数据算大文件，运算应该考虑花销" class="headerlink" title="读取几十上百m的数据算大文件，运算应该考虑花销"></a>读取几十上百m的数据算大文件，运算应该考虑花销</h3><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs clean">## Unit: milliseconds<br>##                                           expr       min        lq<br>##  PID &lt;- fread(file = <span class="hljs-string">&quot;Fss06pid.csv&quot;</span>, fill = T)  <span class="hljs-number">13.40045</span>  <span class="hljs-number">13.40045</span><br>##                read_csv(file = <span class="hljs-string">&quot;Fss06pid.csv&quot;</span>) <span class="hljs-number">627.03159</span> <span class="hljs-number">627.03159</span><br>##                read.csv(file = <span class="hljs-string">&quot;Fss06pid.csv&quot;</span>) <span class="hljs-number">422.56456</span> <span class="hljs-number">422.56456</span><br>##       mean    median        uq       max neval<br>##   <span class="hljs-number">13.40045</span>  <span class="hljs-number">13.40045</span>  <span class="hljs-number">13.40045</span>  <span class="hljs-number">13.40045</span>     <span class="hljs-number">1</span><br>##  <span class="hljs-number">627.03159</span> <span class="hljs-number">627.03159</span> <span class="hljs-number">627.03159</span> <span class="hljs-number">627.03159</span>     <span class="hljs-number">1</span><br>##  <span class="hljs-number">422.56456</span> <span class="hljs-number">422.56456</span> <span class="hljs-number">422.56456</span> <span class="hljs-number">422.56456</span>     <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs clean">## Unit: milliseconds<br>##                                           expr       min        lq<br>##  HID &lt;- fread(file = <span class="hljs-string">&quot;Fss06hid.csv&quot;</span>, fill = T)  <span class="hljs-number">17.08404</span>  <span class="hljs-number">17.08404</span><br>##                read_csv(file = <span class="hljs-string">&quot;Fss06hid.csv&quot;</span>) <span class="hljs-number">519.85311</span> <span class="hljs-number">519.85311</span><br>##                read.csv(file = <span class="hljs-string">&quot;Fss06hid.csv&quot;</span>) <span class="hljs-number">971.56116</span> <span class="hljs-number">971.56116</span><br>##       mean    median        uq       max neval<br>##   <span class="hljs-number">17.08404</span>  <span class="hljs-number">17.08404</span>  <span class="hljs-number">17.08404</span>  <span class="hljs-number">17.08404</span>     <span class="hljs-number">1</span><br>##  <span class="hljs-number">519.85311</span> <span class="hljs-number">519.85311</span> <span class="hljs-number">519.85311</span> <span class="hljs-number">519.85311</span>     <span class="hljs-number">1</span><br>##  <span class="hljs-number">971.56116</span> <span class="hljs-number">971.56116</span> <span class="hljs-number">971.56116</span> <span class="hljs-number">971.56116</span>     <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs clean">## Unit: microseconds<br>##                                       expr      min        lq       mean<br>##         tapply(PID$pwgtp15, PID$SEX, mean)  <span class="hljs-number">159.973</span>  <span class="hljs-number">203.6820</span>  <span class="hljs-number">262.39322</span><br>##  sapply(split(PID$pwgtp15, PID$SEX), mean)  <span class="hljs-number">137.322</span>  <span class="hljs-number">162.9805</span>  <span class="hljs-number">250.35640</span><br>##          mean(PID[PID$SEX == <span class="hljs-number">1</span>, ]$pwgtp15) <span class="hljs-number">1533.888</span> <span class="hljs-number">1615.2890</span> <span class="hljs-number">2570.51404</span><br>##            mean(PID$pwgtp15, by = PID$SEX)   <span class="hljs-number">11.326</span>   <span class="hljs-number">16.1045</span>   <span class="hljs-number">20.48577</span><br>##          median(PID$pwgtp15, by = PID$SEX)   <span class="hljs-number">49.550</span>   <span class="hljs-number">64.7685</span>   <span class="hljs-number">91.37941</span><br>##         mean(PID[PID$SEX == <span class="hljs-number">1</span>, ]$SERIALNO) <span class="hljs-number">1548.398</span> <span class="hljs-number">1624.1370</span> <span class="hljs-number">3693.22785</span><br>##       median(PID[PID$SEX == <span class="hljs-number">1</span>, ]$SERIALNO) <span class="hljs-number">1630.508</span> <span class="hljs-number">1709.9625</span> <span class="hljs-number">2321.75111</span><br>##     median        uq        max neval cld<br>##   <span class="hljs-number">267.5640</span>  <span class="hljs-number">289.3300</span>    <span class="hljs-number">441.692</span>   <span class="hljs-number">100</span>  a <br>##   <span class="hljs-number">215.8915</span>  <span class="hljs-number">246.1520</span>   <span class="hljs-number">3571.401</span>   <span class="hljs-number">100</span>  a <br>##  <span class="hljs-number">1694.3900</span> <span class="hljs-number">4332.1510</span>   <span class="hljs-number">6311.799</span>   <span class="hljs-number">100</span>   b<br>##    <span class="hljs-number">18.2280</span>   <span class="hljs-number">22.4745</span>     <span class="hljs-number">78.571</span>   <span class="hljs-number">100</span>  a <br>##    <span class="hljs-number">85.2955</span>  <span class="hljs-number">109.8930</span>    <span class="hljs-number">249.160</span>   <span class="hljs-number">100</span>  a <br>##  <span class="hljs-number">1740.4000</span> <span class="hljs-number">2707.6610</span> <span class="hljs-number">127876.038</span>   <span class="hljs-number">100</span>   b<br>##  <span class="hljs-number">1751.5480</span> <span class="hljs-number">2145.2830</span>   <span class="hljs-number">6184.035</span>   <span class="hljs-number">100</span>   b<br></code></pre></td></tr></table></figure><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">pander<span class="hljs-punctuation">(</span>arrange<span class="hljs-punctuation">(</span>A<span class="hljs-punctuation">,</span>mean<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure><table><thead><tr><th align="center">expr</th><th align="center">min</th><th align="center">lq</th><th align="center">mean</th></tr></thead><tbody><tr><td align="center">PID &lt;- fread(file &#x3D; “Fss06pid.csv”, fill &#x3D; T)</td><td align="center">13.4</td><td align="center">13.4</td><td align="center">13.4</td></tr><tr><td align="center">read.csv(file &#x3D; “Fss06pid.csv”)</td><td align="center">422.6</td><td align="center">422.6</td><td align="center">422.6</td></tr><tr><td align="center">read_csv(file &#x3D; “Fss06pid.csv”)</td><td align="center">627</td><td align="center">627</td><td align="center">627</td></tr></tbody></table><p>Table: Table continues below</p><table><thead><tr><th align="center">median</th><th align="center">uq</th><th align="center">max</th><th align="center">neval</th></tr></thead><tbody><tr><td align="center">13.4</td><td align="center">13.4</td><td align="center">13.4</td><td align="center">1</td></tr><tr><td align="center">422.6</td><td align="center">422.6</td><td align="center">422.6</td><td align="center">1</td></tr><tr><td align="center">627</td><td align="center">627</td><td align="center">627</td><td align="center">1</td></tr></tbody></table><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">pander<span class="hljs-punctuation">(</span>arrange<span class="hljs-punctuation">(</span>B<span class="hljs-punctuation">,</span>mean<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure><table><thead><tr><th align="center">expr</th><th align="center">min</th><th align="center">lq</th><th align="center">mean</th></tr></thead><tbody><tr><td align="center">HID &lt;- fread(file &#x3D; “Fss06hid.csv”, fill &#x3D; T)</td><td align="center">17.08</td><td align="center">17.08</td><td align="center">17.08</td></tr><tr><td align="center">read_csv(file &#x3D; “Fss06hid.csv”)</td><td align="center">519.9</td><td align="center">519.9</td><td align="center">519.9</td></tr><tr><td align="center">read.csv(file &#x3D; “Fss06hid.csv”)</td><td align="center">971.6</td><td align="center">971.6</td><td align="center">971.6</td></tr></tbody></table><p>Table: Table continues below</p><table><thead><tr><th align="center">median</th><th align="center">uq</th><th align="center">max</th><th align="center">neval</th></tr></thead><tbody><tr><td align="center">17.08</td><td align="center">17.08</td><td align="center">17.08</td><td align="center">1</td></tr><tr><td align="center">519.9</td><td align="center">519.9</td><td align="center">519.9</td><td align="center">1</td></tr><tr><td align="center">971.6</td><td align="center">971.6</td><td align="center">971.6</td><td align="center">1</td></tr></tbody></table><h3 id="简单计算求和时间"><a href="#简单计算求和时间" class="headerlink" title="简单计算求和时间"></a>简单计算求和时间</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">pander<span class="hljs-punctuation">(</span>arrange<span class="hljs-punctuation">(</span>select<span class="hljs-punctuation">(</span>C<span class="hljs-punctuation">,</span>expr<span class="hljs-punctuation">,</span>mean<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span>mean<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure><table><thead><tr><th align="center">expr</th><th align="center">mean</th></tr></thead><tbody><tr><td align="center">mean(PID$pwgtp15, by &#x3D; PID$SEX)</td><td align="center">20.49</td></tr><tr><td align="center">median(PID$pwgtp15, by &#x3D; PID$SEX)</td><td align="center">91.38</td></tr><tr><td align="center">sapply(split(PID$pwgtp15, PID$SEX), mean)</td><td align="center">250.4</td></tr><tr><td align="center">tapply(PID$pwgtp15, PID$SEX, mean)</td><td align="center">262.4</td></tr><tr><td align="center">median(PID[PID$SEX &#x3D;&#x3D; 1, ]$SERIALNO)</td><td align="center">2322</td></tr><tr><td align="center">mean(PID[PID$SEX &#x3D;&#x3D; 1, ]$pwgtp15)</td><td align="center">2571</td></tr><tr><td align="center">mean(PID[PID$SEX &#x3D;&#x3D; 1, ]$SERIALNO)</td><td align="center">3693</td></tr></tbody></table><h3 id="Quiz-1"><a href="#Quiz-1" class="headerlink" title="Quiz 1"></a>Quiz 1</h3><p>How many housing units in this survey were worth more than $1,000,000?</p><ul><li>159</li><li>164</li><li><strong>53</strong></li><li>24</li></ul><h2 id="读取xls-xlsx格式-美国国家天然气采购计划"><a href="#读取xls-xlsx格式-美国国家天然气采购计划" class="headerlink" title="读取xls,xlsx格式 美国国家天然气采购计划"></a>读取xls,xlsx格式 美国国家天然气采购计划</h2><p><a href="https://catalog.data.gov/dataset/natural-gas-acquisition-program">说明书 Natural Gas Acquisition Program</a></p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r">fileUrl <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx&quot;</span><br>download.file<span class="hljs-punctuation">(</span>fileurl<span class="hljs-punctuation">,</span>destfile <span class="hljs-operator">=</span> <span class="hljs-string">&quot;gov_NGAP.xlsx&quot;</span><span class="hljs-punctuation">,</span>mode<span class="hljs-operator">=</span><span class="hljs-string">&#x27;wb&#x27;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs r">NGAP <span class="hljs-operator">&lt;-</span> read.xlsx<span class="hljs-punctuation">(</span>file<span class="hljs-operator">=</span><span class="hljs-string">&quot;gov_NGAP.xlsx&quot;</span><span class="hljs-punctuation">,</span><br>                  sheetIndex<span class="hljs-operator">=</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>                  colIndex<span class="hljs-operator">=</span><span class="hljs-number">7</span><span class="hljs-operator">:</span><span class="hljs-number">15</span><span class="hljs-punctuation">,</span><br>                  rowIndex <span class="hljs-operator">=</span> <span class="hljs-number">18</span><span class="hljs-operator">:</span><span class="hljs-number">23</span><span class="hljs-punctuation">,</span><br>                  header<span class="hljs-operator">=</span><span class="hljs-built_in">T</span><span class="hljs-punctuation">)</span><br>NGAP <span class="hljs-operator">&lt;-</span> as.tbl<span class="hljs-punctuation">(</span>NGAP<span class="hljs-punctuation">)</span><br>pander<span class="hljs-punctuation">(</span>head<span class="hljs-punctuation">(</span>NGAP<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure><table><thead><tr><th align="center">Zip</th><th align="center">CuCurrent</th><th align="center">PaCurrent</th><th align="center">PoCurrent</th><th align="center">Contact</th><th align="center">Ext</th></tr></thead><tbody><tr><td align="center">74136</td><td align="center">0</td><td align="center">1</td><td align="center">0</td><td align="center">918-491-6998</td><td align="center">0</td></tr><tr><td align="center">30329</td><td align="center">1</td><td align="center">0</td><td align="center">0</td><td align="center">404-321-5711</td><td align="center">NA</td></tr><tr><td align="center">74136</td><td align="center">1</td><td align="center">0</td><td align="center">0</td><td align="center">918-523-2516</td><td align="center">0</td></tr><tr><td align="center">80203</td><td align="center">0</td><td align="center">1</td><td align="center">0</td><td align="center">303-864-1919</td><td align="center">0</td></tr><tr><td align="center">80120</td><td align="center">1</td><td align="center">0</td><td align="center">0</td><td align="center">345-098-8890</td><td align="center">456</td></tr></tbody></table><p>Table: Table continues below</p><table><thead><tr><th align="center">Fax</th><th align="center">email</th><th align="center">Status</th></tr></thead><tbody><tr><td align="center">918-491-6659</td><td align="center">NA</td><td align="center">1</td></tr><tr><td align="center">NA</td><td align="center">NA</td><td align="center">1</td></tr><tr><td align="center">918-523-2522</td><td align="center">NA</td><td align="center">1</td></tr><tr><td align="center">NA</td><td align="center">NA</td><td align="center">1</td></tr><tr><td align="center">NA</td><td align="center">NA</td><td align="center">1</td></tr></tbody></table><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">cat<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Sum of Zipcode and&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clean">## Sum <span class="hljs-keyword">of</span> Zipcode and<br></code></pre></td></tr></table></figure><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span>NGAP<span class="hljs-operator">$</span>Zip<span class="hljs-operator">*</span>NGAP<span class="hljs-operator">$</span>Ext<span class="hljs-punctuation">,</span>na.rm<span class="hljs-operator">=</span><span class="hljs-built_in">T</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clean">## [<span class="hljs-number">1</span>] <span class="hljs-number">36534720</span><br></code></pre></td></tr></table></figure><h3 id="Quiz-3"><a href="#Quiz-3" class="headerlink" title="Quiz 3"></a>Quiz 3</h3><p>Read rows 18-23 and columns 7-15 into R and assign the result to a variable called:</p><p>What is the value of:</p><p>sum(dat(Zip*dat)Ext,na.rm&#x3D;T)</p><p>(original data source: <a href="http://catalog.data.gov/dataset/natural-gas-acquisition-program">http://catalog.data.gov/dataset/natural-gas-acquisition-program</a>)</p><ol><li><strong>36534720</strong></li><li>338924</li><li>33544718</li><li>0</li></ol><h2 id="读取xml格式-巴的摩尔餐厅数据"><a href="#读取xml格式-巴的摩尔餐厅数据" class="headerlink" title="读取xml格式 巴的摩尔餐厅数据"></a>读取xml格式 巴的摩尔餐厅数据</h2><p><a href="https://catalog.data.gov/dataset/restaurants-15baa">说明书 data.baltimorecity.gov</a></p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r">fileUrl <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml&quot;</span><br>download.file<span class="hljs-punctuation">(</span>fileUrl<span class="hljs-punctuation">,</span>destfile <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Frestaurants.xml&quot;</span><span class="hljs-punctuation">,</span>mode<span class="hljs-operator">=</span><span class="hljs-string">&#x27;wb&#x27;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">system.time<span class="hljs-punctuation">(</span>DOC <span class="hljs-operator">&lt;-</span> xmlTreeParse<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Frestaurants.xml&quot;</span><span class="hljs-punctuation">,</span> useInternal <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clean">##    user  <span class="hljs-keyword">system</span> elapsed <br>##    <span class="hljs-number">0.02</span>    <span class="hljs-number">0.00</span>    <span class="hljs-number">0.02</span><br></code></pre></td></tr></table></figure><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs r">rootNode <span class="hljs-operator">&lt;-</span> xmlRoot<span class="hljs-punctuation">(</span>DOC<span class="hljs-punctuation">)</span><br><span class="hljs-comment"># 邮编是&quot;21231&quot; 的记录有多少条</span><br><span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span>xpathSApply<span class="hljs-punctuation">(</span>rootNode<span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;//zipcode&quot;</span><span class="hljs-punctuation">,</span> xmlValue<span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;21231&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clean">## [<span class="hljs-number">1</span>] <span class="hljs-number">127</span><br></code></pre></td></tr></table></figure><h3 id="Quiz-4"><a href="#Quiz-4" class="headerlink" title="Quiz 4"></a>Quiz 4</h3><p>How many restaurants have zipcode 21231?</p><ul><li><strong>127</strong></li><li>17</li><li>28</li><li>156</li></ul><center>**THE END**</center>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Course-Project-Shiny-Application-and-Reproducible-Pitch</title>
+    <link href="/2018/07/22/Course-Project-Shiny-Application-and-Reproducible-Pitch/"/>
+    <url>/2018/07/22/Course-Project-Shiny-Application-and-Reproducible-Pitch/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Digits-Manipulating-of-Shiny-Project"><a href="#Digits-Manipulating-of-Shiny-Project" class="headerlink" title="Digits Manipulating of Shiny Project"></a>Digits Manipulating of Shiny Project</h1><p>author: Autoz<br>date: 2018-7-22<br>autosize: true</p><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote><p>Coursera-Course-Project-Shiny-Application-and-Reproducible-Pitch</p></blockquote><ul><li><p>This Repo contains R codes and Markdown files for Shiny Project of<br>Coursera Developing Data Products course. </p></li><li><p>The application contain three part of malipulating and tuning MNIST Digits image data.</p></li><li><p>The images were refered to their original IDX format from</p></li></ul><p><a href="http://yann.lecun.com/exdb/mnist/">http://yann.lecun.com/exdb/mnist/</a>. Dataset is from <a href="http://mldata.org/"><code>mldata</code></a>. It is a public repository for machine learning data, supported by the PASCAL network.Fetch <a href="mnist-original.mat"><code>MNIST DATA</code></a> from but mldata seens can not access so redirect to another links.</p><ul><li>Project Shiny App on ShinyApp.io please visit <a href="https://autolordz.shinyapps.io/DigitsManipulate/"><code>PROJECT LINK</code></a>.</li></ul><h1 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h1><ul><li>Statistics of the distance of two Digits of certain n umber.</li><li>Comparing with PCA compressed and PCA high dimentions compressed.</li><li>Show the most similar images of Digits with certain Digit.</li></ul><p>Shiny App R Codes and Guide on  github please visit <a href="https://github.com/autolordz/Course-Project-Shiny-Application-and-Reproducible-Pitch"><code>GITHUB REPO</code></a>.</p><h1 id="Shiny-files"><a href="#Shiny-files" class="headerlink" title="Shiny files"></a>Shiny files</h1><ul><li><code>app.R</code><ul><li><code>show_compared_img func</code></li><li><code>show_compress_img func</code></li><li><code>show_recommend_img func</code></li><li><code>ui func</code></li><li><code>server func</code></li><li><code>others func</code></li></ul></li><li><code>ShinyDigitSliders.Rpres</code></li></ul><h1 id="Display-Compared-Images"><a href="#Display-Compared-Images" class="headerlink" title="Display Compared Images"></a>Display Compared Images</h1><p>Display screenshots about Compared Images and Plot summaries distances between two certain Digit numbers.</p><p><img src="https://raw.githubusercontent.com/autolordz/Course-Project-Shiny-Application-and-Reproducible-Pitch/refs/heads/master/ComparedDigits.png"></p><h1 id="Display-PCA-Compress-Images"><a href="#Display-PCA-Compress-Images" class="headerlink" title="Display PCA Compress Images"></a>Display PCA Compress Images</h1><p>Display screenshots about Compared Images or summary distance between two certain Digit numbers. You can choose PCA (if n &gt; p)and PCA high dimension (if p &gt;&gt; n) method to compress.</p><p><img src="https://raw.githubusercontent.com/autolordz/Course-Project-Shiny-Application-and-Reproducible-Pitch/refs/heads/master/PCADigits.png"></p><h1 id="Display-Similar-Images"><a href="#Display-Similar-Images" class="headerlink" title="Display Similar Images"></a>Display Similar Images</h1><p>Display screenshots about Similar Images with certain Digit numbers. It can select different certain Digit numbers and sample range for illustrating how similar with current Digit.</p><p><img src="https://raw.githubusercontent.com/autolordz/Course-Project-Shiny-Application-and-Reproducible-Pitch/refs/heads/master/SimilarDigits.png"></p><p><strong>END</strong></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+      <tag>digits</tag>
+      
+      <tag>digits-dataset</tag>
+      
+      <tag>knn</tag>
+      
+      <tag>pca-analysis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>17_Classification</title>
+    <link href="/2018/05/25/17_Classification/"/>
+    <url>/2018/05/25/17_Classification/</url>
+    
+    <content type="html"><![CDATA[<h1 id="17-Classification"><a href="#17-Classification" class="headerlink" title="17_Classification"></a>17_Classification</h1><p>17 methods of ML Classification in R </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>qt-gps-demo-baidumap</title>
+    <link href="/2018/02/01/qt-gps-demo-baidumap/"/>
+    <url>/2018/02/01/qt-gps-demo-baidumap/</url>
+    
+    <content type="html"><![CDATA[<h1 id="GPS-demo-in-QT"><a href="#GPS-demo-in-QT" class="headerlink" title="GPS demo in QT"></a>GPS demo in QT</h1><p>大学毕业设计基于QT-cpp的GPS app<br>应用百度地图，可以运行在嵌入式Arm平台的Linux开发板  </p><ul><li>安装QT sdk最新版(最好带IDE)，导入工程  </li><li>添加百度地图key  </li><li>运行代码</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+      <tag>app</tag>
+      
+      <tag>c</tag>
+      
+      <tag>cpp</tag>
+      
+      <tag>demo</tag>
+      
+      <tag>embedded-systems</tag>
+      
+      <tag>gps</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>map</tag>
+      
+      <tag>qt</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>CannonGame</title>
+    <link href="/2017/02/08/CannonGame/"/>
+    <url>/2017/02/08/CannonGame/</url>
+    
+    <content type="html"><![CDATA[<h1 id="CannonGame"><a href="#CannonGame" class="headerlink" title="CannonGame"></a>CannonGame</h1><p>向我开炮小游戏<br>课堂练手 android app<br>原出处:com.deitel.cannongame</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+      <tag>android</tag>
+      
+      <tag>ball</tag>
+      
+      <tag>cannon</tag>
+      
+      <tag>fun</tag>
+      
+      <tag>game</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>zManager</title>
+    <link href="/2017/02/08/zManager/"/>
+    <url>/2017/02/08/zManager/</url>
+    
+    <content type="html"><![CDATA[<h1 id="zManager"><a href="#zManager" class="headerlink" title="zManager"></a>zManager</h1><p>zManager for android<br>练手项目 录音 视频播放器 图片浏览</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>精选项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>技术实践</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>

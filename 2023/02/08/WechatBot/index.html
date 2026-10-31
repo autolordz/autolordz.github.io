@@ -1,0 +1,940 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="autolordz">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Welcome to wechat-chatgpt 👋                                            Use ChatGPT On Wechat via wechatyEnglish | 中文文档     If you don’t have a server or want to experience rapid deployment, you can u">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WechatBot">
+<meta property="og:url" content="https://autolordz.github.io/2023/02/08/WechatBot/index.html">
+<meta property="og:site_name" content="autolordz 的作品集博客">
+<meta property="og:description" content="Welcome to wechat-chatgpt 👋                                            Use ChatGPT On Wechat via wechatyEnglish | 中文文档     If you don’t have a server or want to experience rapid deployment, you can u">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://railway.app/button.svg">
+<meta property="article:published_time" content="2023-02-08T06:22:21.000Z">
+<meta property="article:modified_time" content="2026-10-31T21:06:07.058Z">
+<meta property="article:author" content="autolordz">
+<meta property="article:tag" content="开源项目">
+<meta property="article:tag" content="技术实践">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://railway.app/button.svg">
+  
+  
+  
+  <title>WechatBot - autolordz 的作品集博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"autolordz.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"number":false},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>autolordz</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://railway.app/button.svg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="WechatBot"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-02-08 14:22" pubdate>
+          2023年2月8日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          46 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">WechatBot</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 align="center">Welcome to wechat-chatgpt 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" srcset="/img/loading.gif" lazyload />
+  <a href="#" target="_blank">
+    <img alt="License: ISC" src="https://img.shields.io/badge/License-ISC-yellow.svg" srcset="/img/loading.gif" lazyload />
+  </a>
+  <a href="https://twitter.com/fuergaosi" target="_blank">
+    <img alt="Twitter: fuergaosi" src="https://img.shields.io/twitter/follow/fuergaosi.svg?style=social" srcset="/img/loading.gif" lazyload />
+  </a>
+  </a>
+  <a href="https://discord.gg/8fXNrxwUJH" target="blank">
+    <img src="https://img.shields.io/discord/1058994816446369832?label=Join%20Community&logo=discord&style=flat-square" srcset="/img/loading.gif" lazyload alt="join discord community of github profile readme generator"/>
+  </a>
+</p>
+
+<blockquote>
+<p>Use ChatGPT On Wechat via wechaty<br>English | <a href="README_ZH.md">中文文档</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://railway.app/new/template/BHJD6L?referralCode=FaJtD_"><img src="https://railway.app/button.svg" srcset="/img/loading.gif" lazyload alt="Deploy on Railway"></a>  </p>
+<p>If you don’t have a server or want to experience rapid deployment, you can use Railway to do so, see <a href="#usage-with-railway">Usage with Railway</a>.</p>
+<h3 id="Update-Decomber-27-2022"><a href="#Update-Decomber-27-2022" class="headerlink" title="Update Decomber 27, 2022"></a>Update Decomber 27, 2022</h3><p>Using railway &amp; docker deployment, there may be problems that cannot be solved, we are working on it.</p>
+<h3 id="Update-December-20-2022"><a href="#Update-December-20-2022" class="headerlink" title="Update December 20, 2022"></a>Update December 20, 2022</h3><p>Thanks @transitive-bullshit, The ChatGPT API automates the work.<br>You should use password &amp; username to login, and config <a href="#CAPTCHAS">CAPTCHAs</a>.<br>⚠️ There may be a problem with the Docker image because I don’t have an X86 device and Qume doesn’t work.</p>
+<h2 id="🌟-Feature"><a href="#🌟-Feature" class="headerlink" title="🌟 Feature"></a>🌟 Feature</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> Use ChatGPT On Wechat via wechaty</li>
+<li><input checked="" disabled="" type="checkbox"> Support OpenAI Accounts Pool</li>
+<li><input checked="" disabled="" type="checkbox"> Support use proxy to login</li>
+<li><input checked="" disabled="" type="checkbox"> Add conversation Support</li>
+<li><input checked="" disabled="" type="checkbox"> Add Dockerfile</li>
+<li><input checked="" disabled="" type="checkbox"> Publish to Docker.hub</li>
+<li><input checked="" disabled="" type="checkbox"> Add Railway deploy</li>
+<li><input checked="" disabled="" type="checkbox"> Auto Reload OpenAI Accounts Pool</li>
+<li><input checked="" disabled="" type="checkbox"> Add sendmessage retry for 429&#x2F;503</li>
+</ul>
+<h2 id="Use-with-docker-in-Linux-recommended"><a href="#Use-with-docker-in-Linux-recommended" class="headerlink" title="Use with docker in Linux(recommended)"></a>Use with docker in Linux(recommended)</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cp</span> config.yaml.example config.yaml<br><span class="hljs-comment"># Change Config.yaml</span><br><span class="hljs-comment"># run docker command in Linux or WindowsPowerShell</span><br>docker run -d --name wechat-chatgpt -v $(<span class="hljs-built_in">pwd</span>)/config.yaml:/app/config.yaml holegots/wechat-chatgpt:latest<br><span class="hljs-comment"># login with qrcode</span><br>docker logs -f wechat-chatgpt<br></code></pre></td></tr></table></figure>
+
+<h2 id="Use-with-docker-in-Windows"><a href="#Use-with-docker-in-Windows" class="headerlink" title="Use with docker in Windows"></a>Use with docker in Windows</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># Create and modify config.yaml in the current directory</span><br><span class="hljs-comment"># run docker command in WindowsPowerShell</span><br>docker run -d --name wechat-chatgpt -v $(<span class="hljs-built_in">pwd</span>)/config.yaml:/app/config.yaml holegots/wechat-chatgpt:latest<br><span class="hljs-comment"># In the Windows command line (cmd) environment, you may mount the current directory like this:</span><br>docker run -d --name wechat-chatgpt -v %<span class="hljs-built_in">cd</span>%/config.yaml:/app/config.yaml holegots/wechat-chatgpt:latest<br><span class="hljs-comment"># login with qrcode</span><br>docker logs -f wechat-chatgpt<br></code></pre></td></tr></table></figure>
+
+<h2 id="Upgrade-docker-image-version"><a href="#Upgrade-docker-image-version" class="headerlink" title="Upgrade docker image version"></a>Upgrade docker image version</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh">docker pull holegots/wechat-chatgpt:latest<br>docker stop wechat-chatgpt<br>docker <span class="hljs-built_in">rm</span> wechat-chatgpt<br><span class="hljs-comment"># run docker command in Linux or WindowsPowerShell</span><br>docker run -d --name wechat-chatgpt -v $(<span class="hljs-built_in">pwd</span>)/config.yaml:/app/config.yaml holegots/wechat-chatgpt:latest<br><span class="hljs-comment"># In the Windows command line (cmd) environment, you may mount the current directory like this:</span><br>docker run -d --name wechat-chatgpt -v %<span class="hljs-built_in">cd</span>%/config.yaml:/app/config.yaml holegots/wechat-chatgpt:latest<br><span class="hljs-comment"># login with qrcode</span><br>docker logs -f wechat-chatgpt<br></code></pre></td></tr></table></figure>
+
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm install<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>NodeJS Version &gt;&#x3D; 18.0.0</p>
+</blockquote>
+<h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><h3 id="Copy-config"><a href="#Copy-config" class="headerlink" title="Copy config"></a>Copy config</h3><p>You need copy config file for setting up your project.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cp</span> config.yaml.example config.yaml<br></code></pre></td></tr></table></figure>
+
+<h3 id="Get-and-config-Openai-account"><a href="#Get-and-config-Openai-account" class="headerlink" title="Get and config Openai account"></a>Get and config Openai account</h3><blockquote>
+<p>If you don’t have this OpenAI account and you live in China, you can get it <a target="_blank" rel="noopener" href="https://mirror.xyz/boxchen.eth/9O9CSqyKDj4BKUIil7NC1Sa1LJM-3hsPqaeW_QjfFBc">here</a>.</p>
+</blockquote>
+<h4 id="Use-account-and-password"><a href="#Use-account-and-password" class="headerlink" title="Use account and password"></a>Use account and password</h4><p>You need get OpenAI account and password.<br>Your config.yaml should be like this:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">chatGPTAccountPool:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">email:</span> <span class="hljs-string">&lt;your</span> <span class="hljs-string">email&gt;</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">&lt;your</span> <span class="hljs-string">password&gt;</span><br><span class="hljs-comment"># if you hope only some keywords can trigger chatgpt on private chat, you can set it like this:</span><br><span class="hljs-attr">chatPrivateTiggerKeyword:</span> <span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>⚠️ Trigger keywords must appear in the first position of the received message.<br>⚠️ Pls make sure your network can log in to OpenAI, and if you fail to login in try setting up a proxy or using SessionToken.</p>
+<p><strong>Setup proxy:</strong></p>
+<p>You can configure in <code>config.yaml</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">openAIProxy:</span> <span class="hljs-string">&lt;Your</span> <span class="hljs-string">Proxy&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="CAPTCHAS"><a href="#CAPTCHAS" class="headerlink" title="CAPTCHAS"></a>CAPTCHAS</h3><blockquote>
+<p>The browser portions of this package use Puppeteer to automate as much as possible, including solving all CAPTCHAs. 🔥</p>
+</blockquote>
+<blockquote>
+<p>Basic Cloudflare CAPTCHAs are handled by default, but if you want to automate the email + password Recaptchas, you’ll need to sign up for one of these paid providers:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://nopecha.com/">nopecha</a> - Uses AI to solve CAPTCHAS<ul>
+<li>Faster and cheaper</li>
+<li>Set the <code>NOPECHA_KEY</code> env var to your nopecha API key</li>
+<li><a target="_blank" rel="noopener" href="https://user-images.githubusercontent.com/552829/208235991-de4890f2-e7ba-4b42-bf55-4fcd792d4b19.mp4">Demo video</a> of nopecha solving the login Recaptcha (41 seconds)</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://2captcha.com/">2captcha</a> - Uses real people to solve CAPTCHAS<ul>
+<li>More well-known solution that’s been around longer</li>
+<li>Set the <code>CAPTCHA_TOKEN</code> env var to your 2captcha API token</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>So you should config <code>NOPECHA_KEY</code> or <code>CAPTCHA_TOKEN</code> in your Environment Variables.</p>
+<h2 id="Start-Project"><a href="#Start-Project" class="headerlink" title="Start Project"></a>Start Project</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm run dev<br></code></pre></td></tr></table></figure>
+<h2 id="Usage-with-Railway"><a href="#Usage-with-Railway" class="headerlink" title="Usage with Railway"></a>Usage with Railway</h2><p><a target="_blank" rel="noopener" href="https://railway.app/">Railway</a> is a deployment platform where you can provision infrastructure, develop with that infrastructure locally, and then deploy to the cloud.This section describes how to quickly deploy a wechat-chatgpt project using Railway.</p>
+<p>Firstly, you’ll need to sign up for a Railway account and sign in using GitHub verification.</p>
+<p>Then click the one-click deployment button below to deploy.</p>
+<p><a target="_blank" rel="noopener" href="https://railway.app/new/template/BHJD6L?referralCode=FaJtD_"><img src="https://railway.app/button.svg" srcset="/img/loading.gif" lazyload alt="Deploy on Railway"></a></p>
+<p>After some validation is complete, you can begin the deployment.You will see the following interface:</p>
+<p><img src="https://raw.githubusercontent.com/autolordz/WechatBot/refs/heads/main/docs/images/railway-deployment.png" srcset="/img/loading.gif" lazyload alt="railway-deployment"></p>
+<p>Some environment variables need to be configured:</p>
+<ul>
+<li><p><strong>CHAT_GPT_EMAIL</strong> : Your OpenAI Account email.</p>
+</li>
+<li><p><strong>CHAT_GPT_PASSWORD</strong> : Your OpenAI Account password.</p>
+</li>
+<li><p><strong>CHAT_GPT_RETRY_TIMES</strong> : The number of times to retry when the OpenAI API returns 429 or 503.</p>
+</li>
+<li><p><strong>CHAT_PRIVATE_TRIGGER_KEYWORD</strong> : If you hope only some keywords can trigger chatgpt on private chat, you can set it.</p>
+</li>
+</ul>
+<p>Click the Deploy button and your service will start deploying shortly.The following interface appears to indicate that the deployment has begun:</p>
+<p><img src="https://raw.githubusercontent.com/autolordz/WechatBot/refs/heads/main/docs/images/railway-deploying.png" srcset="/img/loading.gif" lazyload alt="railway-deploying"></p>
+<p>When the deployment is displayed successfully, click to view the logs and find the WeChat login link in Deploy Logs.</p>
+<p><img src="https://raw.githubusercontent.com/autolordz/WechatBot/refs/heads/main/docs/images/railway-deployed.png" srcset="/img/loading.gif" lazyload alt="railway-deployed"></p>
+<p>Click to enter and use your prepared WeChat to scan the code to log in.</p>
+<p>Log in successfully and start sending and receiving messages(This process can take several minutes):</p>
+<p><img src="https://raw.githubusercontent.com/autolordz/WechatBot/refs/heads/main/docs/images/railway-succeed.png" srcset="/img/loading.gif" lazyload alt="railway-success"></p>
+<p>Besides, in deployment, you may encounter the following issues:</p>
+<ul>
+<li><strong>Error: ⚠️ No chatgpt item in pool</strong> : This error means that you have not configured the OpenAI account information correctly. You can solve this problem from the following aspects:1. Check whether the token or openAI account and password are filled in correctly. 2. Redeploy Current Services.Note that the above should be modified on the Variables page in Railway Dashboard. 3. Please make sure that CloudFlare human authentication is present, if it is, Headless browser may not be able to simulate logging into OpenAI.</li>
+<li><strong>After the deployment is complete, the QR code is not generated</strong>.Try <strong>refreshing</strong> the page to see again if the Deploy Logs panel generated a link and QR code.</li>
+<li><strong>The generated QR code cannot be scanned</strong>.On the generated QR code, there is a link that can be clicked to scan the QR code.</li>
+<li><strong>Message feedback is very slow</strong>.Because Railway’s servers are deployed overseas, there is an increase in message feedback latency, but it is still within the acceptance range. If you are time sensitive, you can use your own server deployment.</li>
+</ul>
+<p>If you are logging in for the first time, then you need to scan the qrcode.</p>
+<h2 id="✨-Contributor"><a href="#✨-Contributor" class="headerlink" title="✨ Contributor"></a>✨ Contributor</h2><a target="_blank" rel="noopener" href="https://github.com/fuergaosi233/wechat-chatgpt/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=fuergaosi233/wechat-chatgpt" srcset="/img/loading.gif" lazyload />
+</a>
+
+
+<h2 id="🤝-Contributing"><a href="#🤝-Contributing" class="headerlink" title="🤝 Contributing"></a>🤝 Contributing</h2><p>Contributions, issues and feature requests are welcome!<br />Feel free to check <a target="_blank" rel="noopener" href="https://github.com/fuergaosi233/wechat-chatgpt/issues">issues page</a>.</p>
+<h2 id="Show-your-support"><a href="#Show-your-support" class="headerlink" title="Show your support"></a>Show your support</h2><p>Give a ⭐️ if this project helped you!</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%B2%BE%E9%80%89%E9%A1%B9%E7%9B%AE/" class="category-chain-item">精选项目</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="print-no-link">#开源项目</a>
+      
+        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/" class="print-no-link">#技术实践</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>WechatBot</div>
+      <div>https://autolordz.github.io/2023/02/08/WechatBot/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>autolordz</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年2月8日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/02/26/batch-suffix-change/" title="batch-suffix-change">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">batch-suffix-change</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/05/10/Car-Evaluation-Analysis/" title="Car-Evaluation-Analysis">
+                        <span class="hidden-mobile">Car-Evaluation-Analysis</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

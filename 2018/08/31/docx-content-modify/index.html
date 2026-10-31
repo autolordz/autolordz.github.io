@@ -1,0 +1,1006 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="autolordz">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="邮单自动批量生成器  法院法务自动化批量生成邮寄单据-Legal agency postal notes automatically generate app 给予法务邮递人员从法务OA数据表(excel)和公开的判决书(docx)，提取’当事人’的地址信息等相关字段，组合成新数据表，根据这个数据表批量直接生成寄送当事人的邮单。 以此减轻相关员负担，尤其系列案，人员多地址多，手工输入地址重复性劳动">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docx-content-modify">
+<meta property="og:url" content="https://autolordz.github.io/2018/08/31/docx-content-modify/index.html">
+<meta property="og:site_name" content="autolordz 的作品集博客">
+<meta property="og:description" content="邮单自动批量生成器  法院法务自动化批量生成邮寄单据-Legal agency postal notes automatically generate app 给予法务邮递人员从法务OA数据表(excel)和公开的判决书(docx)，提取’当事人’的地址信息等相关字段，组合成新数据表，根据这个数据表批量直接生成寄送当事人的邮单。 以此减轻相关员负担，尤其系列案，人员多地址多，手工输入地址重复性劳动">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&logo=github&colorB=ff69b4">
+<meta property="article:published_time" content="2018-08-31T19:34:26.000Z">
+<meta property="article:modified_time" content="2026-10-31T21:06:05.351Z">
+<meta property="article:author" content="autolordz">
+<meta property="article:tag" content="batch">
+<meta property="article:tag" content="datapreprocessing">
+<meta property="article:tag" content="docx">
+<meta property="article:tag" content="excel">
+<meta property="article:tag" content="generator">
+<meta property="article:tag" content="office">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="pythonscraping">
+<meta property="article:tag" content="text-generator">
+<meta property="article:tag" content="xlsx">
+<meta property="article:tag" content="开源项目">
+<meta property="article:tag" content="技术实践">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&logo=github&colorB=ff69b4">
+  
+  
+  
+  <title>docx-content-modify - autolordz 的作品集博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"autolordz.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"number":false},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>autolordz</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&logo=github&colorB=ff69b4') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="docx-content-modify"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2018-09-01 03:34" pubdate>
+          2018年9月1日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">docx-content-modify</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="邮单自动批量生成器"><a href="#邮单自动批量生成器" class="headerlink" title="邮单自动批量生成器"></a>邮单自动批量生成器</h2><blockquote>
+<ul>
+<li>法院法务自动化批量生成邮寄单据-Legal agency postal notes automatically generate app</li>
+<li>给予法务邮递人员从法务OA数据表(excel)和公开的判决书(docx)，提取’当事人’的地址信息等相关字段，组合成新数据表，根据这个数据表批量直接生成寄送当事人的邮单。</li>
+<li>以此减轻相关员负担，尤其系列案，人员多地址多，手工输入地址重复性劳动太多，信息容易错漏</li>
+</ul>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/autolordz/docx-content-modify/releases"><img src="https://img.shields.io/github/release/autolordz/docx-content-modify.svg?style=popout&logo=github&colorB=ff69b4" srcset="/img/loading.gif" lazyload></a><br><a target="_blank" rel="noopener" href="https://github.com/autolordz/docx-content-modify"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github" srcset="/img/loading.gif" lazyload></a><br><a target="_blank" rel="noopener" href="https://github.com/autolordz/docx-content-modify/blob/master/LICENSE"><img src="https://img.shields.io/github/license/autolordz/docx-content-modify.svg?style=popout&logo=github" srcset="/img/loading.gif" lazyload></a></p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><blockquote>
+<ul>
+<li>conda : 4.6.14</li>
+<li>python : 3.7.4</li>
+<li>Win10 + Spyder 3.3.6 (打开脚本自上而下运行,或者自己添加main来cmd运行)</li>
+<li>组件: numpy pandas python-docx StyleFrame  </li>
+<li>打包程序: pyinstaller</li>
+</ul>
+</blockquote>
+<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>【2021-04-21】</p>
+<blockquote>
+<ul>
+<li>新版代码更换提取OA内容规则</li>
+</ul>
+</blockquote>
+<p>【2019-12-25】</p>
+<blockquote>
+<ul>
+<li>更新代码暂时去掉合并系列案功能，以后再启用</li>
+</ul>
+</blockquote>
+<p>【2019-9-19】</p>
+<blockquote>
+<ul>
+<li>整理合并系列案功能，优化代码</li>
+</ul>
+</blockquote>
+<p>【2019-6-19】</p>
+<blockquote>
+<ul>
+<li>添加合并系列案功能，节省打印资源</li>
+</ul>
+</blockquote>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+按格式重命名判决书</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 提取判决书人员和地址信息</li>
+<li><input checked="" disabled="" type="checkbox"> 自动重命名为 <strong>判决书_AAA号_原_BBB号.docx</strong></li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+拷贝OA表记录到Data表</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 按数量提取，按日期提取，按指定案号提取</li>
+<li><input checked="" disabled="" type="checkbox"> 整理Data表格式，对表中数据的变形，清洗，符合打印邮单的字段格式</li>
+<li><input checked="" disabled="" type="checkbox"> 填充判决书信息到Data表</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+按照Data表输出寄送邮单</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 填充好所有信息，再次运行就能输出Data表指定邮单</li>
+</ul>
+</li>
+</ul>
+<h2 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h2><ol>
+<li>当事人收信规则，没代理律师的每个当事人一份，有委托律师的只要寄给律师一份，多个律师寄给第一个律师，同一律所也是一份</li>
+</ol>
+<p>1.1 判决书过滤词汇，判决书如果每行包含如下就不提取信息  </p>
+<p>词汇1：法定代表|诉讼|代理人|判决|律师|请求|证据|辩称|辩论|不服<br>词汇2：上市|省略|区别|借款|保证|签订  </p>
+<ol start="2">
+<li>字段解析:</li>
+</ol>
+<p>OA表【data_oa.xlsx】必须字段:<br>| 【立案日期】 | 【适用程序】 | 【案号】 | 【原一审案号】 | 【承办人】 | 【当事人】 | … |<br>Data表【data_main.xlsx】必须字段(包括程序生成):<br>| 【立案日期】 | 【适用程序】 | 【案号】 | 【原一审案号】 | 【判决书源号】 | 【主审法官】 | 【当事人】 | 【诉讼代理人】 | 【地址】 | … |<br>注意： 数据表处理后【承办人】会更换为【主审法官】  </p>
+<ol start="3">
+<li>【诉讼代理人】规则:</li>
+</ol>
+<p><strong>注意：姓名和曾用名如例子所示，’&#x2F;‘前面是当事人，后面是律师，’_’连接电话，逗号’，’表示分隔，顿号表示一起，’&#x2F;地址：’不能缺</strong>     </p>
+<p>Data表部分字段演示：  </p>
+<table>
+<thead>
+<tr>
+<th>【当事人】</th>
+<th>【诉讼代理人】</th>
+<th>【地址】</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>申请人:姓名AAA，被申请人:姓名BBB</td>
+<td>姓名AAA&#x2F;律师姓名CCC_电话，姓名BBB_电话</td>
+<td>姓名BBB&#x2F;地址：XXX市XXX，姓名CCC&#x2F;地址：XXXX市XXX</td>
+</tr>
+<tr>
+<td>申请人:张三(曾用名张五)、李四、王五</td>
+<td>张三(曾用名张五)&#x2F;律师张二三_123123_李三四_123123</td>
+<td>张二三&#x2F;地址：XXXX市XXX</td>
+</tr>
+<tr>
+<td>申请人:赵六(曾用名:赵五)、孙七、周八</td>
+<td>赵六(曾用名:赵五)，孙七、周八&#x2F;代理人吴九_123123，郑十&#x2F;委托人张三_123123</td>
+<td>赵六(曾用名:赵五)&#x2F;地址：XXX市XXX，吴九&#x2F;地址：XXX市XXX，张三&#x2F;地址：XXX市XXX</td>
+</tr>
+</tbody></table>
+<ol start="4">
+<li>【适用程序】规则(系列案用):</li>
+</ol>
+<p>此处在OA表中当事人几个案件中完全相同就合并为一个案件,发一次邮单,假如人员稍有差别,仍然按原来分开处理  </p>
+<p>例如：  </p>
+<table>
+<thead>
+<tr>
+<th>【适用程序】</th>
+<th>【案号】</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2160、2161_集合</td>
+<td>2160</td>
+</tr>
+<tr>
+<td>2160、2161_集合</td>
+<td>2161</td>
+</tr>
+</tbody></table>
+<ol start="5">
+<li>conf.txt:</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">[config]<br>data_xlsx = data_main.xlsx    <span class="hljs-comment"># 数据模板地址</span><br>data_oa_xlsx = data_oa.xlsx    <span class="hljs-comment"># OA数据地址</span><br>sheet_docx = sheet.docx    <span class="hljs-comment"># 邮单模板地址</span><br>flag_fill_jdocs_infos = <span class="hljs-number">1</span>    <span class="hljs-comment"># 是否填充判决书地址</span><br>flag_append_oa = <span class="hljs-number">1</span>    <span class="hljs-comment"># 是否导入OA数据</span><br>flag_to_postal = <span class="hljs-number">1</span>    <span class="hljs-comment"># 是否打印邮单</span><br>flag_check_jdocs = <span class="hljs-number">0</span>    <span class="hljs-comment"># 是否检查用户格式,输出提示信息</span><br>flag_check_postal = <span class="hljs-number">0</span>    <span class="hljs-comment"># 是否检查邮单格式,输出提示信息</span><br>data_case_codes =    <span class="hljs-comment"># 指定打印案号,可接多个,示例:AAA号,BBB号,优先级1</span><br>data_date_range =   <span class="hljs-comment"># 指定打印数据日期范围示例:2018-09-01:2018-12-01,优先级2</span><br>data_last_lines = <span class="hljs-number">10</span>    <span class="hljs-comment"># 指定打印最后行数,优先级3</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="详细指南"><a href="#详细指南" class="headerlink" title="详细指南"></a>详细指南</h2><p>简称：  </p>
+<ul>
+<li><a href="./demo_docs/data_oa.xlsx">A表: data_oa.xlsx,OA表自己下载,这个只是参考</a>  </li>
+<li><a href="./demo_docs/data_main.xlsx">B表: data_main.xlsx,会自动生成,也要修改</a>  </li>
+<li><a href="./demo_docs/jdocs/">C目录: jdocs&#x2F;,判决书目录,要放下载的判决书</a>  </li>
+<li><a href="./demo_docs/sheet.docx">D文档: sheet.docx,邮单模板,按照背景生成邮单</a>  </li>
+<li><a href="./demo_docs/postal/">E目录: postal&#x2F;,邮单目录</a></li>
+</ul>
+<ol>
+<li><p>根据 <strong>A表</strong> 格式,整理自己的OA表(没数据是没用的),先在OA表中修改【适用程序】(系列案),修改conf.txt文件,参考<a href="#%E8%A7%84%E5%88%99">规则</a>,如文件丢失再次运行会生成  </p>
+</li>
+<li><p>手动下载在线判决书<a target="_blank" rel="noopener" href="http://wenshu.court.gov.cn/">中国裁判文书网</a>,判决书docx文件放在<strong>C目录</strong>   </p>
+</li>
+<li><p>第一次运行(不带【诉讼代理人】)</p>
+</li>
+</ol>
+<p>3.2. 运行会自动重命名判决书 <strong>C目录</strong> ,提取判决书内容 <strong>address_tmp.xlsx</strong><br>3.3. 自动从 <strong>A表</strong> 添加数据到 <strong>B表</strong><br>3.4. 自动通过 <strong>D文档</strong> 批量输出寄送邮单到 <strong>E目录</strong><br>3.5. 自动生成临时文件 <em><strong>data_tmp.xlsx</strong></em> 用于校对,是邮单信息来源<br>3.6. 运行记录在log.txt  </p>
+<ol start="4">
+<li><p>手动填充 <strong>完整</strong> 的律师(代理人)及当事人信息到 <strong>B表</strong>，具体是填写【诉讼代理人】信息(电话地址)，参考<a href="#%E8%A7%84%E5%88%99">规则</a>  </p>
+</li>
+<li><p>第二次运行(带【诉讼代理人】)<br>会重复 3.4.  3.5. 3.6.  </p>
+</li>
+<li><p>小白没有python环境，可以直接下载最新的exe版本，使用前先配置conf.txt文件</p>
+</li>
+</ol>
+<h2 id="Licence"><a href="#Licence" class="headerlink" title="Licence"></a>Licence</h2><p><a target="_blank" rel="noopener" href="https://github.com/autolordz/docx-content-modify/blob/master/LICENSE">See Licence</a></p>
+<p>THE END<br>Enjoy</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%B2%BE%E9%80%89%E9%A1%B9%E7%9B%AE/" class="category-chain-item">精选项目</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="print-no-link">#开源项目</a>
+      
+        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/" class="print-no-link">#技术实践</a>
+      
+        <a href="/tags/batch/" class="print-no-link">#batch</a>
+      
+        <a href="/tags/datapreprocessing/" class="print-no-link">#datapreprocessing</a>
+      
+        <a href="/tags/docx/" class="print-no-link">#docx</a>
+      
+        <a href="/tags/excel/" class="print-no-link">#excel</a>
+      
+        <a href="/tags/generator/" class="print-no-link">#generator</a>
+      
+        <a href="/tags/office/" class="print-no-link">#office</a>
+      
+        <a href="/tags/python/" class="print-no-link">#python</a>
+      
+        <a href="/tags/pythonscraping/" class="print-no-link">#pythonscraping</a>
+      
+        <a href="/tags/text-generator/" class="print-no-link">#text-generator</a>
+      
+        <a href="/tags/xlsx/" class="print-no-link">#xlsx</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>docx-content-modify</div>
+      <div>https://autolordz.github.io/2018/08/31/docx-content-modify/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>autolordz</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2018年9月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/12/04/file-batch-renamer/" title="file-batch-renamer">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">file-batch-renamer</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/08/06/JHU-DataScience-Course2-Rprogramming/" title="JHU-DataScience-Course2-Rprogramming">
+                        <span class="hidden-mobile">JHU-DataScience-Course2-Rprogramming</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

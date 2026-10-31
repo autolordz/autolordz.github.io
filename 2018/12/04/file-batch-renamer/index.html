@@ -1,0 +1,980 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="autolordz">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Python 批量重命名文件 一个基于Python的终极重命名机 a file batch renamer based on python (include Chinese) 用于自动对文件夹里大部分类型的文件进行分析，并批量重命名 重命名文件自古就是繁琐事情，谁用谁指导 方便处理IT办公文件和下载文件夹的杂乱文件 简单练手，练手第三方包，编写环节综合到各方面，python初学者必备 基于云端和本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="file-batch-renamer">
+<meta property="og:url" content="https://autolordz.github.io/2018/12/04/file-batch-renamer/index.html">
+<meta property="og:site_name" content="autolordz 的作品集博客">
+<meta property="og:description" content="Python 批量重命名文件 一个基于Python的终极重命名机 a file batch renamer based on python (include Chinese) 用于自动对文件夹里大部分类型的文件进行分析，并批量重命名 重命名文件自古就是繁琐事情，谁用谁指导 方便处理IT办公文件和下载文件夹的杂乱文件 简单练手，练手第三方包，编写环节综合到各方面，python初学者必备 基于云端和本">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github">
+<meta property="article:published_time" content="2018-12-04T18:54:56.000Z">
+<meta property="article:modified_time" content="2026-10-31T21:06:05.665Z">
+<meta property="article:author" content="autolordz">
+<meta property="article:tag" content="batch-rename-files">
+<meta property="article:tag" content="batch-renamer">
+<meta property="article:tag" content="chinese">
+<meta property="article:tag" content="file-format">
+<meta property="article:tag" content="file-rename">
+<meta property="article:tag" content="file-renaming">
+<meta property="article:tag" content="pdf-rename">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="python3">
+<meta property="article:tag" content="rename-files">
+<meta property="article:tag" content="renamer">
+<meta property="article:tag" content="windows-desktop">
+<meta property="article:tag" content="开源项目">
+<meta property="article:tag" content="技术实践">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github">
+  
+  
+  
+  <title>file-batch-renamer - autolordz 的作品集博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"autolordz.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"number":false},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>autolordz</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="file-batch-renamer"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2018-12-05 02:54" pubdate>
+          2018年12月5日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">file-batch-renamer</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Python-批量重命名文件"><a href="#Python-批量重命名文件" class="headerlink" title="Python 批量重命名文件"></a>Python 批量重命名文件</h2><ul>
+<li>一个基于Python的终极重命名机</li>
+<li>a file batch renamer based on python (include Chinese)</li>
+<li>用于自动对文件夹里大部分类型的文件进行分析，并批量重命名</li>
+<li>重命名文件自古就是繁琐事情，谁用谁指导</li>
+<li>方便处理IT办公文件和下载文件夹的杂乱文件</li>
+<li>简单练手，练手第三方包，编写环节综合到各方面，python初学者必备</li>
+<li>基于云端和本地，也可以本地</li>
+<li>对小白提供(exe)，云端提供临时服务器</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/autolordz/file-batch-renamer"><img src="https://img.shields.io/badge/github-source-orange.svg?style=popout&logo=github" srcset="/img/loading.gif" lazyload></a><br><a target="_blank" rel="noopener" href="https://github.com/autolordz/file-batch-renamer/blob/master/LICENSE"><img src="https://img.shields.io/github/license/autolordz/file-batch-renamer.svg?style=popout&logo=github" srcset="/img/loading.gif" lazyload></a></p>
+<h2 id="Tika版架构"><a href="#Tika版架构" class="headerlink" title="Tika版架构"></a>Tika版架构</h2><p><img src="https://raw.githubusercontent.com/autolordz/file-batch-renamer/refs/heads/master/img_tmp/flow.jpg" srcset="/img/loading.gif" lazyload><br>(假如条件不允许可以全部本地化)  </p>
+<h2 id="Updated"><a href="#Updated" class="headerlink" title="Updated"></a>Updated</h2><ul>
+<li><p>Updated 2019.8.10:</p>
+<ul>
+<li><strong>Apache Tika</strong> 版改进，基于云端和本地，终极自动重命名机</li>
+</ul>
+</li>
+<li><p>Updated 2019.1.2:  </p>
+<ul>
+<li>新版 <strong>Apache Tika</strong> 解析全文件版本 </li>
+<li>旧版 <strong>Python 3rd party</strong> 解析文件版本</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<hr>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li><p>conda : 4.6.14</p>
+</li>
+<li><p>python : 3.7.3</p>
+</li>
+<li><p>Win10 + Spyder3.3.4 (打开脚本自上而下运行,或者自己添加main来py运行)</p>
+</li>
+<li><p>组件: tika版 </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://pypi.org/project/zhon/">zhon</a> 提供中文字符</li>
+<li><a target="_blank" rel="noopener" href="https://pypi.org/project/opencv-python/">opencv</a> 处理图片,阈值滤镜等</li>
+<li><a target="_blank" rel="noopener" href="https://pypi.org/project/Pillow/">PIL</a> 处理图片</li>
+<li><a target="_blank" rel="noopener" href="https://pypi.org/project/PyMuPDF/">fitz</a> 提取PDF图片</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/fxsjy/jieba">jieba</a> 分词词干识别</li>
+<li>[numpy,requests,string,json,glob,time,os,re,string,subprocess,configparser,BeautifulSoup4]</li>
+<li><a target="_blank" rel="noopener" href="https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html">Java jre-8u91-windows-x64</a> Jre8 is at least and fitting package</li>
+<li><a target="_blank" rel="noopener" href="https://www.apache.org/dyn/closer.cgi/tika/tika-server-1.22.jar">tika server</a> 工程没附带，一定要下载</li>
+<li><strong>Tesseract 云端</strong> 参考云端[Tesseract]安装</li>
+</ul>
+</li>
+<li><p>组件: 普通版 </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w32-setup-v4.0.0.20181030.exe">Tesseract v4.0</a> Tesseract for Image OCR</li>
+<li>[PyPDF2,pdfminer,pytesseract,docx,pptx,xlrd,PIL,extrectImage]</li>
+</ul>
+</li>
+<li><p>打包程序: pyinstaller</p>
+</li>
+</ul>
+<ul>
+<li><strong>以下重点更新和维护Tika版，普通版代码保留</strong></li>
+</ul>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+按以下格式重命名</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> [‘.txt’,’.html’,’.epub’,’.chm’,’.wps’,’.md’,<br>   ‘.doc’,’.odt’,’.docx’,’.xlsx’,’.csv’,’.xls’,’.rtf’,<br>   ‘.rar’,’.zip’,’.tar’,’.tgz’,’.7z’,<br>   ‘.mp4’,’.gif’,’.flv’,’.mkv’,’.swf’,’.psd’,<br>   ‘.mp3’,’.m4a’,’.flac’,<br>   ‘.pdf’,]</li>
+<li><input checked="" disabled="" type="checkbox"> [‘.ppt’,’.pptx’,’.pptm’]</li>
+<li><input checked="" disabled="" type="checkbox"> [‘.png’,’.jpg’,’.jpeg’,’.bmp’,’.tif’]</li>
+<li><input checked="" disabled="" type="checkbox"> others (rules follow <a target="_blank" rel="noopener" href="http://tika.apache.org/1.20/formats.html">tika</a>)</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+过滤下格式非重命名</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> [‘.bat’,’.jar’,’.exe’,’.py’,’.ini’]</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+支持平台</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> win7 32bit,win10 64bit,其他平台请按错误修改代码</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>相关文件在flask_app目录</p>
+<ul>
+<li>云端[tika]部署</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">Centos启动 tika</span> <br>nohup java -Djava.awt.headless=true -jar tika-server.jar --host=yourhost --port=3232 &gt;/dev/null &amp;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">Centos终止</span> <br>ps -ef | grep tika-server | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9 <br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>本地[tika]部署</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">win启动 tika</span> <br><br>start /b java -Djava.awt.headless=true -jar tika-server.jar --config=tika-config.xml --host=127.0.0.1 --port=3232<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">[tika-config.xml 用于跳过本地Tesseract,加速非图片文件读取速度]</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">Win终止</span> <br><br>taskkill /F /FI &quot;IMAGENAME eq java.exe&quot;<br></code></pre></td></tr></table></figure>
+<ul>
+<li>云端[flask]部署</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">启动</span><br>nohup python3 /pyweb/app.py &gt;/dev/null &amp;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">终止</span> <br>ps -ef | grep pyweb | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>云端[Tesseract]安装</p>
+<ul>
+<li>Centos 6.5 安装 Tesseract 4+  </li>
+<li>参考 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bf8521703143">https://www.jianshu.com/p/bf8521703143</a> 差异如下:  </li>
+<li>autoconf-2.63-5.1.el6.noarch 不用 2.69 也行，保留  </li>
+<li>实际安装了 autoconf-archive-2015.02.24-1.sdl6.noarch.rpm</li>
+</ul>
+</li>
+<li><p>客户端安装</p>
+<ul>
+<li>installplug.bat -&gt; 安装 java 环境</li>
+<li>需要处理文件放在target目录</li>
+<li>点击 -&gt; batch-renamer-tika.exe -&gt; 处理target目录</li>
+<li>cmd -&gt; batch-renamer-tika.py ‘yourfile’ -&gt; 处理yourfile(文件|目录)</li>
+</ul>
+</li>
+</ul>
+<h2 id="未来"><a href="#未来" class="headerlink" title="未来"></a>未来</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> 以文件开始内容命名</li>
+<li><input checked="" disabled="" type="checkbox"> 识别图像内容命名</li>
+<li><input disabled="" type="checkbox"> 提取文章(jieba)关键词命名</li>
+<li><input disabled="" type="checkbox"> 提取文章摘要(NLP)命名</li>
+</ul>
+<h2 id="Licence"><a href="#Licence" class="headerlink" title="Licence"></a>Licence</h2><p><a href="#file-batch-renamer">See Licence</a></p>
+<p>That’s it,enjoy.</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%B2%BE%E9%80%89%E9%A1%B9%E7%9B%AE/" class="category-chain-item">精选项目</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="print-no-link">#开源项目</a>
+      
+        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/" class="print-no-link">#技术实践</a>
+      
+        <a href="/tags/rename-files/" class="print-no-link">#rename-files</a>
+      
+        <a href="/tags/python/" class="print-no-link">#python</a>
+      
+        <a href="/tags/chinese/" class="print-no-link">#chinese</a>
+      
+        <a href="/tags/batch-rename-files/" class="print-no-link">#batch-rename-files</a>
+      
+        <a href="/tags/batch-renamer/" class="print-no-link">#batch-renamer</a>
+      
+        <a href="/tags/file-format/" class="print-no-link">#file-format</a>
+      
+        <a href="/tags/file-rename/" class="print-no-link">#file-rename</a>
+      
+        <a href="/tags/file-renaming/" class="print-no-link">#file-renaming</a>
+      
+        <a href="/tags/pdf-rename/" class="print-no-link">#pdf-rename</a>
+      
+        <a href="/tags/python3/" class="print-no-link">#python3</a>
+      
+        <a href="/tags/renamer/" class="print-no-link">#renamer</a>
+      
+        <a href="/tags/windows-desktop/" class="print-no-link">#windows-desktop</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>file-batch-renamer</div>
+      <div>https://autolordz.github.io/2018/12/04/file-batch-renamer/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>autolordz</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2018年12月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/04/04/JHU-DataScience-Course-Serials/" title="JHU-DataScience-Course-Serials">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JHU-DataScience-Course-Serials</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/08/31/docx-content-modify/" title="docx-content-modify">
+                        <span class="hidden-mobile">docx-content-modify</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

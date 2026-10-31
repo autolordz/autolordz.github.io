@@ -1,0 +1,957 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="autolordz">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="梯度下降优化算法a python script of a function summarize some popular methods about gradient descent一个python数值模拟脚本,包含诸多概念和算法监督学习目标函数：线性回归,普通最小二乘OLS,二次型函数,闭式解和梯度解非监督学习目标函数：矩阵近似, 矩阵分解, 分数推荐机器学习、函数逼近模型和凸优化求解的练手项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gradient-descent-optimization">
+<meta property="og:url" content="https://autolordz.github.io/2019/04/22/gradient-descent-optimization/index.html">
+<meta property="og:site_name" content="autolordz 的作品集博客">
+<meta property="og:description" content="梯度下降优化算法a python script of a function summarize some popular methods about gradient descent一个python数值模拟脚本,包含诸多概念和算法监督学习目标函数：线性回归,普通最小二乘OLS,二次型函数,闭式解和梯度解非监督学习目标函数：矩阵近似, 矩阵分解, 分数推荐机器学习、函数逼近模型和凸优化求解的练手项目">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/gcontour1.png">
+<meta property="article:published_time" content="2019-04-22T01:17:53.000Z">
+<meta property="article:modified_time" content="2026-10-31T21:06:05.789Z">
+<meta property="article:author" content="autolordz">
+<meta property="article:tag" content="adagrad">
+<meta property="article:tag" content="algorithms">
+<meta property="article:tag" content="coordinate-descent">
+<meta property="article:tag" content="gradient-descent">
+<meta property="article:tag" content="impute-algorithm">
+<meta property="article:tag" content="least-squares">
+<meta property="article:tag" content="machine-learning">
+<meta property="article:tag" content="math">
+<meta property="article:tag" content="mathematical-modelling">
+<meta property="article:tag" content="matrix-decompositions">
+<meta property="article:tag" content="matrix-factorization">
+<meta property="article:tag" content="momentum-strategy">
+<meta property="article:tag" content="optimization-algorithms">
+<meta property="article:tag" content="plotly">
+<meta property="article:tag" content="plotting-in-python">
+<meta property="article:tag" content="simulation">
+<meta property="article:tag" content="simulation-modeling">
+<meta property="article:tag" content="开源项目">
+<meta property="article:tag" content="技术实践">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/gcontour1.png">
+  
+  
+  
+  <title>gradient-descent-optimization - autolordz 的作品集博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"autolordz.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"number":false},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>autolordz</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/gcontour1.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="gradient-descent-optimization"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-04-22 09:17" pubdate>
+          2019年4月22日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">gradient-descent-optimization</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="梯度下降优化算法"><a href="#梯度下降优化算法" class="headerlink" title="梯度下降优化算法"></a>梯度下降优化算法</h1><p>a python script of a function summarize some popular methods about gradient descent<br>一个python数值模拟脚本,包含诸多概念和算法<br>监督学习目标函数：线性回归,普通最小二乘OLS,二次型函数,闭式解和梯度解<br>非监督学习目标函数：矩阵近似, 矩阵分解, 分数推荐<br>机器学习、函数逼近模型和凸优化求解的练手项目<br>Python编写和使用简明的数学符号  </p>
+<h2 id="Updated"><a href="#Updated" class="headerlink" title="Updated"></a>Updated</h2><p>【2019-8-30】<br>添加contour轮廓线<br><img src="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/gcontour1.png" srcset="/img/loading.gif" lazyload></p>
+<p>【2019-5-6】<br>矩阵分解和推荐系统等内容<br>下图展示非约束矩阵分解的矩阵填充 <a target="_blank" rel="noopener" href="https://github.com/cran/softImpute/blob/master/R/simpute.svd.R">参考softImpute_R_code</a><br>n_X是方阵大小, den_X是稀疏密度0~1，k值是选取多少个svd变量，称截取svd<br>x坐标是迭代次数，y坐标是目标函数(矩阵F范数)<br><img src="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/mimpute1.png" srcset="/img/loading.gif" lazyload></p>
+<p>【2019-4-25】<br>添加约束优化L1L2等内容<br><img src="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/gf4.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> 一阶优化(非约束)<ul>
+<li>原版<ul>
+<li>GD&#x2F;SGD&#x2F;minibatch-GD 全批&#x2F;随机&#x2F;小批梯度下降 mm10</li>
+</ul>
+</li>
+<li>带动量<ul>
+<li>Polyak’s 动量 mm21,mm22</li>
+<li>Nesterov 加速梯度 (NAG) ,mm23,mm24,mm25</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 二阶优化<ul>
+<li>牛顿法 mm30</li>
+<li>沿直线最小化 mm31</li>
+<li>共轭梯度法 mm32</li>
+<li>拟牛顿法Quasi-Newton(Broyden) mm33</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 非凸优化<ul>
+<li>Adagrad(自适应梯度) mm40</li>
+<li>RMSProp mm41</li>
+<li>Adadelta mm42</li>
+<li>Adam mm43</li>
+<li>AdaMax mm44</li>
+<li>Nadam mm45</li>
+<li>AMSGrad mm46</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 坐标下降<ul>
+<li>循环坐标逐步(闭式解) mm90,mm91</li>
+<li>随机坐标下降 mm92</li>
+<li>循环块坐标 mm93</li>
+<li>随机块坐标 mm94</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 速率(学习率)<ul>
+<li>Armijo rules</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 约束优化<ul>
+<li>L0(Best subset selection)<ul>
+<li>向前逐步回归(匹配追踪)</li>
+</ul>
+</li>
+<li>L1(Lasso) <ul>
+<li>软阈值坐标下降,近端梯度(广义梯度) mm52</li>
+<li>对偶ADMM mm54</li>
+<li>FISTA (NAG 近端梯度版) mm26</li>
+</ul>
+</li>
+<li>L2(岭回归) mm51</li>
+<li>L2(组Lasso)</li>
+<li>L1+L2(弹性网) mm53</li>
+<li>L1+L2(稀疏组Lasso)</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 矩阵相关<ul>
+<li>[x]矩阵填充(分解)<ul>
+<li>稀疏矩阵近似 ∥∥Z^∥∥l1 ≤ c</li>
+<li>奇异值分解 rank(Z^) ≤ c</li>
+<li>原子范数约束  ∥∥Z^∥∥⋆ ≤ c</li>
+<li>惩罚SVD Z^&#x3D;UDVT,ϕ1(uj)≤c1,ϕ2(vk)≤c2</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 非凸约束<ul>
+<li>自适应Lasso</li>
+</ul>
+</li>
+</ul>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>spyder下直接块运行<br>或者py xxx.py</p>
+<p>Sample:<br><img src="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/gf1.png" srcset="/img/loading.gif" lazyload><br><img src="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/gf2.png" srcset="/img/loading.gif" lazyload><br><img src="https://raw.githubusercontent.com/autolordz/gradient-descent-optimization/refs/heads/master/img/gf3.png" srcset="/img/loading.gif" lazyload></p>
+<p>矩阵近似(填充)的推荐系统:  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python">===svd aproxi===  <br>====r= <span class="hljs-number">2</span> =====  <br><br> <span class="hljs-number">0.47</span> %  <br> <span class="hljs-number">0.94</span> %  <br><span class="hljs-number">1</span> : obj= <span class="hljs-number">0.04616</span> ratio= <span class="hljs-number">0.7232133195138838</span>  <br>[[ <span class="hljs-number">0.865</span>  <span class="hljs-number">0.016</span>  <span class="hljs-number">0.175</span>    nan    nan]  <br> [-<span class="hljs-number">0.6</span>      nan -<span class="hljs-number">0.212</span>    nan    nan]  <br> [-<span class="hljs-number">0.717</span>    nan    nan  <span class="hljs-number">0.064</span> -<span class="hljs-number">0.098</span>]  <br> [ <span class="hljs-number">0.697</span> -<span class="hljs-number">0.503</span>  <span class="hljs-number">0.558</span>  <span class="hljs-number">1.544</span>    nan]  <br> [ <span class="hljs-number">1.231</span> -<span class="hljs-number">0.342</span> -<span class="hljs-number">0.81</span>  -<span class="hljs-number">0.82</span>  -<span class="hljs-number">0.133</span>]  <br> [ <span class="hljs-number">0.266</span>  <span class="hljs-number">0.145</span>    nan    nan -<span class="hljs-number">2.241</span>]]  <br><br> [[ <span class="hljs-number">8.655e-01</span>  <span class="hljs-number">1.565e-02</span>  <span class="hljs-number">1.748e-01</span>  <span class="hljs-number">1.223e-03</span> -<span class="hljs-number">2.939e-02</span>]  <br> [-<span class="hljs-number">6.004e-01</span> -<span class="hljs-number">1.474e-01</span> -<span class="hljs-number">2.119e-01</span> -<span class="hljs-number">3.598e-02</span>  <span class="hljs-number">1.956e-02</span>]  <br> [-<span class="hljs-number">7.169e-01</span> -<span class="hljs-number">1.224e-01</span>  <span class="hljs-number">2.289e-02</span>  <span class="hljs-number">6.437e-02</span> -<span class="hljs-number">9.754e-02</span>]  <br> [ <span class="hljs-number">6.966e-01</span> -<span class="hljs-number">5.033e-01</span>  <span class="hljs-number">5.585e-01</span>  <span class="hljs-number">1.544e+00</span> -<span class="hljs-number">2.776e-01</span>]  <br> [ <span class="hljs-number">1.231e+00</span> -<span class="hljs-number">3.423e-01</span> -<span class="hljs-number">8.103e-01</span> -<span class="hljs-number">8.201e-01</span> -<span class="hljs-number">1.326e-01</span>]  <br> [ <span class="hljs-number">2.664e-01</span>  <span class="hljs-number">1.449e-01</span> -<span class="hljs-number">3.540e-02</span>  <span class="hljs-number">2.657e-01</span> -<span class="hljs-number">2.241e+00</span>]]  <br></code></pre></td></tr></table></figure>
+
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://esl.hohoweiya.xyz/">The Elements of Statistical Learning 统计学习基础(配中文)</a><br><a target="_blank" rel="noopener" href="https://item.jd.com/12483083.html">数据科学实战速查表</a><br><a target="_blank" rel="noopener" href="http://ruder.io/optimizing-gradient-descent/index.html#nesterovacceleratedgradient">梯度下降总结</a><br><a target="_blank" rel="noopener" href="https://www.cs.cmu.edu/~ggordon/10725-F12/schedule.html">卡内基凸优化2012秋</a><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">SGD wiki</a><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Backtracking_line_search">Armijo wiki</a><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Wolfe_conditions">Wolfe wiki</a><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Quasi-Newton_method">Quasi-Newton wiki</a><br><a target="_blank" rel="noopener" href="https://item.jd.com/12444377.html">分布式机器学习:算法、理论与实践-第4、5章</a><br><a target="_blank" rel="noopener" href="https://item.jd.com/12316912.html">深度学习核心技术与实践-第6章</a><br><a href="hagan.okstate.edu/nnd.html">神经网络设计-第9章</a><br><a target="_blank" rel="noopener" href="https://web.stanford.edu/~hastie/StatLearnSparsity_files/SLS_corrected_1.4.16.pdf">statistical learning with sparsity</a><br><a target="_blank" rel="noopener" href="https://item.jd.com/12296738.html">稀疏统计学习及其应用[中文]</a><br><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/123672/coordinate-descent-soft-thresholding-update-operator-for-lasso">坐标下降软阈值Lasso推导</a><br><a target="_blank" rel="noopener" href="https://book.douban.com/subject/1257113/">矩阵分析与应用-张贤达-第3、4章</a>  </p>
+<h2 id="Licence"><a href="#Licence" class="headerlink" title="Licence"></a>Licence</h2><p><a href="#gradient-descent-optimization">MIT Go to this</a></p>
+<p>THE END<br>Enjoy</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%B2%BE%E9%80%89%E9%A1%B9%E7%9B%AE/" class="category-chain-item">精选项目</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="print-no-link">#开源项目</a>
+      
+        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/" class="print-no-link">#技术实践</a>
+      
+        <a href="/tags/algorithms/" class="print-no-link">#algorithms</a>
+      
+        <a href="/tags/machine-learning/" class="print-no-link">#machine-learning</a>
+      
+        <a href="/tags/adagrad/" class="print-no-link">#adagrad</a>
+      
+        <a href="/tags/coordinate-descent/" class="print-no-link">#coordinate-descent</a>
+      
+        <a href="/tags/gradient-descent/" class="print-no-link">#gradient-descent</a>
+      
+        <a href="/tags/impute-algorithm/" class="print-no-link">#impute-algorithm</a>
+      
+        <a href="/tags/least-squares/" class="print-no-link">#least-squares</a>
+      
+        <a href="/tags/math/" class="print-no-link">#math</a>
+      
+        <a href="/tags/mathematical-modelling/" class="print-no-link">#mathematical-modelling</a>
+      
+        <a href="/tags/matrix-decompositions/" class="print-no-link">#matrix-decompositions</a>
+      
+        <a href="/tags/matrix-factorization/" class="print-no-link">#matrix-factorization</a>
+      
+        <a href="/tags/momentum-strategy/" class="print-no-link">#momentum-strategy</a>
+      
+        <a href="/tags/optimization-algorithms/" class="print-no-link">#optimization-algorithms</a>
+      
+        <a href="/tags/plotly/" class="print-no-link">#plotly</a>
+      
+        <a href="/tags/plotting-in-python/" class="print-no-link">#plotting-in-python</a>
+      
+        <a href="/tags/simulation/" class="print-no-link">#simulation</a>
+      
+        <a href="/tags/simulation-modeling/" class="print-no-link">#simulation-modeling</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>gradient-descent-optimization</div>
+      <div>https://autolordz.github.io/2019/04/22/gradient-descent-optimization/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>autolordz</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年4月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/05/10/Car-Evaluation-Analysis/" title="Car-Evaluation-Analysis">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Car-Evaluation-Analysis</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/04/04/JHU-DataScience-Course-Serials/" title="JHU-DataScience-Course-Serials">
+                        <span class="hidden-mobile">JHU-DataScience-Course-Serials</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

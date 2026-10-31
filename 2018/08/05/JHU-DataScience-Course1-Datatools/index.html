@@ -1,0 +1,1139 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="autolordz">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="JHU-DataScience-Course1-DatatoolsJHU DataScience Specialization&#x2F;Cousers The Data Scientist’s Toolbox&#x2F;Week??&#x2F;Course Project Datatools Course Project 数据科学工具由于这个非常入门的课程，共4Week每周一个小quiz，这个应">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JHU-DataScience-Course1-Datatools">
+<meta property="og:url" content="https://autolordz.github.io/2018/08/05/JHU-DataScience-Course1-Datatools/index.html">
+<meta property="og:site_name" content="autolordz 的作品集博客">
+<meta property="og:description" content="JHU-DataScience-Course1-DatatoolsJHU DataScience Specialization&#x2F;Cousers The Data Scientist’s Toolbox&#x2F;Week??&#x2F;Course Project Datatools Course Project 数据科学工具由于这个非常入门的课程，共4Week每周一个小quiz，这个应">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-08-05T19:59:17.000Z">
+<meta property="article:modified_time" content="2026-10-31T21:06:06.228Z">
+<meta property="article:author" content="autolordz">
+<meta property="article:tag" content="开源项目">
+<meta property="article:tag" content="技术实践">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>JHU-DataScience-Course1-Datatools - autolordz 的作品集博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"autolordz.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"number":false},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>autolordz</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="JHU-DataScience-Course1-Datatools"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2018-08-06 03:59" pubdate>
+          2018年8月6日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          41 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">JHU-DataScience-Course1-Datatools</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="JHU-DataScience-Course1-Datatools"><a href="#JHU-DataScience-Course1-Datatools" class="headerlink" title="JHU-DataScience-Course1-Datatools"></a>JHU-DataScience-Course1-Datatools</h1><p>JHU DataScience Specialization&#x2F;Cousers The Data Scientist’s Toolbox&#x2F;Week??&#x2F;Course Project</p>
+<h1 id="Datatools-Course-Project-数据科学工具"><a href="#Datatools-Course-Project-数据科学工具" class="headerlink" title="Datatools Course Project 数据科学工具"></a>Datatools Course Project 数据科学工具</h1><p>由于这个非常入门的课程，共4Week每周一个小quiz，这个应该是最后的Project忘记了<br>主要是熟练掌握一些R语言的数据处理工具例如 xlsx,XML等格式，以及readr这些有用的R包用法<br>以下代码下载资源比较大暂不执行有兴趣的读者可以自己尝试</p>
+<h2 id="读取csv格式-2006年美国社区调查（ACS）"><a href="#读取csv格式-2006年美国社区调查（ACS）" class="headerlink" title="读取csv格式 2006年美国社区调查（ACS）"></a>读取csv格式 2006年美国社区调查（ACS）</h2><p>The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here:</p>
+<ul>
+<li>(pid, Population CSV file)</li>
+<li>(hid, Household CSV file)</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.nber.org/acs/PUMS/README">说明书 PUMS</a><br><a target="_blank" rel="noopener" href="https://www.nber.org/acs/PUMS/2006/PUMSDataDict06.txt">说明书 DATA DICTIONARY - 2006 HOUSING</a><br><a target="_blank" rel="noopener" href="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf">PDF</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs r">fileUrl <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv&quot;</span><br>download.file<span class="hljs-punctuation">(</span>fileUrl<span class="hljs-punctuation">,</span>destfile <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Fss06pid.csv&quot;</span><span class="hljs-punctuation">,</span>method <span class="hljs-operator">=</span> <span class="hljs-string">&quot;libcurl&quot;</span><span class="hljs-punctuation">)</span><br>fileUrl <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv&quot;</span><br>download.file<span class="hljs-punctuation">(</span>fileUrl<span class="hljs-punctuation">,</span>destfile <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Fss06hid.csv&quot;</span><span class="hljs-punctuation">,</span>method <span class="hljs-operator">=</span> <span class="hljs-string">&quot;libcurl&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+
+<h3 id="读取几十上百m的数据算大文件，运算应该考虑花销"><a href="#读取几十上百m的数据算大文件，运算应该考虑花销" class="headerlink" title="读取几十上百m的数据算大文件，运算应该考虑花销"></a>读取几十上百m的数据算大文件，运算应该考虑花销</h3><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs clean">## Unit: milliseconds<br>##                                           expr       min        lq<br>##  PID &lt;- fread(file = <span class="hljs-string">&quot;Fss06pid.csv&quot;</span>, fill = T)  <span class="hljs-number">13.40045</span>  <span class="hljs-number">13.40045</span><br>##                read_csv(file = <span class="hljs-string">&quot;Fss06pid.csv&quot;</span>) <span class="hljs-number">627.03159</span> <span class="hljs-number">627.03159</span><br>##                read.csv(file = <span class="hljs-string">&quot;Fss06pid.csv&quot;</span>) <span class="hljs-number">422.56456</span> <span class="hljs-number">422.56456</span><br>##       mean    median        uq       max neval<br>##   <span class="hljs-number">13.40045</span>  <span class="hljs-number">13.40045</span>  <span class="hljs-number">13.40045</span>  <span class="hljs-number">13.40045</span>     <span class="hljs-number">1</span><br>##  <span class="hljs-number">627.03159</span> <span class="hljs-number">627.03159</span> <span class="hljs-number">627.03159</span> <span class="hljs-number">627.03159</span>     <span class="hljs-number">1</span><br>##  <span class="hljs-number">422.56456</span> <span class="hljs-number">422.56456</span> <span class="hljs-number">422.56456</span> <span class="hljs-number">422.56456</span>     <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs clean">## Unit: milliseconds<br>##                                           expr       min        lq<br>##  HID &lt;- fread(file = <span class="hljs-string">&quot;Fss06hid.csv&quot;</span>, fill = T)  <span class="hljs-number">17.08404</span>  <span class="hljs-number">17.08404</span><br>##                read_csv(file = <span class="hljs-string">&quot;Fss06hid.csv&quot;</span>) <span class="hljs-number">519.85311</span> <span class="hljs-number">519.85311</span><br>##                read.csv(file = <span class="hljs-string">&quot;Fss06hid.csv&quot;</span>) <span class="hljs-number">971.56116</span> <span class="hljs-number">971.56116</span><br>##       mean    median        uq       max neval<br>##   <span class="hljs-number">17.08404</span>  <span class="hljs-number">17.08404</span>  <span class="hljs-number">17.08404</span>  <span class="hljs-number">17.08404</span>     <span class="hljs-number">1</span><br>##  <span class="hljs-number">519.85311</span> <span class="hljs-number">519.85311</span> <span class="hljs-number">519.85311</span> <span class="hljs-number">519.85311</span>     <span class="hljs-number">1</span><br>##  <span class="hljs-number">971.56116</span> <span class="hljs-number">971.56116</span> <span class="hljs-number">971.56116</span> <span class="hljs-number">971.56116</span>     <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs clean">## Unit: microseconds<br>##                                       expr      min        lq       mean<br>##         tapply(PID$pwgtp15, PID$SEX, mean)  <span class="hljs-number">159.973</span>  <span class="hljs-number">203.6820</span>  <span class="hljs-number">262.39322</span><br>##  sapply(split(PID$pwgtp15, PID$SEX), mean)  <span class="hljs-number">137.322</span>  <span class="hljs-number">162.9805</span>  <span class="hljs-number">250.35640</span><br>##          mean(PID[PID$SEX == <span class="hljs-number">1</span>, ]$pwgtp15) <span class="hljs-number">1533.888</span> <span class="hljs-number">1615.2890</span> <span class="hljs-number">2570.51404</span><br>##            mean(PID$pwgtp15, by = PID$SEX)   <span class="hljs-number">11.326</span>   <span class="hljs-number">16.1045</span>   <span class="hljs-number">20.48577</span><br>##          median(PID$pwgtp15, by = PID$SEX)   <span class="hljs-number">49.550</span>   <span class="hljs-number">64.7685</span>   <span class="hljs-number">91.37941</span><br>##         mean(PID[PID$SEX == <span class="hljs-number">1</span>, ]$SERIALNO) <span class="hljs-number">1548.398</span> <span class="hljs-number">1624.1370</span> <span class="hljs-number">3693.22785</span><br>##       median(PID[PID$SEX == <span class="hljs-number">1</span>, ]$SERIALNO) <span class="hljs-number">1630.508</span> <span class="hljs-number">1709.9625</span> <span class="hljs-number">2321.75111</span><br>##     median        uq        max neval cld<br>##   <span class="hljs-number">267.5640</span>  <span class="hljs-number">289.3300</span>    <span class="hljs-number">441.692</span>   <span class="hljs-number">100</span>  a <br>##   <span class="hljs-number">215.8915</span>  <span class="hljs-number">246.1520</span>   <span class="hljs-number">3571.401</span>   <span class="hljs-number">100</span>  a <br>##  <span class="hljs-number">1694.3900</span> <span class="hljs-number">4332.1510</span>   <span class="hljs-number">6311.799</span>   <span class="hljs-number">100</span>   b<br>##    <span class="hljs-number">18.2280</span>   <span class="hljs-number">22.4745</span>     <span class="hljs-number">78.571</span>   <span class="hljs-number">100</span>  a <br>##    <span class="hljs-number">85.2955</span>  <span class="hljs-number">109.8930</span>    <span class="hljs-number">249.160</span>   <span class="hljs-number">100</span>  a <br>##  <span class="hljs-number">1740.4000</span> <span class="hljs-number">2707.6610</span> <span class="hljs-number">127876.038</span>   <span class="hljs-number">100</span>   b<br>##  <span class="hljs-number">1751.5480</span> <span class="hljs-number">2145.2830</span>   <span class="hljs-number">6184.035</span>   <span class="hljs-number">100</span>   b<br></code></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">pander<span class="hljs-punctuation">(</span>arrange<span class="hljs-punctuation">(</span>A<span class="hljs-punctuation">,</span>mean<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th align="center">expr</th>
+<th align="center">min</th>
+<th align="center">lq</th>
+<th align="center">mean</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">PID &lt;- fread(file &#x3D; “Fss06pid.csv”, fill &#x3D; T)</td>
+<td align="center">13.4</td>
+<td align="center">13.4</td>
+<td align="center">13.4</td>
+</tr>
+<tr>
+<td align="center">read.csv(file &#x3D; “Fss06pid.csv”)</td>
+<td align="center">422.6</td>
+<td align="center">422.6</td>
+<td align="center">422.6</td>
+</tr>
+<tr>
+<td align="center">read_csv(file &#x3D; “Fss06pid.csv”)</td>
+<td align="center">627</td>
+<td align="center">627</td>
+<td align="center">627</td>
+</tr>
+</tbody></table>
+<p>Table: Table continues below</p>
+<table>
+<thead>
+<tr>
+<th align="center">median</th>
+<th align="center">uq</th>
+<th align="center">max</th>
+<th align="center">neval</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">13.4</td>
+<td align="center">13.4</td>
+<td align="center">13.4</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">422.6</td>
+<td align="center">422.6</td>
+<td align="center">422.6</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">627</td>
+<td align="center">627</td>
+<td align="center">627</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">pander<span class="hljs-punctuation">(</span>arrange<span class="hljs-punctuation">(</span>B<span class="hljs-punctuation">,</span>mean<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th align="center">expr</th>
+<th align="center">min</th>
+<th align="center">lq</th>
+<th align="center">mean</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">HID &lt;- fread(file &#x3D; “Fss06hid.csv”, fill &#x3D; T)</td>
+<td align="center">17.08</td>
+<td align="center">17.08</td>
+<td align="center">17.08</td>
+</tr>
+<tr>
+<td align="center">read_csv(file &#x3D; “Fss06hid.csv”)</td>
+<td align="center">519.9</td>
+<td align="center">519.9</td>
+<td align="center">519.9</td>
+</tr>
+<tr>
+<td align="center">read.csv(file &#x3D; “Fss06hid.csv”)</td>
+<td align="center">971.6</td>
+<td align="center">971.6</td>
+<td align="center">971.6</td>
+</tr>
+</tbody></table>
+<p>Table: Table continues below</p>
+<table>
+<thead>
+<tr>
+<th align="center">median</th>
+<th align="center">uq</th>
+<th align="center">max</th>
+<th align="center">neval</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">17.08</td>
+<td align="center">17.08</td>
+<td align="center">17.08</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">519.9</td>
+<td align="center">519.9</td>
+<td align="center">519.9</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">971.6</td>
+<td align="center">971.6</td>
+<td align="center">971.6</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<h3 id="简单计算求和时间"><a href="#简单计算求和时间" class="headerlink" title="简单计算求和时间"></a>简单计算求和时间</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">pander<span class="hljs-punctuation">(</span>arrange<span class="hljs-punctuation">(</span>select<span class="hljs-punctuation">(</span>C<span class="hljs-punctuation">,</span>expr<span class="hljs-punctuation">,</span>mean<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span>mean<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th align="center">expr</th>
+<th align="center">mean</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">mean(PID$pwgtp15, by &#x3D; PID$SEX)</td>
+<td align="center">20.49</td>
+</tr>
+<tr>
+<td align="center">median(PID$pwgtp15, by &#x3D; PID$SEX)</td>
+<td align="center">91.38</td>
+</tr>
+<tr>
+<td align="center">sapply(split(PID$pwgtp15, PID$SEX), mean)</td>
+<td align="center">250.4</td>
+</tr>
+<tr>
+<td align="center">tapply(PID$pwgtp15, PID$SEX, mean)</td>
+<td align="center">262.4</td>
+</tr>
+<tr>
+<td align="center">median(PID[PID$SEX &#x3D;&#x3D; 1, ]$SERIALNO)</td>
+<td align="center">2322</td>
+</tr>
+<tr>
+<td align="center">mean(PID[PID$SEX &#x3D;&#x3D; 1, ]$pwgtp15)</td>
+<td align="center">2571</td>
+</tr>
+<tr>
+<td align="center">mean(PID[PID$SEX &#x3D;&#x3D; 1, ]$SERIALNO)</td>
+<td align="center">3693</td>
+</tr>
+</tbody></table>
+<h3 id="Quiz-1"><a href="#Quiz-1" class="headerlink" title="Quiz 1"></a>Quiz 1</h3><p>How many housing units in this survey were worth more than $1,000,000?</p>
+<ul>
+<li>159</li>
+<li>164</li>
+<li><strong>53</strong></li>
+<li>24</li>
+</ul>
+<h2 id="读取xls-xlsx格式-美国国家天然气采购计划"><a href="#读取xls-xlsx格式-美国国家天然气采购计划" class="headerlink" title="读取xls,xlsx格式 美国国家天然气采购计划"></a>读取xls,xlsx格式 美国国家天然气采购计划</h2><p><a target="_blank" rel="noopener" href="https://catalog.data.gov/dataset/natural-gas-acquisition-program">说明书 Natural Gas Acquisition Program</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r">fileUrl <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx&quot;</span><br>download.file<span class="hljs-punctuation">(</span>fileurl<span class="hljs-punctuation">,</span>destfile <span class="hljs-operator">=</span> <span class="hljs-string">&quot;gov_NGAP.xlsx&quot;</span><span class="hljs-punctuation">,</span>mode<span class="hljs-operator">=</span><span class="hljs-string">&#x27;wb&#x27;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs r">NGAP <span class="hljs-operator">&lt;-</span> read.xlsx<span class="hljs-punctuation">(</span>file<span class="hljs-operator">=</span><span class="hljs-string">&quot;gov_NGAP.xlsx&quot;</span><span class="hljs-punctuation">,</span><br>                  sheetIndex<span class="hljs-operator">=</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>                  colIndex<span class="hljs-operator">=</span><span class="hljs-number">7</span><span class="hljs-operator">:</span><span class="hljs-number">15</span><span class="hljs-punctuation">,</span><br>                  rowIndex <span class="hljs-operator">=</span> <span class="hljs-number">18</span><span class="hljs-operator">:</span><span class="hljs-number">23</span><span class="hljs-punctuation">,</span><br>                  header<span class="hljs-operator">=</span><span class="hljs-built_in">T</span><span class="hljs-punctuation">)</span><br>NGAP <span class="hljs-operator">&lt;-</span> as.tbl<span class="hljs-punctuation">(</span>NGAP<span class="hljs-punctuation">)</span><br>pander<span class="hljs-punctuation">(</span>head<span class="hljs-punctuation">(</span>NGAP<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th align="center">Zip</th>
+<th align="center">CuCurrent</th>
+<th align="center">PaCurrent</th>
+<th align="center">PoCurrent</th>
+<th align="center">Contact</th>
+<th align="center">Ext</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">74136</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">918-491-6998</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">30329</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">404-321-5711</td>
+<td align="center">NA</td>
+</tr>
+<tr>
+<td align="center">74136</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">918-523-2516</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">80203</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">303-864-1919</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">80120</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">345-098-8890</td>
+<td align="center">456</td>
+</tr>
+</tbody></table>
+<p>Table: Table continues below</p>
+<table>
+<thead>
+<tr>
+<th align="center">Fax</th>
+<th align="center">email</th>
+<th align="center">Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">918-491-6659</td>
+<td align="center">NA</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">918-523-2522</td>
+<td align="center">NA</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">cat<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Sum of Zipcode and&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clean">## Sum <span class="hljs-keyword">of</span> Zipcode and<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span>NGAP<span class="hljs-operator">$</span>Zip<span class="hljs-operator">*</span>NGAP<span class="hljs-operator">$</span>Ext<span class="hljs-punctuation">,</span>na.rm<span class="hljs-operator">=</span><span class="hljs-built_in">T</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clean">## [<span class="hljs-number">1</span>] <span class="hljs-number">36534720</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Quiz-3"><a href="#Quiz-3" class="headerlink" title="Quiz 3"></a>Quiz 3</h3><p>Read rows 18-23 and columns 7-15 into R and assign the result to a variable called:</p>
+<p>What is the value of:</p>
+<p>sum(dat(Zip*dat)Ext,na.rm&#x3D;T)</p>
+<p>(original data source: <a target="_blank" rel="noopener" href="http://catalog.data.gov/dataset/natural-gas-acquisition-program">http://catalog.data.gov/dataset/natural-gas-acquisition-program</a>)</p>
+<ol>
+<li><strong>36534720</strong></li>
+<li>338924</li>
+<li>33544718</li>
+<li>0</li>
+</ol>
+<h2 id="读取xml格式-巴的摩尔餐厅数据"><a href="#读取xml格式-巴的摩尔餐厅数据" class="headerlink" title="读取xml格式 巴的摩尔餐厅数据"></a>读取xml格式 巴的摩尔餐厅数据</h2><p><a target="_blank" rel="noopener" href="https://catalog.data.gov/dataset/restaurants-15baa">说明书 data.baltimorecity.gov</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r">fileUrl <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml&quot;</span><br>download.file<span class="hljs-punctuation">(</span>fileUrl<span class="hljs-punctuation">,</span>destfile <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Frestaurants.xml&quot;</span><span class="hljs-punctuation">,</span>mode<span class="hljs-operator">=</span><span class="hljs-string">&#x27;wb&#x27;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">system.time<span class="hljs-punctuation">(</span>DOC <span class="hljs-operator">&lt;-</span> xmlTreeParse<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Frestaurants.xml&quot;</span><span class="hljs-punctuation">,</span> useInternal <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clean">##    user  <span class="hljs-keyword">system</span> elapsed <br>##    <span class="hljs-number">0.02</span>    <span class="hljs-number">0.00</span>    <span class="hljs-number">0.02</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs r">rootNode <span class="hljs-operator">&lt;-</span> xmlRoot<span class="hljs-punctuation">(</span>DOC<span class="hljs-punctuation">)</span><br><span class="hljs-comment"># 邮编是&quot;21231&quot; 的记录有多少条</span><br><span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span>xpathSApply<span class="hljs-punctuation">(</span>rootNode<span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;//zipcode&quot;</span><span class="hljs-punctuation">,</span> xmlValue<span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;21231&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clean">## [<span class="hljs-number">1</span>] <span class="hljs-number">127</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Quiz-4"><a href="#Quiz-4" class="headerlink" title="Quiz 4"></a>Quiz 4</h3><p>How many restaurants have zipcode 21231?</p>
+<ul>
+<li><strong>127</strong></li>
+<li>17</li>
+<li>28</li>
+<li>156</li>
+</ul>
+<center>**THE END**</center>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%B2%BE%E9%80%89%E9%A1%B9%E7%9B%AE/" class="category-chain-item">精选项目</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="print-no-link">#开源项目</a>
+      
+        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/" class="print-no-link">#技术实践</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JHU-DataScience-Course1-Datatools</div>
+      <div>https://autolordz.github.io/2018/08/05/JHU-DataScience-Course1-Datatools/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>autolordz</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2018年8月6日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/08/06/JHU-DataScience-Course2-Rprogramming/" title="JHU-DataScience-Course2-Rprogramming">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JHU-DataScience-Course2-Rprogramming</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/07/22/Course-Project-Shiny-Application-and-Reproducible-Pitch/" title="Course-Project-Shiny-Application-and-Reproducible-Pitch">
+                        <span class="hidden-mobile">Course-Project-Shiny-Application-and-Reproducible-Pitch</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
